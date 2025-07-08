@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('inicio');
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -13,11 +14,34 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['inicio', 'servicos', 'empresa', 'orcamento', 'contato'];
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetHeight = element.offsetHeight;
+          
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className="fixed top-0 w-full bg-background/95 backdrop-blur-sm border-b border-border z-50 shadow-soft">
+    <header className="fixed top-0 w-full bg-background/98 backdrop-blur-md border-b border-border/50 z-50 shadow-soft transition-all duration-300">
       <div className="container mx-auto px-4">
         {/* Top contact bar */}
-        <div className="hidden md:flex justify-end items-center py-2 text-sm text-muted-foreground border-b border-border/50">
+        <div className="hidden md:flex justify-end items-center py-1.5 text-xs text-muted-foreground border-b border-border/30">
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
               <Phone className="w-4 h-4" />
@@ -31,7 +55,7 @@ const Header = () => {
         </div>
 
         {/* Main navigation */}
-        <div className="flex items-center justify-between py-4">
+        <div className="flex items-center justify-between py-3">
           <div className="flex items-center">
             <h1 className="text-2xl font-bold text-primary">
               JPD <span className="text-accent">Usinagem CNC</span>
@@ -39,34 +63,61 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-6">
             <button 
               onClick={() => scrollToSection('inicio')}
-              className="text-foreground hover:text-primary transition-colors"
+              className={`text-sm font-medium transition-colors relative py-1 ${
+                activeSection === 'inicio' 
+                  ? 'text-primary after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:rounded-full' 
+                  : 'text-foreground hover:text-primary'
+              }`}
             >
               Início
             </button>
             <button 
               onClick={() => scrollToSection('servicos')}
-              className="text-foreground hover:text-primary transition-colors"
+              className={`text-sm font-medium transition-colors relative py-1 ${
+                activeSection === 'servicos' 
+                  ? 'text-primary after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:rounded-full' 
+                  : 'text-foreground hover:text-primary'
+              }`}
             >
               Serviços
             </button>
             <button 
               onClick={() => scrollToSection('empresa')}
-              className="text-foreground hover:text-primary transition-colors"
+              className={`text-sm font-medium transition-colors relative py-1 ${
+                activeSection === 'empresa' 
+                  ? 'text-primary after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:rounded-full' 
+                  : 'text-foreground hover:text-primary'
+              }`}
             >
               A Empresa
             </button>
             <button 
+              onClick={() => scrollToSection('orcamento')}
+              className={`text-sm font-medium transition-colors relative py-1 ${
+                activeSection === 'orcamento' 
+                  ? 'text-primary after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:rounded-full' 
+                  : 'text-foreground hover:text-primary'
+              }`}
+            >
+              Orçamento
+            </button>
+            <button 
               onClick={() => scrollToSection('contato')}
-              className="text-foreground hover:text-primary transition-colors"
+              className={`text-sm font-medium transition-colors relative py-1 ${
+                activeSection === 'contato' 
+                  ? 'text-primary after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:rounded-full' 
+                  : 'text-foreground hover:text-primary'
+              }`}
             >
               Contato
             </button>
             <Button 
-              onClick={() => scrollToSection('contato')}
-              className="bg-gradient-accent text-accent-foreground hover:opacity-90 transition-opacity"
+              onClick={() => scrollToSection('orcamento')}
+              size="sm"
+              className="bg-gradient-accent text-accent-foreground hover:opacity-90 hover:scale-105 transition-all duration-300 shadow-medium"
             >
               Solicitar Orçamento
             </Button>
@@ -83,35 +134,51 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden py-4 border-t border-border">
-            <div className="flex flex-col space-y-4">
+          <nav className="md:hidden py-3 border-t border-border/30 animate-fade-in">
+            <div className="flex flex-col space-y-3">
               <button 
                 onClick={() => scrollToSection('inicio')}
-                className="text-left text-foreground hover:text-primary transition-colors"
+                className={`text-left text-sm font-medium transition-colors py-1 ${
+                  activeSection === 'inicio' ? 'text-primary' : 'text-foreground hover:text-primary'
+                }`}
               >
                 Início
               </button>
               <button 
                 onClick={() => scrollToSection('servicos')}
-                className="text-left text-foreground hover:text-primary transition-colors"
+                className={`text-left text-sm font-medium transition-colors py-1 ${
+                  activeSection === 'servicos' ? 'text-primary' : 'text-foreground hover:text-primary'
+                }`}
               >
                 Serviços
               </button>
               <button 
                 onClick={() => scrollToSection('empresa')}
-                className="text-left text-foreground hover:text-primary transition-colors"
+                className={`text-left text-sm font-medium transition-colors py-1 ${
+                  activeSection === 'empresa' ? 'text-primary' : 'text-foreground hover:text-primary'
+                }`}
               >
                 A Empresa
               </button>
               <button 
+                onClick={() => scrollToSection('orcamento')}
+                className={`text-left text-sm font-medium transition-colors py-1 ${
+                  activeSection === 'orcamento' ? 'text-primary' : 'text-foreground hover:text-primary'
+                }`}
+              >
+                Orçamento
+              </button>
+              <button 
                 onClick={() => scrollToSection('contato')}
-                className="text-left text-foreground hover:text-primary transition-colors"
+                className={`text-left text-sm font-medium transition-colors py-1 ${
+                  activeSection === 'contato' ? 'text-primary' : 'text-foreground hover:text-primary'
+                }`}
               >
                 Contato
               </button>
               <Button 
-                onClick={() => scrollToSection('contato')}
-                className="w-full bg-gradient-accent text-accent-foreground hover:opacity-90 transition-opacity"
+                onClick={() => scrollToSection('orcamento')}
+                className="w-full bg-gradient-accent text-accent-foreground hover:opacity-90 transition-all"
               >
                 Solicitar Orçamento
               </Button>
