@@ -38,24 +38,10 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 w-full bg-background/98 backdrop-blur-md border-b border-border/50 z-50 shadow-soft transition-all duration-300">
+    <header className="fixed top-0 w-full bg-background border-b border-border/50 z-50 shadow-soft transition-all duration-300">
       <div className="container mx-auto px-4">
-        {/* Top contact bar */}
-        <div className="hidden md:flex justify-end items-center py-1.5 text-xs text-muted-foreground border-b border-border/30">
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4" />
-              <span>(11) 99999-9999</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Mail className="w-4 h-4" />
-              <span>contato@jpdusinagem.com.br</span>
-            </div>
-          </div>
-        </div>
-
         {/* Main navigation */}
-        <div className="flex items-center justify-between py-3">
+        <div className="flex items-center justify-between py-4">
           <div className="flex items-center">
             <h1 className="text-2xl font-bold text-primary">
               JPD <span className="text-accent">Usinagem CNC</span>
@@ -117,7 +103,7 @@ const Header = () => {
             <Button 
               onClick={() => scrollToSection('orcamento')}
               size="sm"
-              className="bg-gradient-accent text-accent-foreground hover:opacity-90 hover:scale-105 transition-all duration-300 shadow-medium"
+              className="bg-primary text-primary-foreground hover:bg-primary-dark hover:scale-105 transition-all duration-300 shadow-medium animate-pulse-glow"
             >
               Solicitar Orçamento
             </Button>
@@ -178,7 +164,7 @@ const Header = () => {
               </button>
               <Button 
                 onClick={() => scrollToSection('orcamento')}
-                className="w-full bg-gradient-accent text-accent-foreground hover:opacity-90 transition-all"
+                className="w-full bg-primary text-primary-foreground hover:bg-primary-dark transition-all"
               >
                 Solicitar Orçamento
               </Button>

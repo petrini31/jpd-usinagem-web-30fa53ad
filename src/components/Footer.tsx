@@ -10,34 +10,24 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <h3 className="text-2xl font-bold mb-4">
-              JPD <span className="text-accent">Usinagem CNC</span>
+              JPD <span className="text-primary-foreground">Usinagem CNC</span>
             </h3>
             <p className="text-primary-foreground/80 mb-6">
-              Especialistas em usinagem de precisão, oferecendo soluções completas 
-              para diversos segmentos industriais com qualidade e tecnologia.
+              Especialistas em tecnologia de Usinagem CNC e desenvolvimento de desenhos industriais personalizados. 
+              Transformamos suas ideias em realidade com precisão e qualidade incomparável.
             </p>
-            <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-accent" />
-                <span className="text-sm">Segunda à Sexta: 8h às 18h</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-accent" />
-                <span className="text-sm">Sábado: 8h às 12h</span>
-              </div>
-            </div>
           </div>
 
           {/* Services */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Nossos Serviços</h4>
             <ul className="space-y-2 text-primary-foreground/80">
-              <li>• Usinagem em Geral</li>
-              <li>• Fabricação de Máquinas</li>
-              <li>• Componentes de Qualidade</li>
-              <li>• Tratamentos Térmicos</li>
-              <li>• Ferramentaria</li>
-              <li>• Projetos Customizados</li>
+              <li>• Usinagem CNC de Precisão</li>
+              <li>• Desenhos Industriais Personalizados</li>
+              <li>• Fabricação de Componentes</li>
+              <li>• Desenvolvimento de Projetos</li>
+              <li>• Consultoria Técnica</li>
+              <li>• Soluções Sob Medida</li>
             </ul>
           </div>
 
@@ -46,7 +36,7 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Contato</h4>
             <div className="space-y-3">
               <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                <MapPin className="w-5 h-5 text-primary-foreground mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-primary-foreground/80">
                     R. Uruguai, 573 - Parque das Hortênsias<br />
@@ -56,22 +46,22 @@ const Footer = () => {
               </div>
               
               <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-accent" />
+                <Phone className="w-5 h-5 text-primary-foreground" />
                 <a 
-                  href="tel:+5511999999999" 
-                  className="text-primary-foreground/80 hover:text-accent transition-colors"
+                  href="tel:+5511958274054" 
+                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
-                  (11) 99999-9999
+                  (11) 95827-4054
                 </a>
               </div>
               
               <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-accent" />
+                <Mail className="w-5 h-5 text-primary-foreground" />
                 <a 
-                  href="mailto:contato@jpdusinagem.com.br" 
-                  className="text-primary-foreground/80 hover:text-accent transition-colors"
+                  href="mailto:comercial@jpdusinagem.com.br" 
+                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
-                  contato@jpdusinagem.com.br
+                  comercial@jpdusinagem.com.br
                 </a>
               </div>
             </div>

@@ -1,4 +1,4 @@
-import { Settings, Wrench, Cog, ArrowRight } from "lucide-react";
+import { Settings, Wrench, Cog, ArrowRight, PenTool } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import precisionPartsImage from "@/assets/precision-parts.jpg";
@@ -16,38 +16,38 @@ const Services = () => {
   const services = [
     {
       icon: Settings,
-      title: "Usinagem em Geral",
-      description: "Fabricamos peças de alta precisão conforme desenhos técnicos ou amostras fornecidas pelo cliente.",
+      title: "Usinagem CNC de Precisão",
+      description: "Fabricamos peças de alta precisão utilizando tecnologia CNC avançada conforme suas especificações.",
       image: precisionPartsImage,
       details: [
-        "Usinagem de precisão em diversos materiais",
+        "Usinagem CNC de precisão micrométrica",
         "Aços, alumínios, latões, nylons e acrílicos",
         "Tolerâncias dimensionais rigorosas",
-        "Tratamentos térmicos e químicos"
+        "Tratamentos térmicos e superficiais"
       ]
     },
     {
-      icon: Wrench,
-      title: "Fabricação de Máquinas",
-      description: "Desenvolvimento e construção de dispositivos, subconjuntos e máquinas completas.",
+      icon: PenTool,
+      title: "Desenhos Industriais Personalizados",
+      description: "Desenvolvemos projetos sob medida, desde o conceito até os desenhos técnicos detalhados.",
       image: manufacturingProcessImage,
       details: [
-        "Projetos customizados conforme especificação",
-        "Montagem de subconjuntos complexos",
-        "Dispositivos e ferramentais",
-        "Máquinas sob medida"
+        "Projetos personalizados do zero",
+        "Desenhos técnicos detalhados",
+        "Otimização para fabricação",
+        "Consultoria técnica especializada"
       ]
     },
     {
       icon: Cog,
-      title: "Componentes de Qualidade",
-      description: "Produção de componentes industriais com foco na qualidade e durabilidade.",
+      title: "Fabricação de Componentes",
+      description: "Produção de componentes industriais e máquinas completas com foco na qualidade total.",
       image: qualityComponentsImage,
       details: [
+        "Fabricação de máquinas sob medida",
         "Controle rigoroso de qualidade",
-        "Certificação dimensional",
-        "Peças de reposição industrial",
-        "Ferramentaria especializada"
+        "Montagem de subconjuntos complexos",
+        "Certificação dimensional completa"
       ]
     }
   ];
@@ -58,11 +58,11 @@ const Services = () => {
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Nossos <span className="text-accent">Serviços</span>
+            Nossos <span className="text-primary">Serviços</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Oferecemos soluções completas em usinagem CNC, trabalhando com diversos materiais 
-            e atendendo às mais rigorosas especificações técnicas.
+            Especialistas em tecnologia de Usinagem CNC e desenvolvimento de desenhos industriais personalizados. 
+            Oferecemos soluções completas e inovadoras para todos os seus projetos.
           </p>
         </div>
 
@@ -82,7 +82,7 @@ const Services = () => {
                 />
                 <div className="absolute inset-0 bg-primary/20 group-hover:bg-primary/30 transition-colors duration-300" />
                 <div className="absolute top-4 left-4">
-                  <service.icon className="w-8 h-8 text-accent" />
+                  <service.icon className="w-8 h-8 text-primary-foreground" />
                 </div>
               </div>
               
@@ -99,7 +99,7 @@ const Services = () => {
                 <ul className="space-y-2 mb-6">
                   {service.details.map((detail, detailIndex) => (
                     <li key={detailIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <ArrowRight className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
+                      <ArrowRight className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                       {detail}
                     </li>
                   ))}
@@ -107,8 +107,7 @@ const Services = () => {
                 
                 <Button 
                   onClick={scrollToContact}
-                  variant="outline" 
-                  className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary-dark transition-colors"
                 >
                   Solicitar Orçamento
                 </Button>

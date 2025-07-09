@@ -7,36 +7,30 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Telefone",
-      value: "(11) 99999-9999",
-      link: "tel:+5511999999999"
+      value: "(11) 95827-4054",
+      link: "tel:+5511958274054"
     },
     {
       icon: Mail,
       title: "E-mail",
-      value: "contato@jpdusinagem.com.br",
-      link: "mailto:contato@jpdusinagem.com.br"
+      value: "comercial@jpdusinagem.com.br",
+      link: "mailto:comercial@jpdusinagem.com.br"
     },
     {
       icon: MapPin,
       title: "Endereço",
       value: "R. Uruguai, 573 - Parque das Hortênsias\nBom Jesus dos Perdões - SP",
       link: "https://maps.google.com/?q=R.+Uruguai,+573+Bom+Jesus+dos+Perdões+SP"
-    },
-    {
-      icon: Clock,
-      title: "Horário",
-      value: "Segunda à Sexta: 8h às 18h\nSábado: 8h às 12h",
-      link: null
     }
   ];
 
   return (
     <section id="contato" className="py-20 bg-gradient-to-b from-secondary/30 to-background">
       <div className="container mx-auto px-4">
-        {/* Header */}
+          {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Entre em <span className="text-accent">Contato</span>
+            Entre em <span className="text-primary">Contato</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Estamos prontos para atender você. Entre em contato pelos canais abaixo ou 
@@ -150,35 +144,6 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            {/* Business Hours Card */}
-            <Card className="animate-fade-in border border-border/50">
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
-                    <Clock className="w-6 h-6 text-primary-foreground" />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-semibold text-foreground mb-3">
-                      Horário de Funcionamento
-                    </h4>
-                    <div className="space-y-2 text-muted-foreground">
-                      <p className="flex justify-between items-center">
-                        <span>Segunda à Sexta:</span>
-                        <span className="font-medium">8h às 18h</span>
-                      </p>
-                      <p className="flex justify-between items-center">
-                        <span>Sábado:</span>
-                        <span className="font-medium">8h às 12h</span>
-                      </p>
-                      <p className="flex justify-between items-center">
-                        <span>Domingo:</span>
-                        <span className="font-medium text-destructive">Fechado</span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </div>

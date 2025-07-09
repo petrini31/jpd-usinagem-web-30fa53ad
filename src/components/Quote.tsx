@@ -176,30 +176,15 @@ const Quote = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label htmlFor="project" className="block text-sm font-semibold text-foreground">
-                      Tipo de Projeto *
+                      Tipo de Projeto (opcional)
                     </label>
                     <Input
                       id="project"
                       name="project"
                       type="text"
-                      required
                       value={formData.project}
                       onChange={handleChange}
                       placeholder="Ex: Usinagem de peças, Fabricação de máquinas..."
-                      className="h-12 border-border/50 focus:border-primary transition-colors"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="deadline" className="block text-sm font-semibold text-foreground">
-                      Prazo Desejado
-                    </label>
-                    <Input
-                      id="deadline"
-                      name="deadline"
-                      type="text"
-                      value={formData.deadline}
-                      onChange={handleChange}
-                      placeholder="Ex: 30 dias, Urgente, Flexível..."
                       className="h-12 border-border/50 focus:border-primary transition-colors"
                     />
                   </div>
@@ -207,19 +192,19 @@ const Quote = () => {
 
                 <div className="space-y-2">
                   <label htmlFor="description" className="block text-sm font-semibold text-foreground">
-                    Descrição Detalhada do Projeto *
+                    Descrição Resumida do Projeto (opcional)
                   </label>
                   <Textarea
                     id="description"
                     name="description"
-                    required
-                    rows={6}
+                    rows={5}
                     value={formData.description}
                     onChange={handleChange}
-                    placeholder="Descreva seu projeto em detalhes: materiais, dimensões, acabamentos, quantidades, especificações técnicas, etc."
+                    placeholder="Descreva brevemente seu projeto: materiais, dimensões, acabamentos, quantidades..."
                     className="border-border/50 focus:border-primary transition-colors resize-none"
                   />
                 </div>
+
 
                 {/* File Upload */}
                 <div className="space-y-4">
@@ -299,7 +284,7 @@ const Quote = () => {
 
                 <Button 
                   type="submit"
-                  className="w-full bg-gradient-accent text-accent-foreground hover:opacity-90 hover:scale-105 transition-all duration-300 text-lg py-6 shadow-strong"
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary-dark hover:scale-105 transition-all duration-300 text-lg py-6 shadow-strong animate-pulse-glow"
                 >
                   <Send className="w-5 h-5 mr-3" />
                   Enviar Solicitação de Orçamento
@@ -307,7 +292,7 @@ const Quote = () => {
 
                 <div className="text-center text-sm text-muted-foreground">
                   <div className="flex items-center justify-center gap-2 mb-2">
-                    <Check className="w-4 h-4 text-accent" />
+                    <Check className="w-4 h-4 text-primary" />
                     <span>Resposta em até 24 horas</span>
                   </div>
                   <p>

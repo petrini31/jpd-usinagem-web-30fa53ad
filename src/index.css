@@ -3,49 +3,49 @@
 @tailwind utilities;
 
 /* JPD Usinagem CNC Design System
-Industrial color palette with blue as primary and orange accents
+Industrial color palette with red as primary
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
     --background: 0 0% 98%;
-    --foreground: 210 15% 15%;
+    --foreground: 0 10% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 15% 15%;
+    --card-foreground: 0 10% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 15% 15%;
+    --popover-foreground: 0 10% 15%;
 
-    /* Industrial Blue Primary */
-    --primary: 211 75% 35%;
+    /* Industrial Red Primary */
+    --primary: 0 85% 50%;
     --primary-foreground: 0 0% 98%;
-    --primary-light: 211 75% 45%;
-    --primary-dark: 211 75% 25%;
+    --primary-light: 0 85% 60%;
+    --primary-dark: 0 85% 40%;
 
-    /* Orange Accent */
-    --accent: 25 95% 55%;
+    /* Red Accent */
+    --accent: 0 85% 50%;
     --accent-foreground: 0 0% 98%;
-    --accent-light: 25 95% 65%;
+    --accent-light: 0 85% 60%;
 
     --secondary: 210 20% 92%;
     --secondary-foreground: 210 15% 15%;
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 210 15% 45%;
+    --muted: 0 5% 96%;
+    --muted-foreground: 0 10% 45%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 211 75% 35%;
+    --border: 0 10% 91%;
+    --input: 0 10% 91%;
+    --ring: 0 85% 50%;
 
     /* Industrial specific colors */
-    --steel: 210 15% 65%;
-    --steel-light: 210 15% 75%;
-    --steel-dark: 210 15% 35%;
+    --steel: 0 5% 65%;
+    --steel-light: 0 5% 75%;
+    --steel-dark: 0 5% 35%;
     
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
@@ -77,40 +77,40 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 210 20% 8%;
-    --foreground: 210 20% 95%;
+    --background: 0 5% 8%;
+    --foreground: 0 5% 95%;
 
-    --card: 210 20% 10%;
-    --card-foreground: 210 20% 95%;
+    --card: 0 5% 10%;
+    --card-foreground: 0 5% 95%;
 
-    --popover: 210 20% 10%;
-    --popover-foreground: 210 20% 95%;
+    --popover: 0 5% 10%;
+    --popover-foreground: 0 5% 95%;
 
-    --primary: 211 75% 55%;
-    --primary-foreground: 210 20% 8%;
-    --primary-light: 211 75% 65%;
-    --primary-dark: 211 75% 45%;
+    --primary: 0 85% 55%;
+    --primary-foreground: 0 5% 8%;
+    --primary-light: 0 85% 65%;
+    --primary-dark: 0 85% 45%;
 
-    --accent: 25 95% 55%;
-    --accent-foreground: 210 20% 8%;
-    --accent-light: 25 95% 65%;
+    --accent: 0 85% 55%;
+    --accent-foreground: 0 5% 8%;
+    --accent-light: 0 85% 65%;
 
-    --secondary: 210 20% 15%;
-    --secondary-foreground: 210 20% 95%;
+    --secondary: 0 5% 15%;
+    --secondary-foreground: 0 5% 95%;
 
-    --muted: 210 20% 12%;
-    --muted-foreground: 210 20% 65%;
+    --muted: 0 5% 12%;
+    --muted-foreground: 0 5% 65%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 20% 95%;
+    --destructive-foreground: 0 5% 95%;
 
-    --border: 210 20% 20%;
-    --input: 210 20% 20%;
-    --ring: 211 75% 55%;
+    --border: 0 5% 20%;
+    --input: 0 5% 20%;
+    --ring: 0 85% 55%;
     
-    --steel: 210 15% 45%;
-    --steel-light: 210 15% 55%;
-    --steel-dark: 210 15% 25%;
+    --steel: 0 5% 45%;
+    --steel-light: 0 5% 55%;
+    --steel-dark: 0 5% 25%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;

@@ -33,8 +33,8 @@ const Company = () => {
     },
     {
       icon: Cog,
-      title: "Engenharia Especializada",
-      description: "Equipe técnica altamente qualificada com décadas de experiência em usinagem de precisão."
+      title: "Desenhos Industriais Personalizados",
+      description: "Desenvolvemos projetos sob medida, desde o conceito até os desenhos técnicos detalhados para sua produção."
     },
     {
       icon: Shield,
@@ -66,11 +66,11 @@ const Company = () => {
         {/* Header */}
         <div className="text-center mb-20 animate-fade-in">
           <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-8">
-            Sobre a <span className="text-transparent bg-clip-text bg-gradient-primary">JPD Usinagem CNC</span>
+            Sobre a <span className="text-primary">JPD Usinagem CNC</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            Referência em usinagem de precisão, combinamos tradição, inovação e tecnologia de ponta 
-            para entregar soluções que superam expectativas e impulsionam o sucesso dos nossos clientes.
+            Especialistas em tecnologia de Usinagem CNC e desenvolvimento de desenhos industriais personalizados. 
+            Combinamos inovação, precisão e expertise técnica para transformar ideias em realidade.
           </p>
         </div>
 
@@ -84,21 +84,21 @@ const Company = () => {
                 </h3>
                 <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                   <p>
-                    Fundada com o propósito de revolucionar o mercado de usinagem de precisão, 
-                    a <strong className="text-foreground">JPD Usinagem CNC</strong> nasceu da paixão 
-                    pela excelência técnica e do compromisso em oferecer soluções que realmente fazem a diferença.
+                    Somos especialistas em <strong className="text-primary">tecnologia de Usinagem CNC</strong> 
+                    e <strong className="text-primary">desenvolvimento de desenhos industriais personalizados</strong>. 
+                    Nossa empresa nasceu da paixão pela precisão e inovação tecnológica.
                   </p>
                   
                   <p>
-                    Ao longo dos anos, construímos uma reputação sólida baseada na qualidade 
-                    excepcional dos nossos trabalhos, na pontualidade das entregas e no 
-                    relacionamento próximo com cada cliente.
+                    Com equipamentos CNC de última geração e uma equipe altamente especializada, 
+                    oferecemos soluções completas desde o desenvolvimento do projeto até a 
+                    fabricação das peças com tolerâncias milimétricas.
                   </p>
                   
                   <p>
-                    Hoje, somos reconhecidos como parceiros estratégicos de empresas de diversos 
-                    segmentos, oferecendo desde peças únicas até produções em série, sempre 
-                    mantendo os mais altos padrões de qualidade.
+                    Nosso diferencial está na capacidade de <strong className="text-primary">criar desenhos 
+                    industriais sob medida</strong> para cada cliente, garantindo que cada projeto 
+                    seja otimizado para máxima eficiência e qualidade.
                   </p>
                 </div>
               </div>
@@ -151,7 +151,7 @@ const Company = () => {
         <div className="mb-24">
           <div className="text-center mb-16 animate-fade-in">
             <h3 className="text-4xl font-bold text-foreground mb-6">
-              Nossos <span className="text-accent">Valores</span>
+              Nossos <span className="text-primary">Valores</span>
             </h3>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Os princípios que norteiam nossa atuação e garantem a excelência em cada projeto.
@@ -185,7 +185,7 @@ const Company = () => {
         <div>
           <div className="text-center mb-16 animate-fade-in">
             <h3 className="text-4xl font-bold text-foreground mb-6">
-              Nossas <span className="text-accent">Capacidades</span>
+              Nossas <span className="text-primary">Capacidades</span>
             </h3>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Infraestrutura e expertise que nos permitem entregar soluções de alta complexidade 
