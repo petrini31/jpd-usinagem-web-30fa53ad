@@ -1,4 +1,5 @@
-import { Settings, Wrench, Cog, ArrowRight, PenTool } from "lucide-react";
+import { useState } from "react";
+import { Settings, Wrench, Cog, ArrowRight, PenTool, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import precisionPartsImage from "@/assets/precision-parts.jpg";
@@ -6,11 +7,17 @@ import manufacturingProcessImage from "@/assets/manufacturing-process.jpg";
 import qualityComponentsImage from "@/assets/quality-components.jpg";
 
 const Services = () => {
+  const [expandedMaterial, setExpandedMaterial] = useState<string | null>(null);
+  
   const scrollToContact = () => {
     const element = document.getElementById('contato');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const toggleMaterial = (material: string) => {
+    setExpandedMaterial(expandedMaterial === material ? null : material);
   };
 
   const services = [
@@ -80,9 +87,9 @@ const Services = () => {
                   alt={service.title}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute inset-0 bg-primary/20 group-hover:bg-primary/30 transition-colors duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent group-hover:from-black/70 transition-colors duration-300" />
                 <div className="absolute top-4 left-4">
-                  <service.icon className="w-8 h-8 text-primary-foreground" />
+                  <service.icon className="w-8 h-8 text-white" />
                 </div>
               </div>
               
@@ -105,12 +112,20 @@ const Services = () => {
                   ))}
                 </ul>
                 
-                <Button 
-                  onClick={scrollToContact}
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary-dark transition-colors"
-                >
-                  Solicitar Orçamento
-                </Button>
+                <div className="flex gap-2">
+                  <Button 
+                    onClick={scrollToContact}
+                    className="flex-1 bg-primary text-primary-foreground hover:bg-primary-dark transition-colors"
+                  >
+                    Solicitar Orçamento
+                  </Button>
+                  <Button 
+                    variant="outline"
+                    className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                  >
+                    Ver Detalhes
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           ))}
@@ -121,22 +136,109 @@ const Services = () => {
           <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
             Materiais Trabalhados
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            <div className="bg-background rounded-lg p-4 shadow-soft">
-              <h4 className="font-semibold text-foreground">Aços</h4>
-              <p className="text-sm text-muted-foreground">Carbono e Inox</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Aços */}
+            <div className="bg-background rounded-lg shadow-soft">
+              <button 
+                onClick={() => toggleMaterial('acos')}
+                className="w-full p-4 flex items-center justify-between hover:bg-muted/50 transition-colors rounded-lg"
+              >
+                <div className="text-left">
+                  <h4 className="font-semibold text-foreground">Aços</h4>
+                  <p className="text-sm text-muted-foreground">Carbono e Inox</p>
+                </div>
+                {expandedMaterial === 'acos' ? 
+                  <ChevronUp className="w-5 h-5 text-primary" /> : 
+                  <ChevronDown className="w-5 h-5 text-primary" />
+                }
+              </button>
+              {expandedMaterial === 'acos' && (
+                <div className="px-4 pb-4 animate-accordion-down">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Trabalhamos com aços carbono e inoxidáveis de diversas especificações. 
+                    Nossa expertise garante usinagem precisa respeitando as propriedades mecânicas de cada liga, 
+                    com acabamento superficial adequado para cada aplicação industrial.
+                  </p>
+                </div>
+              )}
             </div>
-            <div className="bg-background rounded-lg p-4 shadow-soft">
-              <h4 className="font-semibold text-foreground">Alumínios</h4>
-              <p className="text-sm text-muted-foreground">Diversas Ligas</p>
+
+            {/* Alumínios */}
+            <div className="bg-background rounded-lg shadow-soft">
+              <button 
+                onClick={() => toggleMaterial('aluminios')}
+                className="w-full p-4 flex items-center justify-between hover:bg-muted/50 transition-colors rounded-lg"
+              >
+                <div className="text-left">
+                  <h4 className="font-semibold text-foreground">Alumínios</h4>
+                  <p className="text-sm text-muted-foreground">Diversas Ligas</p>
+                </div>
+                {expandedMaterial === 'aluminios' ? 
+                  <ChevronUp className="w-5 h-5 text-primary" /> : 
+                  <ChevronDown className="w-5 h-5 text-primary" />
+                }
+              </button>
+              {expandedMaterial === 'aluminios' && (
+                <div className="px-4 pb-4 animate-accordion-down">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Especialistas em usinagem de ligas de alumínio aeronáutico e comercial. 
+                    Dominamos as técnicas específicas para evitar deformações e garantir 
+                    tolerâncias dimensionais rigorosas mesmo em peças complexas e paredes finas.
+                  </p>
+                </div>
+              )}
             </div>
-            <div className="bg-background rounded-lg p-4 shadow-soft">
-              <h4 className="font-semibold text-foreground">Latões</h4>
-              <p className="text-sm text-muted-foreground">Alta Qualidade</p>
+
+            {/* Latões */}
+            <div className="bg-background rounded-lg shadow-soft">
+              <button 
+                onClick={() => toggleMaterial('latoes')}
+                className="w-full p-4 flex items-center justify-between hover:bg-muted/50 transition-colors rounded-lg"
+              >
+                <div className="text-left">
+                  <h4 className="font-semibold text-foreground">Latões</h4>
+                  <p className="text-sm text-muted-foreground">Alta Qualidade</p>
+                </div>
+                {expandedMaterial === 'latoes' ? 
+                  <ChevronUp className="w-5 h-5 text-primary" /> : 
+                  <ChevronDown className="w-5 h-5 text-primary" />
+                }
+              </button>
+              {expandedMaterial === 'latoes' && (
+                <div className="px-4 pb-4 animate-accordion-down">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Usinagem de latão com foco em componentes de precisão para equipamentos industriais. 
+                    Nossa experiência permite obter excelente acabamento superficial e 
+                    manter as propriedades anticorrosivas naturais do material.
+                  </p>
+                </div>
+              )}
             </div>
-            <div className="bg-background rounded-lg p-4 shadow-soft">
-              <h4 className="font-semibold text-foreground">Polímeros</h4>
-              <p className="text-sm text-muted-foreground">Nylons e Acrílicos</p>
+
+            {/* Polímeros */}
+            <div className="bg-background rounded-lg shadow-soft">
+              <button 
+                onClick={() => toggleMaterial('polimeros')}
+                className="w-full p-4 flex items-center justify-between hover:bg-muted/50 transition-colors rounded-lg"
+              >
+                <div className="text-left">
+                  <h4 className="font-semibold text-foreground">Polímeros</h4>
+                  <p className="text-sm text-muted-foreground">Nylons e Acrílicos</p>
+                </div>
+                {expandedMaterial === 'polimeros' ? 
+                  <ChevronUp className="w-5 h-5 text-primary" /> : 
+                  <ChevronDown className="w-5 h-5 text-primary" />
+                }
+              </button>
+              {expandedMaterial === 'polimeros' && (
+                <div className="px-4 pb-4 animate-accordion-down">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Usinagem especializada em materiais plásticos técnicos como nylons e acrílicos. 
+                    Utilizamos ferramentas e parâmetros específicos para evitar deformações térmicas 
+                    e garantir dimensões precisas em componentes técnicos.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>

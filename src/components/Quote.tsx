@@ -207,13 +207,13 @@ const Quote = () => {
 
 
                 {/* File Upload */}
-                <div className="space-y-4">
+                <div className="space-y-3">
                   <label className="block text-sm font-semibold text-foreground">
-                    Anexar Arquivos (Desenhos, Projetos, Fotos)
+                    Anexar Arquivos (opcional)
                   </label>
                   
                   <div
-                    className={`relative border-2 border-dashed rounded-lg p-8 text-center transition-all duration-300 ${
+                    className={`relative border-2 border-dashed rounded-lg p-4 text-center transition-all duration-300 ${
                       dragActive 
                         ? 'border-primary bg-primary/10 scale-102' 
                         : 'border-border hover:border-primary/50 hover:bg-secondary/50'
@@ -230,18 +230,18 @@ const Quote = () => {
                       onChange={handleFileSelect}
                       className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                     />
-                    <div className="space-y-4">
-                      <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto">
-                        <Upload className="w-8 h-8 text-primary-foreground" />
+                    <div className="space-y-2">
+                      <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mx-auto">
+                        <Upload className="w-6 h-6 text-primary-foreground" />
                       </div>
                       <div>
-                        <p className="text-lg font-medium text-foreground">
-                          Arraste e solte seus arquivos aqui
+                        <p className="text-base font-medium text-foreground">
+                          Desenhos, Projetos, Fotos
                         </p>
-                        <p className="text-sm text-muted-foreground mt-2">
-                          ou clique para selecionar arquivos
+                        <p className="text-sm text-muted-foreground">
+                          Arraste arquivos ou clique para selecionar
                         </p>
-                        <p className="text-xs text-muted-foreground mt-1">
+                        <p className="text-xs text-muted-foreground">
                           PDF, DWG, JPG, PNG, DOC (máx. 5 arquivos)
                         </p>
                       </div>
@@ -284,7 +284,7 @@ const Quote = () => {
 
                 <Button 
                   type="submit"
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary-dark hover:scale-105 transition-all duration-300 text-lg py-6 shadow-strong animate-pulse-glow"
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary-dark hover:scale-105 transition-all duration-300 text-lg py-6 shadow-strong"
                 >
                   <Send className="w-5 h-5 mr-3" />
                   Enviar Solicitação de Orçamento

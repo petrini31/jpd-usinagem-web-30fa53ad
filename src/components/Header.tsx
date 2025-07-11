@@ -103,7 +103,7 @@ const Header = () => {
             <Button 
               onClick={() => scrollToSection('orcamento')}
               size="sm"
-              className="bg-primary text-primary-foreground hover:bg-primary-dark hover:scale-105 transition-all duration-300 shadow-medium animate-pulse-glow"
+              className="bg-primary text-primary-foreground hover:bg-primary-dark hover:scale-105 transition-all duration-300 shadow-medium"
             >
               Solicitar Orçamento
             </Button>

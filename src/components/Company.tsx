@@ -69,8 +69,9 @@ const Company = () => {
             Sobre a <span className="text-primary">JPD Usinagem CNC</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            Especialistas em tecnologia de Usinagem CNC e desenvolvimento de desenhos industriais personalizados. 
-            Combinamos inovação, precisão e expertise técnica para transformar ideias em realidade.
+            Referência em tecnologia de Usinagem CNC e desenvolvimento de desenhos industriais personalizados. 
+            Combinamos décadas de experiência, tecnologia de ponta e técnicas avançadas de usinagem para 
+            entregar soluções industriais de alta precisão e complexidade.
           </p>
         </div>
 
@@ -84,40 +85,37 @@ const Company = () => {
                 </h3>
                 <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                   <p>
-                    Somos especialistas em <strong className="text-primary">tecnologia de Usinagem CNC</strong> 
-                    e <strong className="text-primary">desenvolvimento de desenhos industriais personalizados</strong>. 
-                    Nossa empresa nasceu da paixão pela precisão e inovação tecnológica.
+                    Somos especialistas em <strong className="text-primary">tecnologia avançada de Usinagem CNC</strong> 
+                    com foco em peças de alta precisão e complexidade. Nossa expertise técnica permite 
+                    executar projetos desafiadores com tolerâncias micrométricas em diversos materiais.
                   </p>
                   
                   <p>
-                    Com equipamentos CNC de última geração e uma equipe altamente especializada, 
-                    oferecemos soluções completas desde o desenvolvimento do projeto até a 
-                    fabricação das peças com tolerâncias milimétricas.
+                    Desenvolvemos <strong className="text-primary">desenhos industriais personalizados</strong> 
+                    desde o conceito inicial até os desenhos técnicos finais, otimizando cada projeto 
+                    para usinabilidade, funcionalidade e custos de produção.
                   </p>
                   
                   <p>
-                    Nosso diferencial está na capacidade de <strong className="text-primary">criar desenhos 
-                    industriais sob medida</strong> para cada cliente, garantindo que cada projeto 
-                    seja otimizado para máxima eficiência e qualidade.
+                    Nossa técnica diferenciada em usinagem CNC combina programação avançada, 
+                    ferramental especializado e controle rigoroso de processo, garantindo 
+                    repetibilidade e qualidade superior em todas as peças fabricadas.
+                  </p>
+                  
+                  <p>
+                    Utilizamos tecnologias CAD/CAM de última geração para simulação e otimização 
+                    de trajetórias, garantindo máxima eficiência produtiva e acabamento superficial 
+                    conforme especificações técnicas mais rigorosas.
                   </p>
                 </div>
               </div>
 
-              <div className="p-8 bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl border border-border/50">
-                <h4 className="text-xl font-bold text-foreground mb-4">Nossa Localização Estratégica</h4>
-                <div className="space-y-3 text-muted-foreground">
-                  <p className="flex items-start gap-2">
-                    <span className="text-primary">•</span>
-                    <span><strong>Endereço:</strong> R. Uruguai, 573 - Parque das Hortênsias, Bom Jesus dos Perdões - SP</span>
-                  </p>
-                  <p className="flex items-start gap-2">
-                    <span className="text-primary">•</span>
-                    <span>Localização privilegiada para atender toda a Grande São Paulo e interior</span>
-                  </p>
-                  <p className="flex items-start gap-2">
-                    <span className="text-primary">•</span>
-                    <span>Fácil acesso via principais rodovias da região</span>
-                  </p>
+              <div className="p-6 bg-card rounded-xl border border-border/50">
+                <h4 className="text-lg font-bold text-foreground mb-3">Localização Estratégica</h4>
+                <div className="space-y-2 text-muted-foreground text-sm">
+                  <p><strong className="text-foreground">Endereço:</strong> R. Uruguai, 573 - Parque das Hortênsias, Bom Jesus dos Perdões - SP</p>
+                  <p><strong className="text-foreground">Região:</strong> Grande São Paulo e interior paulista</p>
+                  <p><strong className="text-foreground">Acesso:</strong> Principais rodovias da região</p>
                 </div>
               </div>
             </div>
