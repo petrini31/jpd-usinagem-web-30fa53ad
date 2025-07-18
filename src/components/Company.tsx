@@ -89,7 +89,7 @@ const Company = () => {
                   </p>
                   
                   <p>
-                    Nossa <strong className="text-primary">expertise como fabricante de cilindros pneumáticos</strong> 
+                    Nossa <strong className="text-primary">expertise como fabricante de cilindros pneumáticos </strong> 
                     nos destaca no mercado, oferecendo soluções personalizadas desde o projeto até a produção, 
                     com alta performance, durabilidade e tecnologia de ponta em cada componente fabricado.
                   </p>
