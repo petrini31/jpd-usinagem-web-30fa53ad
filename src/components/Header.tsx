@@ -16,7 +16,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['inicio', 'servicos', 'empresa', 'orcamento', 'contato'];
+      const sections = ['inicio', 'servicos', 'empresa', 'pneumatica', 'portfolio', 'orcamento', 'contato'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -79,6 +79,26 @@ const Header = () => {
               }`}
             >
               A Empresa
+            </button>
+            <button 
+              onClick={() => scrollToSection('pneumatica')}
+              className={`text-sm font-medium transition-colors relative py-1 ${
+                activeSection === 'pneumatica' 
+                  ? 'text-primary after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:rounded-full' 
+                  : 'text-foreground hover:text-primary'
+              }`}
+            >
+              Pneumática
+            </button>
+            <button 
+              onClick={() => scrollToSection('portfolio')}
+              className={`text-sm font-medium transition-colors relative py-1 ${
+                activeSection === 'portfolio' 
+                  ? 'text-primary after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:rounded-full' 
+                  : 'text-foreground hover:text-primary'
+              }`}
+            >
+              Portfólio
             </button>
             <button 
               onClick={() => scrollToSection('orcamento')}
@@ -145,6 +165,22 @@ const Header = () => {
                 }`}
               >
                 A Empresa
+              </button>
+              <button 
+                onClick={() => scrollToSection('pneumatica')}
+                className={`text-left text-sm font-medium transition-colors py-1 ${
+                  activeSection === 'pneumatica' ? 'text-primary' : 'text-foreground hover:text-primary'
+                }`}
+              >
+                Pneumática
+              </button>
+              <button 
+                onClick={() => scrollToSection('portfolio')}
+                className={`text-left text-sm font-medium transition-colors py-1 ${
+                  activeSection === 'portfolio' ? 'text-primary' : 'text-foreground hover:text-primary'
+                }`}
+              >
+                Portfólio
               </button>
               <button 
                 onClick={() => scrollToSection('orcamento')}

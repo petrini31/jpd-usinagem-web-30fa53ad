@@ -64,9 +64,8 @@ const Hero = () => {
             
             <Button 
               size="lg"
-              variant="outline"
               onClick={() => scrollToSection('orcamento')}
-              className="border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-4"
+              className="bg-primary text-white hover:bg-primary-dark text-lg px-8 py-4"
             >
               Solicitar Orçamento
             </Button>

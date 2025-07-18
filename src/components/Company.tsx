@@ -4,24 +4,24 @@ import { Card, CardContent } from "@/components/ui/card";
 const Company = () => {
   const values = [
     {
-      icon: Award,
-      title: "Excelência",
-      description: "Comprometimento com a mais alta qualidade em cada projeto executado, superando expectativas."
+      icon: Target,
+      title: "Precisão Milimétrica",
+      description: "Comprometimento com a exatidão e qualidade impecável em todos os processos de fabricação."
     },
     {
       icon: Clock,
       title: "Pontualidade",
-      description: "Cumprimento rigoroso de prazos, garantindo que sua produção nunca pare."
+      description: "Entrega dentro dos prazos estabelecidos, garantindo que sua produção nunca pare."
+    },
+    {
+      icon: Zap,
+      title: "Tecnologia",
+      description: "Utilização de tecnologias de ponta, especialmente em CNC, para soluções inovadoras e eficientes."
     },
     {
       icon: Users,
       title: "Parceria",
-      description: "Relacionamento duradouro baseado na confiança mútua e transparência total."
-    },
-    {
-      icon: Target,
-      title: "Precisão",
-      description: "Tolerâncias milimétricas e acabamentos perfeitos conforme especificações técnicas."
+      description: "Construção de relacionamentos duradouros e colaborativos com nossos clientes."
     }
   ];
 
@@ -69,9 +69,9 @@ const Company = () => {
             Sobre a <span className="text-primary">JPD Usinagem CNC</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            Referência em tecnologia de Usinagem CNC e desenvolvimento de desenhos industriais personalizados. 
-            Combinamos décadas de experiência, tecnologia de ponta e técnicas avançadas de usinagem para 
-            entregar soluções industriais de alta precisão e complexidade.
+            Referência em excelência em serviços de Usinagem CNC e expertise como fabricante de cilindros pneumáticos. 
+            Combinamos décadas de experiência, tecnologia de ponta e técnicas avançadas para 
+            entregar soluções industriais de alta precisão, complexidade e performance superior.
           </p>
         </div>
 
@@ -85,27 +85,27 @@ const Company = () => {
                 </h3>
                 <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                   <p>
-                    Somos especialistas em <strong className="text-primary">tecnologia avançada de Usinagem CNC</strong> 
+                    Somos especialistas em <strong className="text-primary">excelência em serviços de Usinagem CNC</strong> 
                     com foco em peças de alta precisão e complexidade. Nossa expertise técnica permite 
-                    executar projetos desafiadores com tolerâncias micrométricas em diversos materiais.
+                    executar projetos desafiadores com tolerâncias micrométricas em diversos materiais industriais.
+                  </p>
+                  
+                  <p>
+                    Nossa <strong className="text-primary">expertise como fabricante de cilindros pneumáticos</strong> 
+                    nos destaca no mercado, oferecendo soluções personalizadas desde o projeto até a produção, 
+                    com alta performance, durabilidade e tecnologia de ponta em cada componente fabricado.
                   </p>
                   
                   <p>
                     Desenvolvemos <strong className="text-primary">desenhos industriais personalizados</strong> 
                     desde o conceito inicial até os desenhos técnicos finais, otimizando cada projeto 
-                    para usinabilidade, funcionalidade e custos de produção.
+                    para usinabilidade, funcionalidade e custos de produção com máxima eficiência.
                   </p>
                   
                   <p>
                     Nossa técnica diferenciada em usinagem CNC combina programação avançada, 
-                    ferramental especializado e controle rigoroso de processo, garantindo 
-                    repetibilidade e qualidade superior em todas as peças fabricadas.
-                  </p>
-                  
-                  <p>
-                    Utilizamos tecnologias CAD/CAM de última geração para simulação e otimização 
-                    de trajetórias, garantindo máxima eficiência produtiva e acabamento superficial 
-                    conforme especificações técnicas mais rigorosas.
+                    ferramental especializado e controle rigoroso de processo, utilizando tecnologias 
+                    CAD/CAM de última geração para garantir qualidade superior e precisão excepcional.
                   </p>
                 </div>
               </div>
