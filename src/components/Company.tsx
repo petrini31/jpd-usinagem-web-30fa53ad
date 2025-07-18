@@ -1,66 +1,64 @@
 import { Award, Users, Clock, Target, Factory, Cog, Shield, Zap } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-
 const Company = () => {
-  const values = [
-    {
-      icon: Target,
-      title: "Precisão Milimétrica",
-      description: "Comprometimento com a exatidão e qualidade impecável em todos os processos de fabricação."
-    },
-    {
-      icon: Clock,
-      title: "Pontualidade",
-      description: "Entrega dentro dos prazos estabelecidos, garantindo que sua produção nunca pare."
-    },
-    {
-      icon: Zap,
-      title: "Tecnologia",
-      description: "Utilização de tecnologias de ponta, especialmente em CNC, para soluções inovadoras e eficientes."
-    },
-    {
-      icon: Users,
-      title: "Parceria",
-      description: "Construção de relacionamentos duradouros e colaborativos com nossos clientes."
-    }
-  ];
-
-  const capabilities = [
-    {
-      icon: Factory,
-      title: "Parque Industrial Moderno",
-      description: "Equipamentos de última geração com tecnologia CNC avançada para máxima precisão e produtividade."
-    },
-    {
-      icon: Cog,
-      title: "Desenhos Industriais Personalizados",
-      description: "Desenvolvemos projetos sob medida, desde o conceito até os desenhos técnicos detalhados para sua produção."
-    },
-    {
-      icon: Shield,
-      title: "Certificações de Qualidade",
-      description: "Processos certificados e controle rigoroso garantindo conformidade com normas internacionais."
-    },
-    {
-      icon: Zap,
-      title: "Agilidade na Entrega",
-      description: "Processos otimizados e gestão eficiente permitindo entregas rápidas sem comprometer a qualidade."
-    }
-  ];
-
-  const stats = [
-    { number: "20+", label: "Anos de Experiência", description: "Duas décadas de excelência em usinagem" },
-    { number: "1000+", label: "Projetos Concluídos", description: "Projetos entregues com sucesso" },
-    { number: "100+", label: "Clientes Ativos", description: "Empresas que confiam em nosso trabalho" },
-    { number: "99.8%", label: "Taxa de Satisfação", description: "Aprovação dos nossos clientes" }
-  ];
-
-  return (
-    <section id="empresa" className="py-24 bg-gradient-to-br from-secondary/50 via-background to-secondary/30 relative overflow-hidden">
+  const values = [{
+    icon: Target,
+    title: "Precisão Milimétrica",
+    description: "Comprometimento com a exatidão e qualidade impecável em todos os processos de fabricação."
+  }, {
+    icon: Clock,
+    title: "Pontualidade",
+    description: "Entrega dentro dos prazos estabelecidos, garantindo que sua produção nunca pare."
+  }, {
+    icon: Zap,
+    title: "Tecnologia",
+    description: "Utilização de tecnologias de ponta, especialmente em CNC, para soluções inovadoras e eficientes."
+  }, {
+    icon: Users,
+    title: "Parceria",
+    description: "Construção de relacionamentos duradouros e colaborativos com nossos clientes."
+  }];
+  const capabilities = [{
+    icon: Factory,
+    title: "Parque Industrial Moderno",
+    description: "Equipamentos de última geração com tecnologia CNC avançada para máxima precisão e produtividade."
+  }, {
+    icon: Cog,
+    title: "Desenhos Industriais Personalizados",
+    description: "Desenvolvemos projetos sob medida, desde o conceito até os desenhos técnicos detalhados para sua produção."
+  }, {
+    icon: Shield,
+    title: "Certificações de Qualidade",
+    description: "Processos certificados e controle rigoroso garantindo conformidade com normas internacionais."
+  }, {
+    icon: Zap,
+    title: "Agilidade na Entrega",
+    description: "Processos otimizados e gestão eficiente permitindo entregas rápidas sem comprometer a qualidade."
+  }];
+  const stats = [{
+    number: "20+",
+    label: "Anos de Experiência",
+    description: "Duas décadas de excelência em usinagem"
+  }, {
+    number: "1000+",
+    label: "Projetos Concluídos",
+    description: "Projetos entregues com sucesso"
+  }, {
+    number: "100+",
+    label: "Clientes Ativos",
+    description: "Empresas que confiam em nosso trabalho"
+  }, {
+    number: "99.8%",
+    label: "Taxa de Satisfação",
+    description: "Aprovação dos nossos clientes"
+  }];
+  return <section id="empresa" className="py-24 bg-gradient-to-br from-secondary/50 via-background to-secondary/30 relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute top-32 left-10 w-64 h-64 bg-gradient-primary rounded-full opacity-10 blur-3xl animate-float"></div>
-      <div className="absolute bottom-32 right-10 w-96 h-96 bg-gradient-accent rounded-full opacity-10 blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
+      <div className="absolute bottom-32 right-10 w-96 h-96 bg-gradient-accent rounded-full opacity-10 blur-3xl animate-float" style={{
+      animationDelay: '3s'
+    }}></div>
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
@@ -97,7 +95,7 @@ const Company = () => {
                   </p>
                   
                   <p>
-                    Desenvolvemos <strong className="text-primary">desenhos industriais personalizados</strong> 
+                    Desenvolvemos <strong className="text-primary">desenhos industriais personalizados </strong> 
                     desde o conceito inicial até os desenhos técnicos finais, otimizando cada projeto 
                     para usinabilidade, funcionalidade e custos de produção com máxima eficiência.
                   </p>
@@ -122,13 +120,12 @@ const Company = () => {
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-2 gap-6 animate-slide-up" style={{ animationDelay: '0.2s' }}>
-            {stats.map((stat, index) => (
-              <Card 
-                key={index} 
-                className="text-center p-6 group hover:shadow-strong transition-all duration-300 border border-border/50 bg-card/80 backdrop-blur-sm"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
+          <div className="grid grid-cols-2 gap-6 animate-slide-up" style={{
+          animationDelay: '0.2s'
+        }}>
+            {stats.map((stat, index) => <Card key={index} className="text-center p-6 group hover:shadow-strong transition-all duration-300 border border-border/50 bg-card/80 backdrop-blur-sm" style={{
+            animationDelay: `${index * 0.1}s`
+          }}>
                 <CardContent className="p-0">
                   <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-primary mb-2 group-hover:scale-110 transition-transform">
                     {stat.number}
@@ -140,8 +137,7 @@ const Company = () => {
                     {stat.description}
                   </p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
 
@@ -157,12 +153,9 @@ const Company = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => (
-              <Card 
-                key={index} 
-                className="group hover:shadow-strong transition-all duration-300 border border-border/50 bg-card/80 backdrop-blur-sm animate-slide-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
+            {values.map((value, index) => <Card key={index} className="group hover:shadow-strong transition-all duration-300 border border-border/50 bg-card/80 backdrop-blur-sm animate-slide-up" style={{
+            animationDelay: `${index * 0.1}s`
+          }}>
                 <CardContent className="p-8 text-center">
                   <div className="mb-6 inline-flex items-center justify-center w-20 h-20 bg-gradient-primary rounded-full group-hover:scale-110 transition-transform duration-300 shadow-soft">
                     <value.icon className="w-10 h-10 text-primary-foreground" />
@@ -174,8 +167,7 @@ const Company = () => {
                     {value.description}
                   </p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
 
@@ -192,12 +184,9 @@ const Company = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {capabilities.map((capability, index) => (
-              <Card 
-                key={index} 
-                className="group hover:shadow-strong transition-all duration-300 border border-border/50 bg-card/80 backdrop-blur-sm animate-slide-up"
-                style={{ animationDelay: `${index * 0.15}s` }}
-              >
+            {capabilities.map((capability, index) => <Card key={index} className="group hover:shadow-strong transition-all duration-300 border border-border/50 bg-card/80 backdrop-blur-sm animate-slide-up" style={{
+            animationDelay: `${index * 0.15}s`
+          }}>
                 <CardContent className="p-8">
                   <div className="flex items-start gap-6">
                     <div className="flex-shrink-0 w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-soft">
@@ -213,13 +202,10 @@ const Company = () => {
                     </div>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Company;
