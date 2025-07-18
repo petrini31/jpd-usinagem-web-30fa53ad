@@ -83,7 +83,7 @@ const Company = () => {
                 </h3>
                 <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                   <p>
-                    Somos especialistas em <strong className="text-primary">excelência em serviços de Usinagem CNC</strong> 
+                    Somos especialistas em <strong className="text-primary">excelência em serviços de Usinagem CNC </strong> 
                     com foco em peças de alta precisão e complexidade. Nossa expertise técnica permite 
                     executar projetos desafiadores com tolerâncias micrométricas em diversos materiais industriais.
                   </p>
