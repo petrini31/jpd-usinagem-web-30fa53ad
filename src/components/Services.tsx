@@ -292,7 +292,7 @@ const Services = () => {
       blocks.push(services.slice(i, i + 3));
     }
     return blocks;
-  }, [services]);
+  }, []);
 
   const nextBlock = useCallback(() => {
     if (isTransitioning) return;
@@ -331,21 +331,19 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Services Carousel - Corrigido para mostrar blocos de 3 serviços */}
+        {/* Services Carousel */}
         <div className="relative mb-16 px-8">
           <div className="overflow-hidden">
             <div 
               className="flex transition-transform duration-500 ease-in-out"
               style={{ 
                 transform: `translateX(-${currentBlockIndex * 100}%)`,
-                width: `${serviceBlocks.length * 100}%`
               }}
             >
               {serviceBlocks.map((block, blockIndex) => (
                 <div 
                   key={blockIndex}
                   className="w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-                  style={{ width: `${100 / serviceBlocks.length}%` }}
                 >
                   {block.map((service) => (
                     <Card 
