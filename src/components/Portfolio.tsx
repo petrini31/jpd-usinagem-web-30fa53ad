@@ -1,7 +1,6 @@
 
 import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import PortfolioCarousel from "./PortfolioCarousel";
 
 const Portfolio = () => {
   const openPortfolio = () => {
@@ -109,31 +108,30 @@ const Portfolio = () => {
           </p>
         </div>
 
-        {/* Galeria de Projetos - 5 colunas x 3 linhas */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-foreground mb-8 text-left">Galeria de Projetos</h3>
-          
-          {/* Grid de 15 imagens */}
-          <div className="grid grid-cols-5 gap-2 mb-8" style={{ margin: '0 0.5cm' }}>
-            {galleryProjects.map((project) => (
-              <div key={project.id} className="group cursor-pointer overflow-hidden rounded-lg shadow-soft hover:shadow-medium transition-all duration-300 relative aspect-[4/3]">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
-                />
-                {/* Título sobreposto com degradê */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white via-white/80 to-transparent p-3">
-                  <h4 className="text-black text-sm font-medium leading-tight">
-                    {project.title}
-                  </h4>
+        {/* Grid de 15 imagens com molduras vermelhas */}
+        <div className="mb-12">
+          <div className="bg-red-500/20 p-4 rounded-lg" style={{ margin: '0 0.5cm' }}>
+            <div className="grid grid-cols-5 gap-3">
+              {galleryProjects.map((project) => (
+                <div key={project.id} className="group cursor-pointer overflow-hidden rounded-lg shadow-soft hover:shadow-medium transition-all duration-300 relative aspect-[4/3] border-2 border-red-500/40">
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
+                  />
+                  {/* Título sobreposto com degradê */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white via-white/80 to-transparent p-3">
+                    <h4 className="text-black text-sm font-medium leading-tight">
+                      {project.title}
+                    </h4>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
           
-          {/* Call to Action Button - Centralizado */}
-          <div className="text-center">
+          {/* Call to Action Button - Centralizado com espaçamento */}
+          <div className="text-center mt-12">
             <Button 
               size="lg" 
               onClick={openPortfolio} 
@@ -143,11 +141,6 @@ const Portfolio = () => {
               <ExternalLink className="w-5 h-5 ml-2" />
             </Button>
           </div>
-        </div>
-
-        {/* Portfolio Carousel - Abaixo da galeria */}
-        <div className="mb-16">
-          <PortfolioCarousel />
         </div>
       </div>
     </section>
