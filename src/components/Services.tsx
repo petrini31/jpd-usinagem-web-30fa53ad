@@ -11,7 +11,7 @@ import qualityComponentsImage from "@/assets/quality-components.jpg";
 
 const Services = () => {
   const [selectedService, setSelectedService] = useState<any>(null);
-  const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
+  const [currentBlockIndex, setCurrentBlockIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   
   const scrollToContact = () => {
@@ -285,81 +285,35 @@ const Services = () => {
     }
   ];
 
-  const nextService = useCallback(() => {
+  // Dividir serviços em blocos de 3
+  const serviceBlocks = useMemo(() => {
+    const blocks = [];
+    for (let i = 0; i < services.length; i += 3) {
+      blocks.push(services.slice(i, i + 3));
+    }
+    return blocks;
+  }, [services]);
+
+  const nextBlock = useCallback(() => {
     if (isTransitioning) return;
     setIsTransitioning(true);
-    setCurrentServiceIndex((prev) => (prev + 3) % services.length);
+    setCurrentBlockIndex((prev) => (prev + 1) % serviceBlocks.length);
     setTimeout(() => setIsTransitioning(false), 500);
-  }, [isTransitioning, services.length]);
+  }, [isTransitioning, serviceBlocks.length]);
 
-  const prevService = useCallback(() => {
+  const prevBlock = useCallback(() => {
     if (isTransitioning) return;
     setIsTransitioning(true);
-    setCurrentServiceIndex((prev) => (prev - 3 + services.length) % services.length);
+    setCurrentBlockIndex((prev) => (prev - 1 + serviceBlocks.length) % serviceBlocks.length);
     setTimeout(() => setIsTransitioning(false), 500);
-  }, [isTransitioning, services.length]);
+  }, [isTransitioning, serviceBlocks.length]);
 
-  const goToService = useCallback((index: number) => {
-    if (isTransitioning || index === currentServiceIndex) return;
+  const goToBlock = useCallback((blockIndex: number) => {
+    if (isTransitioning || blockIndex === currentBlockIndex) return;
     setIsTransitioning(true);
-    setCurrentServiceIndex(index);
+    setCurrentBlockIndex(blockIndex);
     setTimeout(() => setIsTransitioning(false), 500);
-  }, [isTransitioning, currentServiceIndex]);
-
-  // Gerar todos os 9 cards para evitar re-renderização
-  const allServiceCards = useMemo(() => services.map((service) => (
-    <Card 
-      key={service.id}
-      className="group hover:shadow-medium transition-all duration-300 border border-border/50 h-full flex flex-col"
-    >
-      <div className="relative overflow-hidden">
-        <img 
-          src={service.image} 
-          alt={service.title}
-          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-        />
-        <div className="absolute top-4 left-4">
-          <service.icon className="w-8 h-8 text-white" />
-        </div>
-      </div>
-      
-      <CardHeader className="flex-grow">
-        <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors">
-          {service.title}
-        </CardTitle>
-        <CardDescription className="text-muted-foreground">
-          {service.description}
-        </CardDescription>
-      </CardHeader>
-
-      <CardContent className="mt-auto">
-        <ul className="space-y-2 mb-6">
-          {service.details.map((detail, detailIndex) => (
-            <li key={detailIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
-              <ArrowRight className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-              {detail}
-            </li>
-          ))}
-        </ul>
-        
-        <div className="flex gap-2">
-          <Button 
-            onClick={scrollToContact}
-            className="flex-1 bg-primary text-primary-foreground hover:bg-primary-dark transition-colors"
-          >
-            Solicitar Orçamento
-          </Button>
-          <Button 
-            variant="outline"
-            onClick={() => setSelectedService(service)}
-            className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-          >
-            Ver Detalhes
-          </Button>
-        </div>
-      </CardContent>
-    </Card>
-  )), [services, scrollToContact]);
+  }, [isTransitioning, currentBlockIndex]);
 
   return (
     <section id="servicos" className="py-20 bg-background">
@@ -377,33 +331,85 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Services Carousel - Now showing 3 cards at a time */}
+        {/* Services Carousel - Corrigido para mostrar blocos de 3 serviços */}
         <div className="relative mb-16 px-8">
           <div className="overflow-hidden">
             <div 
               className="flex transition-transform duration-500 ease-in-out"
               style={{ 
-                transform: `translateX(-${currentServiceIndex * (100 / 3)}%)`,
-                width: `${(services.length * 100) / 3}%`
+                transform: `translateX(-${currentBlockIndex * 100}%)`,
+                width: `${serviceBlocks.length * 100}%`
               }}
             >
-              {allServiceCards.map((card, index) => (
+              {serviceBlocks.map((block, blockIndex) => (
                 <div 
-                  key={services[index].id}
-                  className="w-1/3 px-4 flex-shrink-0"
-                  style={{ width: `${100 / services.length}%` }}
+                  key={blockIndex}
+                  className="w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                  style={{ width: `${100 / serviceBlocks.length}%` }}
                 >
-                  {card}
+                  {block.map((service) => (
+                    <Card 
+                      key={service.id}
+                      className="group hover:shadow-medium transition-all duration-300 border border-border/50 h-full flex flex-col"
+                    >
+                      <div className="relative overflow-hidden">
+                        <img 
+                          src={service.image} 
+                          alt={service.title}
+                          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute top-4 left-4">
+                          <service.icon className="w-8 h-8 text-white" />
+                        </div>
+                      </div>
+                      
+                      <CardHeader className="flex-grow">
+                        <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors">
+                          {service.title}
+                        </CardTitle>
+                        <CardDescription className="text-muted-foreground">
+                          {service.description}
+                        </CardDescription>
+                      </CardHeader>
+
+                      <CardContent className="mt-auto">
+                        <ul className="space-y-2 mb-6">
+                          {service.details.map((detail, detailIndex) => (
+                            <li key={detailIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
+                              <ArrowRight className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                              {detail}
+                            </li>
+                          ))}
+                        </ul>
+                        
+                        <div className="flex gap-2">
+                          <Button 
+                            onClick={scrollToContact}
+                            className="flex-1 bg-primary text-primary-foreground hover:bg-primary-dark transition-colors"
+                          >
+                            Solicitar Orçamento
+                          </Button>
+                          <Button 
+                            variant="outline"
+                            onClick={() => setSelectedService(service)}
+                            className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                          >
+                            Ver Detalhes
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Navigation Arrows - Mais próximas dos cards */}
+          {/* Navigation Arrows */}
           <Button
             variant="outline"
             size="icon"
-            onClick={prevService}
+            onClick={prevBlock}
             disabled={isTransitioning}
             className="absolute -left-4 top-1/2 -translate-y-1/2 bg-background/95 hover:bg-background border-border shadow-lg z-20 hidden lg:flex disabled:opacity-50"
           >
@@ -413,7 +419,7 @@ const Services = () => {
           <Button
             variant="outline"
             size="icon"
-            onClick={nextService}
+            onClick={nextBlock}
             disabled={isTransitioning}
             className="absolute -right-4 top-1/2 -translate-y-1/2 bg-background/95 hover:bg-background border-border shadow-lg z-20 hidden lg:flex disabled:opacity-50"
           >
@@ -422,13 +428,13 @@ const Services = () => {
 
           {/* Dot indicators */}
           <div className="flex justify-center gap-2 mt-8">
-            {Array.from({ length: Math.ceil(services.length / 3) }).map((_, index) => (
+            {serviceBlocks.map((_, index) => (
               <button
                 key={index}
-                onClick={() => goToService(index * 3)}
+                onClick={() => goToBlock(index)}
                 disabled={isTransitioning}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  Math.floor(currentServiceIndex / 3) === index 
+                  currentBlockIndex === index 
                     ? 'bg-primary scale-125' 
                     : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
                 }`}
@@ -440,7 +446,7 @@ const Services = () => {
           <div className="flex justify-center gap-4 mt-6 lg:hidden">
             <Button 
               variant="outline" 
-              onClick={prevService}
+              onClick={prevBlock}
               disabled={isTransitioning}
               className="disabled:opacity-50"
             >
@@ -449,7 +455,7 @@ const Services = () => {
             </Button>
             <Button 
               variant="outline" 
-              onClick={nextService}
+              onClick={nextBlock}
               disabled={isTransitioning}
               className="disabled:opacity-50"
             >

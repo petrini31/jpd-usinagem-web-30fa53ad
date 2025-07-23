@@ -16,8 +16,8 @@ const Index = () => {
       <Portfolio />
       <Pneumatica />
       <Quote />
-      <Contact />
       <Company />
+      <Contact />
       <Footer />
     </div>
   );

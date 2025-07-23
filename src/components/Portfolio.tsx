@@ -8,19 +8,83 @@ const Portfolio = () => {
     window.open('/portfolio-full', '_blank');
   };
 
-  const miniGalleryImages = [
-    "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=400&h=300",
-    "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=400&h=300",
-    "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=400&h=300",
-    "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=400&h=300",
-    "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=400&h=300",
-    "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=400&h=300",
-    "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=400&h=300",
-    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=400&h=300",
-    "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=400&h=300",
-    "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=400&h=300",
-    "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&q=80&w=400&h=300",
-    "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?auto=format&fit=crop&q=80&w=400&h=300"
+  // 15 primeiras imagens da rota /portfolio-full
+  const galleryProjects = [
+    {
+      id: 1,
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=600&h=400",
+      title: "Usinagem CNC de Precisão"
+    },
+    {
+      id: 2,
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600&h=400",
+      title: "Cilindros Pneumáticos"
+    },
+    {
+      id: 3,
+      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600&h=400",
+      title: "Ferramentaria"
+    },
+    {
+      id: 4,
+      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=600&h=400",
+      title: "Moldes de Precisão"
+    },
+    {
+      id: 5,
+      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=600&h=400",
+      title: "Componentes Automotivos"
+    },
+    {
+      id: 6,
+      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=600&h=400",
+      title: "Peças Industriais"
+    },
+    {
+      id: 7,
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=600&h=400",
+      title: "Torneamento CNC"
+    },
+    {
+      id: 8,
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=600&h=400",
+      title: "Fresamento de Precisão"
+    },
+    {
+      id: 9,
+      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=600&h=400",
+      title: "Retificação"
+    },
+    {
+      id: 10,
+      image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=600&h=400",
+      title: "Dispositivos Especiais"
+    },
+    {
+      id: 11,
+      image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&q=80&w=600&h=400",
+      title: "Engrenagens"
+    },
+    {
+      id: 12,
+      image: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?auto=format&fit=crop&q=80&w=600&h=400",
+      title: "Componentes Hidráulicos"
+    },
+    {
+      id: 13,
+      image: "https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?auto=format&fit=crop&q=80&w=600&h=400",
+      title: "Peças Aeroespaciais"
+    },
+    {
+      id: 14,
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600&h=400",
+      title: "Equipamentos Médicos"
+    },
+    {
+      id: 15,
+      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600&h=400",
+      title: "Protótipos Funcionais"
+    }
   ];
 
   return (
@@ -45,25 +109,31 @@ const Portfolio = () => {
           </p>
         </div>
 
-        {/* Mini Gallery - Moved up */}
+        {/* Galeria de Projetos - 5 colunas x 3 linhas */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold text-foreground mb-6 text-left">Galeria de Projetos</h3>
-          <div className="grid grid-cols-3 md:grid-cols-4 gap-4 mb-8 max-w-6xl">
-            {miniGalleryImages.map((image, index) => (
-              <div key={index} className="group cursor-pointer overflow-hidden rounded-lg shadow-soft hover:shadow-medium transition-all duration-300 relative">
-                {/* Sombreado vermelho atrás da imagem */}
-                <div className="absolute inset-0 bg-red-500/20 rounded-lg transform translate-x-1 translate-y-1 -z-10"></div>
+          <h3 className="text-2xl font-bold text-foreground mb-8 text-left">Galeria de Projetos</h3>
+          
+          {/* Grid de 15 imagens */}
+          <div className="grid grid-cols-5 gap-2 mb-8" style={{ margin: '0 0.5cm' }}>
+            {galleryProjects.map((project) => (
+              <div key={project.id} className="group cursor-pointer overflow-hidden rounded-lg shadow-soft hover:shadow-medium transition-all duration-300 relative aspect-[4/3]">
                 <img 
-                  src={image} 
-                  alt={`Projeto ${index + 1}`} 
-                  className="w-full h-32 md:h-36 object-cover group-hover:scale-105 transition-transform duration-300 relative z-10" 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
                 />
+                {/* Título sobreposto com degradê */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white via-white/80 to-transparent p-3">
+                  <h4 className="text-black text-sm font-medium leading-tight">
+                    {project.title}
+                  </h4>
+                </div>
               </div>
             ))}
           </div>
           
-          {/* Call to Action Button */}
-          <div className="text-left">
+          {/* Call to Action Button - Centralizado */}
+          <div className="text-center">
             <Button 
               size="lg" 
               onClick={openPortfolio} 
@@ -75,7 +145,7 @@ const Portfolio = () => {
           </div>
         </div>
 
-        {/* Portfolio Carousel - Moved down */}
+        {/* Portfolio Carousel - Abaixo da galeria */}
         <div className="mb-16">
           <PortfolioCarousel />
         </div>
