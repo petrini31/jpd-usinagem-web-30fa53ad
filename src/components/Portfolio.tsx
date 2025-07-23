@@ -1,30 +1,12 @@
-import { ExternalLink, Camera, Settings, Cog, Factory } from "lucide-react";
+
+import { ExternalLink, Camera } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import PortfolioCarousel from "./PortfolioCarousel";
 
 const Portfolio = () => {
   const openPortfolio = () => {
-    // Abre uma nova aba com o portfólio
-    window.open('#portfolio-full', '_blank');
+    window.open('/portfolio-full', '_blank');
   };
-
-  const projectCategories = [
-    {
-      icon: Settings,
-      title: "Usinagem CNC",
-      description: "Peças de alta precisão e complexidade"
-    },
-    {
-      icon: Factory,
-      title: "Cilindros Pneumáticos",
-      description: "Soluções personalizadas em pneumática"
-    },
-    {
-      icon: Cog,
-      title: "Componentes Industriais",
-      description: "Fabricação de máquinas e dispositivos"
-    }
-  ];
 
   return (
     <section id="portfolio" className="py-24 bg-background relative overflow-hidden">
@@ -46,27 +28,9 @@ const Portfolio = () => {
           </p>
         </div>
 
-        {/* Project Categories */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {projectCategories.map((category, index) => (
-            <Card 
-              key={index} 
-              className="group hover:shadow-strong transition-all duration-300 border border-border/50 bg-card/80 backdrop-blur-sm animate-slide-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <CardContent className="p-8 text-center">
-                <div className="mb-6 inline-flex items-center justify-center w-20 h-20 bg-gradient-primary rounded-full group-hover:scale-110 transition-transform duration-300 shadow-soft">
-                  <category.icon className="w-10 h-10 text-primary-foreground" />
-                </div>
-                <h4 className="text-xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
-                  {category.title}
-                </h4>
-                <p className="text-muted-foreground leading-relaxed">
-                  {category.description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
+        {/* Portfolio Carousel */}
+        <div className="mb-16">
+          <PortfolioCarousel />
         </div>
 
         {/* Portfolio Gallery Preview */}
@@ -86,18 +50,6 @@ const Portfolio = () => {
               personalizados e soluções industriais inovadoras desenvolvidas para 
               nossos clientes ao longo dos anos.
             </p>
-
-            {/* Image Placeholders Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 opacity-60">
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-                <div 
-                  key={item} 
-                  className="aspect-square bg-gradient-primary rounded-lg opacity-30 flex items-center justify-center hover:opacity-50 transition-opacity"
-                >
-                  <Factory className="w-8 h-8 text-primary" />
-                </div>
-              ))}
-            </div>
             
             <Button 
               size="lg"

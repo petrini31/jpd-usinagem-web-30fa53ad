@@ -1,9 +1,9 @@
 
 import Header from "@/components/Header";
 import Services from "@/components/Services";
+import Portfolio from "@/components/Portfolio";
 import Company from "@/components/Company";
 import Pneumatica from "@/components/Pneumatica";
-import Portfolio from "@/components/Portfolio";
 import Quote from "@/components/Quote";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -13,9 +13,9 @@ const Index = () => {
     <div className="min-h-screen">
       <Header />
       <Services />
+      <Portfolio />
       <Company />
       <Pneumatica />
-      <Portfolio />
       <Quote />
       <Contact />
       <Footer />

@@ -57,11 +57,11 @@ const MaterialsCarousel = () => {
     }
   ];
 
-  // Auto-slide functionality
+  // Auto-slide functionality with right slide animation
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % materials.length);
-    }, 5000); // Change slide every 5 seconds
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [materials.length]);
@@ -82,39 +82,36 @@ const MaterialsCarousel = () => {
     <div className="relative bg-secondary rounded-lg overflow-hidden">
       {/* Carousel Container */}
       <div className="relative h-96 md:h-80">
-        {materials.map((material, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-500 ${
-              index === currentIndex ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <div className="flex h-full">
-              {/* Image Section */}
-              <div className="w-1/2 relative">
-                <img
-                  src={material.image}
-                  alt={material.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/30" />
-              </div>
+        <div className="flex transition-transform duration-500 ease-in-out h-full" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+          {materials.map((material, index) => (
+            <div key={index} className="w-full flex-shrink-0">
+              <div className="flex h-full">
+                {/* Image Section */}
+                <div className="w-1/2 relative">
+                  <img
+                    src={material.image}
+                    alt={material.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/30" />
+                </div>
 
-              {/* Content Section */}
-              <div className="w-1/2 p-8 flex flex-col justify-center bg-background">
-                <h4 className="text-2xl font-bold text-foreground mb-2">
-                  {material.title}
-                </h4>
-                <p className="text-primary font-semibold mb-4">
-                  {material.subtitle}
-                </p>
-                <p className="text-muted-foreground leading-relaxed text-sm">
-                  {material.description}
-                </p>
+                {/* Content Section */}
+                <div className="w-1/2 p-8 flex flex-col justify-center bg-background">
+                  <h4 className="text-2xl font-bold text-foreground mb-2">
+                    {material.title}
+                  </h4>
+                  <p className="text-primary font-semibold mb-4">
+                    {material.subtitle}
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed text-sm">
+                    {material.description}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       {/* Navigation Buttons */}

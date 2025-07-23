@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import MaterialsCarousel from "./MaterialsCarousel";
+import ServicesCarousel from "./ServicesCarousel";
 import precisionPartsImage from "@/assets/precision-parts.jpg";
 import manufacturingProcessImage from "@/assets/manufacturing-process.jpg";
 import qualityComponentsImage from "@/assets/quality-components.jpg";
@@ -109,18 +110,20 @@ const Services = () => {
   return (
     <section id="servicos" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Nossos <span className="text-primary">Serviços</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Especialistas em tecnologia de Usinagem CNC e desenvolvimento de desenhos industriais personalizados. 
-            Oferecemos soluções completas e inovadoras para todos os seus projetos.
-          </p>
+        {/* Header - Right aligned with left text alignment */}
+        <div className="flex justify-end mb-16 animate-fade-in">
+          <div className="max-w-2xl text-left">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              Nossos <span className="text-primary">Serviços</span>
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Especialistas em tecnologia de Usinagem CNC e desenvolvimento de desenhos industriais personalizados. 
+              Oferecemos soluções completas e inovadoras para todos os seus projetos.
+            </p>
+          </div>
         </div>
 
-        {/* Services Grid */}
+        {/* Main Services Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
           {services.map((service, index) => (
             <Card 
@@ -176,6 +179,14 @@ const Services = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* Additional Services Carousel */}
+        <div className="mb-16 animate-fade-in">
+          <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
+            Outros Serviços Especializados
+          </h3>
+          <ServicesCarousel />
         </div>
 
         {/* Materials Section */}

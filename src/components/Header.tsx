@@ -34,21 +34,20 @@ const Header = () => {
             <span className="text-xl font-bold text-foreground">JPD Usinagem</span>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {menuItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="text-foreground hover:text-primary transition-colors font-medium"
-              >
-                {item.label}
-              </button>
-            ))}
-          </nav>
-
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center space-x-4">
+          {/* Desktop Navigation - Aligned to right */}
+          <div className="hidden md:flex items-center space-x-8 ml-auto">
+            <nav className="flex items-center space-x-8">
+              {menuItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="text-foreground hover:text-primary transition-colors font-medium"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </nav>
+            
             <Button 
               onClick={() => scrollToSection('orcamento')}
               className="bg-primary text-primary-foreground hover:bg-primary-dark transition-colors"
