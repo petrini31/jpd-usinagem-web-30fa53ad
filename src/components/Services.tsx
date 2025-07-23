@@ -23,6 +23,7 @@ const Services = () => {
 
   const services = [
     {
+      id: 'usinagem-cnc',
       icon: Settings,
       title: "Usinagem CNC de Precisão",
       description: "Fabricamos peças de alta precisão utilizando tecnologia CNC avançada conforme suas especificações.",
@@ -51,6 +52,7 @@ const Services = () => {
       }
     },
     {
+      id: 'desenhos-industriais',
       icon: PenTool,
       title: "Desenhos Industriais Personalizados",
       description: "Desenvolvemos projetos sob medida, desde o conceito até os desenhos técnicos detalhados.",
@@ -79,6 +81,7 @@ const Services = () => {
       }
     },
     {
+      id: 'cilindros-pneumaticos',
       icon: Cog,
       title: "Fabricação de Cilindros Pneumáticos",
       description: "Especialização em soluções pneumáticas personalizadas, desde o projeto até a produção, com alta performance e durabilidade.",
@@ -107,6 +110,7 @@ const Services = () => {
       }
     },
     {
+      id: 'torneamento',
       icon: Settings,
       title: "Torneamento",
       description: "Serviços de torneamento de alta precisão para peças cilíndricas e complexas, garantindo tolerâncias rigorosas e acabamento superior.",
@@ -135,6 +139,7 @@ const Services = () => {
       }
     },
     {
+      id: 'fresamento',
       icon: Wrench,
       title: "Fresamento",
       description: "Usinagem de precisão através de fresamento CNC para componentes com geometrias variadas, superfícies planas e detalhes intrincados.",
@@ -163,6 +168,7 @@ const Services = () => {
       }
     },
     {
+      id: 'manutencao-recuperacao',
       icon: RefreshCw,
       title: "Manutenção e Recuperação de Peças",
       description: "Soluções especializadas em manutenção e recuperação de peças industriais, prolongando a vida útil e restaurando a funcionalidade original.",
@@ -191,6 +197,7 @@ const Services = () => {
       }
     },
     {
+      id: 'ferramentais-dispositivos',
       icon: Cog,
       title: "Fabricação de Ferramentais e Dispositivos",
       description: "Desenvolvimento e fabricação de ferramentais, gabaritos e dispositivos customizados para otimizar processos de produção e garantir a repetibilidade.",
@@ -219,6 +226,7 @@ const Services = () => {
       }
     },
     {
+      id: 'moldes',
       icon: PenTool,
       title: "Especialistas em Moldes",
       description: "Expertise na fabricação de moldes de injeção e estampo, com foco em precisão, durabilidade e eficiência para a indústria de transformação.",
@@ -252,31 +260,77 @@ const Services = () => {
     if (isTransitioning) return;
     setIsTransitioning(true);
     setCurrentServiceIndex((prev) => (prev + 1) % services.length);
-    setTimeout(() => setIsTransitioning(false), 300);
+    setTimeout(() => setIsTransitioning(false), 500);
   }, [isTransitioning, services.length]);
 
   const prevService = useCallback(() => {
     if (isTransitioning) return;
     setIsTransitioning(true);
     setCurrentServiceIndex((prev) => (prev - 1 + services.length) % services.length);
-    setTimeout(() => setIsTransitioning(false), 300);
+    setTimeout(() => setIsTransitioning(false), 500);
   }, [isTransitioning, services.length]);
 
   const goToService = useCallback((index: number) => {
     if (isTransitioning || index === currentServiceIndex) return;
     setIsTransitioning(true);
     setCurrentServiceIndex(index);
-    setTimeout(() => setIsTransitioning(false), 300);
+    setTimeout(() => setIsTransitioning(false), 500);
   }, [isTransitioning, currentServiceIndex]);
 
-  const visibleServices = useMemo(() => {
-    const result = [];
-    for (let i = 0; i < 3; i++) {
-      const index = (currentServiceIndex + i) % services.length;
-      result.push(services[index]);
-    }
-    return result;
-  }, [currentServiceIndex, services]);
+  // Gerar todos os 8 cards para evitar re-renderização
+  const allServiceCards = useMemo(() => services.map((service) => (
+    <Card 
+      key={service.id}
+      className="group hover:shadow-medium transition-all duration-300 border border-border/50 h-full flex flex-col"
+    >
+      <div className="relative overflow-hidden">
+        <img 
+          src={service.image} 
+          alt={service.title}
+          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+        />
+        <div className="absolute top-4 left-4">
+          <service.icon className="w-8 h-8 text-white" />
+        </div>
+      </div>
+      
+      <CardHeader className="flex-grow">
+        <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors">
+          {service.title}
+        </CardTitle>
+        <CardDescription className="text-muted-foreground">
+          {service.description}
+        </CardDescription>
+      </CardHeader>
+
+      <CardContent className="mt-auto">
+        <ul className="space-y-2 mb-6">
+          {service.details.map((detail, detailIndex) => (
+            <li key={detailIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
+              <ArrowRight className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+              {detail}
+            </li>
+          ))}
+        </ul>
+        
+        <div className="flex gap-2">
+          <Button 
+            onClick={scrollToContact}
+            className="flex-1 bg-primary text-primary-foreground hover:bg-primary-dark transition-colors"
+          >
+            Solicitar Orçamento
+          </Button>
+          <Button 
+            variant="outline"
+            onClick={() => setSelectedService(service)}
+            className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+          >
+            Ver Detalhes
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
+  )), [services, scrollToContact]);
 
   return (
     <section id="servicos" className="py-20 bg-background">
@@ -295,75 +349,34 @@ const Services = () => {
         </div>
 
         {/* Services Carousel */}
-        <div className="relative mb-16 px-16">
-          <div 
-            className={`grid grid-cols-1 lg:grid-cols-3 gap-8 transition-opacity duration-300 ${
-              isTransitioning ? 'opacity-60' : 'opacity-100'
-            }`}
-          >
-            {visibleServices.map((service, index) => (
-              <Card 
-                key={service.title}
-                className="group hover:shadow-medium transition-all duration-300 border border-border/50 animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="relative overflow-hidden">
-                  <img 
-                    src={service.image} 
-                    alt={service.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <service.icon className="w-8 h-8 text-white" />
-                  </div>
+        <div className="relative mb-16 px-8">
+          <div className="overflow-hidden">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ 
+                transform: `translateX(-${currentServiceIndex * (100 / 3)}%)`,
+                width: `${(services.length * 100) / 3}%`
+              }}
+            >
+              {allServiceCards.map((card, index) => (
+                <div 
+                  key={services[index].id}
+                  className="w-1/3 px-4 flex-shrink-0"
+                  style={{ width: `${100 / services.length}%` }}
+                >
+                  {card}
                 </div>
-                
-                <CardHeader>
-                  <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors">
-                    {service.title}
-                  </CardTitle>
-                  <CardDescription className="text-muted-foreground">
-                    {service.description}
-                  </CardDescription>
-                </CardHeader>
-
-                <CardContent>
-                  <ul className="space-y-2 mb-6">
-                    {service.details.map((detail, detailIndex) => (
-                      <li key={detailIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <ArrowRight className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                        {detail}
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  <div className="flex gap-2">
-                    <Button 
-                      onClick={scrollToContact}
-                      className="flex-1 bg-primary text-primary-foreground hover:bg-primary-dark transition-colors"
-                    >
-                      Solicitar Orçamento
-                    </Button>
-                    <Button 
-                      variant="outline"
-                      onClick={() => setSelectedService(service)}
-                      className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-                    >
-                      Ver Detalhes
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+              ))}
+            </div>
           </div>
 
-          {/* Navigation Arrows - Better positioned and styled */}
+          {/* Navigation Arrows - Mais próximas dos cards */}
           <Button
             variant="outline"
             size="icon"
             onClick={prevService}
             disabled={isTransitioning}
-            className="absolute -left-6 top-1/2 -translate-y-1/2 bg-background/95 hover:bg-background border-border shadow-md z-20 hidden lg:flex disabled:opacity-50"
+            className="absolute -left-4 top-1/2 -translate-y-1/2 bg-background/95 hover:bg-background border-border shadow-lg z-20 hidden lg:flex disabled:opacity-50"
           >
             <ChevronLeft className="w-5 h-5" />
           </Button>
@@ -373,7 +386,7 @@ const Services = () => {
             size="icon"
             onClick={nextService}
             disabled={isTransitioning}
-            className="absolute -right-6 top-1/2 -translate-y-1/2 bg-background/95 hover:bg-background border-border shadow-md z-20 hidden lg:flex disabled:opacity-50"
+            className="absolute -right-4 top-1/2 -translate-y-1/2 bg-background/95 hover:bg-background border-border shadow-lg z-20 hidden lg:flex disabled:opacity-50"
           >
             <ChevronRight className="w-5 h-5" />
           </Button>
