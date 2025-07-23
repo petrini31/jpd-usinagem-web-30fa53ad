@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { Settings, Wrench, Cog, ArrowRight, PenTool, RefreshCw, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -12,6 +12,7 @@ import qualityComponentsImage from "@/assets/quality-components.jpg";
 const Services = () => {
   const [selectedService, setSelectedService] = useState<any>(null);
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   
   const scrollToContact = () => {
     const element = document.getElementById('contato');
@@ -247,22 +248,35 @@ const Services = () => {
     }
   ];
 
-  const nextService = () => {
+  const nextService = useCallback(() => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
     setCurrentServiceIndex((prev) => (prev + 1) % services.length);
-  };
+    setTimeout(() => setIsTransitioning(false), 300);
+  }, [isTransitioning, services.length]);
 
-  const prevService = () => {
+  const prevService = useCallback(() => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
     setCurrentServiceIndex((prev) => (prev - 1 + services.length) % services.length);
-  };
+    setTimeout(() => setIsTransitioning(false), 300);
+  }, [isTransitioning, services.length]);
 
-  const getVisibleServices = () => {
+  const goToService = useCallback((index: number) => {
+    if (isTransitioning || index === currentServiceIndex) return;
+    setIsTransitioning(true);
+    setCurrentServiceIndex(index);
+    setTimeout(() => setIsTransitioning(false), 300);
+  }, [isTransitioning, currentServiceIndex]);
+
+  const visibleServices = useMemo(() => {
     const result = [];
     for (let i = 0; i < 3; i++) {
       const index = (currentServiceIndex + i) % services.length;
       result.push(services[index]);
     }
     return result;
-  };
+  }, [currentServiceIndex, services]);
 
   return (
     <section id="servicos" className="py-20 bg-background">
@@ -281,13 +295,17 @@ const Services = () => {
         </div>
 
         {/* Services Carousel */}
-        <div className="relative mb-16">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {getVisibleServices().map((service, index) => (
+        <div className="relative mb-16 px-16">
+          <div 
+            className={`grid grid-cols-1 lg:grid-cols-3 gap-8 transition-opacity duration-300 ${
+              isTransitioning ? 'opacity-60' : 'opacity-100'
+            }`}
+          >
+            {visibleServices.map((service, index) => (
               <Card 
-                key={`${service.title}-${currentServiceIndex}-${index}`}
-                className="group hover:shadow-medium transition-all duration-300 border border-border/50 animate-slide-up"
-                style={{ animationDelay: `${index * 0.2}s` }}
+                key={service.title}
+                className="group hover:shadow-medium transition-all duration-300 border border-border/50 animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="relative overflow-hidden">
                   <img 
@@ -339,32 +357,60 @@ const Services = () => {
             ))}
           </div>
 
-          {/* Navigation Arrows */}
+          {/* Navigation Arrows - Better positioned and styled */}
           <Button
             variant="outline"
             size="icon"
             onClick={prevService}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background border-border z-10 hidden lg:flex"
+            disabled={isTransitioning}
+            className="absolute -left-6 top-1/2 -translate-y-1/2 bg-background/95 hover:bg-background border-border shadow-md z-20 hidden lg:flex disabled:opacity-50"
           >
-            <ChevronLeft className="w-4 h-4" />
+            <ChevronLeft className="w-5 h-5" />
           </Button>
 
           <Button
             variant="outline"
             size="icon"
             onClick={nextService}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background border-border z-10 hidden lg:flex"
+            disabled={isTransitioning}
+            className="absolute -right-6 top-1/2 -translate-y-1/2 bg-background/95 hover:bg-background border-border shadow-md z-20 hidden lg:flex disabled:opacity-50"
           >
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="w-5 h-5" />
           </Button>
 
+          {/* Dot indicators */}
+          <div className="flex justify-center gap-2 mt-8">
+            {services.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToService(index)}
+                disabled={isTransitioning}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === currentServiceIndex 
+                    ? 'bg-primary scale-125' 
+                    : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                }`}
+              />
+            ))}
+          </div>
+
           {/* Mobile Navigation */}
-          <div className="flex justify-center gap-4 mt-8 lg:hidden">
-            <Button variant="outline" onClick={prevService}>
+          <div className="flex justify-center gap-4 mt-6 lg:hidden">
+            <Button 
+              variant="outline" 
+              onClick={prevService}
+              disabled={isTransitioning}
+              className="disabled:opacity-50"
+            >
               <ChevronLeft className="w-4 h-4 mr-2" />
               Anterior
             </Button>
-            <Button variant="outline" onClick={nextService}>
+            <Button 
+              variant="outline" 
+              onClick={nextService}
+              disabled={isTransitioning}
+              className="disabled:opacity-50"
+            >
               Próximo
               <ChevronRight className="w-4 h-4 ml-2" />
             </Button>
