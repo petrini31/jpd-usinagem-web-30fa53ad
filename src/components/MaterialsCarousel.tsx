@@ -57,7 +57,7 @@ const MaterialsCarousel = () => {
     }
   ];
 
-  // Auto-slide functionality with right slide animation
+  // Auto-slide functionality with smooth loop
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % materials.length);
@@ -80,11 +80,17 @@ const MaterialsCarousel = () => {
 
   return (
     <div className="relative bg-secondary rounded-lg overflow-hidden">
-      {/* Carousel Container */}
+      {/* Carousel Container with smooth loop */}
       <div className="relative h-96 md:h-80">
-        <div className="flex transition-transform duration-500 ease-in-out h-full" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+        <div 
+          className="flex transition-transform duration-500 ease-in-out h-full" 
+          style={{ 
+            transform: `translateX(-${currentIndex * 100}%)`,
+            width: `${materials.length * 100}%`
+          }}
+        >
           {materials.map((material, index) => (
-            <div key={index} className="w-full flex-shrink-0">
+            <div key={index} className="w-full flex-shrink-0" style={{ width: `${100 / materials.length}%` }}>
               <div className="flex h-full">
                 {/* Image Section */}
                 <div className="w-1/2 relative">

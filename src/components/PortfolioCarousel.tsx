@@ -64,10 +64,10 @@ const PortfolioCarousel = () => {
 
   return (
     <div className="relative">
-      <div className="flex items-center justify-center gap-6">
-        {/* Previous Image - Clickable */}
+      <div className="flex items-center justify-center gap-4">
+        {/* Previous Image - Clickable and larger */}
         <div 
-          className="w-32 h-32 md:w-40 md:h-40 opacity-60 rounded-lg overflow-hidden transform scale-75 cursor-pointer hover:opacity-80 transition-all duration-300"
+          className="w-48 h-48 md:w-56 md:h-56 opacity-60 rounded-lg overflow-hidden transform scale-75 cursor-pointer hover:opacity-80 transition-all duration-300"
           onClick={prevSlide}
         >
           <img
@@ -77,8 +77,8 @@ const PortfolioCarousel = () => {
           />
         </div>
 
-        {/* Current Image - Highlighted */}
-        <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-lg overflow-hidden shadow-strong transform scale-100 transition-all duration-500">
+        {/* Current Image - Highlighted and larger */}
+        <div className="relative w-80 h-80 md:w-96 md:h-96 rounded-lg overflow-hidden shadow-strong transform scale-100 transition-all duration-500">
           <img
             src={portfolioImages[currentIndex].image}
             alt={portfolioImages[currentIndex].title}
@@ -92,9 +92,9 @@ const PortfolioCarousel = () => {
           </div>
         </div>
 
-        {/* Next Image - Clickable */}
+        {/* Next Image - Clickable and larger */}
         <div 
-          className="w-32 h-32 md:w-40 md:h-40 opacity-60 rounded-lg overflow-hidden transform scale-75 cursor-pointer hover:opacity-80 transition-all duration-300"
+          className="w-48 h-48 md:w-56 md:h-56 opacity-60 rounded-lg overflow-hidden transform scale-75 cursor-pointer hover:opacity-80 transition-all duration-300"
           onClick={nextSlide}
         >
           <img
@@ -110,7 +110,7 @@ const PortfolioCarousel = () => {
         variant="outline"
         size="icon"
         onClick={prevSlide}
-        className="absolute left-8 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background border-border"
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background border-border"
       >
         <ChevronLeft className="w-4 h-4" />
       </Button>
@@ -119,7 +119,7 @@ const PortfolioCarousel = () => {
         variant="outline"
         size="icon"
         onClick={nextSlide}
-        className="absolute right-8 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background border-border"
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background border-border"
       >
         <ChevronRight className="w-4 h-4" />
       </Button>

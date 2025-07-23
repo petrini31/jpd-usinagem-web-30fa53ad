@@ -1,5 +1,5 @@
 
-import { ExternalLink, Camera } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PortfolioCarousel from "./PortfolioCarousel";
 
@@ -49,41 +49,24 @@ const Portfolio = () => {
         </div>
 
         {/* Mini Gallery */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-foreground mb-8 text-center">
+        <div className="mb-12">
+          <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
             Galeria Completa de Projetos
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <div className="grid grid-cols-3 md:grid-cols-4 gap-3 mb-6 max-w-4xl mx-auto">
             {miniGalleryImages.map((image, index) => (
               <div key={index} className="group cursor-pointer overflow-hidden rounded-lg shadow-soft hover:shadow-medium transition-all duration-300">
                 <img
                   src={image}
                   alt={`Projeto ${index + 1}`}
-                  className="w-full h-24 md:h-32 object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-20 md:h-24 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Call to Action */}
-        <div className="bg-gradient-to-br from-secondary/50 via-background to-secondary/30 rounded-lg p-12 text-center animate-fade-in">
-          <div className="max-w-3xl mx-auto">
-            <div className="mb-8 inline-flex items-center justify-center w-32 h-32 bg-gradient-primary rounded-full shadow-strong">
-              <Camera className="w-16 h-16 text-primary-foreground" />
-            </div>
-            
-            <h3 className="text-3xl font-bold text-foreground mb-6">
-              Explore Nossos Projetos Completos
-            </h3>
-            
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Acesse nossa galeria completa com dezenas de projetos executados, 
-              incluindo peças usinadas com precisão micrométrica, cilindros pneumáticos 
-              personalizados e soluções industriais inovadoras desenvolvidas para 
-              nossos clientes ao longo dos anos.
-            </p>
-            
+          
+          {/* Call to Action Button */}
+          <div className="text-center mb-8">
             <Button 
               size="lg"
               onClick={openPortfolio}
@@ -92,6 +75,22 @@ const Portfolio = () => {
               Visualizar Portfólio Completo
               <ExternalLink className="w-5 h-5 ml-2" />
             </Button>
+          </div>
+        </div>
+
+        {/* Description */}
+        <div className="bg-gradient-to-br from-secondary/50 via-background to-secondary/30 rounded-lg p-8 text-center animate-fade-in">
+          <div className="max-w-3xl mx-auto">
+            <h3 className="text-2xl font-bold text-foreground mb-4">
+              Explore Nossos Projetos Completos
+            </h3>
+            
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Acesse nossa galeria completa com dezenas de projetos executados, 
+              incluindo peças usinadas com precisão micrométrica, cilindros pneumáticos 
+              personalizados e soluções industriais inovadoras desenvolvidas para 
+              nossos clientes ao longo dos anos.
+            </p>
             
             <p className="text-sm text-muted-foreground mt-4">
               * Abre em nova aba para melhor visualização
