@@ -1,6 +1,6 @@
 
 import { useState, useMemo, useCallback } from "react";
-import { Settings, Wrench, Cog, ArrowRight, PenTool, RefreshCw, ChevronLeft, ChevronRight } from "lucide-react";
+import { Settings, Wrench, Cog, ArrowRight, PenTool, RefreshCw, ChevronLeft, ChevronRight, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -253,20 +253,49 @@ const Services = () => {
           "Embalagens especiais"
         ]
       }
+    },
+    {
+      id: 'retifica',
+      icon: Zap,
+      title: "Retificação de Precisão",
+      description: "Serviços de retificação de alta precisão para acabamento superficial superior e tolerâncias extremamente rigorosas em diversas geometrias.",
+      image: qualityComponentsImage,
+      details: [
+        "Retífica cilíndrica e plana",
+        "Tolerâncias micrométricas",
+        "Acabamento superficial espelhado",
+        "Peças temperadas e endurecidas"
+      ],
+      modalContent: {
+        overview: "Nossa retificação de precisão garante acabamentos superficiais excepcionais e tolerâncias dimensionais extremamente rigorosas para as aplicações mais exigentes.",
+        benefits: [
+          "Precisão dimensional micrométrica",
+          "Acabamento superficial superior",
+          "Capacidade para materiais endurecidos",
+          "Geometrias cilíndricas e planas",
+          "Controle rigoroso de qualidade"
+        ],
+        applications: [
+          "Componentes de precisão",
+          "Peças para instrumentos",
+          "Elementos de máquinas",
+          "Ferramentas de corte"
+        ]
+      }
     }
   ];
 
   const nextService = useCallback(() => {
     if (isTransitioning) return;
     setIsTransitioning(true);
-    setCurrentServiceIndex((prev) => (prev + 1) % services.length);
+    setCurrentServiceIndex((prev) => (prev + 3) % services.length);
     setTimeout(() => setIsTransitioning(false), 500);
   }, [isTransitioning, services.length]);
 
   const prevService = useCallback(() => {
     if (isTransitioning) return;
     setIsTransitioning(true);
-    setCurrentServiceIndex((prev) => (prev - 1 + services.length) % services.length);
+    setCurrentServiceIndex((prev) => (prev - 3 + services.length) % services.length);
     setTimeout(() => setIsTransitioning(false), 500);
   }, [isTransitioning, services.length]);
 
@@ -277,7 +306,7 @@ const Services = () => {
     setTimeout(() => setIsTransitioning(false), 500);
   }, [isTransitioning, currentServiceIndex]);
 
-  // Gerar todos os 8 cards para evitar re-renderização
+  // Gerar todos os 9 cards para evitar re-renderização
   const allServiceCards = useMemo(() => services.map((service) => (
     <Card 
       key={service.id}
@@ -348,7 +377,7 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Services Carousel */}
+        {/* Services Carousel - Now showing 3 cards at a time */}
         <div className="relative mb-16 px-8">
           <div className="overflow-hidden">
             <div 
@@ -393,13 +422,13 @@ const Services = () => {
 
           {/* Dot indicators */}
           <div className="flex justify-center gap-2 mt-8">
-            {services.map((_, index) => (
+            {Array.from({ length: Math.ceil(services.length / 3) }).map((_, index) => (
               <button
                 key={index}
-                onClick={() => goToService(index)}
+                onClick={() => goToService(index * 3)}
                 disabled={isTransitioning}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === currentServiceIndex 
+                  Math.floor(currentServiceIndex / 3) === index 
                     ? 'bg-primary scale-125' 
                     : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
                 }`}

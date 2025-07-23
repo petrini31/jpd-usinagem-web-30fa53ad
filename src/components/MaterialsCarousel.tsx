@@ -82,10 +82,6 @@ const MaterialsCarousel = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + materials.length) % materials.length);
   };
 
-  const goToSlide = (index: number) => {
-    setCurrentIndex(index);
-  };
-
   return (
     <div className="relative bg-secondary rounded-lg overflow-hidden">
       {/* Carousel Container */}
@@ -144,19 +140,6 @@ const MaterialsCarousel = () => {
       >
         <ChevronRight className="w-4 h-4" />
       </Button>
-
-      {/* Dots Indicator */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
-        {materials.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-2 h-2 rounded-full transition-colors ${
-              index === currentIndex ? 'bg-primary' : 'bg-muted-foreground/50'
-            }`}
-          />
-        ))}
-      </div>
     </div>
   );
 };
