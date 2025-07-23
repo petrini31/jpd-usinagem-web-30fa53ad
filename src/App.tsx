@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import PortfolioFull from "./pages/PortfolioFull";
+import PneumaticaFull from "./pages/PneumaticaFull";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -19,7 +20,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/portfolio-full" element={<PortfolioFull />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/pneumatica" element={<PneumaticaFull />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

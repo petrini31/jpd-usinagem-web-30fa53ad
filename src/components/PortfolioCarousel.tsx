@@ -58,11 +58,18 @@ const PortfolioCarousel = () => {
   const getPrevIndex = () => (currentIndex - 1 + portfolioImages.length) % portfolioImages.length;
   const getNextIndex = () => (currentIndex + 1) % portfolioImages.length;
 
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+
   return (
     <div className="relative">
-      <div className="flex items-center justify-center gap-4">
-        {/* Previous Image */}
-        <div className="w-24 h-24 md:w-32 md:h-32 opacity-50 rounded-lg overflow-hidden transform scale-75">
+      <div className="flex items-center justify-center gap-6">
+        {/* Previous Image - Clickable */}
+        <div 
+          className="w-32 h-32 md:w-40 md:h-40 opacity-60 rounded-lg overflow-hidden transform scale-75 cursor-pointer hover:opacity-80 transition-all duration-300"
+          onClick={prevSlide}
+        >
           <img
             src={portfolioImages[getPrevIndex()].image}
             alt={portfolioImages[getPrevIndex()].title}
@@ -71,7 +78,7 @@ const PortfolioCarousel = () => {
         </div>
 
         {/* Current Image - Highlighted */}
-        <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-lg overflow-hidden shadow-strong transform scale-100 transition-all duration-500">
+        <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-lg overflow-hidden shadow-strong transform scale-100 transition-all duration-500">
           <img
             src={portfolioImages[currentIndex].image}
             alt={portfolioImages[currentIndex].title}
@@ -79,14 +86,17 @@ const PortfolioCarousel = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
           <div className="absolute bottom-4 left-4 right-4">
-            <h4 className="text-white font-bold text-lg mb-1">
+            <h4 className="text-white font-bold text-xl mb-1">
               {portfolioImages[currentIndex].title}
             </h4>
           </div>
         </div>
 
-        {/* Next Image */}
-        <div className="w-24 h-24 md:w-32 md:h-32 opacity-50 rounded-lg overflow-hidden transform scale-75">
+        {/* Next Image - Clickable */}
+        <div 
+          className="w-32 h-32 md:w-40 md:h-40 opacity-60 rounded-lg overflow-hidden transform scale-75 cursor-pointer hover:opacity-80 transition-all duration-300"
+          onClick={nextSlide}
+        >
           <img
             src={portfolioImages[getNextIndex()].image}
             alt={portfolioImages[getNextIndex()].title}
@@ -95,12 +105,12 @@ const PortfolioCarousel = () => {
         </div>
       </div>
 
-      {/* Navigation Buttons */}
+      {/* Navigation Buttons - Closer to images */}
       <Button
         variant="outline"
         size="icon"
         onClick={prevSlide}
-        className="absolute left-0 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background border-border"
+        className="absolute left-8 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background border-border"
       >
         <ChevronLeft className="w-4 h-4" />
       </Button>
@@ -109,7 +119,7 @@ const PortfolioCarousel = () => {
         variant="outline"
         size="icon"
         onClick={nextSlide}
-        className="absolute right-0 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background border-border"
+        className="absolute right-8 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background border-border"
       >
         <ChevronRight className="w-4 h-4" />
       </Button>
@@ -119,7 +129,7 @@ const PortfolioCarousel = () => {
         {portfolioImages.map((_, index) => (
           <button
             key={index}
-            onClick={() => setCurrentIndex(index)}
+            onClick={() => goToSlide(index)}
             className={`w-2 h-2 rounded-full transition-colors ${
               index === currentIndex ? 'bg-primary' : 'bg-muted-foreground/50'
             }`}

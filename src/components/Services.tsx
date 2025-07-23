@@ -1,17 +1,17 @@
 
 import { useState } from "react";
-import { Settings, Wrench, Cog, ArrowRight, PenTool } from "lucide-react";
+import { Settings, Wrench, Cog, ArrowRight, PenTool, RefreshCw, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import MaterialsCarousel from "./MaterialsCarousel";
-import ServicesCarousel from "./ServicesCarousel";
 import precisionPartsImage from "@/assets/precision-parts.jpg";
 import manufacturingProcessImage from "@/assets/manufacturing-process.jpg";
 import qualityComponentsImage from "@/assets/quality-components.jpg";
 
 const Services = () => {
   const [selectedService, setSelectedService] = useState<any>(null);
+  const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
   
   const scrollToContact = () => {
     const element = document.getElementById('contato');
@@ -104,14 +104,171 @@ const Services = () => {
           "Máquinas especiais"
         ]
       }
+    },
+    {
+      icon: Settings,
+      title: "Torneamento",
+      description: "Serviços de torneamento de alta precisão para peças cilíndricas e complexas, garantindo tolerâncias rigorosas e acabamento superior.",
+      image: precisionPartsImage,
+      details: [
+        "Torneamento CNC de alta precisão",
+        "Peças cilíndricas e cônicas complexas",
+        "Tolerâncias micrométricas",
+        "Acabamento superficial excepcional"
+      ],
+      modalContent: {
+        overview: "Nossos serviços de torneamento utilizam tecnologia CNC avançada para produzir peças cilíndricas com precisão excepcional e acabamento superior.",
+        benefits: [
+          "Precisão dimensional micrométrica",
+          "Capacidade para geometrias complexas",
+          "Controle rigoroso de tolerâncias",
+          "Acabamento superficial de alta qualidade",
+          "Programação CNC otimizada"
+        ],
+        applications: [
+          "Eixos e árvores",
+          "Buchas e casquilhos",
+          "Pinos e parafusos especiais",
+          "Componentes rotativos"
+        ]
+      }
+    },
+    {
+      icon: Wrench,
+      title: "Fresamento",
+      description: "Usinagem de precisão através de fresamento CNC para componentes com geometrias variadas, superfícies planas e detalhes intrincados.",
+      image: manufacturingProcessImage,
+      details: [
+        "Fresamento CNC multi-eixos",
+        "Geometrias complexas e variadas",
+        "Superfícies planas e curvas",
+        "Detalhes intrincados e precisos"
+      ],
+      modalContent: {
+        overview: "Nosso fresamento CNC oferece versatilidade excepcional para produzir peças com geometrias complexas e detalhes intrincados.",
+        benefits: [
+          "Fresamento multi-eixos avançado",
+          "Capacidade para formas complexas",
+          "Precisão em superfícies planas e curvas",
+          "Detalhamento fino e preciso",
+          "Programação CAM otimizada"
+        ],
+        applications: [
+          "Moldes e matrizes",
+          "Carcaças e chassi",
+          "Flanges e bases",
+          "Componentes aeroespaciais"
+        ]
+      }
+    },
+    {
+      icon: RefreshCw,
+      title: "Manutenção e Recuperação de Peças",
+      description: "Soluções especializadas em manutenção e recuperação de peças industriais, prolongando a vida útil e restaurando a funcionalidade original.",
+      image: qualityComponentsImage,
+      details: [
+        "Análise técnica de desgaste",
+        "Recuperação dimensional",
+        "Soldagem e retífica especializada",
+        "Testes de funcionalidade"
+      ],
+      modalContent: {
+        overview: "Oferecemos serviços especializados de manutenção e recuperação, restaurando peças industriais com precisão e confiabilidade.",
+        benefits: [
+          "Diagnóstico preciso de problemas",
+          "Técnicas avançadas de recuperação",
+          "Soldagem especializada",
+          "Testes rigorosos de qualidade",
+          "Redução de custos operacionais"
+        ],
+        applications: [
+          "Equipamentos industriais",
+          "Máquinas de produção",
+          "Componentes hidráulicos",
+          "Peças de reposição"
+        ]
+      }
+    },
+    {
+      icon: Cog,
+      title: "Fabricação de Ferramentais e Dispositivos",
+      description: "Desenvolvimento e fabricação de ferramentais, gabaritos e dispositivos customizados para otimizar processos de produção e garantir a repetibilidade.",
+      image: precisionPartsImage,
+      details: [
+        "Ferramentais sob medida",
+        "Gabaritos de montagem",
+        "Dispositivos de fixação",
+        "Otimização de processos"
+      ],
+      modalContent: {
+        overview: "Desenvolvemos ferramentais e dispositivos personalizados que otimizam processos produtivos e garantem repetibilidade excepcional.",
+        benefits: [
+          "Projeto customizado para aplicação específica",
+          "Otimização de tempos de produção",
+          "Garantia de repetibilidade",
+          "Redução de retrabalho",
+          "Melhoria da qualidade final"
+        ],
+        applications: [
+          "Linhas de produção",
+          "Processos de montagem",
+          "Controle de qualidade",
+          "Automação industrial"
+        ]
+      }
+    },
+    {
+      icon: PenTool,
+      title: "Especialistas em Moldes",
+      description: "Expertise na fabricação de moldes de injeção e estampo, com foco em precisão, durabilidade e eficiência para a indústria de transformação.",
+      image: manufacturingProcessImage,
+      details: [
+        "Moldes de injeção de precisão",
+        "Moldes de estampo",
+        "Projeto e fabricação completa",
+        "Testes e validação"
+      ],
+      modalContent: {
+        overview: "Nossa expertise em moldes combina design avançado com fabricação de precisão para atender às demandas da indústria de transformação.",
+        benefits: [
+          "Design otimizado para eficiência",
+          "Precisão dimensional excepcional",
+          "Materiais de alta durabilidade",
+          "Testes rigorosos de funcionalidade",
+          "Suporte técnico especializado"
+        ],
+        applications: [
+          "Indústria plástica",
+          "Componentes automotivos",
+          "Produtos eletrônicos",
+          "Embalagens especiais"
+        ]
+      }
     }
   ];
+
+  const nextService = () => {
+    setCurrentServiceIndex((prev) => (prev + 1) % services.length);
+  };
+
+  const prevService = () => {
+    setCurrentServiceIndex((prev) => (prev - 1 + services.length) % services.length);
+  };
+
+  const getVisibleServices = () => {
+    const result = [];
+    for (let i = 0; i < 3; i++) {
+      const index = (currentServiceIndex + i) % services.length;
+      result.push(services[index]);
+    }
+    return result;
+  };
 
   return (
     <section id="servicos" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        {/* Header - Right aligned with left text alignment */}
-        <div className="flex justify-end mb-16 animate-fade-in">
+        {/* Header - Left aligned */}
+        <div className="mb-16 animate-fade-in">
           <div className="max-w-2xl text-left">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
               Nossos <span className="text-primary">Serviços</span>
@@ -123,70 +280,95 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Main Services Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-          {services.map((service, index) => (
-            <Card 
-              key={index} 
-              className="group hover:shadow-medium transition-all duration-300 border border-border/50 animate-slide-up"
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
-              <div className="relative overflow-hidden">
-                <img 
-                  src={service.image} 
-                  alt={service.title}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute top-4 left-4">
-                  <service.icon className="w-8 h-8 text-white" />
+        {/* Services Carousel */}
+        <div className="relative mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {getVisibleServices().map((service, index) => (
+              <Card 
+                key={`${service.title}-${currentServiceIndex}-${index}`}
+                className="group hover:shadow-medium transition-all duration-300 border border-border/50 animate-slide-up"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <div className="relative overflow-hidden">
+                  <img 
+                    src={service.image} 
+                    alt={service.title}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <service.icon className="w-8 h-8 text-white" />
+                  </div>
                 </div>
-              </div>
-              
-              <CardHeader>
-                <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors">
-                  {service.title}
-                </CardTitle>
-                <CardDescription className="text-muted-foreground">
-                  {service.description}
-                </CardDescription>
-              </CardHeader>
-
-              <CardContent>
-                <ul className="space-y-2 mb-6">
-                  {service.details.map((detail, detailIndex) => (
-                    <li key={detailIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <ArrowRight className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                      {detail}
-                    </li>
-                  ))}
-                </ul>
                 
-                <div className="flex gap-2">
-                  <Button 
-                    onClick={scrollToContact}
-                    className="flex-1 bg-primary text-primary-foreground hover:bg-primary-dark transition-colors"
-                  >
-                    Solicitar Orçamento
-                  </Button>
-                  <Button 
-                    variant="outline"
-                    onClick={() => setSelectedService(service)}
-                    className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-                  >
-                    Ver Detalhes
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+                <CardHeader>
+                  <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors">
+                    {service.title}
+                  </CardTitle>
+                  <CardDescription className="text-muted-foreground">
+                    {service.description}
+                  </CardDescription>
+                </CardHeader>
 
-        {/* Additional Services Carousel */}
-        <div className="mb-16 animate-fade-in">
-          <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
-            Outros Serviços Especializados
-          </h3>
-          <ServicesCarousel />
+                <CardContent>
+                  <ul className="space-y-2 mb-6">
+                    {service.details.map((detail, detailIndex) => (
+                      <li key={detailIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <ArrowRight className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                        {detail}
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  <div className="flex gap-2">
+                    <Button 
+                      onClick={scrollToContact}
+                      className="flex-1 bg-primary text-primary-foreground hover:bg-primary-dark transition-colors"
+                    >
+                      Solicitar Orçamento
+                    </Button>
+                    <Button 
+                      variant="outline"
+                      onClick={() => setSelectedService(service)}
+                      className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                    >
+                      Ver Detalhes
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Navigation Arrows */}
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={prevService}
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background border-border z-10 hidden lg:flex"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </Button>
+
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={nextService}
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background border-border z-10 hidden lg:flex"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </Button>
+
+          {/* Mobile Navigation */}
+          <div className="flex justify-center gap-4 mt-8 lg:hidden">
+            <Button variant="outline" onClick={prevService}>
+              <ChevronLeft className="w-4 h-4 mr-2" />
+              Anterior
+            </Button>
+            <Button variant="outline" onClick={nextService}>
+              Próximo
+              <ChevronRight className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
         </div>
 
         {/* Materials Section */}
