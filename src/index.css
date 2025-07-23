@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -60,19 +61,12 @@ All colors MUST be HSL.
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -127,15 +121,37 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
-body {
+  body {
     @apply bg-background text-foreground;
     font-family: 'Inter', system-ui, sans-serif;
     line-height: 1.6;
   }
 
   .container {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+}
+
+/* Materials Carousel Responsive Styles */
+@media (max-width: 768px) {
+  .materials-carousel .flex {
+    flex-direction: column;
+  }
+  
+  .materials-carousel .w-1\/2 {
+    width: 100%;
+  }
+  
+  .materials-carousel .p-8 {
+    padding: 1.5rem;
   }
 }
 
@@ -199,4 +215,45 @@ body {
     linear-gradient(to right, hsl(var(--border)) 1px, transparent 1px),
     linear-gradient(to bottom, hsl(var(--border)) 1px, transparent 1px);
   background-size: 20px 20px;
+}
+
+/* Animation utilities */
+.animate-precision-sweep {
+  animation: precision-sweep 10s ease-in-out infinite;
+}
+
+.animate-cnc-rotate {
+  animation: cnc-rotate 20s linear infinite;
+}
+
+.animate-gear-spin {
+  animation: gear-spin 15s linear infinite;
+}
+
+.animate-industrial-pulse {
+  animation: industrial-pulse 3s ease-in-out infinite;
+}
+
+.animate-machinery-move {
+  animation: machinery-move 6s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.8s ease-out;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-accordion-down {
+  animation: accordion-down 0.3s ease-out;
 }
