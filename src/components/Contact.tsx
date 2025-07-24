@@ -1,31 +1,23 @@
 import { Phone, Mail, MapPin, Clock, Navigation } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-
 const Contact = () => {
-
-  const contactInfo = [
-    {
-      icon: Phone,
-      title: "Telefone",
-      value: "(11) 95827-4054",
-      link: "tel:+5511958274054"
-    },
-    {
-      icon: Mail,
-      title: "E-mail",
-      value: "comercial@jpdusinagem.com.br",
-      link: "mailto:comercial@jpdusinagem.com.br"
-    },
-    {
-      icon: MapPin,
-      title: "Endereço",
-      value: "R. Uruguai, 573 - Parque das Hortênsias\nBom Jesus dos Perdões - SP",
-      link: "https://maps.google.com/?q=R.+Uruguai,+573+Bom+Jesus+dos+Perdões+SP"
-    }
-  ];
-
-  return (
-    <section id="contato" className="py-20 bg-gradient-to-b from-secondary/30 to-background">
+  const contactInfo = [{
+    icon: Phone,
+    title: "Telefone",
+    value: "(11) 95827-4054",
+    link: "tel:+5511958274054"
+  }, {
+    icon: Mail,
+    title: "E-mail",
+    value: "comercial@jpdusinagem.com.br",
+    link: "mailto:comercial@jpdusinagem.com.br"
+  }, {
+    icon: MapPin,
+    title: "Endereço",
+    value: "R. Uruguai, 573 - Parque das Hortênsias\nBom Jesus dos Perdões - SP",
+    link: "https://maps.google.com/?q=R.+Uruguai,+573+Bom+Jesus+dos+Perdões+SP"
+  }];
+  return <section id="contato" className="py-20 bg-gradient-to-b from-secondary/30 to-background">
       <div className="container mx-auto px-4">
           {/* Header */}
         <div className="text-left mb-16 animate-fade-in">
@@ -52,11 +44,7 @@ const Contact = () => {
             </div>
             
             <div className="space-y-6">
-              {contactInfo.map((info, index) => (
-                <Card 
-                  key={index} 
-                  className="group hover:shadow-medium transition-all duration-300 border border-border/50 hover:border-primary/30"
-                >
+              {contactInfo.map((info, index) => <Card key={index} className="group hover:shadow-medium transition-all duration-300 border border-border/50 hover:border-primary/30">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-5">
                       <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-primary rounded-full group-hover:scale-110 transition-transform duration-300 shadow-soft">
@@ -66,31 +54,23 @@ const Contact = () => {
                         <h4 className="text-xl font-semibold text-foreground mb-3">
                           {info.title}
                         </h4>
-                        {info.link ? (
-                          <a 
-                            href={info.link}
-                            className="text-muted-foreground hover:text-primary transition-colors whitespace-pre-line text-lg"
-                            target={info.link.startsWith('http') ? '_blank' : undefined}
-                            rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                          >
+                        {info.link ? <a href={info.link} className="text-muted-foreground hover:text-primary transition-colors whitespace-pre-line text-lg" target={info.link.startsWith('http') ? '_blank' : undefined} rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}>
                             {info.value}
-                          </a>
-                        ) : (
-                          <p className="text-muted-foreground whitespace-pre-line text-lg">
+                          </a> : <p className="text-muted-foreground whitespace-pre-line text-lg">
                             {info.value}
-                          </p>
-                        )}
+                          </p>}
                       </div>
                     </div>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
 
           </div>
 
           {/* Map and Location */}
-          <div className="space-y-8 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+          <div className="space-y-8 animate-slide-up" style={{
+          animationDelay: '0.2s'
+        }}>
             <div>
               <h3 className="text-3xl font-bold text-foreground mb-6">
                 Nossa Localização
@@ -105,41 +85,12 @@ const Contact = () => {
             <Card className="overflow-hidden shadow-strong animate-fade-in">
               <CardContent className="p-0">
                 <div className="relative h-96">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.5668524987877!2d-46.4590534!3d-23.1776885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf27b8f00f15b7%3A0x7c0f4c4c4c4c4c4c!2sR.%20Uruguai%2C%20573%20-%20Parque%20das%20Hort%C3%AAncias%2C%20Bom%20Jesus%20dos%20Perd%C3%B5es%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1234567890123!5m2!1spt-BR!2sbr"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    className="w-full h-full"
-                  ></iframe>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.5668524987877!2d-46.4590534!3d-23.1776885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf27b8f00f15b7%3A0x7c0f4c4c4c4c4c4c!2sR.%20Uruguai%2C%20573%20-%20Parque%20das%20Hort%C3%AAncias%2C%20Bom%20Jesus%20dos%20Perd%C3%B5es%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1234567890123!5m2!1spt-BR!2sbr" width="100%" height="100%" style={{
+                  border: 0
+                }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="w-full h-full"></iframe>
                   
                   {/* Map overlay with business info */}
-                  <div className="absolute bottom-4 left-4 right-4 bg-card/95 backdrop-blur-sm rounded-lg p-4 border border-border/50">
-                    <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
-                        <MapPin className="w-5 h-5 text-primary-foreground" />
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-foreground mb-1">JPD Usinagem CNC</h4>
-                        <p className="text-sm text-muted-foreground">
-                          R. Uruguai, 573 - Parque das Hortênsias<br />
-                          Bom Jesus dos Perdões - SP
-                        </p>
-                        <a 
-                          href="https://maps.google.com/?q=R.+Uruguai,+573+Bom+Jesus+dos+Perdões+SP"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-primary hover:text-primary-light transition-colors text-sm mt-2"
-                        >
-                          <Navigation className="w-4 h-4" />
-                          Ver no Google Maps
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+                  
                 </div>
               </CardContent>
             </Card>
@@ -147,8 +98,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
