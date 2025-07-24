@@ -31,7 +31,7 @@ const MarketSectors = () => {
       icon: Building,
       title: "Indústria Automotiva",
       description: "Peças para motores (blocos, cabeçotes, virabrequins, bielas), transmissões (engrenagens, eixos), sistemas de freio e suspensão, componentes de chassi, moldes e ferramentas para fabricação.",
-      image: automotiva
+      image: "/lovable-uploads/5638b740-4342-45eb-969b-448b05b94de6.png"
     },
     {
       id: 'aeroespacial',
@@ -52,14 +52,14 @@ const MarketSectors = () => {
       icon: Cog,
       title: "Indústria de Máquinas e Equipamentos",
       description: "Fabricantes de máquinas para os mais diversos fins (agrícolas, construção civil, mineração, têxtil, alimentícia, embalagens, metalúrgicas, etc.). Produzem engrenagens, eixos, rolamentos, estruturas, carcaças, cilindros hidráulicos e pneumáticos.",
-      image: maquinasEquipamentos
+      image: "/lovable-uploads/e79e8c62-1973-478e-954c-f09ca8537ee9.png"
     },
     {
       id: 'petroleo-gas',
       icon: Droplet,
       title: "Indústria de Petróleo e Gás",
       description: "Componentes para válvulas, bombas, conectores, flanges, tubulações de alta pressão, equipamentos de perfuração e extração, peças para plataformas offshore e refinarias que exigem alta resistência e durabilidade.",
-      image: petroleoGas
+      image: "/lovable-uploads/afa09700-1d44-421c-8f80-0193e60c36c5.png"
     },
     {
       id: 'medica-odontologica',
@@ -73,7 +73,7 @@ const MarketSectors = () => {
       icon: Zap,
       title: "Indústria de Energia",
       description: "Peças para turbinas (eólicas, hidrelétricas, a gás, a vapor), geradores, eixos, componentes de válvulas e estruturas de suporte para usinas eólicas e termelétricas.",
-      image: energia
+      image: "/lovable-uploads/cd60eb6e-1563-47be-81b1-286adaad8437.png"
     },
     {
       id: 'geotecnica',
@@ -108,7 +108,7 @@ const MarketSectors = () => {
       icon: Utensils,
       title: "Indústria Alimentícia",
       description: "Peças para máquinas de processamento, envase e embalagem, componentes para tanques e tubulações, que exigem materiais sanitários (como aço inoxidável) e acabamento superficial impecável para evitar contaminação.",
-      image: alimenticia
+      image: "/lovable-uploads/eeeddc39-48f2-4bee-b4fa-0dd26658ae19.png"
     }
   ];
 
