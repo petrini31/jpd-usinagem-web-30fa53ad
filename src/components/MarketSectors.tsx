@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, Building, Plane, Pill, Cog, Droplet, Heart, 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 // Import das novas imagens dos serviços
-const automotiva = "/assets/5638b740-4342-45eb-969b-448b05b94de6.jpg";
+const automotiva = "/lovable-uploads/5638b740-4342-45eb-969b-448b05b94de6.png";
 
 const MarketSectors = () => {
   const [currentBlockIndex, setCurrentBlockIndex] = useState(0);
