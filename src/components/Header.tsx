@@ -1,10 +1,11 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('servicos');
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -16,11 +17,31 @@ const Header = () => {
 
   const menuItems = [
     { id: 'servicos', label: 'Serviços' },
-    { id: 'empresa', label: 'A Empresa' },
-    { id: 'pneumatica', label: 'Pneumática' },
     { id: 'portfolio', label: 'Portfólio' },
+    { id: 'pneumatica', label: 'Pneumática' },
+    { id: 'empresa', label: 'Sobre' },
     { id: 'contato', label: 'Contato' }
   ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['servicos', 'portfolio', 'pneumatica', 'empresa', 'contato'];
+      const scrollPosition = window.scrollY + 100;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const element = document.getElementById(sections[i]);
+        if (element && element.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i]);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Call once to set initial state
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <header className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
@@ -41,9 +62,14 @@ const Header = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-foreground hover:text-primary transition-colors font-medium"
+                  className={`relative text-foreground hover:text-primary transition-colors font-medium ${
+                    activeSection === item.id ? 'text-primary' : ''
+                  }`}
                 >
                   {item.label}
+                  {activeSection === item.id && (
+                    <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-red-500 transition-all duration-300" />
+                  )}
                 </button>
               ))}
             </nav>
