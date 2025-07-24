@@ -146,7 +146,6 @@ const MarketSectors = () => {
               className="flex transition-transform duration-500 ease-in-out"
               style={{ 
                 transform: `translateX(-${currentBlockIndex * 100}%)`,
-                width: `${sectorBlocks.length * 100}%`
               }}
             >
               {sectorBlocks.map((block, blockIndex) => (

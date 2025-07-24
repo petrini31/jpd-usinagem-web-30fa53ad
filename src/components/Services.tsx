@@ -255,28 +255,28 @@ const Services = () => {
       }
     },
     {
-      id: 'modelagem-3d',
-      icon: PenTool,
-      title: "Modelagem 3D e Desenho Técnico",
-      description: "Desenvolvimento completo de projetos em CAD/CAM com modelagem 3D avançada e programação CNC utilizando os softwares mais modernos.",
+      id: 'retifica',
+      icon: Zap,
+      title: "Retificação de Precisão",
+      description: "Serviços de retificação de alta precisão para acabamento superficial superior e tolerâncias extremamente rigorosas em diversas geometrias.",
       image: qualityComponentsImage,
       details: [
-        "SolidWorks para modelagem 3D",
-        "AutoCAD para desenhos técnicos",
-        "PowerMill para programação CNC",
-        "Mastercam para estratégias de usinagem"
+        "Retífica cilíndrica e plana",
+        "Tolerâncias micrométricas",
+        "Acabamento superficial espelhado",
+        "Peças temperadas e endurecidas"
       ],
       modalContent: {
-        overview: "Nossa equipe especializada utiliza os softwares mais avançados do mercado para desenvolvimento de projetos 3D, documentação técnica e programação CNC otimizada.",
+        overview: "Nossa retificação de precisão garante acabamentos superficiais excepcionais e tolerâncias dimensionais extremamente rigorosas para as aplicações mais exigentes.",
         benefits: [
-          "Modelagem 3D paramétrica avançada",
-          "Documentação técnica completa",
-          "Simulação de processos de usinagem",
-          "Otimização de trajetórias de ferramenta",
-          "Redução de tempo de setup e programação"
+          "Precisão dimensional micrométrica",
+          "Acabamento superficial superior",
+          "Capacidade para materiais endurecidos",
+          "Geometrias cilíndricas e planas",
+          "Controle rigoroso de qualidade"
         ],
         applications: [
-          "Desenvolvimento de protótipos",
+          "Componentes de precisão",
           "Peças para instrumentos",
           "Elementos de máquinas",
           "Ferramentas de corte"
@@ -338,7 +338,6 @@ const Services = () => {
               className="flex transition-transform duration-500 ease-in-out"
               style={{ 
                 transform: `translateX(-${currentBlockIndex * 100}%)`,
-                width: `${serviceBlocks.length * 100}%`
               }}
             >
               {serviceBlocks.map((block, blockIndex) => (

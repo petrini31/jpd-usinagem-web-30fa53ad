@@ -27,12 +27,12 @@ const Contact = () => {
   return (
     <section id="contato" className="py-20 bg-gradient-to-b from-secondary/30 to-background">
       <div className="container mx-auto px-4">
-        {/* Header - Alinhado à esquerda */}
-        <div className="text-left mb-16 animate-fade-in">
+          {/* Header */}
+        <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Entre em <span className="text-primary">Contato</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Estamos prontos para atender você. Entre em contato pelos canais abaixo ou 
             visite nossa sede em Bom Jesus dos Perdões.
           </p>
@@ -58,25 +58,25 @@ const Contact = () => {
                   className="group hover:shadow-medium transition-all duration-300 border border-border/50 hover:border-primary/30"
                 >
                   <CardContent className="p-6">
-                     <div className="flex items-start gap-4">
-                       <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-primary rounded-full group-hover:scale-110 transition-transform duration-300 shadow-soft">
-                         <info.icon className="w-6 h-6 text-primary-foreground" />
-                       </div>
-                       <div className="flex-1">
-                         <h4 className="text-lg font-semibold text-foreground mb-2">
-                           {info.title}
-                         </h4>
+                    <div className="flex items-start gap-5">
+                      <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-primary rounded-full group-hover:scale-110 transition-transform duration-300 shadow-soft">
+                        <info.icon className="w-7 h-7 text-primary-foreground" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-xl font-semibold text-foreground mb-3">
+                          {info.title}
+                        </h4>
                         {info.link ? (
-                           <a 
-                             href={info.link}
-                             className="text-muted-foreground hover:text-primary transition-colors whitespace-pre-line text-base"
+                          <a 
+                            href={info.link}
+                            className="text-muted-foreground hover:text-primary transition-colors whitespace-pre-line text-lg"
                             target={info.link.startsWith('http') ? '_blank' : undefined}
                             rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
                           >
                             {info.value}
                           </a>
                         ) : (
-                          <p className="text-muted-foreground whitespace-pre-line text-base">
+                          <p className="text-muted-foreground whitespace-pre-line text-lg">
                             {info.value}
                           </p>
                         )}

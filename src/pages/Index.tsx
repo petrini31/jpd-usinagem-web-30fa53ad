@@ -17,7 +17,6 @@ const Index = () => {
     <div className="min-h-screen">
       <Header />
       <Services />
-      <MarketSectors />
       
       {/* Primeira seção de scroll reveal */}
       <ScrollRevealSection 
@@ -28,6 +27,7 @@ const Index = () => {
       />
       
       <MaterialsCarousel />
+      <MarketSectors />
       <Portfolio />
       
       {/* Segunda seção de scroll reveal */}

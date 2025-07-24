@@ -113,15 +113,15 @@ const Portfolio = () => {
           <div className="bg-muted/20 p-4 rounded-lg" style={{ margin: '0 0.5cm' }}>
             <div className="grid grid-cols-5 gap-3">
               {galleryProjects.map((project) => (
-                <div key={project.id} className="group cursor-pointer overflow-hidden rounded-lg shadow-soft hover:shadow-medium transition-all duration-300 relative aspect-[4/3] border-2 border-muted/60">
+                <div key={project.id} className="group cursor-pointer overflow-hidden rounded-lg shadow-soft hover:shadow-medium transition-all duration-300 relative aspect-[4/3] border-2 border-red-500/40">
                   <img 
                     src={project.image} 
                     alt={project.title} 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
                   />
                   {/* Título sobreposto com degradê */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-3">
-                    <h4 className="text-white text-sm font-medium leading-tight">
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white via-white/80 to-transparent p-3">
+                    <h4 className="text-black text-sm font-medium leading-tight">
                       {project.title}
                     </h4>
                   </div>
