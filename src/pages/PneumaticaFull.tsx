@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useNavigate } from "react-router-dom";
 import QuoteModal from "@/components/QuoteModal";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const PneumaticaFull = () => {
   const navigate = useNavigate();
@@ -110,33 +111,50 @@ const PneumaticaFull = () => {
         <div className="absolute top-20 right-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 left-20 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
         
-        <div className="container mx-auto px-6 text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl font-bold mb-8 text-white">
-            Cilindros Pneumáticos <br />
-            <span className="text-white/90">de Alta Performance</span>
-          </h1>
-          <p className="text-xl mb-12 max-w-4xl mx-auto text-white/90 leading-relaxed">
-            Especialistas em desenvolvimento e fabricação de cilindros pneumáticos personalizados. 
-            Décadas de experiência em soluções pneumáticas que combinam precisão dimensional, 
-            durabilidade excepcional e performance superior para aplicações industriais exigentes.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              onClick={() => setIsQuoteModalOpen(true)}
-              size="lg"
-              className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-4"
-            >
-              Solicitar Projeto Personalizado
-            </Button>
-            <Button 
-              onClick={() => window.open('https://wa.me/5511958274054', '_blank')}
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-4"
-            >
-              <MessageCircle className="w-5 h-5 mr-2" />
-              WhatsApp
-            </Button>
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Text Content - Left Side */}
+            <div className="text-left">
+              <h1 className="text-5xl md:text-6xl font-bold mb-8 text-white">
+                Cilindros Pneumáticos <br />
+                <span className="text-white/90">de Alta Performance</span>
+              </h1>
+              <p className="text-xl mb-12 text-white/90 leading-relaxed">
+                Especialistas em desenvolvimento e fabricação de cilindros pneumáticos personalizados. 
+                Décadas de experiência em soluções pneumáticas que combinam precisão dimensional, 
+                durabilidade excepcional e performance superior para aplicações industriais exigentes.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  onClick={() => setIsQuoteModalOpen(true)}
+                  size="lg"
+                  className="bg-destructive text-destructive-foreground hover:bg-white hover:text-destructive text-lg px-8 py-4"
+                >
+                  Solicitar Projeto Personalizado
+                </Button>
+                <Button 
+                  onClick={() => window.open('https://wa.me/5511958274054', '_blank')}
+                  size="lg"
+                  className="bg-white text-destructive hover:bg-destructive hover:text-white text-lg px-8 py-4"
+                >
+                  <MessageCircle className="w-5 h-5 mr-2" />
+                  WhatsApp
+                </Button>
+              </div>
+            </div>
+            
+            {/* Video Space - Right Side */}
+            <div className="flex justify-center lg:justify-end">
+              <div className="w-80 h-[568px] bg-white/10 rounded-lg flex items-center justify-center border-2 border-dashed border-white/30">
+                <div className="text-center text-white/60">
+                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Factory className="w-8 h-8" />
+                  </div>
+                  <p className="text-sm">Espaço para Vídeo</p>
+                  <p className="text-xs">1080 x 1920 pixels</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -363,6 +381,8 @@ const PneumaticaFull = () => {
         isOpen={isQuoteModalOpen} 
         onClose={() => setIsQuoteModalOpen(false)} 
       />
+      
+      <WhatsAppButton />
     </div>
   );
 };

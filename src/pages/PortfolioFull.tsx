@@ -3,6 +3,7 @@ import { ArrowLeft, Download, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import QuoteModal from "@/components/QuoteModal";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import { useState } from "react";
 
 const PortfolioFull = () => {
@@ -122,6 +123,8 @@ const PortfolioFull = () => {
         isOpen={isQuoteModalOpen} 
         onClose={() => setIsQuoteModalOpen(false)} 
       />
+      
+      <WhatsAppButton />
     </div>
   );
 };
