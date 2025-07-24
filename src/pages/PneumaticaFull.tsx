@@ -278,32 +278,32 @@ const PneumaticaFull = () => {
               Solicite seu <span className="text-white/90">Projeto Personalizado</span>
             </h2>
             <p className="text-xl mb-12 text-white/90 leading-relaxed">
-              Nossa equipe de engenheiros especializados está pronta para desenvolver 
-              a solução pneumática perfeita para sua aplicação. Conte-nos sobre seu projeto 
-              e receba um orçamento detalhado.
+              A JPD Usinagem combina décadas de experiência em usinagem de precisão com expertise 
+              especializada em cilindros pneumáticos. Desenvolvemos soluções completas desde o projeto 
+              até a manutenção, garantindo máxima eficiência e durabilidade para suas aplicações industriais.
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               <div className="text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <User className="w-8 h-8 text-white" />
+                  <Factory className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">Consultoria Técnica</h3>
-                <p className="text-white/80">Análise detalhada das suas necessidades</p>
+                <h3 className="text-xl font-semibold text-white mb-2">Automação Industrial</h3>
+                <p className="text-white/80">Soluções para linhas de produção e robótica</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Settings className="w-8 h-8 text-white" />
+                  <Gauge className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">Projeto Customizado</h3>
-                <p className="text-white/80">Desenvolvimento sob medida</p>
+                <h3 className="text-xl font-semibold text-white mb-2">Cilindros Pneumáticos</h3>
+                <p className="text-white/80">Fabricação e manutenção especializada</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Award className="w-8 h-8 text-white" />
+                  <Shield className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">Qualidade Garantida</h3>
-                <p className="text-white/80">Certificação e suporte completo</p>
+                <h3 className="text-xl font-semibold text-white mb-2">Certificação ISO</h3>
+                <p className="text-white/80">Qualidade garantida e processos certificados</p>
               </div>
             </div>
 
@@ -365,7 +365,7 @@ const PneumaticaFull = () => {
                   <CardTitle>Localização</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">Bom Jesus dos Perdões, SP</p>
+                  <p className="text-muted-foreground">R. Uruguai, 573 - Parque das Hortênsias<br />Bom Jesus dos Perdões - SP</p>
                 </CardContent>
               </Card>
             </div>
@@ -374,27 +374,19 @@ const PneumaticaFull = () => {
       </section>
 
       {/* Google Maps Section */}
-      <section className="py-24 bg-muted/30">
+      <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Nossa <span className="text-primary">Localização</span>
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Visite nossa fábrica em Bom Jesus dos Perdões, SP
-            </p>
-          </div>
           <div className="max-w-6xl mx-auto">
             <div className="bg-background rounded-lg overflow-hidden shadow-lg border border-border">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58810.86542284442!2d-46.48461524863279!3d-23.18156579999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce8b7e8e8e8e8e%3A0x8e8e8e8e8e8e8e8e!2sBom%20Jesus%20dos%20Perd%C3%B5es%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1234567890123"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.123456789!2d-46.458123456789!3d-23.191234567890!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce8a7b8c9d1e2f%3A0x123456789abcdef0!2sR.%20Uruguai%2C%20573%20-%20Parque%20das%20Hort%C3%AAncias%2C%20Bom%20Jesus%20dos%20Perd%C3%B5es%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1234567890123"
                 width="100%"
                 height="500"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Localização JPD Usinagem - Bom Jesus dos Perdões, SP"
+                title="JPD Usinagem - R. Uruguai, 573 - Parque das Hortênsias, Bom Jesus dos Perdões - SP"
               ></iframe>
             </div>
           </div>

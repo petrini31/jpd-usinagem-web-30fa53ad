@@ -26,14 +26,6 @@ const Pneumatica = () => {
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-left mb-12 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Especialistas em <span className="text-primary">Pneumática</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed">
-            Nossa expertise em fabricação de cilindros pneumáticos representa décadas de 
-            inovação e excelência técnica. Desenvolvemos soluções personalizadas que combinam 
-            precisão dimensional, durabilidade excepcional e performance superior.
-          </p>
         </div>
 
         {/* Main Content */}
@@ -56,6 +48,14 @@ const Pneumatica = () => {
                 produção final, nossa equipe técnica especializada trabalha em estreita 
                 colaboração com nossos clientes para desenvolver soluções pneumáticas que 
                 atendem perfeitamente às necessidades específicas de cada aplicação industrial.
+              </p>
+
+              <p>
+                A <strong className="text-primary">JPD Usinagem</strong> se destaca no mercado pela 
+                capacidade única de oferecer serviços completos de <strong className="text-primary">fabricação, 
+                reparo e manutenção</strong> de cilindros pneumáticos. Nossa oficina especializada conta 
+                com equipamentos de última geração e técnicos altamente qualificados, garantindo que 
+                cada cilindro seja restaurado ou fabricado com os mais altos padrões de qualidade e durabilidade.
               </p>
             </div>
 
