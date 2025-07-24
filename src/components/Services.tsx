@@ -338,6 +338,7 @@ const Services = () => {
               className="flex transition-transform duration-500 ease-in-out"
               style={{ 
                 transform: `translateX(-${currentBlockIndex * 100}%)`,
+                width: `${serviceBlocks.length * 100}%`
               }}
             >
               {serviceBlocks.map((block, blockIndex) => (

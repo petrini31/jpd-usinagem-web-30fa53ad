@@ -24,12 +24,12 @@ const Pneumatica = () => {
       <div className="absolute bottom-10 left-10 w-64 h-64 bg-gradient-accent rounded-full opacity-10 blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
       
       <div className="container mx-auto px-6 relative z-10">
-        {/* Header */}
-        <div className="text-center mb-12 animate-fade-in">
+        {/* Header - Alinhado à esquerda */}
+        <div className="text-left mb-12 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Especialistas em <span className="text-primary">Pneumática</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed">
             Nossa expertise em fabricação de cilindros pneumáticos representa décadas de 
             inovação e excelência técnica. Desenvolvemos soluções personalizadas que combinam 
             precisão dimensional, durabilidade excepcional e performance superior.

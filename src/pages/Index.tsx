@@ -17,6 +17,7 @@ const Index = () => {
     <div className="min-h-screen">
       <Header />
       <Services />
+      <MarketSectors />
       
       {/* Primeira seção de scroll reveal */}
       <ScrollRevealSection 
@@ -26,7 +27,6 @@ const Index = () => {
         description="Nossa expertise em usinagem CNC garante a máxima precisão em cada projeto, atendendo aos mais rigorosos padrões de qualidade da indústria."
       />
       
-      <MarketSectors />
       <MaterialsCarousel />
       <Portfolio />
       
