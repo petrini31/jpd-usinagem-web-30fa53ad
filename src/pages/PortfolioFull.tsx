@@ -1,13 +1,15 @@
 
-import { ArrowLeft, Download, Eye } from "lucide-react";
+import { ArrowLeft, Download, Eye, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
 import QuoteModal from "@/components/QuoteModal";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { useState } from "react";
 
 const PortfolioFull = () => {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<{image: string, title: string, description: string} | null>(null);
   const portfolioItems = [
     { id: 1, image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=400&h=300", title: "Peça CNC Complexa", description: "Componente aeroespacial de alta precisão" },
     { id: 2, image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=400&h=300", title: "Sistema Pneumático", description: "Cilindro pneumático personalizado" },
@@ -90,7 +92,7 @@ const PortfolioFull = () => {
                     size="sm" 
                     variant="secondary" 
                     className="h-8 w-8 p-0"
-                    onClick={() => window.open(item.image, '_blank')}
+                    onClick={() => setSelectedImage({image: item.image, title: item.title, description: item.description})}
                   >
                     <Eye className="w-4 h-4" />
                   </Button>
@@ -128,6 +130,38 @@ const PortfolioFull = () => {
         isOpen={isQuoteModalOpen} 
         onClose={() => setIsQuoteModalOpen(false)} 
       />
+      
+      {/* Image Viewer Modal */}
+      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
+        <DialogContent className="max-w-4xl w-full p-0 bg-transparent border-0 shadow-none">
+          <div className="relative bg-background rounded-lg overflow-hidden shadow-2xl">
+            <DialogClose className="absolute top-4 right-4 z-10 bg-background/80 hover:bg-background rounded-full p-2 transition-colors">
+              <X className="w-4 h-4" />
+            </DialogClose>
+            
+            {selectedImage && (
+              <>
+                <div className="relative">
+                  <img
+                    src={selectedImage.image}
+                    alt={selectedImage.title}
+                    className="w-full h-auto max-h-[70vh] object-contain"
+                  />
+                </div>
+                
+                <div className="p-6 border-t border-border">
+                  <h3 className="text-xl font-semibold text-foreground mb-2">
+                    {selectedImage.title}
+                  </h3>
+                  <p className="text-muted-foreground">
+                    {selectedImage.description}
+                  </p>
+                </div>
+              </>
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
       
       <WhatsAppButton />
     </div>
