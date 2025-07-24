@@ -3,6 +3,14 @@ import { useState, useMemo, useCallback } from "react";
 import { ChevronLeft, ChevronRight, Building, Plane, Pill, Cog, Droplet, Heart, Zap, Mountain, Smartphone, Train, Bot, Utensils } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+// Import das novas imagens dos serviços
+const automotiva = "/assets/5638b740-4342-45eb-969b-448b05b94de6.jpg;
+const desenhosIndustriaisImage = "/lovable-uploads/39454b83-b7cf-4cbe-83d6-9609d65aa701.png";
+const cilindrosPneumaticosImage = "/lovable-uploads/db712f62-c734-48e5-b314-e46a9caee490.png";
+const torneamentoImage = "/lovable-uploads/5747a4c1-c343-4946-a329-d3e6c45e6be9.png";
+const fresamentoImage = "/lovable-uploads/d96ed422-eb47-483d-8dff-2ec3026e0fa7.png";
+const manutencaoRecuperacaoImage = "/lovable-uploads/9bc73a42-18ba-45e1-96b7-c2035acfb640.png";
+const especialistasMoldesImage = "/lovable-uploads/7de9727d-b15c-4acd-a2b3-8bc626ea3949.png";
 
 const MarketSectors = () => {
   const [currentBlockIndex, setCurrentBlockIndex] = useState(0);
@@ -14,7 +22,7 @@ const MarketSectors = () => {
       icon: Building,
       title: "Indústria Automotiva",
       description: "Peças para motores (blocos, cabeçotes, virabrequins, bielas), transmissões (engrenagens, eixos), sistemas de freio e suspensão, componentes de chassi, moldes e ferramentas para fabricação.",
-      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=600&h=400"
+      image: "automotiva"
     },
     {
       id: 'aeroespacial',
