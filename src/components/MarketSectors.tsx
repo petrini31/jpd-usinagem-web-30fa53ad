@@ -3,10 +3,25 @@ import { useState, useMemo, useCallback } from "react";
 import { ChevronLeft, ChevronRight, Building, Plane, Pill, Cog, Droplet, Heart, Zap, Mountain, Smartphone, Train, Bot, Utensils } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useCustomImage } from "@/hooks/useCustomImage";
 
 const MarketSectors = () => {
   const [currentBlockIndex, setCurrentBlockIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+
+  // Custom images
+  const market1Image = useCustomImage('market-1', 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=600&h=400');
+  const market2Image = useCustomImage('market-2', 'https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?auto=format&fit=crop&q=80&w=600&h=400');
+  const market3Image = useCustomImage('market-3', 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&q=80&w=600&h=400');
+  const market4Image = useCustomImage('market-4', 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=600&h=400');
+  const market5Image = useCustomImage('market-5', 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600&h=400');
+  const market6Image = useCustomImage('market-6', 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600&h=400');
+  const market7Image = useCustomImage('market-7', 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&q=80&w=600&h=400');
+  const market8Image = useCustomImage('market-8', 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=600&h=400');
+  const market9Image = useCustomImage('market-9', 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600&h=400');
+  const market10Image = useCustomImage('market-10', 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=600&h=400');
+  const market11Image = useCustomImage('market-11', 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=600&h=400');
+  const market12Image = useCustomImage('market-12', 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600&h=400');
 
   const sectors = [
     {
@@ -14,84 +29,84 @@ const MarketSectors = () => {
       icon: Building,
       title: "Indústria Automotiva",
       description: "Peças para motores (blocos, cabeçotes, virabrequins, bielas), transmissões (engrenagens, eixos), sistemas de freio e suspensão, componentes de chassi, moldes e ferramentas para fabricação.",
-      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=600&h=400"
+      image: market1Image
     },
     {
       id: 'aeroespacial',
       icon: Plane,
       title: "Indústria Aeroespacial e Aeronáutica",
       description: "Componentes críticos para turbinas, fuselagens, asas, sistemas de controle, trens de pouso, peças estruturais leves, fixadores e atuadores, utilizando materiais como titânio, alumínio e superligas.",
-      image: "https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?auto=format&fit=crop&q=80&w=600&h=400"
+      image: market2Image
     },
     {
       id: 'farmaceutica',
       icon: Pill,
       title: "Indústria Farmacêutica",
       description: "Componentes para equipamentos de produção farmacêutica, máquinas de encapsulamento, sistemas de dosagem, peças para laboratórios e equipamentos de controle de qualidade com alto padrão de limpeza e precisão.",
-      image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&q=80&w=600&h=400"
+      image: market3Image
     },
     {
       id: 'maquinas-equipamentos',
       icon: Cog,
       title: "Indústria de Máquinas e Equipamentos",
       description: "Fabricantes de máquinas para os mais diversos fins (agrícolas, construção civil, mineração, têxtil, alimentícia, embalagens, metalúrgicas, etc.). Produzem engrenagens, eixos, rolamentos, estruturas, carcaças, cilindros hidráulicos e pneumáticos.",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=600&h=400"
+      image: market4Image
     },
     {
       id: 'petroleo-gas',
       icon: Droplet,
       title: "Indústria de Petróleo e Gás",
       description: "Componentes para válvulas, bombas, conectores, flanges, tubulações de alta pressão, equipamentos de perfuração e extração, peças para plataformas offshore e refinarias que exigem alta resistência e durabilidade.",
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600&h=400"
+      image: market5Image
     },
     {
       id: 'medica-odontologica',
       icon: Heart,
       title: "Indústria Médica e Odontológica",
       description: "Implantes (ortopédicos, dentários), instrumentos cirúrgicos, próteses, componentes para equipamentos de diagnóstico e terapias, peças para cadeiras e equipamentos odontológicos. Exige extrema precisão e uso de materiais biocompatíveis.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600&h=400"
+      image: market6Image
     },
     {
       id: 'energia',
       icon: Zap,
       title: "Indústria de Energia",
       description: "Peças para turbinas (eólicas, hidrelétricas, a gás, a vapor), geradores, eixos, componentes de válvulas e estruturas de suporte para usinas eólicas e termelétricas.",
-      image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&q=80&w=600&h=400"
+      image: market7Image
     },
     {
       id: 'geotecnica',
       icon: Mountain,
       title: "Indústria Geotécnica",
       description: "Componentes para equipamentos de perfuração, sondagem, fundações especiais, estacas, equipamentos de contenção e estabilização de solos, peças para obras de infraestrutura e engenharia geotécnica.",
-      image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=600&h=400"
+      image: market8Image
     },
     {
       id: 'eletronica-telecomunicacoes',
       icon: Smartphone,
       title: "Indústria Eletrônica e de Telecomunicações",
       description: "Gabinetes metálicos e plásticos de precisão, dissipadores de calor, conectores, suportes para placas de circuito, componentes de antenas e equipamentos de rede.",
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600&h=400"
+      image: market9Image
     },
     {
       id: 'ferroviaria',
       icon: Train,
       title: "Indústria Ferroviária",
       description: "Componentes para sistemas de freio, eixos de rodas, engrenagens para locomotivas, estruturas de vagões e sistemas de suspensão para o transporte ferroviário.",
-      image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=600&h=400"
+      image: market10Image
     },
     {
       id: 'automacao-robotica',
       icon: Bot,
       title: "Indústria de Automação Industrial e Robótica",
       description: "Componentes de precisão para robôs industriais, atuadores, sensores, garras, eixos de movimento, e estruturas para linhas de montagem automatizadas.",
-      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=600&h=400"
+      image: market11Image
     },
     {
       id: 'alimenticia',
       icon: Utensils,
       title: "Indústria Alimentícia",
       description: "Peças para máquinas de processamento, envase e embalagem, componentes para tanques e tubulações, que exigem materiais sanitários (como aço inoxidável) e acabamento superficial impecável para evitar contaminação.",
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600&h=400"
+      image: market12Image
     }
   ];
 
