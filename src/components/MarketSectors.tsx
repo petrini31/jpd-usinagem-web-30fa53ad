@@ -1,4 +1,3 @@
-
 import { useState, useMemo, useCallback } from "react";
 import { ChevronLeft, ChevronRight, Building, Plane, Pill, Cog, Droplet, Heart, Zap, Mountain, Smartphone, Train, Bot, Utensils } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -17,11 +16,11 @@ const MarketSectors = () => {
       image: "/lovable-uploads/c389b1c3-66fe-4964-8cf6-c6b4966a9e60.png"
     },
     {
-      id: 'aeroespacial',
-      icon: Plane,
-      title: "Indústria Aeroespacial e Aeronáutica",
-      description: "Componentes críticos para turbinas, fuselagens, asas, sistemas de controle, trens de pouso, peças estruturais leves, fixadores e atuadores, utilizando materiais como titânio, alumínio e superligas.",
-      image: "/lovable-uploads/9dd0ff85-d042-4379-b43c-18bfe0d638de.png"
+      id: 'injecao-plastica',
+      icon: Train,
+      title: "Injeção Plástica",
+      description: "Componentes para moldes de injeção plástica, matrizes, porta-moldes, insertos, canais de refrigeração, sistemas de extração e gavetas para produção de peças plásticas de alta precisão.",
+      image: "/lovable-uploads/28087462-bab2-42aa-9639-f40509fec923.png"
     },
     {
       id: 'farmaceutica',
@@ -31,11 +30,25 @@ const MarketSectors = () => {
       image: "/lovable-uploads/dec3d1a6-b3e5-42f1-b536-d50f5322c31c.png"
     },
     {
-      id: 'maquinas-equipamentos',
+      id: 'agricola',
       icon: Cog,
-      title: "Indústria de Máquinas e Equipamentos",
-      description: "Fabricantes de máquinas para os mais diversos fins (agrícolas, construção civil, mineração, têxtil, alimentícia, embalagens, metalúrgicas, etc.). Produzem engrenagens, eixos, rolamentos, estruturas, carcaças, cilindros hidráulicos e pneumáticos.",
+      title: "Indústria Agrícola",
+      description: "Componentes para tratores, colheitadeiras, equipamentos de irrigação, sistemas de plantio, peças para implementos agrícolas, engrenagens, eixos e estruturas para máquinas de processamento de alimentos e beneficiamento de grãos.",
       image: "/lovable-uploads/407e4db0-5aff-4ff1-a425-6473a2ccc334.png"
+    },
+    {
+      id: 'automacao-robotica',
+      icon: Bot,
+      title: "Indústria de Automação Industrial e Robótica",
+      description: "Componentes de precisão para robôs industriais, atuadores, sensores, garras, eixos de movimento, e estruturas para linhas de montagem automatizadas.",
+      image: "/lovable-uploads/e95a555a-a0a9-47b3-914e-3462320aeffb.png"
+    },
+    {
+      id: 'alimenticia',
+      icon: Utensils,
+      title: "Indústria Alimentícia",
+      description: "Peças para máquinas de processamento, envase e embalagem, componentes para tanques e tubulações, que exigem materiais sanitários (como aço inoxidável) e acabamento superficial impecável para evitar contaminação.",
+      image: "/lovable-uploads/248ec544-caa9-4ba0-8c08-898392a2d8d2.png"
     },
     {
       id: 'petroleo-gas',
@@ -45,25 +58,18 @@ const MarketSectors = () => {
       image: "/lovable-uploads/fe2271b0-1ea4-40c5-a9db-7fdb22004661.png"
     },
     {
+      id: 'aeroespacial',
+      icon: Plane,
+      title: "Indústria Aeroespacial e Aeronáutica",
+      description: "Componentes críticos para turbinas, fuselagens, asas, sistemas de controle, trens de pouso, peças estruturais leves, fixadores e atuadores, utilizando materiais como titânio, alumínio e superligas.",
+      image: "/lovable-uploads/9dd0ff85-d042-4379-b43c-18bfe0d638de.png"
+    },
+    {
       id: 'medica-odontologica',
       icon: Heart,
       title: "Indústria Médica e Odontológica",
       description: "Implantes (ortopédicos, dentários), instrumentos cirúrgicos, próteses, componentes para equipamentos de diagnóstico e terapias, peças para cadeiras e equipamentos odontológicos. Exige extrema precisão e uso de materiais biocompatíveis.",
       image: "/lovable-uploads/6666ef25-8040-4754-8cb3-579bee47ea4e.png"
-    },
-    {
-      id: 'energia',
-      icon: Zap,
-      title: "Indústria de Energia",
-      description: "Peças para turbinas (eólicas, hidrelétricas, a gás, a vapor), geradores, eixos, componentes de válvulas e estruturas de suporte para usinas eólicas e termelétricas.",
-      image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&q=80&w=600&h=400"
-    },
-    {
-      id: 'geotecnica',
-      icon: Mountain,
-      title: "Indústria Geotécnica",
-      description: "Componentes para equipamentos de perfuração, sondagem, fundações especiais, estacas, equipamentos de contenção e estabilização de solos, peças para obras de infraestrutura e engenharia geotécnica.",
-      image: "/lovable-uploads/e01fa817-6092-4fbb-8bfe-773092e4abac.png"
     },
     {
       id: 'eletronica-telecomunicacoes',
@@ -73,25 +79,18 @@ const MarketSectors = () => {
       image: "/lovable-uploads/a8d9cbcf-ad1f-41fa-830c-c7b9fcdbed75.png"
     },
     {
-      id: 'ferroviaria',
-      icon: Train,
-      title: "Indústria Ferroviária",
-      description: "Componentes para sistemas de freio, eixos de rodas, engrenagens para locomotivas, estruturas de vagões e sistemas de suspensão para o transporte ferroviário.",
-      image: "/lovable-uploads/28087462-bab2-42aa-9639-f40509fec923.png"
+      id: 'geotecnica',
+      icon: Mountain,
+      title: "Indústria Geotécnica",
+      description: "Componentes para equipamentos de perfuração, sondagem, fundações especiais, estacas, equipamentos de contenção e estabilização de solos, peças para obras de infraestrutura e engenharia geotécnica.",
+      image: "/lovable-uploads/e01fa817-6092-4fbb-8bfe-773092e4abac.png"
     },
     {
-      id: 'automacao-robotica',
-      icon: Bot,
-      title: "Indústria de Automação Industrial e Robótica",
-      description: "Componentes de precisão para robôs industriais, atuadores, sensores, garras, eixos de movimento, e estruturas para linhas de montagem automatizadas.",
-      image: "/lovable-uploads/28087462-bab2-42aa-9639-f40509fec923.png"
-    },
-    {
-      id: 'alimenticia',
-      icon: Utensils,
-      title: "Indústria Alimentícia",
-      description: "Peças para máquinas de processamento, envase e embalagem, componentes para tanques e tubulações, que exigem materiais sanitários (como aço inoxidável) e acabamento superficial impecável para evitar contaminação.",
-      image: "/lovable-uploads/248ec544-caa9-4ba0-8c08-898392a2d8d2.png"
+      id: 'energia',
+      icon: Zap,
+      title: "Indústria de Energia",
+      description: "Peças para turbinas (eólicas, hidrelétricas, a gás, a vapor), geradores, eixos, componentes de válvulas e estruturas de suporte para usinas eólicas e termelétricas.",
+      image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&q=80&w=600&h=400"
     }
   ];
 
