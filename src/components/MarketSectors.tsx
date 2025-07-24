@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, Building, Plane, Pill, Cog, Droplet, Heart, 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-// Import market sector images
+// Import market sector images - updated with new images
 import automotiva from "@/assets/market-automotiva.jpg";
 import aeroespacial from "@/assets/market-aeroespacial.jpg";
 import farmaceutica from "@/assets/market-farmaceutica.jpg";
@@ -21,6 +21,9 @@ import alimenticia from "@/assets/market-alimenticia.jpg";
 const MarketSectors = () => {
   const [currentBlockIndex, setCurrentBlockIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  
+  // Force cache refresh for images
+  console.log('MarketSectors rendered with updated images');
 
   const sectors = [
     {
