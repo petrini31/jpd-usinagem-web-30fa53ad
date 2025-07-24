@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { ArrowLeft, MessageCircle, Phone, Mail, MapPin, CheckCircle2, Settings, Wrench, Cog, Clock, Shield, Award, Send, User, Building, MessageSquare, Factory, Gauge, Zap, Target } from "lucide-react";
-import { useCustomImage } from "@/hooks/useCustomImage";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -12,22 +11,6 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 const PneumaticaFull = () => {
   const navigate = useNavigate();
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
-  
-  // Custom images
-  const videoImage = useCustomImage('pneumatic-video', 'https://images.unsplash.com/photo-1487887235947-a955ef187fcc?auto=format&fit=crop&q=80&w=320&h=568');
-  const galleryImages = [
-    useCustomImage('pneumatic-gallery-1', 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=400&h=300'),
-    useCustomImage('pneumatic-gallery-2', 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=400&h=300'),
-    useCustomImage('pneumatic-gallery-3', 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&q=80&w=400&h=300'),
-    useCustomImage('pneumatic-gallery-4', 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=400&h=300'),
-    useCustomImage('pneumatic-gallery-5', 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=400&h=300'),
-    useCustomImage('pneumatic-gallery-6', 'https://images.unsplash.com/photo-1487887235947-a955ef187fcc?auto=format&fit=crop&q=80&w=400&h=300')
-  ];
-  const specImages = [
-    useCustomImage('pneumatic-specs-1', 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=400&h=300'),
-    useCustomImage('pneumatic-specs-2', 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=400&h=300'),
-    useCustomImage('pneumatic-specs-3', 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&q=80&w=400&h=300')
-  ];
 
   const advantages = [
     {
@@ -162,12 +145,14 @@ const PneumaticaFull = () => {
             
             {/* Video Space - Right Side */}
             <div className="flex justify-center lg:justify-end">
-              <div className="w-80 h-[568px] rounded-lg overflow-hidden">
-                <img 
-                  src={videoImage} 
-                  alt="Cilindros Pneumáticos de Alta Performance" 
-                  className="w-full h-full object-cover"
-                />
+              <div className="w-80 h-[568px] bg-white/10 rounded-lg flex items-center justify-center border-2 border-dashed border-white/30">
+                <div className="text-center text-white/60">
+                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Factory className="w-8 h-8" />
+                  </div>
+                  <p className="text-sm">Espaço para Vídeo</p>
+                  <p className="text-xs">1080 x 1920 pixels</p>
+                </div>
               </div>
             </div>
           </div>
@@ -204,26 +189,12 @@ const PneumaticaFull = () => {
       </section>
 
       {/* Pneumatic Cylinders Gallery Section */}
-      <section className="py-24 bg-muted">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Galeria de <span className="text-primary">Cilindros Pneumáticos</span>
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Conheça alguns dos nossos projetos em cilindros pneumáticos
-            </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-            {galleryImages.map((image, index) => (
-              <div key={index} className="aspect-square rounded-lg overflow-hidden shadow-lg">
-                <img 
-                  src={image} 
-                  alt={`Cilindro Pneumático ${index + 1}`} 
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-            ))}
+      <section className="h-[40vh] bg-muted">
+        <div className="container mx-auto px-6 h-full flex items-center justify-center">
+          <div className="text-center text-muted-foreground">
+            <Factory className="w-16 h-16 mx-auto mb-4 opacity-50" />
+            <p className="text-lg">Espaço para Imagens dos Cilindros Pneumáticos</p>
+            <p className="text-sm">PNG com fundo transparente</p>
           </div>
         </div>
       </section>
@@ -281,26 +252,14 @@ const PneumaticaFull = () => {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <div className="aspect-square rounded-lg overflow-hidden">
-                <img 
-                  src={specImages[0]} 
-                  alt="Especificação Técnica 1" 
-                  className="w-full h-full object-cover"
-                />
+              <div className="aspect-square bg-gradient-primary rounded-lg opacity-20 flex items-center justify-center">
+                <Factory className="w-16 h-16 text-primary" />
               </div>
-              <div className="aspect-square rounded-lg overflow-hidden mt-8">
-                <img 
-                  src={specImages[1]} 
-                  alt="Especificação Técnica 2" 
-                  className="w-full h-full object-cover"
-                />
+              <div className="aspect-square bg-gradient-accent rounded-lg opacity-20 flex items-center justify-center mt-8">
+                <Cog className="w-16 h-16 text-primary" />
               </div>
-              <div className="aspect-square rounded-lg overflow-hidden -mt-8">
-                <img 
-                  src={specImages[2]} 
-                  alt="Especificação Técnica 3" 
-                  className="w-full h-full object-cover"
-                />
+              <div className="aspect-square bg-gradient-accent rounded-lg opacity-20 flex items-center justify-center -mt-8">
+                <Settings className="w-16 h-16 text-primary" />
               </div>
               <div className="aspect-square bg-gradient-primary rounded-lg opacity-20 flex items-center justify-center">
                 <Shield className="w-16 h-16 text-primary" />

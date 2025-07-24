@@ -1,11 +1,8 @@
 
 import { ArrowRight, CheckCircle, Target, Shield } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { useCustomImage } from "@/hooks/useCustomImage";
 
 const Company = () => {
-  const companyImage = useCustomImage('company-about', 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=600&h=500');
-  
   const values = [
     {
       icon: CheckCircle,
@@ -91,7 +88,7 @@ const Company = () => {
           <div className="relative animate-fade-in">
             <div className="relative overflow-hidden rounded-lg shadow-strong">
               <img 
-                src={companyImage}
+                src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=600&h=500"
                 alt="JPD Usinagem CNC - Tecnologia de Precisão"
                 className="w-full h-96 object-cover"
               />

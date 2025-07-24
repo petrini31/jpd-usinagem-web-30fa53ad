@@ -1,105 +1,87 @@
 
 import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useCustomImage } from "@/hooks/useCustomImage";
 
 const Portfolio = () => {
   const openPortfolio = () => {
     window.open('/portfolio-full', '_blank');
   };
 
-  // Custom images
-  const portfolio1Image = useCustomImage('portfolio-1', 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=600&h=400');
-  const portfolio2Image = useCustomImage('portfolio-2', 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600&h=400');
-  const portfolio3Image = useCustomImage('portfolio-3', 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600&h=400');
-  const portfolio4Image = useCustomImage('portfolio-4', 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=600&h=400');
-  const portfolio5Image = useCustomImage('portfolio-5', 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=600&h=400');
-  const portfolio6Image = useCustomImage('portfolio-6', 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=600&h=400');
-  const portfolio7Image = useCustomImage('portfolio-7', 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=600&h=400');
-  const portfolio8Image = useCustomImage('portfolio-8', 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=600&h=400');
-  const portfolio9Image = useCustomImage('portfolio-9', 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=600&h=400');
-  const portfolio10Image = useCustomImage('portfolio-10', 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=600&h=400');
-  const portfolio11Image = useCustomImage('portfolio-11', 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&q=80&w=600&h=400');
-  const portfolio12Image = useCustomImage('portfolio-12', 'https://images.unsplash.com/photo-1473091534298-04dcbce3278c?auto=format&fit=crop&q=80&w=600&h=400');
-  const portfolio13Image = useCustomImage('portfolio-13', 'https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?auto=format&fit=crop&q=80&w=600&h=400');
-  const portfolio14Image = useCustomImage('portfolio-14', 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600&h=400');
-  const portfolio15Image = useCustomImage('portfolio-15', 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600&h=400');
-
   // 15 primeiras imagens da rota /portfolio-full
   const galleryProjects = [
     {
       id: 1,
-      image: portfolio1Image,
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=600&h=400",
       title: "Usinagem CNC de Precisão"
     },
     {
       id: 2,
-      image: portfolio2Image,
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600&h=400",
       title: "Cilindros Pneumáticos"
     },
     {
       id: 3,
-      image: portfolio3Image,
+      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600&h=400",
       title: "Ferramentaria"
     },
     {
       id: 4,
-      image: portfolio4Image,
+      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=600&h=400",
       title: "Moldes de Precisão"
     },
     {
       id: 5,
-      image: portfolio5Image,
+      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=600&h=400",
       title: "Componentes Automotivos"
     },
     {
       id: 6,
-      image: portfolio6Image,
+      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=600&h=400",
       title: "Peças Industriais"
     },
     {
       id: 7,
-      image: portfolio7Image,
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=600&h=400",
       title: "Torneamento CNC"
     },
     {
       id: 8,
-      image: portfolio8Image,
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=600&h=400",
       title: "Fresamento de Precisão"
     },
     {
       id: 9,
-      image: portfolio9Image,
+      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=600&h=400",
       title: "Retificação"
     },
     {
       id: 10,
-      image: portfolio10Image,
+      image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=600&h=400",
       title: "Dispositivos Especiais"
     },
     {
       id: 11,
-      image: portfolio11Image,
+      image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&q=80&w=600&h=400",
       title: "Engrenagens"
     },
     {
       id: 12,
-      image: portfolio12Image,
+      image: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?auto=format&fit=crop&q=80&w=600&h=400",
       title: "Componentes Hidráulicos"
     },
     {
       id: 13,
-      image: portfolio13Image,
+      image: "https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?auto=format&fit=crop&q=80&w=600&h=400",
       title: "Peças Aeroespaciais"
     },
     {
       id: 14,
-      image: portfolio14Image,
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600&h=400",
       title: "Equipamentos Médicos"
     },
     {
       id: 15,
-      image: portfolio15Image,
+      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600&h=400",
       title: "Protótipos Funcionais"
     }
   ];

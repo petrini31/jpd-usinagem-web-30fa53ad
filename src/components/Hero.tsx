@@ -1,11 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { useCustomImage } from "@/hooks/useCustomImage";
 import heroImage from "@/assets/hero-cnc-industrial.jpg";
 
 const Hero = () => {
-  const customHeroImage = useCustomImage('hero-main', heroImage);
-  
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -18,7 +15,7 @@ const Hero = () => {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img 
-          src={customHeroImage} 
+          src={heroImage} 
           alt="Equipamentos de Usinagem CNC - JPD Usinagem" 
           className="w-full h-full object-cover"
           loading="eager"

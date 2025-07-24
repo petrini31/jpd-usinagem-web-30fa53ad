@@ -1,26 +1,20 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useCustomImage } from "@/hooks/useCustomImage";
 const MaterialsCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  
-  // Custom images for materials
-  const acoCarbonoImage = useCustomImage('material-aco-carbono', 'https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&q=80&w=2272&h=600');
-  const acoInoxImage = useCustomImage('material-aco-inox', 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=2070&h=600');
-  
   const materials = [{
     id: 'acos',
     title: "Aços",
     subtitle: "Carbono e Inoxidáveis",
     description: "Usinagem de aços de diversas ligas, incluindo carbono e inoxidáveis (ferríticos, martensíticos, austeníticos e duplex). Garantimos precisão, acabamento superficial ideal e respeito às propriedades mecânicas, essenciais para aplicações robustas e resistentes à corrosão.",
-    image: acoCarbonoImage
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800&h=600"
   }, {
     id: 'aluminios',
     title: "Alumínios",
     subtitle: "Diversas Ligas",
     description: "Trabalhamos com uma vasta gama de ligas de alumínio. Material leve e versátil, ideal para peças aeroespaciais, automotivas, eletrônicas e protótipos, onde a precisão, peso reduzido e resistência à corrosão são cruciais.",
-    image: acoInoxImage
+    image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&q=80&w=800&h=600"
   }, {
     id: 'latoes',
     title: "Latões",
@@ -72,32 +66,9 @@ const MaterialsCarousel = () => {
   const prevSlide = () => {
     setCurrentIndex(prevIndex => (prevIndex - 1 + materials.length) % materials.length);
   };
-  const currentMaterial = materials[currentIndex];
-
-  return (
-    <div className="relative bg-secondary rounded-lg overflow-hidden h-[600px]">
+  return <div className="relative bg-secondary rounded-lg overflow-hidden">
       {/* Carousel Container */}
-      <div className="relative h-full">
-        <img 
-          src={currentMaterial.image} 
-          alt={currentMaterial.title}
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white px-8 max-w-4xl">
-            <h3 className="text-4xl md:text-5xl font-bold mb-4">
-              {currentMaterial.title}
-            </h3>
-            <p className="text-xl md:text-2xl mb-6 text-white/90">
-              {currentMaterial.subtitle}
-            </p>
-            <p className="text-lg leading-relaxed text-white/80">
-              {currentMaterial.description}
-            </p>
-          </div>
-        </div>
-      </div>
+      
 
       {/* Navigation Buttons */}
       <Button variant="outline" size="icon" onClick={prevSlide} className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background border-border z-10">
@@ -107,7 +78,6 @@ const MaterialsCarousel = () => {
       <Button variant="outline" size="icon" onClick={nextSlide} className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background border-border z-10">
         <ChevronRight className="w-4 h-4" />
       </Button>
-    </div>
-  );
+    </div>;
 };
 export default MaterialsCarousel;
