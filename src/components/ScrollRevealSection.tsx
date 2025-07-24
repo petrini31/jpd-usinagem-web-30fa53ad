@@ -39,7 +39,7 @@ const ScrollRevealSection = ({ image, title, subtitle, description }: ScrollReve
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full h-[60vh] overflow-hidden">
+    <section ref={sectionRef} className="relative w-full h-[40vh] overflow-hidden">
       {/* Overlay com conteúdo */}
       <div className="absolute inset-0 z-10 flex items-center justify-center">
         <div className="text-center text-white px-4 max-w-4xl">

@@ -2,6 +2,7 @@
 import Header from "@/components/Header";
 import Services from "@/components/Services";
 import ScrollRevealSection from "@/components/ScrollRevealSection";
+import MaterialsCarousel from "@/components/MaterialsCarousel";
 import Portfolio from "@/components/Portfolio";
 import MarketSectors from "@/components/MarketSectors";
 import Pneumatica from "@/components/Pneumatica";
@@ -25,8 +26,9 @@ const Index = () => {
         description="Nossa expertise em usinagem CNC garante a máxima precisão em cada projeto, atendendo aos mais rigorosos padrões de qualidade da indústria."
       />
       
-      <Portfolio />
+      <MaterialsCarousel />
       <MarketSectors />
+      <Portfolio />
       
       {/* Segunda seção de scroll reveal */}
       <ScrollRevealSection 
@@ -37,9 +39,9 @@ const Index = () => {
       />
       
       <Pneumatica />
-      <Quote />
       <Company />
       <Contact />
+      <Quote />
       <Footer />
       <WhatsAppButton />
     </div>
