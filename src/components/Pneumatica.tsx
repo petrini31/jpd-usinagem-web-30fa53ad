@@ -24,15 +24,11 @@ const Pneumatica = () => {
       <div className="absolute bottom-10 left-10 w-64 h-64 bg-gradient-accent rounded-full opacity-10 blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
       
       <div className="container mx-auto px-6 relative z-10">
-        {/* Header */}
-        <div className="text-left mb-12 animate-fade-in">
-        </div>
-
         {/* Main Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
           {/* Text Content */}
           <div className="animate-slide-up">
-            <h3 className="text-2xl font-bold text-foreground mb-4">
+            <h3 className="text-3xl font-bold text-foreground mb-4">
               Soluções Pneumáticas de Alta Performance
             </h3>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
@@ -60,12 +56,21 @@ const Pneumatica = () => {
             </div>
 
             <div className="flex gap-4 mt-6">
-              <Button size="lg" onClick={scrollToContact} className="bg-primary text-primary-foreground hover:bg-primary-dark transition-colors">
+              <Button 
+                size="lg" 
+                onClick={scrollToContact} 
+                className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200"
+              >
                 Solicitar Projeto
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
               
-              <Button size="lg" variant="outline" onClick={openPneumaticaPage} className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                onClick={openPneumaticaPage} 
+                className="border-primary text-primary bg-background hover:bg-primary hover:text-primary-foreground transition-all duration-200"
+              >
                 Ver Mais
                 <ExternalLink className="w-5 h-5 ml-2" />
               </Button>

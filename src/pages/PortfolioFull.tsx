@@ -86,7 +86,12 @@ const PortfolioFull = () => {
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
                 <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Button size="sm" variant="secondary" className="h-8 w-8 p-0">
+                  <Button 
+                    size="sm" 
+                    variant="secondary" 
+                    className="h-8 w-8 p-0"
+                    onClick={() => window.open(item.image, '_blank')}
+                  >
                     <Eye className="w-4 h-4" />
                   </Button>
                 </div>
