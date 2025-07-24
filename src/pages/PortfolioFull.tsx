@@ -2,8 +2,11 @@
 import { ArrowLeft, Download, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import QuoteModal from "@/components/QuoteModal";
+import { useState } from "react";
 
 const PortfolioFull = () => {
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const portfolioItems = [
     { id: 1, image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=400&h=300", title: "Peça CNC Complexa", description: "Componente aeroespacial de alta precisão" },
     { id: 2, image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=400&h=300", title: "Sistema Pneumático", description: "Cilindro pneumático personalizado" },
@@ -106,11 +109,19 @@ const PortfolioFull = () => {
           <p className="text-muted-foreground mb-4">
             Quer ver seu projeto aqui? Entre em contato conosco!
           </p>
-          <Button className="bg-primary text-primary-foreground hover:bg-primary-dark">
+          <Button 
+            className="bg-primary text-primary-foreground hover:bg-primary-dark"
+            onClick={() => setIsQuoteModalOpen(true)}
+          >
             Solicitar Orçamento
           </Button>
         </div>
       </main>
+
+      <QuoteModal 
+        isOpen={isQuoteModalOpen} 
+        onClose={() => setIsQuoteModalOpen(false)} 
+      />
     </div>
   );
 };
