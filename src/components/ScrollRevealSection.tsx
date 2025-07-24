@@ -32,32 +32,46 @@ const ScrollRevealSection = ({ image, title, subtitle, description }: ScrollReve
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    // Usar throttle para melhorar performance
+    let ticking = false;
+    const throttledHandleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', throttledHandleScroll, { passive: true });
     handleScroll(); // Verificar posição inicial
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', throttledHandleScroll);
   }, []);
 
   return (
     <section ref={sectionRef} className="relative w-full h-[40vh] overflow-hidden">
       {/* Overlay com conteúdo */}
-      <div className="absolute inset-0 z-10 flex items-center justify-center">
-        <div className="text-center text-white px-4 max-w-4xl">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">
-            {title}
-          </h2>
-          {subtitle && (
-            <p className="text-xl md:text-2xl mb-6 drop-shadow-md">
-              {subtitle}
-            </p>
-          )}
-          {description && (
-            <p className="text-lg drop-shadow-md max-w-2xl mx-auto">
-              {description}
-            </p>
-          )}
+      {title && (
+        <div className="absolute inset-0 z-10 flex items-center justify-center">
+          <div className="text-center text-white px-4 max-w-4xl">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">
+              {title}
+            </h2>
+            {subtitle && (
+              <p className="text-xl md:text-2xl mb-6 drop-shadow-md">
+                {subtitle}
+              </p>
+            )}
+            {description && (
+              <p className="text-lg drop-shadow-md max-w-2xl mx-auto">
+                {description}
+              </p>
+            )}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Overlay escuro para melhor legibilidade */}
       <div className="absolute inset-0 bg-black/40 z-5"></div>

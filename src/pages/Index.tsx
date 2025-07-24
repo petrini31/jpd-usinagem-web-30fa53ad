@@ -39,6 +39,13 @@ const Index = () => {
       />
       
       <Pneumatica />
+      
+      {/* Terceira seção de scroll reveal - apenas imagem */}
+      <ScrollRevealSection 
+        image="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600&h=600"
+        title=""
+      />
+      
       <Company />
       <Contact />
       <Quote />

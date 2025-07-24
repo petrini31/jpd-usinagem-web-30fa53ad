@@ -79,8 +79,8 @@ const Quote = () => {
     <section id="orcamento" className="py-24 bg-gradient-to-br from-background via-secondary/30 to-background relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-      <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-primary rounded-full opacity-10 blur-3xl animate-float"></div>
-      <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-accent rounded-full opacity-10 blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-primary rounded-full opacity-10 blur-3xl animate-float will-change-transform"></div>
+      <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-accent rounded-full opacity-10 blur-3xl animate-float will-change-transform" style={{ animationDelay: '2s' }}></div>
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
