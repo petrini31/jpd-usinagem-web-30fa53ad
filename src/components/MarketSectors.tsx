@@ -3,8 +3,6 @@ import { useState, useMemo, useCallback } from "react";
 import { ChevronLeft, ChevronRight, Building, Plane, Pill, Cog, Droplet, Heart, Zap, Mountain, Smartphone, Train, Bot, Utensils } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-// Import das novas imagens dos serviços
-const automotiva = "/lovable-uploads/5638b740-4342-45eb-969b-448b05b94de6.png";
 
 const MarketSectors = () => {
   const [currentBlockIndex, setCurrentBlockIndex] = useState(0);
@@ -16,7 +14,7 @@ const MarketSectors = () => {
       icon: Building,
       title: "Indústria Automotiva",
       description: "Peças para motores (blocos, cabeçotes, virabrequins, bielas), transmissões (engrenagens, eixos), sistemas de freio e suspensão, componentes de chassi, moldes e ferramentas para fabricação.",
-      image: automotiva
+      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=600&h=400"
     },
     {
       id: 'aeroespacial',
