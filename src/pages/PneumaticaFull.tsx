@@ -188,6 +188,17 @@ const PneumaticaFull = () => {
         </div>
       </section>
 
+      {/* Pneumatic Cylinders Gallery Section */}
+      <section className="h-[40vh] bg-muted">
+        <div className="container mx-auto px-6 h-full flex items-center justify-center">
+          <div className="text-center text-muted-foreground">
+            <Factory className="w-16 h-16 mx-auto mb-4 opacity-50" />
+            <p className="text-lg">Espaço para Imagens dos Cilindros Pneumáticos</p>
+            <p className="text-sm">PNG com fundo transparente</p>
+          </div>
+        </div>
+      </section>
+
       {/* Applications Section */}
       <section className="py-24 bg-muted/30">
         <div className="container mx-auto px-6">
@@ -357,6 +368,34 @@ const PneumaticaFull = () => {
                   <p className="text-muted-foreground">Bom Jesus dos Perdões, SP</p>
                 </CardContent>
               </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Google Maps Section */}
+      <section className="py-24 bg-muted/30">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              Nossa <span className="text-primary">Localização</span>
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Visite nossa fábrica em Bom Jesus dos Perdões, SP
+            </p>
+          </div>
+          <div className="max-w-6xl mx-auto">
+            <div className="bg-background rounded-lg overflow-hidden shadow-lg border border-border">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58810.86542284442!2d-46.48461524863279!3d-23.18156579999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce8b7e8e8e8e8e%3A0x8e8e8e8e8e8e8e8e!2sBom%20Jesus%20dos%20Perd%C3%B5es%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1234567890123"
+                width="100%"
+                height="500"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Localização JPD Usinagem - Bom Jesus dos Perdões, SP"
+              ></iframe>
             </div>
           </div>
         </div>
