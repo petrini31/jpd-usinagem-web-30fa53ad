@@ -5,14 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import MaterialsCarousel from "./MaterialsCarousel";
-// Import das novas imagens dos serviços
-const usinagemCncImage = "/lovable-uploads/f370996c-dd23-4c78-b534-ce466c030a0b.png";
-const desenhosIndustriaisImage = "/lovable-uploads/39454b83-b7cf-4cbe-83d6-9609d65aa701.png";
-const cilindrosPneumaticosImage = "/lovable-uploads/db712f62-c734-48e5-b314-e46a9caee490.png";
-const torneamentoImage = "/lovable-uploads/5747a4c1-c343-4946-a329-d3e6c45e6be9.png";
-const fresamentoImage = "/lovable-uploads/d96ed422-eb47-483d-8dff-2ec3026e0fa7.png";
-const manutencaoRecuperacaoImage = "/lovable-uploads/9bc73a42-18ba-45e1-96b7-c2035acfb640.png";
-const especialistasMoldesImage = "/lovable-uploads/7de9727d-b15c-4acd-a2b3-8bc626ea3949.png";
+import precisionPartsImage from "@/assets/precision-parts.jpg";
+import manufacturingProcessImage from "@/assets/manufacturing-process.jpg";
+import qualityComponentsImage from "@/assets/quality-components.jpg";
 
 const Services = () => {
   const [selectedService, setSelectedService] = useState<any>(null);
@@ -32,7 +27,7 @@ const Services = () => {
       icon: Settings,
       title: "Usinagem CNC de Precisão",
       description: "Fabricamos peças de alta precisão utilizando tecnologia CNC avançada conforme suas especificações.",
-      image: usinagemCncImage,
+      image: precisionPartsImage,
       details: [
         "Usinagem CNC de precisão micrométrica",
         "Aços, alumínios, latões, nylons e acrílicos",
@@ -61,7 +56,7 @@ const Services = () => {
       icon: PenTool,
       title: "Desenhos Industriais Personalizados",
       description: "Desenvolvemos projetos sob medida, desde o conceito até os desenhos técnicos detalhados.",
-      image: desenhosIndustriaisImage,
+      image: manufacturingProcessImage,
       details: [
         "Projetos personalizados do zero",
         "Desenhos técnicos detalhados",
@@ -90,7 +85,7 @@ const Services = () => {
       icon: Cog,
       title: "Fabricação de Cilindros Pneumáticos",
       description: "Especialização em soluções pneumáticas personalizadas, desde o projeto até a produção, com alta performance e durabilidade.",
-      image: cilindrosPneumaticosImage,
+      image: qualityComponentsImage,
       details: [
         "Cilindros pneumáticos personalizados",
         "Projeto sob medida para aplicações específicas",
@@ -119,7 +114,7 @@ const Services = () => {
       icon: Settings,
       title: "Torneamento",
       description: "Serviços de torneamento de alta precisão para peças cilíndricas e complexas, garantindo tolerâncias rigorosas e acabamento superior.",
-      image: torneamentoImage,
+      image: precisionPartsImage,
       details: [
         "Torneamento CNC de alta precisão",
         "Peças cilíndricas e cônicas complexas",
@@ -148,7 +143,7 @@ const Services = () => {
       icon: Wrench,
       title: "Fresamento",
       description: "Usinagem de precisão através de fresamento CNC para componentes com geometrias variadas, superfícies planas e detalhes intrincados.",
-      image: fresamentoImage,
+      image: manufacturingProcessImage,
       details: [
         "Fresamento CNC multi-eixos",
         "Geometrias complexas e variadas",
@@ -177,7 +172,7 @@ const Services = () => {
       icon: RefreshCw,
       title: "Manutenção e Recuperação de Peças",
       description: "Soluções especializadas em manutenção e recuperação de peças industriais, prolongando a vida útil e restaurando a funcionalidade original.",
-      image: manutencaoRecuperacaoImage,
+      image: qualityComponentsImage,
       details: [
         "Análise técnica de desgaste",
         "Recuperação dimensional",
@@ -206,7 +201,7 @@ const Services = () => {
       icon: Cog,
       title: "Fabricação de Ferramentais e Dispositivos",
       description: "Desenvolvimento e fabricação de ferramentais, gabaritos e dispositivos customizados para otimizar processos de produção e garantir a repetibilidade.",
-      image: torneamentoImage,
+      image: precisionPartsImage,
       details: [
         "Ferramentais sob medida",
         "Gabaritos de montagem",
@@ -235,7 +230,7 @@ const Services = () => {
       icon: PenTool,
       title: "Especialistas em Moldes",
       description: "Expertise na fabricação de moldes de injeção e estampo, com foco em precisão, durabilidade e eficiência para a indústria de transformação.",
-      image: especialistasMoldesImage,
+      image: manufacturingProcessImage,
       details: [
         "Moldes de injeção de precisão",
         "Moldes de estampo",
@@ -264,7 +259,7 @@ const Services = () => {
       icon: Zap,
       title: "Retificação de Precisão",
       description: "Serviços de retificação de alta precisão para acabamento superficial superior e tolerâncias extremamente rigorosas em diversas geometrias.",
-      image: fresamentoImage,
+      image: qualityComponentsImage,
       details: [
         "Retífica cilíndrica e plana",
         "Tolerâncias micrométricas",
