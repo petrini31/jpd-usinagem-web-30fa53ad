@@ -1,11 +1,10 @@
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('inicio');
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -15,36 +14,7 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
-  // Track active section based on scroll position
-  useEffect(() => {
-    const sections = ['inicio', 'servicos', 'empresa', 'pneumatica', 'portfolio', 'contato'];
-    
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { 
-        threshold: [0.5],
-        rootMargin: '-100px 0px -100px 0px'
-      }
-    );
-
-    sections.forEach((sectionId) => {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        observer.observe(element);
-      }
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   const menuItems = [
-    { id: 'inicio', label: 'Início' },
     { id: 'servicos', label: 'Serviços' },
     { id: 'empresa', label: 'A Empresa' },
     { id: 'pneumatica', label: 'Pneumática' },
@@ -71,11 +41,7 @@ const Header = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`relative text-foreground hover:text-primary transition-colors font-medium ${
-                    activeSection === item.id 
-                      ? 'text-primary after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-primary after:rounded-full' 
-                      : ''
-                  }`}
+                  className="text-foreground hover:text-primary transition-colors font-medium"
                 >
                   {item.label}
                 </button>
@@ -107,9 +73,7 @@ const Header = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`block w-full text-left px-4 py-2 text-foreground hover:text-primary hover:bg-muted transition-colors rounded-lg ${
-                    activeSection === item.id ? 'text-primary bg-muted' : ''
-                  }`}
+                  className="block w-full text-left px-4 py-2 text-foreground hover:text-primary hover:bg-muted transition-colors rounded-lg"
                 >
                   {item.label}
                 </button>

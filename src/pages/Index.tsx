@@ -1,6 +1,5 @@
 
 import Header from "@/components/Header";
-import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import ScrollRevealSection from "@/components/ScrollRevealSection";
 import MaterialsCarousel from "@/components/MaterialsCarousel";
@@ -17,7 +16,6 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      <Hero />
       <Services />
       
       {/* Primeira seção de scroll reveal */}
