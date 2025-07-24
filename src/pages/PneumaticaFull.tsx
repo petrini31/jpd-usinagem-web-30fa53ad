@@ -7,65 +7,97 @@ import { Textarea } from "@/components/ui/textarea";
 import { useNavigate } from "react-router-dom";
 import QuoteModal from "@/components/QuoteModal";
 import WhatsAppButton from "@/components/WhatsAppButton";
+
 const PneumaticaFull = () => {
   const navigate = useNavigate();
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
-  const advantages = [{
-    icon: Settings,
-    title: "Projetos Personalizados",
-    description: "Cada cilindro é projetado sob medida para sua aplicação específica"
-  }, {
-    icon: Shield,
-    title: "Alta Durabilidade",
-    description: "Materiais premium e processos rigorosos garantem vida útil estendida"
-  }, {
-    icon: Gauge,
-    title: "Performance Superior",
-    description: "Eficiência máxima com controle preciso de força e velocidade"
-  }, {
-    icon: Award,
-    title: "Qualidade Certificada",
-    description: "Padrões internacionais de qualidade em cada componente"
-  }, {
-    icon: Wrench,
-    title: "Suporte Técnico",
-    description: "Equipe especializada para consultoria e manutenção"
-  }, {
-    icon: Clock,
-    title: "Entrega Rápida",
-    description: "Prazos otimizados sem comprometer a qualidade"
-  }];
-  const applications = [{
-    icon: Factory,
-    title: "Automação Industrial",
-    description: "Linhas de produção, robótica e sistemas automatizados"
-  }, {
-    icon: Cog,
-    title: "Equipamentos de Movimentação",
-    description: "Elevadores, esteiras transportadoras e sistemas de carga"
-  }, {
-    icon: Zap,
-    title: "Prensas e Estampas",
-    description: "Sistemas de conformação e prensagem de alta precisão"
-  }, {
-    icon: Target,
-    title: "Máquinas Especiais",
-    description: "Equipamentos customizados para processos específicos"
-  }];
-  const specifications = ["Diâmetros de 16mm a 320mm", "Cursos até 3000mm", "Pressões de trabalho até 10 bar", "Vedações em NBR, Viton ou PU", "Acabamentos especiais disponíveis", "Certificações ISO 9001"];
-  return <div className="min-h-screen bg-background">
+
+  const advantages = [
+    {
+      icon: Settings,
+      title: "Projetos Personalizados",
+      description: "Cada cilindro é projetado sob medida para sua aplicação específica"
+    },
+    {
+      icon: Shield,
+      title: "Alta Durabilidade",
+      description: "Materiais premium e processos rigorosos garantem vida útil estendida"
+    },
+    {
+      icon: Gauge,
+      title: "Performance Superior",
+      description: "Eficiência máxima com controle preciso de força e velocidade"
+    },
+    {
+      icon: Award,
+      title: "Qualidade Certificada",
+      description: "Padrões internacionais de qualidade em cada componente"
+    },
+    {
+      icon: Wrench,
+      title: "Suporte Técnico",
+      description: "Equipe especializada para consultoria e manutenção"
+    },
+    {
+      icon: Clock,
+      title: "Entrega Rápida",
+      description: "Prazos otimizados sem comprometer a qualidade"
+    }
+  ];
+
+  const applications = [
+    {
+      icon: Factory,
+      title: "Automação Industrial",
+      description: "Linhas de produção, robótica e sistemas automatizados"
+    },
+    {
+      icon: Cog,
+      title: "Equipamentos de Movimentação",
+      description: "Elevadores, esteiras transportadoras e sistemas de carga"
+    },
+    {
+      icon: Zap,
+      title: "Prensas e Estampas",
+      description: "Sistemas de conformação e prensagem de alta precisão"
+    },
+    {
+      icon: Target,
+      title: "Máquinas Especiais",
+      description: "Equipamentos customizados para processos específicos"
+    }
+  ];
+
+  const specifications = [
+    "Diâmetros de 16mm a 320mm",
+    "Cursos até 3000mm",
+    "Pressões de trabalho até 10 bar",
+    "Vedações em NBR, Viton ou PU",
+    "Acabamentos especiais disponíveis",
+    "Certificações ISO 9001"
+  ];
+
+  return (
+    <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-40">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <Button variant="ghost" onClick={() => navigate('/')} className="flex items-center gap-2 text-muted-foreground hover:text-foreground">
+              <Button
+                variant="ghost"
+                onClick={() => navigate('/')}
+                className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
+              >
                 <ArrowLeft className="w-4 h-4" />
                 Voltar ao Site
               </Button>
             </div>
             <div className="flex items-center gap-4">
-              <Button onClick={() => setIsQuoteModalOpen(true)} className="bg-primary text-primary-foreground hover:bg-primary-dark">
+              <Button 
+                onClick={() => setIsQuoteModalOpen(true)}
+                className="bg-primary text-primary-foreground hover:bg-primary-dark"
+              >
                 Solicitar Orçamento
               </Button>
             </div>
@@ -93,10 +125,18 @@ const PneumaticaFull = () => {
                 durabilidade excepcional e performance superior para aplicações industriais exigentes.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button onClick={() => setIsQuoteModalOpen(true)} size="lg" className="bg-destructive text-destructive-foreground hover:bg-white hover:text-destructive text-lg px-8 py-4">
+                <Button 
+                  onClick={() => setIsQuoteModalOpen(true)}
+                  size="lg"
+                  className="bg-destructive text-destructive-foreground hover:bg-white hover:text-destructive text-lg px-8 py-4"
+                >
                   Solicitar Projeto Personalizado
                 </Button>
-                <Button onClick={() => window.open('https://wa.me/5511958274054', '_blank')} size="lg" className="bg-white text-destructive hover:bg-destructive hover:text-white text-lg px-8 py-4">
+                <Button 
+                  onClick={() => window.open('https://wa.me/5511958274054', '_blank')}
+                  size="lg"
+                  className="bg-white text-destructive hover:bg-destructive hover:text-white text-lg px-8 py-4"
+                >
                   <MessageCircle className="w-5 h-5 mr-2" />
                   WhatsApp
                 </Button>
@@ -131,7 +171,8 @@ const PneumaticaFull = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {advantages.map((advantage, index) => <Card key={index} className="group hover:shadow-medium transition-all duration-300 border-muted-foreground/20">
+            {advantages.map((advantage, index) => (
+              <Card key={index} className="group hover:shadow-medium transition-all duration-300 border-muted-foreground/20">
                 <CardHeader>
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                     <advantage.icon className="w-6 h-6 text-primary" />
@@ -141,7 +182,8 @@ const PneumaticaFull = () => {
                 <CardContent>
                   <CardDescription className="text-base">{advantage.description}</CardDescription>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -169,7 +211,8 @@ const PneumaticaFull = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {applications.map((application, index) => <Card key={index} className="group hover:shadow-medium transition-all duration-300">
+            {applications.map((application, index) => (
+              <Card key={index} className="group hover:shadow-medium transition-all duration-300">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-4 text-xl">
                     <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -181,7 +224,8 @@ const PneumaticaFull = () => {
                 <CardContent>
                   <CardDescription className="text-base">{application.description}</CardDescription>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -199,10 +243,12 @@ const PneumaticaFull = () => {
                 de cada aplicação industrial.
               </p>
               <div className="grid grid-cols-1 gap-4">
-                {specifications.map((spec, index) => <div key={index} className="flex items-center gap-3">
+                {specifications.map((spec, index) => (
+                  <div key={index} className="flex items-center gap-3">
                     <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
                     <span className="text-lg">{spec}</span>
-                  </div>)}
+                  </div>
+                ))}
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
@@ -261,7 +307,11 @@ const PneumaticaFull = () => {
               </div>
             </div>
 
-            <Button onClick={() => setIsQuoteModalOpen(true)} size="lg" className="bg-white text-primary hover:bg-white/90 text-lg px-12 py-4">
+            <Button 
+              onClick={() => setIsQuoteModalOpen(true)}
+              size="lg"
+              className="bg-white text-primary hover:bg-white/90 text-lg px-12 py-4"
+            >
               <Send className="w-5 h-5 mr-2" />
               Solicitar Orçamento Agora
             </Button>
@@ -327,14 +377,25 @@ const PneumaticaFull = () => {
       <section className="py-24 bg-muted/30">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            
-            
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              Nossa <span className="text-primary">Localização</span>
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Visite nossa fábrica em Bom Jesus dos Perdões, SP
+            </p>
           </div>
           <div className="max-w-6xl mx-auto">
             <div className="bg-background rounded-lg overflow-hidden shadow-lg border border-border">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58810.86542284442!2d-46.48461524863279!3d-23.18156579999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce8b7e8e8e8e8e%3A0x8e8e8e8e8e8e8e8e!2sBom%20Jesus%20dos%20Perd%C3%B5es%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1234567890123" width="100%" height="500" style={{
-              border: 0
-            }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Localização JPD Usinagem - Bom Jesus dos Perdões, SP"></iframe>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58810.86542284442!2d-46.48461524863279!3d-23.18156579999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce8b7e8e8e8e8e%3A0x8e8e8e8e8e8e8e8e!2sBom%20Jesus%20dos%20Perd%C3%B5es%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1234567890123"
+                width="100%"
+                height="500"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Localização JPD Usinagem - Bom Jesus dos Perdões, SP"
+              ></iframe>
             </div>
           </div>
         </div>
@@ -355,9 +416,14 @@ const PneumaticaFull = () => {
         </div>
       </footer>
 
-      <QuoteModal isOpen={isQuoteModalOpen} onClose={() => setIsQuoteModalOpen(false)} />
+      <QuoteModal 
+        isOpen={isQuoteModalOpen} 
+        onClose={() => setIsQuoteModalOpen(false)} 
+      />
       
       <WhatsAppButton />
-    </div>;
+    </div>
+  );
 };
+
 export default PneumaticaFull;
