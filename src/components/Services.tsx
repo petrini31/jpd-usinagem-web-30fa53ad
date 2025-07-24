@@ -463,13 +463,6 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Materials Section */}
-        <div className="animate-fade-in">
-          <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
-            Materiais Trabalhados
-          </h3>
-          <MaterialsCarousel />
-        </div>
 
         {/* Service Details Modal */}
         <Dialog open={!!selectedService} onOpenChange={() => setSelectedService(null)}>
