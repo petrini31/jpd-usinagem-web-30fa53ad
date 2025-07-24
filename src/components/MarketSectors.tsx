@@ -14,7 +14,7 @@ const MarketSectors = () => {
       icon: Building,
       title: "Indústria Automotiva",
       description: "Peças para motores (blocos, cabeçotes, virabrequins, bielas), transmissões (engrenagens, eixos), sistemas de freio e suspensão, componentes de chassi, moldes e ferramentas para fabricação.",
-      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=600&h=400"
+      image: "/lovable-uploads/c389b1c3-66fe-4964-8cf6-c6b4966a9e60.png"
     },
     {
       id: 'aeroespacial',
