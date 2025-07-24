@@ -1,14 +1,17 @@
 
 import { useEffect, useRef, useState } from 'react';
+import { useCustomImage } from '@/hooks/useCustomImage';
 
 interface ScrollRevealSectionProps {
   image: string;
+  imageId: string;
   title: string;
   subtitle?: string;
   description?: string;
 }
 
-const ScrollRevealSection = ({ image, title, subtitle, description }: ScrollRevealSectionProps) => {
+const ScrollRevealSection = ({ image, imageId, title, subtitle, description }: ScrollRevealSectionProps) => {
+  const customImage = useCustomImage(imageId, image);
   const sectionRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -81,7 +84,7 @@ const ScrollRevealSection = ({ image, title, subtitle, description }: ScrollReve
         ref={imageRef}
         className="absolute inset-0 bg-cover bg-center transition-transform duration-100 ease-out"
         style={{
-          backgroundImage: `url(${image})`,
+          backgroundImage: `url(${customImage})`,
           transform: `translateX(${-100 + (scrollProgress * 100)}%)`,
         }}
       />

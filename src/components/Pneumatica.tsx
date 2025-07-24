@@ -1,8 +1,13 @@
 
 import { Factory, ArrowRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useCustomImage } from "@/hooks/useCustomImage";
 
 const Pneumatica = () => {
+  const pneumaticImage1 = useCustomImage('pneumatic-1', 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=600&h=400');
+  const pneumaticImage2 = useCustomImage('pneumatic-2', 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600&h=400');
+  const pneumaticImage3 = useCustomImage('pneumatic-3', 'https://images.unsplash.com/photo-1487887235947-a955ef187fcc?auto=format&fit=crop&q=80&w=600&h=400');
+
   const scrollToContact = () => {
     const element = document.getElementById('orcamento');
     if (element) {
@@ -80,16 +85,28 @@ const Pneumatica = () => {
           {/* Images Grid */}
           <div className="grid grid-cols-2 gap-4 animate-slide-up" style={{ animationDelay: '0.2s' }}>
             <div className="space-y-4">
-              <div className="aspect-square bg-gradient-primary rounded-lg opacity-20 flex items-center justify-center">
-                <Factory className="w-12 h-12 text-primary" />
+              <div className="aspect-square rounded-lg overflow-hidden">
+                <img 
+                  src={pneumaticImage1} 
+                  alt="Cilindros Pneumáticos" 
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <div className="aspect-[4/3] bg-gradient-accent rounded-lg opacity-20 flex items-center justify-center">
-                <Factory className="w-10 h-10 text-primary" />
+              <div className="aspect-[4/3] rounded-lg overflow-hidden">
+                <img 
+                  src={pneumaticImage2} 
+                  alt="Sistemas de Automação" 
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
             <div className="space-y-4 mt-6">
-              <div className="aspect-[4/3] bg-gradient-primary rounded-lg opacity-20 flex items-center justify-center">
-                <Factory className="w-10 h-10 text-primary" />
+              <div className="aspect-[4/3] rounded-lg overflow-hidden">
+                <img 
+                  src={pneumaticImage3} 
+                  alt="Equipamentos Pneumáticos" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="aspect-square bg-gradient-accent rounded-lg opacity-20 flex items-center justify-center">
                 <Factory className="w-12 h-12 text-primary" />

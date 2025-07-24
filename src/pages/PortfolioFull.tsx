@@ -6,14 +6,32 @@ import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
 import QuoteModal from "@/components/QuoteModal";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { useState } from "react";
+import { useCustomImage } from "@/hooks/useCustomImage";
 
 const PortfolioFull = () => {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<{image: string, title: string, description: string} | null>(null);
+  
+  // Portfolio items with custom images
   const portfolioItems = [
-    { id: 1, image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=400&h=300", title: "Peça CNC Complexa", description: "Componente aeroespacial de alta precisão" },
-    { id: 2, image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=400&h=300", title: "Sistema Pneumático", description: "Cilindro pneumático personalizado" },
-    { id: 3, image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=400&h=300", title: "Ferramental Industrial", description: "Molde de injeção de precisão" },
+    { 
+      id: 1, 
+      image: useCustomImage('portfolio-full-1', "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=400&h=300"), 
+      title: "Peça CNC Complexa", 
+      description: "Componente aeroespacial de alta precisão" 
+    },
+    { 
+      id: 2, 
+      image: useCustomImage('portfolio-full-2', "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=400&h=300"), 
+      title: "Sistema Pneumático", 
+      description: "Cilindro pneumático personalizado" 
+    },
+    { 
+      id: 3, 
+      image: useCustomImage('portfolio-full-3', "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=400&h=300"), 
+      title: "Ferramental Industrial", 
+      description: "Molde de injeção de precisão" 
+    },
     { id: 4, image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=400&h=300", title: "Componente Automotivo", description: "Peça usinada em alumínio" },
     { id: 5, image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=400&h=300", title: "Circuito Eletrônico", description: "Base usinada para componentes" },
     { id: 6, image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=400&h=300", title: "Dispositivo Médico", description: "Componente em titânio" },
