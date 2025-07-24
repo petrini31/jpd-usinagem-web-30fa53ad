@@ -26,13 +26,31 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['servicos', 'portfolio', 'pneumatica', 'empresa', 'contato'];
-      const scrollPosition = window.scrollY + 100;
+      const scrollPosition = window.scrollY + 150; // Offset para detectar mais cedo
+      
+      // Verifica se chegou ao final da página (seção de orçamento)
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const isAtBottom = window.scrollY + windowHeight >= documentHeight - 100;
+      
+      if (isAtBottom) {
+        setActiveSection(''); // Remove destaque quando chegar na seção de orçamento
+        return;
+      }
 
-      for (let i = sections.length - 1; i >= 0; i--) {
+      // Detecta qual seção está visível
+      for (let i = 0; i < sections.length; i++) {
         const element = document.getElementById(sections[i]);
-        if (element && element.offsetTop <= scrollPosition) {
-          setActiveSection(sections[i]);
-          break;
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const elementTop = rect.top + window.scrollY;
+          const elementHeight = rect.height;
+          
+          // Se a seção está visível na parte superior da tela
+          if (scrollPosition >= elementTop && scrollPosition < elementTop + elementHeight) {
+            setActiveSection(sections[i]);
+            return;
+          }
         }
       }
     };
