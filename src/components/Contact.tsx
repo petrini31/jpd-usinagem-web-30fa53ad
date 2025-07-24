@@ -58,25 +58,25 @@ const Contact = () => {
                   className="group hover:shadow-medium transition-all duration-300 border border-border/50 hover:border-primary/30"
                 >
                   <CardContent className="p-6">
-                    <div className="flex items-start gap-5">
-                      <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-primary rounded-full group-hover:scale-110 transition-transform duration-300 shadow-soft">
-                        <info.icon className="w-7 h-7 text-primary-foreground" />
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="text-xl font-semibold text-foreground mb-3">
-                          {info.title}
-                        </h4>
+                     <div className="flex items-start gap-4">
+                       <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-primary rounded-full group-hover:scale-110 transition-transform duration-300 shadow-soft">
+                         <info.icon className="w-6 h-6 text-primary-foreground" />
+                       </div>
+                       <div className="flex-1">
+                         <h4 className="text-lg font-semibold text-foreground mb-2">
+                           {info.title}
+                         </h4>
                         {info.link ? (
-                          <a 
-                            href={info.link}
-                            className="text-muted-foreground hover:text-primary transition-colors whitespace-pre-line text-lg"
+                           <a 
+                             href={info.link}
+                             className="text-muted-foreground hover:text-primary transition-colors whitespace-pre-line text-base"
                             target={info.link.startsWith('http') ? '_blank' : undefined}
                             rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
                           >
                             {info.value}
                           </a>
                         ) : (
-                          <p className="text-muted-foreground whitespace-pre-line text-lg">
+                          <p className="text-muted-foreground whitespace-pre-line text-base">
                             {info.value}
                           </p>
                         )}

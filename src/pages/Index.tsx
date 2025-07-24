@@ -26,8 +26,8 @@ const Index = () => {
         description="Nossa expertise em usinagem CNC garante a máxima precisão em cada projeto, atendendo aos mais rigorosos padrões de qualidade da indústria."
       />
       
-      <MaterialsCarousel />
       <MarketSectors />
+      <MaterialsCarousel />
       <Portfolio />
       
       {/* Segunda seção de scroll reveal */}

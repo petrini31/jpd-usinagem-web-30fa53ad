@@ -95,12 +95,12 @@ const Company = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
             </div>
             
-            <div className="absolute -bottom-8 -left-8 bg-primary text-primary-foreground p-6 rounded-lg shadow-strong">
-              <div className="text-center">
-                <div className="text-3xl font-bold">25+</div>
-                <div className="text-sm opacity-90">Anos de Experiência</div>
-              </div>
-            </div>
+             <div className="absolute -bottom-8 -left-8 bg-primary text-primary-foreground p-6 rounded-lg shadow-strong">
+               <div className="text-center">
+                 <div className="text-3xl font-bold">CNC</div>
+                 <div className="text-sm opacity-90">Tecnologia em usinagem CNC</div>
+               </div>
+             </div>
           </div>
         </div>
 
