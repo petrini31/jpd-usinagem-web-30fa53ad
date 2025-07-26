@@ -1,4 +1,3 @@
-
 import { ArrowLeft, Download, Eye, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,17 +9,18 @@ import { useState } from "react";
 const PortfolioFull = () => {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<{image: string, title: string, description: string} | null>(null);
+  
   const portfolioItems = [
-    { id: 1, image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=400&h=300", title: "Peça CNC Complexa", description: "Componente aeroespacial de alta precisão" },
-    { id: 2, image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=400&h=300", title: "Sistema Pneumático", description: "Cilindro pneumático personalizado" },
-    { id: 3, image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=400&h=300", title: "Ferramental Industrial", description: "Molde de injeção de precisão" },
-    { id: 4, image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=400&h=300", title: "Componente Automotivo", description: "Peça usinada em alumínio" },
-    { id: 5, image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=400&h=300", title: "Circuito Eletrônico", description: "Base usinada para componentes" },
-    { id: 6, image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=400&h=300", title: "Dispositivo Médico", description: "Componente em titânio" },
-    { id: 7, image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=400&h=300", title: "Máquina Especial", description: "Conjunto mecânico completo" },
-    { id: 8, image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&q=80&w=400&h=300", title: "Protótipo Industrial", description: "Desenvolvimento de conceito" },
-    { id: 9, image: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?auto=format&fit=crop&q=80&w=400&h=300", title: "Ferramenta de Corte", description: "Usinagem de alta dureza" },
-    { id: 10, image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=400&h=300", title: "Sistema Hidráulico", description: "Bloco manifold personalizado" },
+    { id: 1, image: "/lovable-uploads/7487f020-2969-4fea-93cc-7232587c319e.png", title: "Usinagem CNC de precisão", description: "Processo de usinagem CNC com alta precisão e qualidade" },
+    { id: 2, image: "/lovable-uploads/4d1166a1-566a-4f33-a6fb-05a628da0ceb.png", title: "Torneamento", description: "Operação de torneamento para peças cilíndricas" },
+    { id: 3, image: "/lovable-uploads/79615b86-054f-4f10-90ae-9bb561911010.png", title: "Fresamento", description: "Processo de fresamento para usinagem de superfícies complexas" },
+    { id: 4, image: "/lovable-uploads/77db13a0-f3ab-40f1-ad6e-d00c2a3ca32b.png", title: "Fabricação de cilindros pneumáticos", description: "Desenvolvimento e fabricação de cilindros pneumáticos personalizados" },
+    { id: 5, image: "/lovable-uploads/dd128e84-9545-4e4d-a57a-8aaca84f4a9b.png", title: "Nosso cilindro pneumático em atuação", description: "Cilindro pneumático da JPD Usinagem em operação industrial" },
+    { id: 6, image: "/lovable-uploads/3b518978-4d9c-4d5b-bcf8-4485bc695d1b.png", title: "Bicos injetores", description: "Fabricação de bicos injetores de alta precisão" },
+    { id: 7, image: "/lovable-uploads/aec5fa4d-81c6-4c81-938b-e57e9900c236.png", title: "Usinagem em série", description: "Produção em série de peças usinadas com qualidade consistente" },
+    { id: 8, image: "/lovable-uploads/209bf881-1ece-45ad-9b34-a76bd704a853.png", title: "Tratamento de peças de precisão", description: "Peças usinadas com acabamento e tratamento especial" },
+    { id: 9, image: "/lovable-uploads/1159c5da-7355-4c50-9483-b457bb702d07.png", title: "Manutenção de componentes", description: "Serviços de manutenção e reparo de componentes industriais" },
+    { id: 10, image: "/lovable-uploads/1bf1d819-ce80-415a-b87c-fd78e53be919.png", title: "Usinagem de arruelas", description: "Fabricação de arruelas e componentes de fixação" },
     { id: 11, image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=400&h=300", title: "Componente Naval", description: "Peça em bronze naval" },
     { id: 12, image: "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?auto=format&fit=crop&q=80&w=400&h=300", title: "Equipamento Laboratório", description: "Peça de alta precisão" },
     { id: 13, image: "https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?auto=format&fit=crop&q=80&w=400&h=300", title: "Dispositivo Eletrônico", description: "Carcaça usinada" },

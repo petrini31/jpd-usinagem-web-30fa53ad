@@ -7,82 +7,57 @@ const Portfolio = () => {
     window.open('/portfolio-full', '_blank');
   };
 
-  // 15 primeiras imagens da rota /portfolio-full
+  // 10 primeiras imagens da rota /portfolio-full com as imagens fornecidas
   const galleryProjects = [
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=600&h=400",
-      title: "Usinagem CNC de Precisão"
+      image: "/lovable-uploads/7487f020-2969-4fea-93cc-7232587c319e.png",
+      title: "Usinagem CNC de precisão"
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600&h=400",
-      title: "Cilindros Pneumáticos"
+      image: "/lovable-uploads/4d1166a1-566a-4f33-a6fb-05a628da0ceb.png",
+      title: "Torneamento"
     },
     {
       id: 3,
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600&h=400",
-      title: "Ferramentaria"
+      image: "/lovable-uploads/79615b86-054f-4f10-90ae-9bb561911010.png",
+      title: "Fresamento"
     },
     {
       id: 4,
-      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=600&h=400",
-      title: "Moldes de Precisão"
+      image: "/lovable-uploads/77db13a0-f3ab-40f1-ad6e-d00c2a3ca32b.png",
+      title: "Fabricação de cilindros pneumáticos"
     },
     {
       id: 5,
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=600&h=400",
-      title: "Componentes Automotivos"
+      image: "/lovable-uploads/dd128e84-9545-4e4d-a57a-8aaca84f4a9b.png",
+      title: "Nosso cilindro pneumático em atuação"
     },
     {
       id: 6,
-      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=600&h=400",
-      title: "Peças Industriais"
+      image: "/lovable-uploads/3b518978-4d9c-4d5b-bcf8-4485bc695d1b.png",
+      title: "Bicos injetores"
     },
     {
       id: 7,
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=600&h=400",
-      title: "Torneamento CNC"
+      image: "/lovable-uploads/aec5fa4d-81c6-4c81-938b-e57e9900c236.png",
+      title: "Usinagem em série"
     },
     {
       id: 8,
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=600&h=400",
-      title: "Fresamento de Precisão"
+      image: "/lovable-uploads/209bf881-1ece-45ad-9b34-a76bd704a853.png",
+      title: "Tratamento de peças de precisão"
     },
     {
       id: 9,
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=600&h=400",
-      title: "Retificação"
+      image: "/lovable-uploads/1159c5da-7355-4c50-9483-b457bb702d07.png",
+      title: "Manutenção de componentes"
     },
     {
       id: 10,
-      image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=600&h=400",
-      title: "Dispositivos Especiais"
-    },
-    {
-      id: 11,
-      image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&q=80&w=600&h=400",
-      title: "Engrenagens"
-    },
-    {
-      id: 12,
-      image: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?auto=format&fit=crop&q=80&w=600&h=400",
-      title: "Componentes Hidráulicos"
-    },
-    {
-      id: 13,
-      image: "https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?auto=format&fit=crop&q=80&w=600&h=400",
-      title: "Peças Aeroespaciais"
-    },
-    {
-      id: 14,
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600&h=400",
-      title: "Equipamentos Médicos"
-    },
-    {
-      id: 15,
-      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600&h=400",
-      title: "Protótipos Funcionais"
+      image: "/lovable-uploads/1bf1d819-ce80-415a-b87c-fd78e53be919.png",
+      title: "Usinagem de arruelas"
     }
   ];
 
@@ -108,7 +83,7 @@ const Portfolio = () => {
           </p>
         </div>
 
-        {/* Grid de 15 imagens com molduras vermelhas */}
+        {/* Grid de 10 imagens com molduras */}
         <div className="mb-12">
           <div className="bg-muted/20 p-4 rounded-lg" style={{ margin: '0 0.5cm' }}>
             <div className="grid grid-cols-5 gap-3">
