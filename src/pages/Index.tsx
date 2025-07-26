@@ -20,7 +20,7 @@ const Index = () => {
       <Hero />
       <Services />
       
-      {/* Primeira seção de scroll reveal */}
+      {/* Primeira seção de scroll reveal - Abaixo de Nossos Serviços e acima de Principais Atuações no Mercado */}
       <ScrollRevealSection 
         image="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1600&h=600"
         title="Precisão em Cada Detalhe"
@@ -32,9 +32,9 @@ const Index = () => {
       <MarketSectors />
       <Portfolio />
       
-      {/* Segunda seção de scroll reveal */}
+      {/* Segunda seção de scroll reveal - Abaixo de Nosso Portfólio e acima de Soluções Pneumáticas de Alta Performance */}
       <ScrollRevealSection 
-        image="https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?auto=format&fit=crop&q=80&w=1600&h=600"
+        image="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600&h=600"
         title="Inovação e Qualidade"
         subtitle="Soluções customizadas para sua empresa"
         description="Desenvolvemos soluções sob medida para atender às necessidades específicas de cada cliente, combinando tradição e inovação."
@@ -42,10 +42,12 @@ const Index = () => {
       
       <Pneumatica />
       
-      {/* Terceira seção de scroll reveal - apenas imagem */}
+      {/* Terceira seção de scroll reveal - Abaixo de Soluções Pneumáticas de Alta Performance e acima de Sobre a JPD Usinagem CNC */}
       <ScrollRevealSection 
-        image="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600&h=600"
-        title=""
+        image="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1600&h=600"
+        title="Excelência Industrial"
+        subtitle="Automação e robótica de ponta"
+        description="Investimos constantemente em tecnologia para oferecer as melhores soluções em automação industrial e sistemas pneumáticos."
       />
       
       <Company />
