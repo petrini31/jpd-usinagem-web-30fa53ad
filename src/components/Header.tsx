@@ -100,13 +100,23 @@ const Header = () => {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
-          >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile Header - Quote button and hamburger */}
+          <div className="md:hidden flex items-center gap-2">
+            <Button 
+              size="sm"
+              onClick={() => scrollToSection('orcamento')}
+              className="bg-primary text-primary-foreground hover:bg-primary-dark transition-colors text-xs px-3 py-2"
+            >
+              Orçamento
+            </Button>
+            
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 rounded-lg hover:bg-muted transition-colors"
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}

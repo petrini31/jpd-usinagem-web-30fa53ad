@@ -41,20 +41,6 @@ const Services = () => {
     }
   ];
 
-  // Mobile: mostrar 1 por vez, Desktop: mostrar 3 por vez
-  const getVisibleServices = useCallback(() => {
-    const isMobile = window.innerWidth < 768;
-    if (isMobile) {
-      return [services[currentIndex]];
-    } else {
-      const result = [];
-      for (let i = 0; i < 3; i++) {
-        result.push(services[(currentIndex + i) % services.length]);
-      }
-      return result;
-    }
-  }, [currentIndex, services]);
-
   const nextService = useCallback(() => {
     if (isTransitioning) return;
     setIsTransitioning(true);
@@ -74,6 +60,20 @@ const Services = () => {
     return () => clearInterval(interval);
   }, [nextService]);
 
+  // Mobile: mostrar 1 por vez, Desktop: mostrar 3 por vez
+  const getVisibleServices = useCallback(() => {
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) {
+      return [services[currentIndex]];
+    } else {
+      const result = [];
+      for (let i = 0; i < 3; i++) {
+        result.push(services[(currentIndex + i) % services.length]);
+      }
+      return result;
+    }
+  }, [currentIndex, services]);
+
   const visibleServices = getVisibleServices();
 
   return (
@@ -92,7 +92,96 @@ const Services = () => {
 
         {/* Services Carousel */}
         <div className="relative mb-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 transition-all duration-300">
+          {/* Mobile carousel container */}
+          <div className="md:hidden">
+            <div className="relative overflow-hidden">
+              <div 
+                className="flex transition-transform duration-300 ease-in-out"
+                style={{ 
+                  transform: `translateX(-${currentIndex * 100}%)`,
+                  width: `${services.length * 100}%`
+                }}
+              >
+                {services.map((service, index) => (
+                  <div 
+                    key={index}
+                    className="w-full flex-shrink-0 px-2"
+                    style={{ width: `${100 / services.length}%` }}
+                  >
+                    <Card className="group hover:shadow-medium transition-all duration-300 border border-border/50 hover:border-primary/30 h-full">
+                      <div className="relative overflow-hidden">
+                        <img 
+                          src={service.image} 
+                          alt={service.title}
+                          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute top-4 left-4">
+                          <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-primary rounded-full shadow-soft">
+                            <service.icon className="w-6 h-6 text-primary-foreground" />
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <CardHeader className="pb-4">
+                        <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors">
+                          {service.title}
+                        </CardTitle>
+                        <CardDescription className="text-base text-muted-foreground">
+                          {service.description}
+                        </CardDescription>
+                      </CardHeader>
+                      
+                      <CardContent className="pt-0 flex flex-col h-full">
+                        <ul className="space-y-2 mb-6 flex-grow">
+                          {service.features.map((feature, featureIndex) => (
+                            <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
+                              <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3 flex-shrink-0" />
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                        
+                        <Button 
+                          variant="outline" 
+                          className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground mt-auto"
+                          onClick={() => setIsQuoteModalOpen(true)}
+                        >
+                          Solicitar Orçamento
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Mobile Navigation */}
+            <div className="flex justify-center gap-4 mt-6">
+              <Button 
+                variant="outline" 
+                size="sm"
+                onClick={prevService}
+                disabled={isTransitioning}
+                className="disabled:opacity-50"
+              >
+                <ChevronLeft className="w-4 h-4 mr-1" />
+                Anterior
+              </Button>
+              <Button 
+                variant="outline" 
+                size="sm"
+                onClick={nextService}
+                disabled={isTransitioning}
+                className="disabled:opacity-50"
+              >
+                Próximo
+                <ChevronRight className="w-4 h-4 ml-1" />
+              </Button>
+            </div>
+          </div>
+
+          {/* Desktop grid */}
+          <div className="hidden md:grid md:grid-cols-3 gap-8 transition-all duration-300">
             {visibleServices.map((service, index) => (
               <Card 
                 key={`${service.title}-${currentIndex}-${index}`}
@@ -102,29 +191,29 @@ const Services = () => {
                   <img 
                     src={service.image} 
                     alt={service.title}
-                    className="w-full h-40 md:h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-3 left-3 md:top-4 md:left-4">
-                    <div className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-gradient-primary rounded-full shadow-soft">
-                      <service.icon className="w-5 h-5 md:w-6 md:h-6 text-primary-foreground" />
+                  <div className="absolute top-4 left-4">
+                    <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-primary rounded-full shadow-soft">
+                      <service.icon className="w-6 h-6 text-primary-foreground" />
                     </div>
                   </div>
                 </div>
                 
-                <CardHeader className="pb-3 md:pb-4">
-                  <CardTitle className="text-lg md:text-xl text-foreground group-hover:text-primary transition-colors">
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors">
                     {service.title}
                   </CardTitle>
-                  <CardDescription className="text-sm md:text-base text-muted-foreground">
+                  <CardDescription className="text-base text-muted-foreground">
                     {service.description}
                   </CardDescription>
                 </CardHeader>
                 
                 <CardContent className="pt-0">
-                  <ul className="space-y-2 mb-4 md:mb-6">
+                  <ul className="space-y-2 mb-6">
                     {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-xs md:text-sm text-muted-foreground">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 md:mr-3 flex-shrink-0" />
+                      <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3 flex-shrink-0" />
                         {feature}
                       </li>
                     ))}
@@ -132,7 +221,7 @@ const Services = () => {
                   
                   <Button 
                     variant="outline" 
-                    className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground text-xs md:text-sm"
+                    className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground"
                     onClick={() => setIsQuoteModalOpen(true)}
                   >
                     Solicitar Orçamento
@@ -142,7 +231,7 @@ const Services = () => {
             ))}
           </div>
 
-          {/* Navigation Arrows - Desktop */}
+          {/* Desktop Navigation Arrows */}
           <Button
             variant="outline"
             size="icon"
@@ -164,7 +253,7 @@ const Services = () => {
           </Button>
 
           {/* Dot indicators */}
-          <div className="flex justify-center gap-2 mt-6 md:mt-8">
+          <div className="flex justify-center gap-2 mt-8">
             {services.map((_, index) => (
               <button
                 key={index}
@@ -183,30 +272,6 @@ const Services = () => {
                 }`}
               />
             ))}
-          </div>
-
-          {/* Mobile Navigation */}
-          <div className="flex justify-center gap-4 mt-4 md:hidden">
-            <Button 
-              variant="outline" 
-              size="sm"
-              onClick={prevService}
-              disabled={isTransitioning}
-              className="disabled:opacity-50"
-            >
-              <ChevronLeft className="w-4 h-4 mr-1" />
-              Anterior
-            </Button>
-            <Button 
-              variant="outline" 
-              size="sm"
-              onClick={nextService}
-              disabled={isTransitioning}
-              className="disabled:opacity-50"
-            >
-              Próximo
-              <ChevronRight className="w-4 h-4 ml-1" />
-            </Button>
           </div>
         </div>
       </div>
