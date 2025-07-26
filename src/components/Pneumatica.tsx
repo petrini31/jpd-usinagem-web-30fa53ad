@@ -106,8 +106,8 @@ const Pneumatica = () => {
             <div className="space-y-4 mt-6">
               <div className="relative overflow-hidden rounded-lg shadow-medium">
                 <img 
-                  src="/lovable-uploads/2f4f9d38-c8e0-4f26-ac39-3dc5473788e8.png"
-                  alt="Montagem de Pistão - Fabricação"
+                  src="/lovable-uploads/29628d4e-98eb-4c44-89cf-954fdd334f0d.png"
+                  alt="Cilindros Pneumáticos Manufaturados"
                   className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
