@@ -1,14 +1,14 @@
-
 import { useState, useMemo, useCallback } from "react";
 import { Settings, Wrench, Cog, ArrowRight, PenTool, RefreshCw, ChevronLeft, ChevronRight, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import MaterialsCarousel from "./MaterialsCarousel";
+
 // Import das novas imagens dos serviços
 const usinagemCncImage = "/lovable-uploads/f370996c-dd23-4c78-b534-ce466c030a0b.png";
 const desenhosIndustriaisImage = "/lovable-uploads/39454b83-b7cf-4cbe-83d6-9609d65aa701.png";
-const cilindrosPneumaticosImage = "/lovable-uploads/db712f62-c734-48e5-b314-e46a9caee490.png";
+const cilindrosPneumaticosImage = "/lovable-uploads/2e86ffbf-edfb-42e6-abea-d053f935f05b.png";
 const torneamentoImage = "/lovable-uploads/5747a4c1-c343-4946-a329-d3e6c45e6be9.png";
 const fresamentoImage = "/lovable-uploads/d96ed422-eb47-483d-8dff-2ec3026e0fa7.png";
 const manutencaoRecuperacaoImage = "/lovable-uploads/9bc73a42-18ba-45e1-96b7-c2035acfb640.png";
@@ -467,7 +467,6 @@ const Services = () => {
             </Button>
           </div>
         </div>
-
 
         {/* Service Details Modal */}
         <Dialog open={!!selectedService} onOpenChange={() => setSelectedService(null)}>

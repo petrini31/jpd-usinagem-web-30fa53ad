@@ -75,7 +75,10 @@ const PneumaticaFull = () => {
     "Pressões de trabalho até 10 bar",
     "Vedações em NBR, Viton ou PU",
     "Acabamentos especiais disponíveis",
-    "Certificações ISO 9001"
+    "Certificações ISO 9001",
+    "Cabeçotes em poliacetal de alta rigidez",
+    "Resistência à corrosão química",
+    "Aplicação em ambientes de materiais químicos"
   ];
 
   return (
@@ -144,16 +147,15 @@ const PneumaticaFull = () => {
               </div>
             </div>
             
-            {/* Video Space - Right Side */}
+            {/* Pneumatic Cylinder Image - Right Side */}
             <div className="flex justify-center lg:justify-end">
-              <div className="w-80 h-[568px] bg-white/10 rounded-lg flex items-center justify-center border-2 border-dashed border-white/30">
-                <div className="text-center text-white/60">
-                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Factory className="w-8 h-8" />
-                  </div>
-                  <p className="text-sm">Espaço para Vídeo</p>
-                  <p className="text-xs">1080 x 1920 pixels</p>
-                </div>
+              <div className="relative">
+                <img 
+                  src="/lovable-uploads/6b860842-119a-4fbd-88fa-c950c619c263.png"
+                  alt="Cilindro Pneumático de Alta Performance"
+                  className="max-w-full h-auto max-h-[500px] object-contain drop-shadow-2xl"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-white/5 to-transparent rounded-lg"></div>
               </div>
             </div>
           </div>
@@ -298,7 +300,8 @@ const PneumaticaFull = () => {
               </h2>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
                 Ampla gama de especificações para atender às necessidades mais específicas 
-                de cada aplicação industrial.
+                de cada aplicação industrial. Utilizamos materiais de alta qualidade como 
+                poliacetal para cabeçotes, garantindo leveza, rigidez e resistência à corrosão.
               </p>
               <div className="grid grid-cols-1 gap-4">
                 {specifications.map((spec, index) => (
@@ -307,6 +310,20 @@ const PneumaticaFull = () => {
                     <span className="text-lg">{spec}</span>
                   </div>
                 ))}
+              </div>
+              
+              <div className="mt-8 p-6 bg-primary/5 rounded-lg border border-primary/20">
+                <h3 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
+                  <Shield className="w-5 h-5 text-primary" />
+                  Cabeçotes em Poliacetal
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Fabricamos cabeçotes com poliacetal, um termoplástico de engenharia de alta rigidez, 
+                  resistência e estabilidade dimensional. Esse material proporciona maior leveza aos 
+                  cilindros pneumáticos e excelente proteção contra corrosão por compostos químicos, 
+                  sendo ideal para ambientes industriais como produção de fertilizantes, cimento e 
+                  outros materiais químicos agressivos.
+                </p>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">

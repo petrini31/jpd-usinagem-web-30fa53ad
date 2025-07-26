@@ -88,7 +88,7 @@ const Company = () => {
           <div className="relative animate-fade-in">
             <div className="relative overflow-hidden rounded-lg shadow-strong">
               <img 
-                src="/lovable-uploads/651fb2a7-bc88-4bba-8028-8fa53245e240.png"
+                src="/lovable-uploads/ff3dc369-697d-41a0-bbb3-970fd616c622.png"
                 alt="JPD Usinagem CNC - Tecnologia de Precisão"
                 className="w-full h-96 object-cover"
               />
