@@ -1,121 +1,77 @@
 
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
 const Portfolio = () => {
+  const portfolioItems = [
+    { id: 1, image: "/lovable-uploads/7487f020-2969-4fea-93cc-7232587c319e.png", title: "Usinagem CNC de precisão" },
+    { id: 2, image: "/lovable-uploads/4d1166a1-566a-4f33-a6fb-05a628da0ceb.png", title: "Torneamento" },
+    { id: 3, image: "/lovable-uploads/79615b86-054f-4f10-90ae-9bb561911010.png", title: "Fresamento" },
+    { id: 4, image: "/lovable-uploads/77db13a0-f3ab-40f1-ad6e-d00c2a3ca32b.png", title: "Fabricação de cilindros pneumáticos" },
+    { id: 5, image: "/lovable-uploads/dd128e84-9545-4e4d-a57a-8aaca84f4a9b.png", title: "Nosso cilindro pneumático em atuação" },
+    { id: 6, image: "/lovable-uploads/3b518978-4d9c-4d5b-bcf8-4485bc695d1b.png", title: "Bicos injetores" }
+  ];
+
   const openPortfolio = () => {
     window.open('/portfolio-full', '_blank');
   };
 
-  // 10 primeiras imagens da rota /portfolio-full com as imagens fornecidas
-  const galleryProjects = [
-    {
-      id: 1,
-      image: "/lovable-uploads/7487f020-2969-4fea-93cc-7232587c319e.png",
-      title: "Usinagem CNC de precisão"
-    },
-    {
-      id: 2,
-      image: "/lovable-uploads/4d1166a1-566a-4f33-a6fb-05a628da0ceb.png",
-      title: "Torneamento"
-    },
-    {
-      id: 3,
-      image: "/lovable-uploads/79615b86-054f-4f10-90ae-9bb561911010.png",
-      title: "Fresamento"
-    },
-    {
-      id: 4,
-      image: "/lovable-uploads/77db13a0-f3ab-40f1-ad6e-d00c2a3ca32b.png",
-      title: "Fabricação de cilindros pneumáticos"
-    },
-    {
-      id: 5,
-      image: "/lovable-uploads/dd128e84-9545-4e4d-a57a-8aaca84f4a9b.png",
-      title: "Nosso cilindro pneumático em atuação"
-    },
-    {
-      id: 6,
-      image: "/lovable-uploads/3b518978-4d9c-4d5b-bcf8-4485bc695d1b.png",
-      title: "Bicos injetores"
-    },
-    {
-      id: 7,
-      image: "/lovable-uploads/aec5fa4d-81c6-4c81-938b-e57e9900c236.png",
-      title: "Usinagem em série"
-    },
-    {
-      id: 8,
-      image: "/lovable-uploads/209bf881-1ece-45ad-9b34-a76bd704a853.png",
-      title: "Tratamento de peças de precisão"
-    },
-    {
-      id: 9,
-      image: "/lovable-uploads/1159c5da-7355-4c50-9483-b457bb702d07.png",
-      title: "Manutenção de componentes"
-    },
-    {
-      id: 10,
-      image: "/lovable-uploads/1bf1d819-ce80-415a-b87c-fd78e53be919.png",
-      title: "Usinagem de arruelas"
-    }
-  ];
-
   return (
-    <section id="portfolio" className="py-24 bg-background relative overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-      <div className="absolute top-32 left-10 w-64 h-64 bg-gradient-primary rounded-full opacity-10 blur-3xl animate-float"></div>
-      <div className="absolute bottom-32 right-10 w-96 h-96 bg-gradient-accent rounded-full opacity-10 blur-3xl animate-float" style={{
-        animationDelay: '3s'
-      }}></div>
-      
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Header - Aligned left */}
-        <div className="mb-20 animate-fade-in text-left">
-          <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-8">
+    <section id="portfolio" className="py-16 md:py-20 bg-gradient-to-b from-background to-secondary/30">
+      <div className="container mx-auto px-4">
+        {/* Header */}
+        <div className="text-left mb-12 md:mb-16 animate-fade-in">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6">
             Nosso <span className="text-primary">Portfólio</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-4xl leading-relaxed">
-            Explore uma seleção dos nossos projetos mais representativos, demonstrando 
-            nossa expertise em usinagem CNC, fabricação de cilindros pneumáticos e 
-            desenvolvimento de soluções industriais personalizadas.
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mb-6 md:mb-8">
+            Conheça alguns dos projetos que desenvolvemos com excelência e precisão.
           </p>
+          
+          <Button 
+            onClick={openPortfolio}
+            className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all"
+          >
+            Ver Galeria Completa
+            <ExternalLink className="w-4 h-4 ml-2" />
+          </Button>
         </div>
 
-        {/* Grid de 10 imagens com molduras */}
-        <div className="mb-12">
-          <div className="bg-muted/20 p-4 rounded-lg" style={{ margin: '0 0.5cm' }}>
-            <div className="grid grid-cols-5 gap-3">
-              {galleryProjects.map((project) => (
-                <div key={project.id} className="group cursor-pointer overflow-hidden rounded-lg shadow-soft hover:shadow-medium transition-all duration-300 relative aspect-[4/3] border-2 border-muted-foreground/40">
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
-                  />
-                  {/* Título sobreposto com degradê */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-3">
-                    <h4 className="text-white text-sm font-medium leading-tight">
-                      {project.title}
-                    </h4>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          {/* Call to Action Button - Centralizado com espaçamento */}
-          <div className="text-center mt-12">
-            <Button 
-              size="lg" 
-              onClick={openPortfolio} 
-              className="bg-primary text-primary-foreground hover:bg-primary-dark transition-colors text-lg px-8 py-4"
-            >
-              Visualizar Portfólio Completo
-              <ExternalLink className="w-5 h-5 ml-2" />
-            </Button>
-          </div>
+        {/* Portfolio Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 mb-8 md:mb-12">
+          {portfolioItems.map((item) => (
+            <Card key={item.id} className="group hover:shadow-medium transition-all duration-300 overflow-hidden">
+              <div className="relative overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-32 sm:h-40 md:h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+              </div>
+              <CardContent className="p-3 md:p-4">
+                <h3 className="font-semibold text-foreground text-xs sm:text-sm md:text-base">
+                  {item.title}
+                </h3>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Call to Action */}
+        <div className="text-center animate-fade-in">
+          <p className="text-muted-foreground mb-4 md:mb-6 text-sm md:text-base">
+            Cada projeto é único e desenvolvido com o máximo cuidado e precisão.
+          </p>
+          <Button 
+            variant="outline" 
+            onClick={openPortfolio}
+            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground text-sm md:text-base"
+          >
+            Explorar Mais Projetos
+            <ArrowRight className="w-4 h-4 ml-2" />
+          </Button>
         </div>
       </div>
     </section>

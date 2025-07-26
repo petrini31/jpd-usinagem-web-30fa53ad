@@ -23,15 +23,15 @@ const Pneumatica = () => {
       <div className="absolute top-10 right-10 w-48 h-48 bg-gradient-primary rounded-full opacity-10 blur-3xl animate-float"></div>
       <div className="absolute bottom-10 left-10 w-64 h-64 bg-gradient-accent rounded-full opacity-10 blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
       
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         {/* Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mb-8 md:mb-12">
           {/* Text Content */}
           <div className="animate-slide-up">
-            <h3 className="text-3xl font-bold text-foreground mb-4">
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
               Soluções Pneumáticas de Alta Performance
             </h3>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <div className="space-y-4 text-muted-foreground leading-relaxed text-sm md:text-base">
               <p>
                 Nossa <strong className="text-primary">especialização em cilindros pneumáticos</strong> 
                 vai além da fabricação tradicional. Desenvolvemos cada componente com precisão 
@@ -55,31 +55,31 @@ const Pneumatica = () => {
               </p>
             </div>
 
-            <div className="flex gap-4 mt-6">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-6">
               <Button 
                 size="lg" 
                 onClick={scrollToContact} 
-                className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 text-sm md:text-base"
               >
                 Solicitar Projeto
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <ArrowRight className="w-4 h-4 md:w-5 md:h-5 ml-2" />
               </Button>
               
               <Button 
                 size="lg" 
                 variant="outline" 
                 onClick={openPneumaticaPage} 
-                className="border-primary text-primary bg-background hover:bg-primary hover:text-primary-foreground transition-all duration-200"
+                className="border-primary text-primary bg-background hover:bg-primary hover:text-primary-foreground transition-all duration-200 text-sm md:text-base"
               >
                 Ver Mais
-                <ExternalLink className="w-5 h-5 ml-2" />
+                <ExternalLink className="w-4 h-4 md:w-5 md:h-5 ml-2" />
               </Button>
             </div>
           </div>
 
           {/* Images Grid */}
-          <div className="grid grid-cols-2 gap-4 animate-slide-up" style={{ animationDelay: '0.2s' }}>
-            <div className="space-y-4">
+          <div className="grid grid-cols-2 gap-3 md:gap-4 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+            <div className="space-y-3 md:space-y-4">
               <div className="relative overflow-hidden rounded-lg shadow-medium">
                 <img 
                   src="/lovable-uploads/465f725e-f900-4e3d-bbd1-7857bff755a0.png"
@@ -87,8 +87,8 @@ const Pneumatica = () => {
                   className="w-full aspect-square object-cover hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                <div className="absolute bottom-3 left-3">
-                  <Settings className="w-6 h-6 text-white" />
+                <div className="absolute bottom-2 left-2 md:bottom-3 md:left-3">
+                  <Settings className="w-4 h-4 md:w-6 md:h-6 text-white" />
                 </div>
               </div>
               <div className="relative overflow-hidden rounded-lg shadow-medium">
@@ -98,12 +98,12 @@ const Pneumatica = () => {
                   className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                <div className="absolute bottom-3 left-3">
-                  <Factory className="w-5 h-5 text-white" />
+                <div className="absolute bottom-2 left-2 md:bottom-3 md:left-3">
+                  <Factory className="w-4 h-4 md:w-5 md:h-5 text-white" />
                 </div>
               </div>
             </div>
-            <div className="space-y-4 mt-6">
+            <div className="space-y-3 md:space-y-4 mt-4 md:mt-6">
               <div className="relative overflow-hidden rounded-lg shadow-medium">
                 <img 
                   src="/lovable-uploads/29628d4e-98eb-4c44-89cf-954fdd334f0d.png"
@@ -111,8 +111,8 @@ const Pneumatica = () => {
                   className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                <div className="absolute bottom-3 left-3">
-                  <Wrench className="w-5 h-5 text-white" />
+                <div className="absolute bottom-2 left-2 md:bottom-3 md:left-3">
+                  <Wrench className="w-4 h-4 md:w-5 md:h-5 text-white" />
                 </div>
               </div>
               <div className="relative overflow-hidden rounded-lg shadow-medium">
@@ -122,8 +122,8 @@ const Pneumatica = () => {
                   className="w-full aspect-square object-cover hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                <div className="absolute bottom-3 left-3">
-                  <Settings className="w-6 h-6 text-white" />
+                <div className="absolute bottom-2 left-2 md:bottom-3 md:left-3">
+                  <Settings className="w-4 h-4 md:w-6 md:h-6 text-white" />
                 </div>
               </div>
             </div>

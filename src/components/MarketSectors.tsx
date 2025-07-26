@@ -1,3 +1,4 @@
+
 import { useState, useMemo, useCallback } from "react";
 import { ChevronLeft, ChevronRight, Building, Plane, Pill, Cog, Droplet, Heart, Zap, Mountain, Smartphone, Train, Bot, Utensils } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -94,11 +95,13 @@ const MarketSectors = () => {
     }
   ];
 
-  // Dividir setores em blocos de 3
+  // Mobile: 1 por bloco, Desktop: 3 por bloco
   const sectorBlocks = useMemo(() => {
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    const itemsPerBlock = isMobile ? 1 : 3;
     const blocks = [];
-    for (let i = 0; i < sectors.length; i += 3) {
-      blocks.push(sectors.slice(i, i + 3));
+    for (let i = 0; i < sectors.length; i += itemsPerBlock) {
+      blocks.push(sectors.slice(i, i + itemsPerBlock));
     }
     return blocks;
   }, []);
@@ -125,21 +128,21 @@ const MarketSectors = () => {
   }, [isTransitioning, currentBlockIndex]);
 
   return (
-    <section id="atuacoes" className="py-20 bg-secondary">
+    <section id="atuacoes" className="py-16 md:py-20 bg-secondary">
       <div className="container mx-auto px-4">
         {/* Header - Left aligned */}
-        <div className="mb-16 animate-fade-in text-left">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+        <div className="mb-12 md:mb-16 animate-fade-in text-left">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6">
             Principais <span className="text-primary">Atuações no Mercado</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-4xl">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-4xl">
             Nossa expertise atende diversos setores da indústria, oferecendo soluções 
             especializadas e customizadas para cada segmento com alta precisão e qualidade.
           </p>
         </div>
 
         {/* Sectors Carousel */}
-        <div className="relative mb-16 px-8">
+        <div className="relative mb-12 md:mb-16 px-4 md:px-8">
           <div className="overflow-hidden">
             <div 
               className="flex transition-transform duration-500 ease-in-out"
@@ -150,7 +153,7 @@ const MarketSectors = () => {
               {sectorBlocks.map((block, blockIndex) => (
                 <div 
                   key={blockIndex}
-                  className="w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                  className="w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8"
                 >
                   {block.map((sector) => (
                     <Card 
@@ -161,18 +164,18 @@ const MarketSectors = () => {
                         <img 
                           src={sector.image} 
                           alt={sector.title}
-                          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-40 md:h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                         />
-                        <div className="absolute top-4 left-4">
-                          <sector.icon className="w-8 h-8 text-white" />
+                        <div className="absolute top-3 left-3 md:top-4 md:left-4">
+                          <sector.icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
                         </div>
                       </div>
                       
                       <CardHeader className="flex-grow">
-                        <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors">
+                        <CardTitle className="text-lg md:text-xl text-foreground group-hover:text-primary transition-colors">
                           {sector.title}
                         </CardTitle>
-                        <CardDescription className="text-muted-foreground">
+                        <CardDescription className="text-sm md:text-base text-muted-foreground">
                           {sector.description}
                         </CardDescription>
                       </CardHeader>
@@ -183,7 +186,7 @@ const MarketSectors = () => {
             </div>
           </div>
 
-          {/* Navigation Arrows */}
+          {/* Navigation Arrows - Desktop */}
           <Button
             variant="outline"
             size="icon"
@@ -205,7 +208,7 @@ const MarketSectors = () => {
           </Button>
 
           {/* Dot indicators */}
-          <div className="flex justify-center gap-2 mt-8">
+          <div className="flex justify-center gap-2 mt-6 md:mt-8">
             {sectorBlocks.map((_, index) => (
               <button
                 key={index}
@@ -221,24 +224,26 @@ const MarketSectors = () => {
           </div>
 
           {/* Mobile Navigation */}
-          <div className="flex justify-center gap-4 mt-6 lg:hidden">
+          <div className="flex justify-center gap-4 mt-4 md:mt-6 lg:hidden">
             <Button 
               variant="outline" 
+              size="sm"
               onClick={prevBlock}
               disabled={isTransitioning}
               className="disabled:opacity-50"
             >
-              <ChevronLeft className="w-4 h-4 mr-2" />
+              <ChevronLeft className="w-4 h-4 mr-1" />
               Anterior
             </Button>
             <Button 
               variant="outline" 
+              size="sm"
               onClick={nextBlock}
               disabled={isTransitioning}
               className="disabled:opacity-50"
             >
               Próximo
-              <ChevronRight className="w-4 h-4 ml-2" />
+              <ChevronRight className="w-4 h-4 ml-1" />
             </Button>
           </div>
         </div>
