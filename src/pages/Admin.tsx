@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Upload, Save, Trash2, Plus, Eye, ArrowLeft } from "lucide-react";
+import { Upload, Save, Trash2, Plus, Eye, ArrowLeft, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
