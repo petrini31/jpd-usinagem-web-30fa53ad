@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Upload, FileText, Send, X, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -14,6 +13,7 @@ const Quote = () => {
     email: '',
     phone: '',
     company: '',
+    project: '',
     description: '',
     deadline: ''
   });
@@ -31,7 +31,7 @@ const Quote = () => {
     // Limpar formulário
     setFormData({ 
       name: '', email: '', phone: '', company: '', 
-      description: '', deadline: '' 
+      project: '', description: '', deadline: '' 
     });
     setFiles([]);
   };
@@ -172,7 +172,24 @@ const Quote = () => {
                   </div>
                 </div>
 
-                {/* Project Description */}
+                {/* Project Information */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label htmlFor="project" className="block text-sm font-semibold text-foreground">
+                      Tipo de Projeto (opcional)
+                    </label>
+                    <Input
+                      id="project"
+                      name="project"
+                      type="text"
+                      value={formData.project}
+                      onChange={handleChange}
+                      placeholder="Ex: Usinagem de peças, Fabricação de máquinas..."
+                      className="h-12 border-border/50 focus:border-primary transition-colors"
+                    />
+                  </div>
+                </div>
+
                 <div className="space-y-2">
                   <label htmlFor="description" className="block text-sm font-semibold text-foreground">
                     Descrição Resumida do Projeto (opcional)
@@ -187,6 +204,7 @@ const Quote = () => {
                     className="border-border/50 focus:border-primary transition-colors resize-none"
                   />
                 </div>
+
 
                 {/* File Upload */}
                 <div className="space-y-3">
