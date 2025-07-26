@@ -82,8 +82,8 @@ const Pneumatica = () => {
             <div className="space-y-4">
               <div className="relative overflow-hidden rounded-lg shadow-medium">
                 <img 
-                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=400&h=300"
-                  alt="Cilindro Pneumático de Precisão"
+                  src="/lovable-uploads/904064bb-8bba-48f4-81df-ea8735cb9997.png"
+                  alt="Sistema Pneumático Industrial"
                   className="w-full aspect-square object-cover hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
@@ -93,8 +93,8 @@ const Pneumatica = () => {
               </div>
               <div className="relative overflow-hidden rounded-lg shadow-medium">
                 <img 
-                  src="https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?auto=format&fit=crop&q=80&w=400&h=240"
-                  alt="Fabricação de Componentes Pneumáticos"
+                  src="/lovable-uploads/5374c883-b08b-4cf0-bac2-5738865be94f.png"
+                  alt="Cilindros Pneumáticos de Precisão"
                   className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
@@ -106,8 +106,8 @@ const Pneumatica = () => {
             <div className="space-y-4 mt-6">
               <div className="relative overflow-hidden rounded-lg shadow-medium">
                 <img 
-                  src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=400&h=240"
-                  alt="Tecnologia de Precisão"
+                  src="/lovable-uploads/2f4f9d38-c8e0-4f26-ac39-3dc5473788e8.png"
+                  alt="Montagem de Pistão - Fabricação"
                   className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
@@ -117,8 +117,8 @@ const Pneumatica = () => {
               </div>
               <div className="relative overflow-hidden rounded-lg shadow-medium">
                 <img 
-                  src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=400&h=300"
-                  alt="Automação Industrial"
+                  src="/lovable-uploads/4cf2cbb7-3495-45ff-a87d-e3a1f5b88e49.png"
+                  alt="Cilindro Pneumático Transparente"
                   className="w-full aspect-square object-cover hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
