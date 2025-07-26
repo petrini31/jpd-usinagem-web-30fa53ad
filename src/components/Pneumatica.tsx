@@ -82,7 +82,7 @@ const Pneumatica = () => {
             <div className="space-y-4">
               <div className="relative overflow-hidden rounded-lg shadow-medium">
                 <img 
-                  src="/lovable-uploads/904064bb-8bba-48f4-81df-ea8735cb9997.png"
+                  src="/lovable-uploads/465f725e-f900-4e3d-bbd1-7857bff755a0.png"
                   alt="Sistema Pneumático Industrial"
                   className="w-full aspect-square object-cover hover:scale-105 transition-transform duration-300"
                 />

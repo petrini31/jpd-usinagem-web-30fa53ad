@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { ArrowLeft, MessageCircle, Phone, Mail, MapPin, CheckCircle2, Settings, Wrench, Cog, Clock, Shield, Award, Send, User, Building, MessageSquare, Factory, Gauge, Zap, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -189,12 +190,69 @@ const PneumaticaFull = () => {
       </section>
 
       {/* Pneumatic Cylinders Gallery Section */}
-      <section className="h-[40vh] bg-muted">
-        <div className="container mx-auto px-6 h-full flex items-center justify-center">
-          <div className="text-center text-muted-foreground">
-            <Factory className="w-16 h-16 mx-auto mb-4 opacity-50" />
-            <p className="text-lg">Espaço para Imagens dos Cilindros Pneumáticos</p>
-            <p className="text-sm">PNG com fundo transparente</p>
+      <section className="py-24 bg-muted/30">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              Galeria de <span className="text-primary">Cilindros Pneumáticos</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Conheça nossa linha completa de cilindros pneumáticos de alta performance
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="relative overflow-hidden rounded-lg shadow-medium bg-background group">
+              <img 
+                src="/lovable-uploads/6c709c11-9b63-4474-a89d-c18c44a9c825.png"
+                alt="Cilindro Pneumático Compacto"
+                className="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                <h4 className="font-semibold">Cilindro Compacto</h4>
+                <p className="text-sm">Alta performance</p>
+              </div>
+            </div>
+
+            <div className="relative overflow-hidden rounded-lg shadow-medium bg-background group">
+              <img 
+                src="/lovable-uploads/479e228d-7bb4-46ae-aedd-6e67b17ba669.png"
+                alt="Cilindro Pneumático Dupla Ação"
+                className="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                <h4 className="font-semibold">Dupla Ação</h4>
+                <p className="text-sm">Precisão industrial</p>
+              </div>
+            </div>
+
+            <div className="relative overflow-hidden rounded-lg shadow-medium bg-background group">
+              <img 
+                src="/lovable-uploads/1839b284-9227-452a-95f7-420fc7a98149.png"
+                alt="Cilindro Pneumático ISO"
+                className="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                <h4 className="font-semibold">Padrão ISO</h4>
+                <p className="text-sm">Máxima durabilidade</p>
+              </div>
+            </div>
+
+            <div className="relative overflow-hidden rounded-lg shadow-medium bg-background group">
+              <img 
+                src="/lovable-uploads/ba913a0e-3958-454d-a6da-e52975b0d7e1.png"
+                alt="Cilindro Pneumático Personalizado"
+                className="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                <h4 className="font-semibold">Personalizado</h4>
+                <p className="text-sm">Sob medida</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
