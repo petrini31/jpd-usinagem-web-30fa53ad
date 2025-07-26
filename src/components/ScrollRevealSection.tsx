@@ -81,7 +81,7 @@ const ScrollRevealSection = ({ image, title, subtitle, description }: ScrollReve
         ref={imageRef}
         className="absolute inset-0 bg-cover bg-center transition-transform duration-100 ease-out"
         style={{
-          backgroundImage: `url(${image})`,
+          backgroundImage: `url(${image || 'https://images.unsplash.com/photo-1562408590-e32931084e23?auto=format&fit=crop&q=80&w=1600&h=600'})`,
           transform: `translateX(${-100 + (scrollProgress * 100)}%)`,
         }}
       />
