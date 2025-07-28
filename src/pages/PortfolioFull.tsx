@@ -1,5 +1,5 @@
 
-import { ArrowLeft, Eye, X } from "lucide-react";
+import { ArrowLeft, Download, Eye, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
@@ -52,8 +52,8 @@ const PortfolioFull = () => {
               Voltar
             </Button>
             <div>
-              <h1 className="text-xl md:text-2xl font-bold text-foreground">JPD Usinagem - Portfólio Completo</h1>
-              <p className="text-sm md:text-base text-muted-foreground">Galeria completa dos nossos projetos</p>
+              <h1 className="text-2xl font-bold text-foreground">JPD Usinagem - Portfólio Completo</h1>
+              <p className="text-muted-foreground">Galeria completa dos nossos projetos</p>
             </div>
           </div>
         </div>
@@ -61,14 +61,14 @@ const PortfolioFull = () => {
 
       {/* Portfolio Grid */}
       <main className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {portfolioItems.map((item) => (
             <Card key={item.id} className="group hover:shadow-medium transition-all duration-300 overflow-hidden">
               <div className="relative overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-32 sm:h-40 md:h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
                 <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -82,12 +82,12 @@ const PortfolioFull = () => {
                   </Button>
                 </div>
               </div>
-              <CardContent className="p-2 md:p-4">
-                <h3 className="font-semibold text-foreground text-xs sm:text-sm md:text-base line-clamp-2">
+              <CardContent className="p-4">
+                <h3 className="font-semibold text-foreground mb-2 text-sm">
                   {item.title}
                 </h3>
                 {item.description && (
-                  <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
+                  <p className="text-xs text-muted-foreground">
                     {item.description}
                   </p>
                 )}
@@ -98,11 +98,11 @@ const PortfolioFull = () => {
 
         {/* Footer */}
         <div className="text-center mt-12 pt-8 border-t border-border">
-          <p className="text-muted-foreground mb-4 text-sm md:text-base">
+          <p className="text-muted-foreground mb-4">
             Quer ver seu projeto aqui? Entre em contato conosco!
           </p>
           <Button 
-            className="bg-primary text-primary-foreground hover:bg-primary-dark text-sm md:text-base"
+            className="bg-primary text-primary-foreground hover:bg-primary-dark"
             onClick={() => setIsQuoteModalOpen(true)}
           >
             Solicitar Orçamento
@@ -133,11 +133,11 @@ const PortfolioFull = () => {
                   />
                 </div>
                 
-                <div className="p-4 md:p-6 border-t border-border">
-                  <h3 className="text-lg md:text-xl font-semibold text-foreground mb-2">
+                <div className="p-6 border-t border-border">
+                  <h3 className="text-xl font-semibold text-foreground mb-2">
                     {selectedImage.title}
                   </h3>
-                  <p className="text-sm md:text-base text-muted-foreground">
+                  <p className="text-muted-foreground">
                     {selectedImage.description}
                   </p>
                 </div>
