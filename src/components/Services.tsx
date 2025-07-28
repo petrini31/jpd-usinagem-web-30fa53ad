@@ -1,4 +1,5 @@
-import { useState, useMemo, useCallback } from "react";
+
+import { useState, useMemo, useCallback, useRef, useEffect } from "react";
 import { Settings, Wrench, Cog, ArrowRight, PenTool, RefreshCw, ChevronLeft, ChevronRight, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -18,6 +19,9 @@ const Services = () => {
   const [selectedService, setSelectedService] = useState<any>(null);
   const [currentBlockIndex, setCurrentBlockIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
   
   const scrollToContact = () => {
     const element = document.getElementById('contato');
@@ -299,6 +303,30 @@ const Services = () => {
     return blocks;
   }, []);
 
+  // Touch handlers para mobile
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.touches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe && !isTransitioning) {
+      nextBlock();
+    }
+    if (isRightSwipe && !isTransitioning) {
+      prevBlock();
+    }
+  };
+
   const nextBlock = useCallback(() => {
     if (isTransitioning) return;
     setIsTransitioning(true);
@@ -337,8 +365,14 @@ const Services = () => {
         </div>
 
         {/* Services Carousel */}
-        <div className="relative mb-16 px-8">
-          <div className="overflow-hidden">
+        <div className="relative mb-16 px-2 md:px-8">
+          <div 
+            ref={carouselRef}
+            className="overflow-hidden"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             <div 
               className="flex transition-transform duration-500 ease-in-out"
               style={{ 
@@ -348,7 +382,7 @@ const Services = () => {
               {serviceBlocks.map((block, blockIndex) => (
                 <div 
                   key={blockIndex}
-                  className="w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                  className="w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 px-2 md:px-0"
                 >
                   {block.map((service) => (
                     <Card 
@@ -360,6 +394,7 @@ const Services = () => {
                           src={service.image} 
                           alt={service.title}
                           className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                          loading="eager"
                         />
                         <div className="absolute top-4 left-4">
                           <service.icon className="w-8 h-8 text-white" />
@@ -385,7 +420,7 @@ const Services = () => {
                           ))}
                         </ul>
                         
-                        <div className="flex gap-2">
+                        <div className="flex gap-2 mt-auto">
                           <Button 
                             onClick={scrollToContact}
                             className="flex-1 bg-primary text-primary-foreground hover:bg-primary-dark transition-colors"
@@ -408,13 +443,13 @@ const Services = () => {
             </div>
           </div>
 
-          {/* Navigation Arrows */}
+          {/* Navigation Arrows - Visible on mobile */}
           <Button
             variant="outline"
             size="icon"
             onClick={prevBlock}
             disabled={isTransitioning}
-            className="absolute -left-4 top-1/2 -translate-y-1/2 bg-background/95 hover:bg-background border-border shadow-lg z-20 hidden lg:flex disabled:opacity-50"
+            className="absolute -left-2 md:-left-4 top-1/2 -translate-y-1/2 bg-background/95 hover:bg-background border-border shadow-lg z-20 disabled:opacity-50"
           >
             <ChevronLeft className="w-5 h-5" />
           </Button>
@@ -424,7 +459,7 @@ const Services = () => {
             size="icon"
             onClick={nextBlock}
             disabled={isTransitioning}
-            className="absolute -right-4 top-1/2 -translate-y-1/2 bg-background/95 hover:bg-background border-border shadow-lg z-20 hidden lg:flex disabled:opacity-50"
+            className="absolute -right-2 md:-right-4 top-1/2 -translate-y-1/2 bg-background/95 hover:bg-background border-border shadow-lg z-20 disabled:opacity-50"
           >
             <ChevronRight className="w-5 h-5" />
           </Button>

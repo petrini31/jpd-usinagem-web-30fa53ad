@@ -83,10 +83,10 @@ const Portfolio = () => {
           </p>
         </div>
 
-        {/* Grid de 10 imagens com molduras */}
+        {/* Grid de 10 imagens com molduras - Responsivo */}
         <div className="mb-12">
-          <div className="bg-muted/20 p-4 rounded-lg" style={{ margin: '0 0.5cm' }}>
-            <div className="grid grid-cols-5 gap-3">
+          <div className="bg-muted/20 p-2 md:p-4 rounded-lg" style={{ margin: '0 0.5cm' }}>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-3">
               {galleryProjects.map((project) => (
                 <div key={project.id} className="group cursor-pointer overflow-hidden rounded-lg shadow-soft hover:shadow-medium transition-all duration-300 relative aspect-[4/3] border-2 border-muted-foreground/40">
                   <img 
@@ -95,8 +95,8 @@ const Portfolio = () => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
                   />
                   {/* Título sobreposto com degradê */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-3">
-                    <h4 className="text-white text-sm font-medium leading-tight">
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-1 md:p-3">
+                    <h4 className="text-white text-xs md:text-sm font-medium leading-tight">
                       {project.title}
                     </h4>
                   </div>
