@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import OptimizedImage from "./OptimizedImage";
 
 const PortfolioCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -70,19 +71,22 @@ const PortfolioCarousel = () => {
           className="w-48 h-48 md:w-56 md:h-56 opacity-60 rounded-lg overflow-hidden transform scale-75 cursor-pointer hover:opacity-80 transition-all duration-300"
           onClick={prevSlide}
         >
-          <img
+          <OptimizedImage
             src={portfolioImages[getPrevIndex()].image}
             alt={portfolioImages[getPrevIndex()].title}
-            className="w-full h-full object-cover"
+            className="w-full h-full"
+            loading="lazy"
           />
         </div>
 
         {/* Current Image - Highlighted and larger */}
         <div className="relative w-80 h-80 md:w-96 md:h-96 rounded-lg overflow-hidden shadow-strong transform scale-100 transition-all duration-500">
-          <img
+          <OptimizedImage
             src={portfolioImages[currentIndex].image}
             alt={portfolioImages[currentIndex].title}
-            className="w-full h-full object-cover"
+            className="w-full h-full"
+            loading="eager"
+            priority={true}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
           <div className="absolute bottom-4 left-4 right-4">
@@ -97,10 +101,11 @@ const PortfolioCarousel = () => {
           className="w-48 h-48 md:w-56 md:h-56 opacity-60 rounded-lg overflow-hidden transform scale-75 cursor-pointer hover:opacity-80 transition-all duration-300"
           onClick={nextSlide}
         >
-          <img
+          <OptimizedImage
             src={portfolioImages[getNextIndex()].image}
             alt={portfolioImages[getNextIndex()].title}
-            className="w-full h-full object-cover"
+            className="w-full h-full"
+            loading="lazy"
           />
         </div>
       </div>

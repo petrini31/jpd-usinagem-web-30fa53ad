@@ -3,6 +3,7 @@ import { useState, useMemo, useCallback, useRef } from "react";
 import { ChevronLeft, ChevronRight, Building, Plane, Pill, Cog, Droplet, Heart, Zap, Mountain, Smartphone, Train, Bot, Utensils } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import OptimizedImage from "./OptimizedImage";
 
 const MarketSectors = () => {
   const [currentBlockIndex, setCurrentBlockIndex] = useState(0);
@@ -192,10 +193,12 @@ const MarketSectors = () => {
                       className="group hover:shadow-medium transition-all duration-300 border border-border/50 h-full flex flex-col"
                     >
                       <div className="relative overflow-hidden">
-                        <img 
-                          src={sector.image} 
+                        <OptimizedImage
+                          src={sector.image}
                           alt={sector.title}
-                          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-48 group-hover:scale-105 transition-transform duration-300"
+                          loading={blockIndex === currentBlockIndex ? "eager" : "lazy"}
+                          priority={blockIndex === 0}
                         />
                         <div className="absolute top-4 left-4">
                           <sector.icon className="w-8 h-8 text-white" />
@@ -217,7 +220,7 @@ const MarketSectors = () => {
             </div>
           </div>
 
-          {/* Navigation Arrows - Visible on mobile */}
+          {/* Navigation Arrows */}
           <Button
             variant="outline"
             size="icon"

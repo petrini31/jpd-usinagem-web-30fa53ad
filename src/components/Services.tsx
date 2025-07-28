@@ -1,10 +1,10 @@
 
-import { useState, useMemo, useCallback, useRef, useEffect } from "react";
+import { useState, useMemo, useCallback, useRef } from "react";
 import { Settings, Wrench, Cog, ArrowRight, PenTool, RefreshCw, ChevronLeft, ChevronRight, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import MaterialsCarousel from "./MaterialsCarousel";
+import OptimizedImage from "./OptimizedImage";
 
 // Import das novas imagens dos serviços
 const usinagemCncImage = "/lovable-uploads/f370996c-dd23-4c78-b534-ce466c030a0b.png";
@@ -390,11 +390,12 @@ const Services = () => {
                       className="group hover:shadow-medium transition-all duration-300 border border-border/50 h-full flex flex-col"
                     >
                       <div className="relative overflow-hidden">
-                        <img 
-                          src={service.image} 
+                        <OptimizedImage
+                          src={service.image}
                           alt={service.title}
-                          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                          loading="eager"
+                          className="w-full h-48 group-hover:scale-105 transition-transform duration-300"
+                          loading={blockIndex === currentBlockIndex ? "eager" : "lazy"}
+                          priority={blockIndex === 0}
                         />
                         <div className="absolute top-4 left-4">
                           <service.icon className="w-8 h-8 text-white" />
@@ -443,7 +444,7 @@ const Services = () => {
             </div>
           </div>
 
-          {/* Navigation Arrows - Visible on mobile */}
+          {/* Navigation Arrows */}
           <Button
             variant="outline"
             size="icon"

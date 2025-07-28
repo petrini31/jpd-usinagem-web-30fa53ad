@@ -1,6 +1,7 @@
 
 import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import OptimizedImage from "./OptimizedImage";
 
 const Portfolio = () => {
   const openPortfolio = () => {
@@ -87,12 +88,15 @@ const Portfolio = () => {
         <div className="mb-12">
           <div className="bg-muted/20 p-2 md:p-4 rounded-lg" style={{ margin: '0 0.5cm' }}>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-3">
-              {galleryProjects.map((project) => (
-                <div key={project.id} className="group cursor-pointer overflow-hidden rounded-lg shadow-soft hover:shadow-medium transition-all duration-300 relative aspect-[4/3] border-2 border-muted-foreground/40">
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
+              {galleryProjects.map((project, index) => (
+                <div key={project.id} className="group cursor-pointer overflow-hidden rounded-lg shadow-soft hover:shadow-medium transition-all duration-300 relative border-2 border-muted-foreground/40">
+                  <OptimizedImage
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full group-hover:scale-105 transition-transform duration-300"
+                    aspectRatio="aspect-[4/3]"
+                    loading={index < 4 ? "eager" : "lazy"}
+                    priority={index < 2}
                   />
                   {/* Título sobreposto com degradê */}
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-1 md:p-3">
