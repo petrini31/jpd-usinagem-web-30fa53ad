@@ -1,3 +1,4 @@
+
 import { ArrowLeft, Download, Eye, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -29,15 +30,15 @@ const PortfolioFull = () => {
     { id: 8, image: "/lovable-uploads/209bf881-1ece-45ad-9b34-a76bd704a853.png", title: "Tratamento de peças de precisão", description: "Peças usinadas com acabamento e tratamento especial para aplicações críticas" },
     { id: 9, image: "/lovable-uploads/1159c5da-7355-4c50-9483-b457bb702d07.png", title: "Manutenção de componentes industriais", description: "Serviços especializados de manutenção e reparo de componentes industriais" },
     { id: 10, image: "/lovable-uploads/1bf1d819-ce80-415a-b87c-fd78e53be919.png", title: "Usinagem de arruelas e componentes", description: "Fabricação de arruelas e componentes de fixação com precisão dimensional" },
-    { id: 11, image: "/lovable-uploads/ba3a95b9-2493-4b0f-95b4-e5f0ef359808.png", title: "Desenho 3D SolidWorks para usinagem", description: "Modelagem 3D precisa utilizando tecnologia SolidWorks para desenvolvimento de peças usinadas" },
-    { id: 12, image: "/lovable-uploads/0d9ad922-c4a5-49e8-86f4-bb6a70b5f8a0.png", title: "Programação CAM SolidWorks", description: "Programação CAM para usinagem automatizada através do SolidWorks" },
-    { id: 13, image: "/lovable-uploads/a522d4a4-fb2b-4475-9d48-70f368558ed1.png", title: "Projetos 3D para embalagem industrial", description: "Desenvolvimento de projetos 3D para soluções de embalagem industrial customizadas" },
-    { id: 14, image: "/lovable-uploads/c8fafa21-468e-4af3-a404-6e5ab6bcfc69.png", title: "Manutenção cilindros pneumáticos Parker", description: "Serviços especializados de manutenção e reparo em cilindros pneumáticos Parker" },
-    { id: 15, image: "/lovable-uploads/0b40a727-907c-4275-91b3-c9f6b08c64f0.png", title: "Cilindros Pneumáticos de precisão", description: "Linha completa de cilindros pneumáticos fabricados com alta precisão dimensional" },
-    { id: 16, image: "/lovable-uploads/d935ac2b-69a0-4605-97a9-9ed833328812.png", title: "Usinagem de bicos rosqueáveis", description: "Fabricação de bicos com roscas de alta precisão para aplicações industriais específicas" },
-    { id: 17, image: "/lovable-uploads/fe9a8f7f-8375-4ca9-ad80-c2d41477588f.png", title: "Usinagem de roscas de precisão", description: "Processos especializados de usinagem para roscas de alta precisão e acabamento" },
-    { id: 18, image: "/lovable-uploads/b9bfc907-c347-4aa3-bc9c-0d01b83eeecf.png", title: "Roldanas para passagem de fiação", description: "Fabricação de roldanas especializadas para sistemas de passagem de fiação industrial" },
-    { id: 19, image: "/lovable-uploads/2690f737-f123-4d40-bf5f-a5a449e4f707.png", title: "Usinagem em materiais plásticos", description: "Processos especializados de usinagem em diversos tipos de materiais plásticos técnicos" }
+    { id: 11, image: "/lovable-uploads/a47de443-9f77-4dad-8b27-afbe4499fcb3.png", title: "Desenho 3D de peças utilizando SolidWorks", description: "Desenvolvimento de peças em 3D utilizando o software SolidWorks com precisão técnica" },
+    { id: 12, image: "/lovable-uploads/b52c3490-e9ca-4a77-8890-a97adb936f28.png", title: "Desenho CAM software SolidWorks", description: "Programação CAM para usinagem automatizada através do SolidWorks" },
+    { id: 13, image: "/lovable-uploads/e48e8e08-7abd-4564-bb6a-2f78a6c39ae7.png", title: "Desenho 3D de embalagem", description: "Desenvolvimento de projetos 3D para soluções de embalagem customizadas" },
+    { id: 14, image: "/lovable-uploads/c790e369-fe03-4fd2-aeea-f3c5117ed598.png", title: "Manutenção de cilindros pneumáticos Parker", description: "Serviços especializados de manutenção e reparo em cilindros pneumáticos Parker" },
+    { id: 15, image: "/lovable-uploads/62714cf4-a52d-41b2-8be3-ef32206484f5.png", title: "Cilindros Pneumáticos de precisão", description: "Linha completa de cilindros pneumáticos fabricados com alta precisão dimensional" },
+    { id: 16, image: "/lovable-uploads/c04a5de3-d203-4738-84d5-9dfa43a46eee.png", title: "Usinagem de bicos rosqueáveis", description: "Fabricação de bicos com roscas de alta precisão para aplicações industriais específicas" },
+    { id: 17, image: "/lovable-uploads/61e252e4-2932-493c-aeb8-9c567a147615.png", title: "Usinagem de roscas de precisão", description: "Processos especializados de usinagem para roscas de alta precisão e acabamento" },
+    { id: 18, image: "/lovable-uploads/5bd32bfd-e0df-45a6-ac88-736216a53e2d.png", title: "Usinagem de roldanas para passagem de fiação", description: "Fabricação de roldanas especializadas para sistemas de passagem de fiação industrial" },
+    { id: 19, image: "/lovable-uploads/6314b530-f73f-499a-abc1-f5c6f733b59b.png", title: "Usinagem em materiais plásticos", description: "Processos especializados de usinagem em diversos tipos de materiais plásticos técnicos" }
   ];
 
   const goBack = () => {
