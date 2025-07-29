@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback, useRef } from "react";
+import { useState, useMemo, useCallback, useRef, useEffect } from "react";
 import { Settings, Wrench, Cog, ArrowRight, PenTool, RefreshCw, ChevronLeft, ChevronRight, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -301,6 +301,17 @@ const Services = () => {
     }
     return blocks;
   }, []);
+
+  // Auto-advance carousel every 7 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isTransitioning && !selectedService) {
+        nextBlock();
+      }
+    }, 7000);
+
+    return () => clearInterval(interval);
+  }, [isTransitioning, selectedService, currentBlockIndex, serviceBlocks.length]);
 
   // Touch handlers para mobile
   const handleTouchStart = (e: React.TouchEvent) => {

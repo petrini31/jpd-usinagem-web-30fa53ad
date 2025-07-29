@@ -1,125 +1,114 @@
-
-import { ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import OptimizedImage from "./OptimizedImage";
+import { useNavigate } from "react-router-dom";
 
 const Portfolio = () => {
-  const openPortfolio = () => {
-    window.open('/portfolio-full', '_blank');
+  const navigate = useNavigate();
+  
+  const openPortfolioFull = () => {
+    navigate('/portfolio-full');
   };
 
-  // 10 primeiras imagens da rota /portfolio-full com as imagens fornecidas
-  const galleryProjects = [
+  const projects = [
     {
-      id: 1,
-      image: "/lovable-uploads/7487f020-2969-4fea-93cc-7232587c319e.png",
-      title: "Usinagem CNC de precisão"
+      title: "Pneumática Completa",
+      description: "Soluções pneumáticas personalizadas para otimizar processos industriais, garantindo eficiência e durabilidade.",
+      image: "/lovable-uploads/2e86ffbf-edfb-42e6-abea-d053f935f05b.png",
+      tags: ["Pneumática", "Cilindros", "Automação"]
     },
     {
-      id: 2,
-      image: "/lovable-uploads/4d1166a1-566a-4f33-a6fb-05a628da0ceb.png",
-      title: "Torneamento"
+      title: "Usinagem CNC de Precisão",
+      description: "Peças usinadas com alta precisão e qualidade, atendendo às necessidades específicas de cada cliente.",
+      image: "/lovable-uploads/f370996c-dd23-4c78-b534-ce466c030a0b.png",
+      tags: ["CNC", "Usinagem", "Precisão"]
     },
     {
-      id: 3,
-      image: "/lovable-uploads/79615b86-054f-4f10-90ae-9bb561911010.png",
-      title: "Fresamento"
+      title: "Projetos de Desenho Técnico",
+      description: "Desenvolvimento de projetos de desenho técnico personalizados, desde o conceito até a produção.",
+      image: "/lovable-uploads/39454b83-b7cf-4cbe-83d6-9609d65aa701.png",
+      tags: ["Desenho Técnico", "Projetos", "Engenharia"]
     },
     {
-      id: 4,
-      image: "/lovable-uploads/77db13a0-f3ab-40f1-ad6e-d00c2a3ca32b.png",
-      title: "Fabricação de cilindros pneumáticos"
+      title: "Manutenção e Recuperação",
+      description: "Serviços de manutenção e recuperação de peças industriais, prolongando a vida útil e reduzindo custos.",
+      image: "/lovable-uploads/9bc73a42-18ba-45e1-96b7-c2035acfb640.png",
+      tags: ["Manutenção", "Recuperação", "Industrial"]
     },
     {
-      id: 5,
-      image: "/lovable-uploads/dd128e84-9545-4e4d-a57a-8aaca84f4a9b.png",
-      title: "Nosso cilindro pneumático em atuação"
+      title: "Ferramentais e Dispositivos",
+      description: "Fabricação de ferramentais e dispositivos para otimizar processos de produção e garantir a repetibilidade.",
+      image: "/lovable-uploads/5747a4c1-c343-4946-a329-d3e6c45e6be9.png",
+      tags: ["Ferramentas", "Dispositivos", "Produção"]
     },
     {
-      id: 6,
-      image: "/lovable-uploads/3b518978-4d9c-4d5b-bcf8-4485bc695d1b.png",
-      title: "Bicos injetores"
-    },
-    {
-      id: 7,
-      image: "/lovable-uploads/aec5fa4d-81c6-4c81-938b-e57e9900c236.png",
-      title: "Usinagem em série"
-    },
-    {
-      id: 8,
-      image: "/lovable-uploads/209bf881-1ece-45ad-9b34-a76bd704a853.png",
-      title: "Tratamento de peças de precisão"
-    },
-    {
-      id: 9,
-      image: "/lovable-uploads/1159c5da-7355-4c50-9483-b457bb702d07.png",
-      title: "Manutenção de componentes"
-    },
-    {
-      id: 10,
-      image: "/lovable-uploads/ba3a95b9-2493-4b0f-95b4-e5f0ef359808.png",
-      title: "Desenho 3D de peças utilizando o software SolidWorks"
+      title: "Moldes de Injeção",
+      description: "Especialistas na fabricação de moldes de injeção, garantindo precisão e durabilidade para a indústria.",
+      image: "/lovable-uploads/7de9727d-b15c-4acd-a2b3-8bc626ea3949.png",
+      tags: ["Moldes", "Injeção", "Plástico"]
     }
   ];
 
   return (
-    <section id="portfolio" className="py-24 bg-background relative overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-      <div className="absolute top-32 left-10 w-64 h-64 bg-gradient-primary rounded-full opacity-10 blur-3xl animate-float"></div>
-      <div className="absolute bottom-32 right-10 w-96 h-96 bg-gradient-accent rounded-full opacity-10 blur-3xl animate-float" style={{
-        animationDelay: '3s'
-      }}></div>
-      
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Header - Aligned left */}
-        <div className="mb-20 animate-fade-in text-left">
-          <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-8">
+    <section id="portfolio" className="py-12 md:py-20 bg-background">
+      <div className="container mx-auto px-4">
+        {/* Header - Left aligned */}
+        <div className="mb-8 md:mb-16 animate-fade-in text-left">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6">
             Nosso <span className="text-primary">Portfólio</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-4xl leading-relaxed">
-            Explore uma seleção dos nossos projetos mais representativos, demonstrando 
-            nossa expertise em usinagem CNC, fabricação de cilindros pneumáticos e 
-            desenvolvimento de soluções industriais personalizadas.
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl">
+            Explore alguns dos nossos projetos mais recentes e descubra como podemos ajudar a sua empresa a alcançar novos patamares de excelência.
           </p>
         </div>
 
-        {/* Grid de 10 imagens com molduras - Responsivo */}
-        <div className="mb-12">
-          <div className="bg-muted/20 p-2 md:p-4 rounded-lg" style={{ margin: '0 0.5cm' }}>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-3">
-              {galleryProjects.map((project, index) => (
-                <div key={project.id} className="group cursor-pointer overflow-hidden rounded-lg shadow-soft hover:shadow-medium transition-all duration-300 relative border-2 border-muted-foreground/40">
-                  <OptimizedImage
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full group-hover:scale-105 transition-transform duration-300"
-                    aspectRatio="aspect-[4/3]"
-                    loading={index < 4 ? "eager" : "lazy"}
-                    priority={index < 2}
-                  />
-                  {/* Título sobreposto com degradê */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-1 md:p-3">
-                    <h4 className="text-white text-xs md:text-sm font-medium leading-tight">
-                      {project.title}
-                    </h4>
-                  </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mb-8 md:mb-12">
+          {projects.map((project, index) => (
+            <Card key={index} className="group hover:shadow-medium transition-all duration-300 border border-border/50 overflow-hidden">
+              <div className="relative overflow-hidden">
+                <OptimizedImage
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-40 md:h-48 group-hover:scale-105 transition-transform duration-300"
+                  loading={index < 3 ? "eager" : "lazy"}
+                  priority={index < 3}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+              
+              <CardContent className="p-4 md:p-6">
+                <h3 className="text-lg md:text-xl font-semibold text-foreground mb-2 md:mb-3 group-hover:text-primary transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-sm md:text-base text-muted-foreground mb-3 md:mb-4">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-1.5 md:gap-2">
+                  {project.tags.map((tag, tagIndex) => (
+                    <span 
+                      key={tagIndex}
+                      className="inline-flex items-center px-2 py-1 bg-secondary text-secondary-foreground text-xs rounded-full"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
-          
-          {/* Call to Action Button - Centralizado com espaçamento */}
-          <div className="text-center mt-12">
-            <Button 
-              size="lg" 
-              onClick={openPortfolio} 
-              className="bg-primary text-primary-foreground hover:bg-primary-dark transition-colors text-lg px-8 py-4"
-            >
-              Visualizar Portfólio Completo
-              <ExternalLink className="w-5 h-5 ml-2" />
-            </Button>
-          </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* CTA Button */}
+        <div className="text-center">
+          <Button 
+            onClick={openPortfolioFull}
+            size="lg"
+            className="bg-primary text-primary-foreground hover:bg-primary-dark transition-colors"
+          >
+            Ver Portfólio Completo
+            <ArrowRight className="w-5 h-5 ml-2" />
+          </Button>
         </div>
       </div>
     </section>

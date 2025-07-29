@@ -1,5 +1,4 @@
-
-import { useState, useMemo, useCallback, useRef } from "react";
+import { useState, useMemo, useCallback, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Building, Plane, Pill, Cog, Droplet, Heart, Zap, Mountain, Smartphone, Train, Bot, Utensils } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -107,6 +106,17 @@ const MarketSectors = () => {
     }
     return blocks;
   }, []);
+
+  // Auto-advance carousel every 7 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isTransitioning) {
+        nextBlock();
+      }
+    }, 7000);
+
+    return () => clearInterval(interval);
+  }, [isTransitioning, currentBlockIndex, sectorBlocks.length]);
 
   // Touch handlers para mobile
   const handleTouchStart = (e: React.TouchEvent) => {

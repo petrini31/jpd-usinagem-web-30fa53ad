@@ -3,10 +3,13 @@ import { ArrowRight, CheckCircle, Wrench, Zap, Shield, Award } from "lucide-reac
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import OptimizedImage from "./OptimizedImage";
+import { useNavigate } from "react-router-dom";
 
 const Pneumatica = () => {
+  const navigate = useNavigate();
+  
   const openPneumaticaFull = () => {
-    window.open('/pneumatica', '_blank');
+    navigate('/pneumatica');
   };
 
   const advantages = [
