@@ -1,5 +1,4 @@
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArrowLeft, MessageCircle, Phone, Mail, MapPin, CheckCircle2, Settings, Wrench, Cog, Clock, Shield, Award, Send, User, Building, MessageSquare, Factory, Gauge, Zap, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -8,41 +7,47 @@ import { Textarea } from "@/components/ui/textarea";
 import { useNavigate } from "react-router-dom";
 import QuoteModal from "@/components/QuoteModal";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import SEOBreadcrumb from "@/components/SEOBreadcrumb";
 
 const PneumaticaFull = () => {
   const navigate = useNavigate();
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
 
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const advantages = [
     {
       icon: Settings,
-      title: "Projetos Personalizados",
-      description: "Cada cilindro é projetado sob medida para sua aplicação específica"
+      title: "Projetos Personalizados", 
+      description: "Cada cilindro pneumático é projetado sob medida para sua aplicação específica em Atibaia e região"
     },
     {
       icon: Shield,
       title: "Alta Durabilidade",
-      description: "Materiais premium e processos rigorosos garantem vida útil estendida"
+      description: "Materiais premium e processos rigorosos garantem vida útil estendida para aplicações industriais"
     },
     {
       icon: Gauge,
       title: "Performance Superior",
-      description: "Eficiência máxima com controle preciso de força e velocidade"
+      description: "Eficiência máxima com controle preciso de força e velocidade para automação industrial"
     },
     {
       icon: Award,
       title: "Qualidade Certificada",
-      description: "Padrões internacionais de qualidade em cada componente"
+      description: "Padrões internacionais de qualidade em cada componente pneumático fabricado"
     },
     {
       icon: Wrench,
-      title: "Suporte Técnico",
-      description: "Equipe especializada para consultoria e manutenção"
+      title: "Suporte Técnico Especializado",
+      description: "Equipe especializada para consultoria técnica e manutenção em São Paulo e região"
     },
     {
       icon: Clock,
       title: "Entrega Rápida",
-      description: "Prazos otimizados sem comprometer a qualidade"
+      description: "Prazos otimizados sem comprometer a qualidade dos cilindros pneumáticos"
     }
   ];
 
@@ -50,39 +55,42 @@ const PneumaticaFull = () => {
     {
       icon: Factory,
       title: "Automação Industrial",
-      description: "Linhas de produção, robótica e sistemas automatizados"
+      description: "Linhas de produção, robótica e sistemas automatizados para indústrias de Bragança Paulista e região"
     },
     {
       icon: Cog,
       title: "Equipamentos de Movimentação",
-      description: "Elevadores, esteiras transportadoras e sistemas de carga"
+      description: "Elevadores, esteiras transportadoras e sistemas de carga para aplicações industriais"
     },
     {
       icon: Zap,
       title: "Prensas e Estampas",
-      description: "Sistemas de conformação e prensagem de alta precisão"
+      description: "Sistemas de conformação e prensagem de alta precisão com cilindros pneumáticos customizados"
     },
     {
       icon: Target,
       title: "Máquinas Especiais",
-      description: "Equipamentos customizados para processos específicos"
+      description: "Equipamentos customizados para processos específicos da indústria paulista"
     }
   ];
 
   const specifications = [
-    "Diâmetros de 16mm a 320mm",
-    "Cursos até 3000mm",
-    "Pressões de trabalho até 10 bar",
-    "Vedações em NBR, Viton ou PU",
-    "Acabamentos especiais disponíveis",
-    "Certificações ISO 9001",
-    "Cabeçotes em poliacetal de alta rigidez",
-    "Resistência à corrosão química",
-    "Aplicação em ambientes de materiais químicos"
+    "Diâmetros de 16mm a 320mm para aplicações industriais",
+    "Cursos até 3000mm com precisão dimensional", 
+    "Pressões de trabalho até 10 bar certificadas",
+    "Vedações em NBR, Viton ou PU de alta qualidade",
+    "Acabamentos especiais para ambientes agressivos",
+    "Certificações ISO 9001 para qualidade garantida",
+    "Cabeçotes em poliacetal de alta rigidez e leveza",
+    "Resistência à corrosão química industrial",
+    "Aplicação em ambientes de materiais químicos agressivos"
   ];
 
   return (
     <div className="min-h-screen bg-background">
+      {/* SEO Breadcrumb */}
+      <SEOBreadcrumb />
+      
       {/* Header */}
       <header className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-40">
         <div className="container mx-auto px-6 py-4">
@@ -90,7 +98,7 @@ const PneumaticaFull = () => {
             <div className="flex items-center gap-4">
               <Button
                 variant="ghost"
-                onClick={() => navigate('/')}
+                onClick={() => navigate('/', { replace: true })}
                 className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
               >
                 <ArrowLeft className="w-4 h-4" />
@@ -121,10 +129,10 @@ const PneumaticaFull = () => {
             <div className="text-left">
               <h1 className="text-5xl md:text-6xl font-bold mb-8 text-white">
                 Cilindros Pneumáticos <br />
-                <span className="text-white/90">de Alta Performance</span>
+                <span className="text-white/90">Atibaia e Região</span>
               </h1>
               <p className="text-xl mb-12 text-white/90 leading-relaxed">
-                Especialistas em desenvolvimento e fabricação de cilindros pneumáticos personalizados. 
+                Especialistas em desenvolvimento e fabricação de cilindros pneumáticos personalizados para Atibaia, Bom Jesus dos Perdões, Bragança Paulista e toda São Paulo. 
                 Décadas de experiência em soluções pneumáticas que combinam precisão dimensional, 
                 durabilidade excepcional e performance superior para aplicações industriais exigentes.
               </p>
@@ -152,7 +160,7 @@ const PneumaticaFull = () => {
               <div className="relative">
                 <img 
                   src="/lovable-uploads/6b860842-119a-4fbd-88fa-c950c619c263.png"
-                  alt="Cilindro Pneumático de Alta Performance"
+                  alt="Cilindro Pneumático de Alta Performance fabricado em Atibaia SP"
                   className="max-w-full h-auto max-h-[500px] object-contain drop-shadow-2xl"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-white/5 to-transparent rounded-lg"></div>
@@ -170,7 +178,7 @@ const PneumaticaFull = () => {
               Vantagens dos Nossos <span className="text-primary">Cilindros Pneumáticos</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Tecnologia avançada e expertise técnica para soluções pneumáticas que superam expectativas
+              Tecnologia avançada e expertise técnica para soluções pneumáticas que superam expectativas na região de São Paulo
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -199,7 +207,7 @@ const PneumaticaFull = () => {
               Galeria de <span className="text-primary">Cilindros Pneumáticos</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Conheça nossa linha completa de cilindros pneumáticos de alta performance
+              Conheça nossa linha completa de cilindros pneumáticos de alta performance para indústrias de Atibaia e região
             </p>
           </div>
           
@@ -207,7 +215,7 @@ const PneumaticaFull = () => {
             <div className="relative overflow-hidden rounded-lg shadow-medium bg-background group">
               <img 
                 src="/lovable-uploads/6c709c11-9b63-4474-a89d-c18c44a9c825.png"
-                alt="Cilindro Pneumático Compacto"
+                alt="Cilindro Pneumático Compacto para automação industrial Atibaia"
                 className="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -220,7 +228,7 @@ const PneumaticaFull = () => {
             <div className="relative overflow-hidden rounded-lg shadow-medium bg-background group">
               <img 
                 src="/lovable-uploads/479e228d-7bb4-46ae-aedd-6e67b17ba669.png"
-                alt="Cilindro Pneumático Dupla Ação"
+                alt="Cilindro Pneumático Dupla Ação para indústrias Bragança Paulista"
                 className="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -233,7 +241,7 @@ const PneumaticaFull = () => {
             <div className="relative overflow-hidden rounded-lg shadow-medium bg-background group">
               <img 
                 src="/lovable-uploads/1839b284-9227-452a-95f7-420fc7a98149.png"
-                alt="Cilindro Pneumático ISO"
+                alt="Cilindro Pneumático Padrão ISO fabricado em São Paulo"
                 className="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -246,7 +254,7 @@ const PneumaticaFull = () => {
             <div className="relative overflow-hidden rounded-lg shadow-medium bg-background group">
               <img 
                 src="/lovable-uploads/ba913a0e-3958-454d-a6da-e52975b0d7e1.png"
-                alt="Cilindro Pneumático Personalizado"
+                alt="Cilindro Pneumático Personalizado sob medida Bom Jesus dos Perdões"
                 className="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -267,7 +275,7 @@ const PneumaticaFull = () => {
               Aplicações <span className="text-primary">Industriais</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Nossos cilindros pneumáticos atendem aos mais diversos segmentos industriais
+              Nossos cilindros pneumáticos atendem aos mais diversos segmentos industriais da região de São Paulo
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -300,8 +308,8 @@ const PneumaticaFull = () => {
               </h2>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
                 Ampla gama de especificações para atender às necessidades mais específicas 
-                de cada aplicação industrial. Utilizamos materiais de alta qualidade como 
-                poliacetal para cabeçotes, garantindo leveza, rigidez e resistência à corrosão.
+                de cada aplicação industrial em Atibaia, Bragança Paulista e toda região de São Paulo. 
+                Utilizamos materiais de alta qualidade como poliacetal para cabeçotes, garantindo leveza, rigidez e resistência à corrosão.
               </p>
               <div className="grid grid-cols-1 gap-4">
                 {specifications.map((spec, index) => (
@@ -315,14 +323,14 @@ const PneumaticaFull = () => {
               <div className="mt-8 p-6 bg-primary/5 rounded-lg border border-primary/20">
                 <h3 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
                   <Shield className="w-5 h-5 text-primary" />
-                  Cabeçotes em Poliacetal
+                  Cabeçotes em Poliacetal de Alta Performance
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
                   Fabricamos cabeçotes com poliacetal, um termoplástico de engenharia de alta rigidez, 
                   resistência e estabilidade dimensional. Esse material proporciona maior leveza aos 
                   cilindros pneumáticos e excelente proteção contra corrosão por compostos químicos, 
                   sendo ideal para ambientes industriais como produção de fertilizantes, cimento e 
-                  outros materiais químicos agressivos.
+                  outros materiais químicos agressivos encontrados nas indústrias da região.
                 </p>
               </div>
             </div>
@@ -354,7 +362,8 @@ const PneumaticaFull = () => {
             </h2>
             <p className="text-xl mb-12 text-white/90 leading-relaxed">
               A JPD Usinagem combina décadas de experiência em usinagem de precisão com expertise 
-              especializada em cilindros pneumáticos. Desenvolvemos soluções completas desde o projeto 
+              especializada em cilindros pneumáticos para atender indústrias de Atibaia, Bom Jesus dos Perdões, 
+              Bragança Paulista e toda São Paulo. Desenvolvemos soluções completas desde o projeto 
               até a manutenção, garantindo máxima eficiência e durabilidade para suas aplicações industriais.
             </p>
             
@@ -403,7 +412,7 @@ const PneumaticaFull = () => {
                 Entre em <span className="text-primary">Contato</span>
               </h2>
               <p className="text-xl text-muted-foreground">
-                Estamos prontos para atender você e desenvolver soluções pneumáticas de excelência
+                Estamos prontos para atender você e desenvolver soluções pneumáticas de excelência para toda região de São Paulo
               </p>
             </div>
             
@@ -474,7 +483,7 @@ const PneumaticaFull = () => {
           <div className="text-center">
             <h3 className="text-2xl font-bold text-foreground mb-4">JPD Usinagem</h3>
             <p className="text-muted-foreground mb-6">
-              Especialistas em cilindros pneumáticos e soluções industriais de precisão
+              Especialistas em cilindros pneumáticos e soluções industriais de precisão para Atibaia, Bragança Paulista e região
             </p>
             <p className="text-sm text-muted-foreground">
               &copy; {new Date().getFullYear()} JPD Usinagem. Todos os direitos reservados.

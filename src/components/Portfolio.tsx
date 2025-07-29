@@ -1,3 +1,4 @@
+
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -17,40 +18,40 @@ const Portfolio = () => {
 
   const projects = [
     {
-      title: "Pneumática Completa",
-      description: "Soluções pneumáticas personalizadas para otimizar processos industriais, garantindo eficiência e durabilidade.",
+      title: "Pneumática Completa Atibaia",
+      description: "Soluções pneumáticas personalizadas para otimizar processos industriais em Atibaia, garantindo eficiência e durabilidade.",
       image: "/lovable-uploads/2e86ffbf-edfb-42e6-abea-d053f935f05b.png",
-      tags: ["Pneumática", "Cilindros", "Automação"]
+      tags: ["Pneumática", "Cilindros", "Automação Atibaia"]
     },
     {
-      title: "Usinagem CNC de Precisão",
-      description: "Peças usinadas com alta precisão e qualidade, atendendo às necessidades específicas de cada cliente.",
+      title: "Usinagem CNC de Precisão São Paulo",
+      description: "Peças usinadas com alta precisão e qualidade para indústrias de São Paulo, atendendo às necessidades específicas de cada cliente.",
       image: "/lovable-uploads/f370996c-dd23-4c78-b534-ce466c030a0b.png",
-      tags: ["CNC", "Usinagem", "Precisão"]
+      tags: ["CNC São Paulo", "Usinagem", "Precisão"]
     },
     {
-      title: "Projetos de Desenho Técnico",
-      description: "Desenvolvimento de projetos de desenho técnico personalizados, desde o conceito até a produção.",
+      title: "Projetos de Desenho Técnico Bragança Paulista",
+      description: "Desenvolvimento de projetos de desenho técnico personalizados para Bragança Paulista, desde o conceito até a produção.",
       image: "/lovable-uploads/39454b83-b7cf-4cbe-83d6-9609d65aa701.png",
-      tags: ["Desenho Técnico", "Projetos", "Engenharia"]
+      tags: ["Desenho Técnico", "Projetos Bragança", "Engenharia"]
     },
     {
-      title: "Manutenção e Recuperação",
-      description: "Serviços de manutenção e recuperação de peças industriais, prolongando a vida útil e reduzindo custos.",
+      title: "Manutenção e Recuperação Industrial",
+      description: "Serviços de manutenção e recuperação de peças industriais em Bom Jesus dos Perdões, prolongando a vida útil e reduzindo custos.",
       image: "/lovable-uploads/9bc73a42-18ba-45e1-96b7-c2035acfb640.png",
-      tags: ["Manutenção", "Recuperação", "Industrial"]
+      tags: ["Manutenção", "Recuperação", "Industrial Bom Jesus"]
     },
     {
-      title: "Ferramentais e Dispositivos",
-      description: "Fabricação de ferramentais e dispositivos para otimizar processos de produção e garantir a repetibilidade.",
+      title: "Ferramentais e Dispositivos Região SP",
+      description: "Fabricação de ferramentais e dispositivos para otimizar processos de produção na região de São Paulo e garantir a repetibilidade.",
       image: "/lovable-uploads/5747a4c1-c343-4946-a329-d3e6c45e6be9.png",
-      tags: ["Ferramentas", "Dispositivos", "Produção"]
+      tags: ["Ferramentas", "Dispositivos", "Produção SP"]
     },
     {
-      title: "Moldes de Injeção",
-      description: "Especialistas na fabricação de moldes de injeção, garantindo precisão e durabilidade para a indústria.",
+      title: "Moldes de Injeção Alta Precisão",
+      description: "Especialistas na fabricação de moldes de injeção, garantindo precisão e durabilidade para a indústria em toda região.",
       image: "/lovable-uploads/7de9727d-b15c-4acd-a2b3-8bc626ea3949.png",
-      tags: ["Moldes", "Injeção", "Plástico"]
+      tags: ["Moldes", "Injeção", "Plástico Precisão"]
     }
   ];
 
@@ -63,7 +64,9 @@ const Portfolio = () => {
             Nosso <span className="text-primary">Portfólio</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl">
-            Explore alguns dos nossos projetos mais recentes e descubra como podemos ajudar a sua empresa a alcançar novos patamares de excelência.
+            Explore alguns dos nossos projetos mais recentes de usinagem CNC, fresamento, torneamento e cilindros pneumáticos 
+            para Atibaia, Bragança Paulista, Bom Jesus dos Perdões e toda região de São Paulo. Descubra como podemos ajudar 
+            a sua empresa a alcançar novos patamares de excelência industrial.
           </p>
         </div>
 

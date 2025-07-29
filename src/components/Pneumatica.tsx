@@ -1,4 +1,5 @@
-import { ArrowRight, CheckCircle, Wrench, Zap, Shield, Award } from "lucide-react";
+
+import { ArrowRight, CheckCircle, Wrench, Zap, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import OptimizedImage from "./OptimizedImage";
@@ -19,27 +20,22 @@ const Pneumatica = () => {
     {
       icon: CheckCircle,
       title: "Qualidade Garantida",
-      description: "Produtos certificados com rigoroso controle de qualidade"
+      description: "Produtos certificados com rigoroso controle de qualidade para usinagem Atibaia"
     },
     {
       icon: Wrench,
       title: "Customização Total", 
-      description: "Soluções personalizadas para suas necessidades específicas"
+      description: "Soluções personalizadas para suas necessidades específicas de fresamento Bragança Paulista"
     },
     {
       icon: Zap,
       title: "Alta Performance",
-      description: "Eficiência máxima e durabilidade comprovada"
+      description: "Eficiência máxima e durabilidade comprovada em torneamento Bom Jesus dos Perdões"
     },
     {
       icon: Shield,
       title: "Confiabilidade",
-      description: "Produtos robustos para operação contínua"
-    },
-    {
-      icon: Award,
-      title: "Expertise Técnica",
-      description: "Décadas de experiência em soluções pneumáticas"
+      description: "Produtos robustos para operação contínua em aplicações industriais São Paulo"
     }
   ];
 
@@ -60,8 +56,9 @@ const Pneumatica = () => {
             de Alta Performance
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-4xl leading-relaxed">
-            Nossa expertise em fabricação de cilindros pneumáticos personalizados 
-            garante soluções eficientes e duráveis para suas aplicações industriais. 
+            Nossa expertise em fabricação de cilindros pneumáticos personalizados para usinagem Atibaia, 
+            fresamento Bragança Paulista e torneamento Bom Jesus dos Perdões garante soluções eficientes e duráveis 
+            para suas aplicações industriais em toda região de São Paulo. 
             Cada projeto é desenvolvido com precisão técnica e foco na performance.
           </p>
         </div>
@@ -117,7 +114,7 @@ const Pneumatica = () => {
             <div className="relative">
               <OptimizedImage
                 src="/lovable-uploads/2e86ffbf-edfb-42e6-abea-d053f935f05b.png"
-                alt="Cilindros pneumáticos de alta qualidade"
+                alt="Cilindros pneumáticos de alta qualidade para usinagem CNC Atibaia"
                 className="w-full h-56 md:h-72 rounded-lg shadow-strong"
                 loading="lazy"
               />
@@ -127,19 +124,19 @@ const Pneumatica = () => {
             <div className="grid grid-cols-3 gap-3 md:gap-4">
               <OptimizedImage
                 src="/lovable-uploads/0b40a727-907c-4275-91b3-c9f6b08c64f0.png"
-                alt="Fabricação de cilindros pneumáticos"
+                alt="Fabricação de cilindros pneumáticos para fresamento Bragança Paulista"
                 className="w-full h-28 md:h-36 rounded-lg shadow-medium"
                 loading="lazy"
               />
               <OptimizedImage
                 src="/lovable-uploads/dd128e84-9545-4e4d-a57a-8aaca84f4a9b.png"
-                alt="Cilindro pneumático em operação"
+                alt="Cilindro pneumático em operação industrial torneamento Bom Jesus dos Perdões"
                 className="w-full h-28 md:h-36 rounded-lg shadow-medium"
                 loading="lazy"
               />
               <OptimizedImage
                 src="/lovable-uploads/6b860842-119a-4fbd-88fa-c950c619c263.png"
-                alt="Cilindro pneumático de precisão"
+                alt="Cilindro pneumático de precisão para automação industrial São Paulo"
                 className="w-full h-28 md:h-36 rounded-lg shadow-medium"
                 loading="lazy"
               />
