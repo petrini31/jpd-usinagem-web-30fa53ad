@@ -1,3 +1,4 @@
+
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -20,37 +21,43 @@ const Portfolio = () => {
       title: "Pneumática Completa",
       description: "Soluções pneumáticas personalizadas para otimizar processos industriais, garantindo eficiência e durabilidade.",
       image: "/lovable-uploads/2e86ffbf-edfb-42e6-abea-d053f935f05b.png",
-      tags: ["Pneumática", "Cilindros", "Automação"]
+      tags: ["Pneumática", "Cilindros", "Automação"],
+      alt: "Cilindros pneumáticos industriais fabricados pela JPD Usinagem CNC em Bom Jesus dos Perdões - SP"
     },
     {
       title: "Usinagem CNC de Precisão",
       description: "Peças usinadas com alta precisão e qualidade, atendendo às necessidades específicas de cada cliente.",
       image: "/lovable-uploads/f370996c-dd23-4c78-b534-ce466c030a0b.png",
-      tags: ["CNC", "Usinagem", "Precisão"]
+      tags: ["CNC", "Usinagem", "Precisão"],
+      alt: "Peças de precisão usinadas em torno CNC pela JPD Usinagem em Atibaia e região"
     },
     {
       title: "Projetos de Desenho Técnico",
       description: "Desenvolvimento de projetos de desenho técnico personalizados, desde o conceito até a produção.",
       image: "/lovable-uploads/39454b83-b7cf-4cbe-83d6-9609d65aa701.png",
-      tags: ["Desenho Técnico", "Projetos", "Engenharia"]
+      tags: ["Desenho Técnico", "Projetos", "Engenharia"],
+      alt: "Projetos técnicos e desenhos industriais desenvolvidos por usinagem SP - JPD"
     },
     {
       title: "Manutenção e Recuperação",
       description: "Serviços de manutenção e recuperação de peças industriais, prolongando a vida útil e reduzindo custos.",
       image: "/lovable-uploads/9bc73a42-18ba-45e1-96b7-c2035acfb640.png",
-      tags: ["Manutenção", "Recuperação", "Industrial"]
+      tags: ["Manutenção", "Recuperação", "Industrial"],
+      alt: "Manutenção e recuperação de componentes industriais - Usinagem Bragança Paulista"
     },
     {
       title: "Ferramentais e Dispositivos",
       description: "Fabricação de ferramentais e dispositivos para otimizar processos de produção e garantir a repetibilidade.",
       image: "/lovable-uploads/5747a4c1-c343-4946-a329-d3e6c45e6be9.png",
-      tags: ["Ferramentas", "Dispositivos", "Produção"]
+      tags: ["Ferramentas", "Dispositivos", "Produção"],
+      alt: "Ferramentarias e dispositivos de precisão fabricados em Bom Jesus dos Perdões - JPD Usinagem"
     },
     {
       title: "Moldes de Injeção",
       description: "Especialistas na fabricação de moldes de injeção, garantindo precisão e durabilidade para a indústria.",
       image: "/lovable-uploads/7de9727d-b15c-4acd-a2b3-8bc626ea3949.png",
-      tags: ["Moldes", "Injeção", "Plástico"]
+      tags: ["Moldes", "Injeção", "Plástico"],
+      alt: "Moldes de injeção plástica usinados com precisão - Fresamento SP - JPD Usinagem CNC"
     }
   ];
 
@@ -63,7 +70,8 @@ const Portfolio = () => {
             Nosso <span className="text-primary">Portfólio</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl">
-            Explore alguns dos nossos projetos mais recentes e descubra como podemos ajudar a sua empresa a alcançar novos patamares de excelência.
+            Explore alguns dos nossos projetos mais recentes de usinagem CNC em Bom Jesus dos Perdões, 
+            Atibaia e região. Descubra como nossa expertise em tornearia e fresamento pode ajudar a sua empresa.
           </p>
         </div>
 
@@ -73,7 +81,7 @@ const Portfolio = () => {
               <div className="relative overflow-hidden">
                 <OptimizedImage
                   src={project.image}
-                  alt={project.title}
+                  alt={project.alt}
                   className="w-full h-40 md:h-48 group-hover:scale-105 transition-transform duration-300"
                   loading={index < 3 ? "eager" : "lazy"}
                   priority={index < 3}

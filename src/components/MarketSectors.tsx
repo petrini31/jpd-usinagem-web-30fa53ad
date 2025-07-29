@@ -16,85 +16,97 @@ const MarketSectors = () => {
       id: 'automotiva',
       icon: Building,
       title: "Indústria Automotiva",
-      description: "Peças para motores (blocos, cabeçotes, virabrequins, bielas), transmissões (engrenagens, eixos), sistemas de freio e suspensão, componentes de chassi, moldes e ferramentas para fabricação.",
-      image: "/lovable-uploads/c389b1c3-66fe-4964-8cf6-c6b4966a9e60.png"
+      description: "Usinagem CNC de peças para motores (blocos, cabeçotes, virabrequins, bielas), transmissões (engrenagens, eixos), sistemas de freio e suspensão, componentes de chassi, moldes e ferramentas para fabricação automotiva.",
+      image: "/lovable-uploads/c389b1c3-66fe-4964-8cf6-c6b4966a9e60.png",
+      alt: "Usinagem CNC para indústria automotiva - Peças de motor e transmissão - JPD Bom Jesus dos Perdões SP"
     },
     {
       id: 'injecao-plastica',
       icon: Train,
       title: "Injeção Plástica",
-      description: "Componentes para moldes de injeção plástica, matrizes, porta-moldes, insertos, canais de refrigeração, sistemas de extração e gavetas para produção de peças plásticas de alta precisão.",
-      image: "/lovable-uploads/28087462-bab2-42aa-9639-f40509fec923.png"
+      description: "Usinagem de componentes para moldes de injeção plástica, matrizes, porta-moldes, insertos, canais de refrigeração, sistemas de extração e gavetas para produção de peças plásticas de alta precisão.",
+      image: "/lovable-uploads/28087462-bab2-42aa-9639-f40509fec923.png",
+      alt: "Moldes para injeção plástica usinados em Atibaia - JPD Ferramentaria SP"
     },
     {
       id: 'farmaceutica',
       icon: Pill,
       title: "Indústria Farmacêutica",
-      description: "Componentes para equipamentos de produção farmacêutica, máquinas de encapsulamento, sistemas de dosagem, peças para laboratórios e equipamentos de controle de qualidade com alto padrão de limpeza e precisão.",
-      image: "/lovable-uploads/dec3d1a6-b3e5-42f1-b536-d50f5322c31c.png"
+      description: "Usinagem de componentes para equipamentos de produção farmacêutica, máquinas de encapsulamento, sistemas de dosagem, peças para laboratórios e equipamentos de controle de qualidade com alto padrão de limpeza.",
+      image: "/lovable-uploads/dec3d1a6-b3e5-42f1-b536-d50f5322c31c.png",
+      alt: "Usinagem de precisão para indústria farmacêutica - Componentes sanitários SP"
     },
     {
       id: 'agricola',
       icon: Cog,
       title: "Indústria Agrícola",
-      description: "Componentes para tratores, colheitadeiras, equipamentos de irrigação, sistemas de plantio, peças para implementos agrícolas, engrenagens, eixos e estruturas para máquinas de processamento de alimentos e beneficiamento de grãos.",
-      image: "/lovable-uploads/407e4db0-5aff-4ff1-a425-6473a2ccc334.png"
+      description: "Usinagem de componentes para tratores, colheitadeiras, equipamentos de irrigação, sistemas de plantio, peças para implementos agrícolas, engrenagens, eixos e estruturas para máquinas de processamento.",
+      image: "/lovable-uploads/407e4db0-5aff-4ff1-a425-6473a2ccc334.png",
+      alt: "Usinagem para indústria agrícola - Peças para tratores e implementos - Bragança Paulista"
     },
     {
       id: 'automacao-robotica',
       icon: Bot,
-      title: "Indústria de Automação Industrial e Robótica",
-      description: "Componentes de precisão para robôs industriais, atuadores, sensores, garras, eixos de movimento, e estruturas para linhas de montagem automatizadas.",
-      image: "/lovable-uploads/e95a555a-a0a9-47b3-914e-3462320aeffb.png"
+      title: "Automação Industrial e Robótica",
+      description: "Usinagem CNC de componentes de precisão para robôs industriais, atuadores, sensores, garras, eixos de movimento e estruturas para linhas de montagem automatizadas.",
+      image: "/lovable-uploads/e95a555a-a0a9-47b3-914e-3462320aeffb.png",
+      alt: "Usinagem para automação industrial - Componentes robótica - JPD Usinagem SP"
     },
     {
       id: 'alimenticia',
       icon: Utensils,
       title: "Indústria Alimentícia",
-      description: "Peças para máquinas de processamento, envase e embalagem, componentes para tanques e tubulações, que exigem materiais sanitários (como aço inoxidável) e acabamento superficial impecável para evitar contaminação.",
-      image: "/lovable-uploads/248ec544-caa9-4ba0-8c08-898392a2d8d2.png"
+      description: "Usinagem de peças para máquinas de processamento, envase e embalagem, componentes para tanques e tubulações em aço inoxidável com acabamento sanitário para evitar contaminação.",
+      image: "/lovable-uploads/248ec544-caa9-4ba0-8c08-898392a2d8d2.png",
+      alt: "Usinagem em aço inoxidável para indústria alimentícia - Peças sanitárias Atibaia SP"
     },
     {
       id: 'petroleo-gas',
       icon: Droplet,
       title: "Indústria de Petróleo e Gás",
-      description: "Componentes para válvulas, bombas, conectores, flanges, tubulações de alta pressão, equipamentos de perfuração e extração, peças para plataformas offshore e refinarias que exigem alta resistência e durabilidade.",
-      image: "/lovable-uploads/fe2271b0-1ea4-40c5-a9db-7fdb22004661.png"
+      description: "Usinagem de componentes para válvulas, bombas, conectores, flanges, tubulações de alta pressão, equipamentos de perfuração e extração com alta resistência e durabilidade.",
+      image: "/lovable-uploads/fe2271b0-1ea4-40c5-a9db-7fdb22004661.png",
+      alt: "Usinagem para petróleo e gás - Válvulas e flanges de alta pressão - JPD SP"
     },
     {
       id: 'aeroespacial',
       icon: Plane,
-      title: "Indústria Aeroespacial e Aeronáutica",
-      description: "Componentes críticos para turbinas, fuselagens, asas, sistemas de controle, trens de pouso, peças estruturais leves, fixadores e atuadores, utilizando materiais como titânio, alumínio e superligas.",
-      image: "/lovable-uploads/9dd0ff85-d042-4379-b43c-18bfe0d638de.png"
+      title: "Indústria Aeroespacial",
+      description: "Usinagem CNC de componentes críticos para turbinas, fuselagens, asas, sistemas de controle, trens de pouso, peças estruturais leves, utilizando materiais como titânio, alumínio e superligas.",
+      image: "/lovable-uploads/9dd0ff85-d042-4379-b43c-18bfe0d638de.png",
+      alt: "Usinagem aeroespacial - Componentes de aviação em titânio e alumínio - Bom Jesus dos Perdões"
     },
     {
       id: 'medica-odontologica',
       icon: Heart,
       title: "Indústria Médica e Odontológica",
-      description: "Implantes (ortopédicos, dentários), instrumentos cirúrgicos, próteses, componentes para equipamentos de diagnóstico e terapias, peças para cadeiras e equipamentos odontológicos. Exige extrema precisão e uso de materiais biocompatíveis.",
-      image: "/lovable-uploads/6666ef25-8040-4754-8cb3-579bee47ea4e.png"
+      description: "Usinagem de implantes ortopédicos e dentários, instrumentos cirúrgicos, próteses, componentes para equipamentos de diagnóstico com extrema precisão e materiais biocompatíveis.",
+      image: "/lovable-uploads/6666ef25-8040-4754-8cb3-579bee47ea4e.png",
+      alt: "Usinagem médica e odontológica - Implantes e instrumentos cirúrgicos de precisão SP"
     },
     {
       id: 'eletronica-telecomunicacoes',
       icon: Smartphone,
-      title: "Indústria Eletrônica e de Telecomunicações",
-      description: "Gabinetes metálicos e plásticos de precisão, dissipadores de calor, conectores, suportes para placas de circuito, componentes de antenas e equipamentos de rede.",
-      image: "/lovable-uploads/a8d9cbcf-ad1f-41fa-830c-c7b9fcdbed75.png"
+      title: "Indústria Eletrônica",
+      description: "Usinagem de gabinetes metálicos e plásticos de precisão, dissipadores de calor, conectores, suportes para placas de circuito, componentes de antenas e equipamentos de rede.",
+      image: "/lovable-uploads/a8d9cbcf-ad1f-41fa-830c-c7b9fcdbed75.png",
+      alt: "Usinagem para eletrônicos - Gabinetes e dissipadores de precisão Atibaia SP"
     },
     {
       id: 'geotecnica',
       icon: Mountain,
       title: "Indústria Geotécnica",
-      description: "Componentes para equipamentos de perfuração, sondagem, fundações especiais, estacas, equipamentos de contenção e estabilização de solos, peças para obras de infraestrutura e engenharia geotécnica.",
-      image: "/lovable-uploads/e01fa817-6092-4fbb-8bfe-773092e4abac.png"
+      description: "Usinagem de componentes para equipamentos de perfuração, sondagem, fundações especiais, estacas, equipamentos de contenção e estabilização de solos para obras de infraestrutura.",
+      image: "/lovable-uploads/e01fa817-6092-4fbb-8bfe-773092e4abac.png",
+      alt: "Usinagem geotécnica - Equipamentos de perfuração e sondagem - JPD Bragança SP"
     },
     {
       id: 'energia',
       icon: Zap,
       title: "Indústria de Energia",
-      description: "Peças para turbinas (eólicas, hidrelétricas, a gás, a vapor), geradores, eixos, componentes de válvulas e estruturas de suporte para usinas eólicas e termelétricas.",
-      image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&q=80&w=600&h=400"
+      description: "Usinagem de peças para turbinas eólicas, hidrelétricas, a gás e vapor, geradores, eixos, componentes de válvulas e estruturas de suporte para usinas e sistemas de geração de energia.",
+      image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&q=80&w=600&h=400",
+      alt: "Usinagem para setor energético - Componentes de turbinas e geradores - Usinagem SP"
     }
   ];
 
@@ -172,8 +184,9 @@ const MarketSectors = () => {
             Principais <span className="text-primary">Atuações no Mercado</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-4xl">
-            Nossa expertise atende diversos setores da indústria, oferecendo soluções 
-            especializadas e customizadas para cada segmento com alta precisão e qualidade.
+            Nossa expertise em usinagem CNC atende diversos setores da indústria em Bom Jesus dos Perdões, 
+            Atibaia, Bragança Paulista e SP, oferecendo soluções especializadas e customizadas para cada 
+            segmento com alta precisão e qualidade.
           </p>
         </div>
 

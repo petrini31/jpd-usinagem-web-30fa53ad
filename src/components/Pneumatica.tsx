@@ -1,3 +1,4 @@
+
 import { ArrowRight, CheckCircle, Wrench, Zap, Shield, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -19,27 +20,27 @@ const Pneumatica = () => {
     {
       icon: CheckCircle,
       title: "Qualidade Garantida",
-      description: "Produtos certificados com rigoroso controle de qualidade"
+      description: "Cilindros pneumáticos certificados com rigoroso controle de qualidade em Bom Jesus dos Perdões"
     },
     {
       icon: Wrench,
       title: "Customização Total", 
-      description: "Soluções personalizadas para suas necessidades específicas"
+      description: "Soluções pneumáticas personalizadas para suas necessidades industriais específicas"
     },
     {
       icon: Zap,
       title: "Alta Performance",
-      description: "Eficiência máxima e durabilidade comprovada"
+      description: "Eficiência máxima e durabilidade comprovada em aplicações industriais SP"
     },
     {
       icon: Shield,
       title: "Confiabilidade",
-      description: "Produtos robustos para operação contínua"
+      description: "Produtos robustos para operação contínua desenvolvidos com expertise regional"
     },
     {
       icon: Award,
       title: "Expertise Técnica",
-      description: "Décadas de experiência em soluções pneumáticas"
+      description: "Décadas de experiência em soluções pneumáticas para indústrias de Atibaia e região"
     }
   ];
 
@@ -60,9 +61,9 @@ const Pneumatica = () => {
             de Alta Performance
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-4xl leading-relaxed">
-            Nossa expertise em fabricação de cilindros pneumáticos personalizados 
-            garante soluções eficientes e duráveis para suas aplicações industriais. 
-            Cada projeto é desenvolvido com precisão técnica e foco na performance.
+            Nossa expertise em fabricação de cilindros pneumáticos personalizados em Bom Jesus dos Perdões 
+            garante soluções eficientes e duráveis para aplicações industriais em Atibaia, Bragança Paulista 
+            e toda SP. Cada projeto é desenvolvido com precisão técnica e foco na performance industrial.
           </p>
         </div>
 
@@ -110,14 +111,14 @@ const Pneumatica = () => {
             </div>
           </div>
 
-          {/* Right content - Images - Adicionando as 4 fotos */}
+          {/* Right content - Images */}
           <div className="space-y-4 md:space-y-6 animate-slide-up" style={{
             animationDelay: '0.2s'
           }}>
             <div className="relative">
               <OptimizedImage
                 src="/lovable-uploads/2e86ffbf-edfb-42e6-abea-d053f935f05b.png"
-                alt="Cilindros pneumáticos de alta qualidade"
+                alt="Cilindros pneumáticos de alta qualidade fabricados pela JPD Usinagem em Bom Jesus dos Perdões SP"
                 className="w-full h-56 md:h-72 rounded-lg shadow-strong"
                 loading="lazy"
               />
@@ -127,19 +128,19 @@ const Pneumatica = () => {
             <div className="grid grid-cols-3 gap-3 md:gap-4">
               <OptimizedImage
                 src="/lovable-uploads/0b40a727-907c-4275-91b3-c9f6b08c64f0.png"
-                alt="Fabricação de cilindros pneumáticos"
+                alt="Fabricação de cilindros pneumáticos industriais - JPD Usinagem Atibaia e região"
                 className="w-full h-28 md:h-36 rounded-lg shadow-medium"
                 loading="lazy"
               />
               <OptimizedImage
                 src="/lovable-uploads/dd128e84-9545-4e4d-a57a-8aaca84f4a9b.png"
-                alt="Cilindro pneumático em operação"
+                alt="Cilindro pneumático de dupla ação em operação industrial - Pneumática SP"
                 className="w-full h-28 md:h-36 rounded-lg shadow-medium"
                 loading="lazy"
               />
               <OptimizedImage
                 src="/lovable-uploads/6b860842-119a-4fbd-88fa-c950c619c263.png"
-                alt="Cilindro pneumático de precisão"
+                alt="Cilindro pneumático de precisão customizado - Soluções pneumáticas Bragança Paulista"
                 className="w-full h-28 md:h-36 rounded-lg shadow-medium"
                 loading="lazy"
               />
