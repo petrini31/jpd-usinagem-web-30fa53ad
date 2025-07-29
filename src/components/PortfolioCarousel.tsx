@@ -76,6 +76,7 @@ const PortfolioCarousel = () => {
             alt={portfolioImages[getPrevIndex()].title}
             className="w-full h-full"
             loading="lazy"
+            quality={0.75}
           />
         </div>
 
@@ -87,6 +88,7 @@ const PortfolioCarousel = () => {
             className="w-full h-full"
             loading="eager"
             priority={true}
+            quality={0.9}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
           <div className="absolute bottom-4 left-4 right-4">
@@ -106,6 +108,7 @@ const PortfolioCarousel = () => {
             alt={portfolioImages[getNextIndex()].title}
             className="w-full h-full"
             loading="lazy"
+            quality={0.75}
           />
         </div>
       </div>

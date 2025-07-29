@@ -1,8 +1,12 @@
+
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import OptimizedImage from "./OptimizedImage";
+
 const MaterialsCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  
   const materials = [{
     id: 'acos',
     title: "Aços",
@@ -60,15 +64,47 @@ const MaterialsCarousel = () => {
     }, 5000);
     return () => clearInterval(interval);
   }, [materials.length]);
+  
   const nextSlide = () => {
     setCurrentIndex(prevIndex => (prevIndex + 1) % materials.length);
   };
+  
   const prevSlide = () => {
     setCurrentIndex(prevIndex => (prevIndex - 1 + materials.length) % materials.length);
   };
-  return <div className="relative bg-secondary rounded-lg overflow-hidden">
+  
+  return (
+    <div className="relative bg-secondary rounded-lg overflow-hidden">
       {/* Carousel Container */}
-      
+      <div className="flex transition-transform duration-500 ease-in-out" 
+           style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+        {materials.map((material, index) => (
+          <div key={material.id} className="w-full flex-shrink-0">
+            <div className="grid md:grid-cols-2 gap-8 p-8">
+              {/* Imagem */}
+              <div className="relative">
+                <OptimizedImage
+                  src={material.image}
+                  alt={material.title}
+                  className="w-full h-64 md:h-80 rounded-lg shadow-lg"
+                  loading={index === currentIndex ? "eager" : "lazy"}
+                  priority={index === currentIndex}
+                  quality={0.85}
+                />
+              </div>
+              
+              {/* Conteúdo */}
+              <div className="space-y-4">
+                <div>
+                  <h3 className="text-2xl font-bold text-primary mb-2">{material.title}</h3>
+                  <h4 className="text-lg font-semibold text-muted-foreground mb-4">{material.subtitle}</h4>
+                </div>
+                <p className="text-muted-foreground leading-relaxed">{material.description}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
 
       {/* Navigation Buttons */}
       <Button variant="outline" size="icon" onClick={prevSlide} className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background border-border z-10">
@@ -78,6 +114,21 @@ const MaterialsCarousel = () => {
       <Button variant="outline" size="icon" onClick={nextSlide} className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background border-border z-10">
         <ChevronRight className="w-4 h-4" />
       </Button>
-    </div>;
+      
+      {/* Dots Indicator */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+        {materials.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`w-2 h-2 rounded-full transition-colors ${
+              index === currentIndex ? 'bg-primary' : 'bg-muted-foreground/50'
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
 };
+
 export default MaterialsCarousel;
