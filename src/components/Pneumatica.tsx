@@ -16,11 +16,11 @@ const Pneumatica = () => {
   return (
     <section id="pneumatica" className="py-20 bg-gradient-to-br from-background via-secondary/20 to-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-6 text-foreground">
-            Especialistas em Cilindros Pneumáticos
+        <div className="text-left mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-foreground">
+            Especialistas em <span className="text-primary">Cilindros Pneumáticos</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-4xl">
             Desenvolvimento e fabricação de cilindros pneumáticos personalizados com 
             tecnologia de ponta e qualidade incomparável
           </p>
@@ -78,28 +78,28 @@ const Pneumatica = () => {
             </div>
           </div>
 
-          {/* Coluna de imagens */}
+          {/* Coluna de imagens - substituindo pelas novas imagens */}
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-4">
               <OptimizedImage
-                src="/lovable-uploads/c389b1c3-66fe-4964-8cf6-c6b4966a9e60.png"
+                src="/lovable-uploads/35e6299d-9a61-4325-acb4-7152297159c9.png"
                 alt="Cilindro pneumático de precisão"
                 className="w-full h-48 object-cover rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
               />
               <OptimizedImage
-                src="/lovable-uploads/a8d9cbcf-ad1f-41fa-830c-c7b9fcdbed75.png"
+                src="/lovable-uploads/a029f8f6-79e0-4060-9302-8e14e10ecbf0.png"
                 alt="Sistema pneumático industrial"
                 className="w-full h-32 object-cover rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
               />
             </div>
             <div className="space-y-4 pt-8">
               <OptimizedImage
-                src="/lovable-uploads/6c709c11-9b63-4474-a89d-c18c44a9c825.png"
+                src="/lovable-uploads/dca69ce5-79d3-4cdd-a1de-6e4a0344daa7.png"
                 alt="Componentes pneumáticos"
                 className="w-full h-32 object-cover rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
               />
               <OptimizedImage
-                src="/lovable-uploads/ba3a95b9-2493-4b0f-95b4-e5f0ef359808.png"
+                src="/lovable-uploads/5a5b397a-73d5-43f2-b1c5-299b8039b70a.png"
                 alt="Cilindro pneumático personalizado"
                 className="w-full h-48 object-cover rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
               />

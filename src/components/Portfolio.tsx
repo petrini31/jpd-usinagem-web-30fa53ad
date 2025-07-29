@@ -1,5 +1,5 @@
 
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import OptimizedImage from "./OptimizedImage";
@@ -70,32 +70,33 @@ const Portfolio = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mb-8 md:mb-12">
+        {/* Reduced grid layout with red borders */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-8 md:mb-12 max-w-4xl mx-auto">
           {projects.map((project, index) => (
             <Card key={index} className="group hover:shadow-medium transition-all duration-300 border border-border/50 overflow-hidden">
               <div className="relative overflow-hidden">
                 <OptimizedImage
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-40 md:h-48 group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-32 md:h-40 object-cover border-2 border-red-500 group-hover:scale-105 transition-transform duration-300"
                   loading={index < 3 ? "eager" : "lazy"}
                   priority={index < 3}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               
-              <CardContent className="p-4 md:p-6">
-                <h3 className="text-lg md:text-xl font-semibold text-foreground mb-2 md:mb-3 group-hover:text-primary transition-colors">
+              <CardContent className="p-3 md:p-4">
+                <h3 className="text-base md:text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-sm md:text-base text-muted-foreground mb-3 md:mb-4">
+                <p className="text-xs md:text-sm text-muted-foreground mb-2 md:mb-3">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-1.5 md:gap-2">
+                <div className="flex flex-wrap gap-1">
                   {project.tags.map((tag, tagIndex) => (
                     <span 
                       key={tagIndex}
-                      className="inline-flex items-center px-2 py-1 bg-secondary text-secondary-foreground text-xs rounded-full"
+                      className="inline-flex items-center px-1.5 py-0.5 bg-secondary text-secondary-foreground text-xs rounded-full"
                     >
                       {tag}
                     </span>
