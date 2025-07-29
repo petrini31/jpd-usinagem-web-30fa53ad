@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { ArrowLeft, MessageCircle, Phone, Mail, MapPin, CheckCircle2, Settings, Wrench, Cog, Clock, Shield, Award, Send, User, Building, MessageSquare, Factory, Gauge, Zap, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,8 +8,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { useNavigate } from "react-router-dom";
 import QuoteModal from "@/components/QuoteModal";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import SEOHead from "@/components/SEOHead";
-import SEOBreadcrumb from "@/components/SEOBreadcrumb";
 
 const PneumaticaFull = () => {
   const navigate = useNavigate();
@@ -22,7 +21,7 @@ const PneumaticaFull = () => {
     },
     {
       icon: Shield,
-      title: "Alta Durabilidade", 
+      title: "Alta Durabilidade",
       description: "Materiais premium e processos rigorosos garantem vida útil estendida"
     },
     {
@@ -82,21 +81,8 @@ const PneumaticaFull = () => {
     "Aplicação em ambientes de materiais químicos"
   ];
 
-  const breadcrumbItems = [
-    { label: "Cilindros Pneumáticos de Alta Performance", current: true }
-  ];
-
   return (
     <div className="min-h-screen bg-background">
-      <SEOHead
-        title="Cilindros Pneumáticos JPD Usinagem - Fabricação e Manutenção em SP"
-        description="Especialistas em cilindros pneumáticos personalizados em Bom Jesus dos Perdões. Fabricação, manutenção e projetos sob medida para automação industrial."
-        keywords="cilindros pneumáticos, fabricação cilindros, manutenção pneumática, bom jesus dos perdões, automação industrial sp"
-        ogTitle="Cilindros Pneumáticos de Alta Performance - JPD Usinagem"
-        ogDescription="Desenvolvimento e fabricação de cilindros pneumáticos personalizados com décadas de experiência em soluções pneumáticas industriais."
-        canonicalUrl="https://jpdusinagem.com/cilindros-pneumaticos"
-      />
-
       {/* Header */}
       <header className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-40">
         <div className="container mx-auto px-6 py-4">
@@ -122,8 +108,6 @@ const PneumaticaFull = () => {
           </div>
         </div>
       </header>
-
-      <SEOBreadcrumb items={breadcrumbItems} />
 
       {/* Hero Section */}
       <section className="py-24 bg-gradient-to-br from-primary via-primary-dark to-primary relative overflow-hidden">

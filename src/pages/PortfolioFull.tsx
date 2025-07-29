@@ -6,8 +6,6 @@ import QuoteModal from "@/components/QuoteModal";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import SEOHead from "@/components/SEOHead";
-import SEOBreadcrumb from "@/components/SEOBreadcrumb";
 
 const PortfolioFull = () => {
   const navigate = useNavigate();
@@ -40,21 +38,8 @@ const PortfolioFull = () => {
     navigate('/');
   };
 
-  const breadcrumbItems = [
-    { label: "Portfólio Completo de Usinagem CNC", current: true }
-  ];
-
   return (
     <div className="min-h-screen bg-background">
-      <SEOHead
-        title="Portfólio Completo JPD Usinagem CNC - Projetos de Usinagem de Precisão em SP"
-        description="Veja nosso portfólio completo de projetos de usinagem CNC, torneamento e fresamento em Bom Jesus dos Perdões. Peças de precisão para indústria."
-        keywords="portfolio usinagem cnc, projetos usinagem, torneamento fresamento, bom jesus dos perdões, peças usinadas sp"
-        ogTitle="Portfólio JPD Usinagem CNC - Projetos de Usinagem de Precisão"
-        ogDescription="Conheça nossos projetos de usinagem CNC de alta precisão realizados em Bom Jesus dos Perdões e região metropolitana de SP."
-        canonicalUrl="https://jpdusinagem.com/portfolio-completo-usinagem"
-      />
-
       {/* Header */}
       <header className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
@@ -74,8 +59,6 @@ const PortfolioFull = () => {
           </div>
         </div>
       </header>
-
-      <SEOBreadcrumb items={breadcrumbItems} />
 
       {/* Portfolio Grid */}
       <main className="container mx-auto px-4 py-8">

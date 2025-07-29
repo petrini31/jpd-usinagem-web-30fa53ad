@@ -7,17 +7,17 @@ const Company = () => {
     {
       icon: CheckCircle,
       title: "Qualidade Excepcional",
-      description: "Compromisso com a excelência em cada projeto de usinagem CNC, garantindo precisão micrométrica e acabamento superior em todas as peças produzidas."
+      description: "Compromisso com a excelência em cada projeto, garantindo precisão micrométrica e acabamento superior."
     },
     {
       icon: Target,
       title: "Inovação Contínua",
-      description: "Investimento constante em tecnologia de ponta e aprimoramento de processos para soluções avançadas em tornearia e fresamento de precisão."
+      description: "Investimento constante em tecnologia de ponta e aprimoramento de processos para soluções avançadas."
     },
     {
       icon: Shield,
       title: "Confiabilidade",
-      description: "Décadas de experiência em usinagem em Bom Jesus dos Perdões, Atibaia e região, construindo parcerias sólidas com transparência e cumprimento de prazos."
+      description: "Décadas de experiência e parcerias sólidas construídas com base na transparência e cumprimento de prazos."
     }
   ];
 
@@ -35,10 +35,9 @@ const Company = () => {
               Sobre a <span className="text-primary">JPD Usinagem CNC</span>
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Referência em excelência em serviços de Usinagem CNC em Bom Jesus dos Perdões - SP e expertise 
-              como fabricante de cilindros pneumáticos. Atendemos Atibaia, Bragança Paulista e toda a região 
-              com soluções em tornearia, fresamento e ferramentaria de alta precisão, combinando décadas de 
-              experiência com tecnologia de ponta.
+              Referência em excelência em serviços de Usinagem CNC e expertise como fabricante de cilindros pneumáticos. 
+              Combinamos décadas de experiência, tecnologia de ponta e técnicas avançadas para entregar soluções 
+              industriais de alta precisão, complexidade e performance superior.
             </p>
           </div>
         </div>
@@ -49,13 +48,12 @@ const Company = () => {
             <div>
               <h3 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
                 <ArrowRight className="w-6 h-6 text-primary" />
-                Nossa Expertise em Usinagem CNC
+                Nossa Expertise
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 Especializados em usinagem CNC de alta precisão e fabricação de cilindros pneumáticos 
-                personalizados em Bom Jesus dos Perdões. Nossa equipe técnica altamente qualificada domina 
-                as mais avançadas técnicas de tornearia CNC, fresamento de precisão e ferramentaria, 
-                garantindo resultados excepcionais para indústrias de Atibaia, Bragança Paulista e toda SP.
+                personalizados. Nossa equipe técnica altamente qualificada domina as mais avançadas 
+                técnicas de manufatura, garantindo resultados excepcionais para os mais diversos setores industriais.
               </p>
               
               <div className="space-y-4">
@@ -63,7 +61,7 @@ const Company = () => {
                   <ArrowRight className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-foreground">Tecnologia CNC Avançada</h4>
-                    <p className="text-sm text-muted-foreground">Equipamentos de última geração para usinagem de precisão micrométrica em SP</p>
+                    <p className="text-sm text-muted-foreground">Equipamentos de última geração para precisão micrométrica</p>
                   </div>
                 </div>
                 
@@ -71,15 +69,15 @@ const Company = () => {
                   <ArrowRight className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-foreground">Cilindros Pneumáticos Personalizados</h4>
-                    <p className="text-sm text-muted-foreground">Desenvolvimento completo desde o projeto até a produção para indústrias da região</p>
+                    <p className="text-sm text-muted-foreground">Desenvolvimento completo desde o projeto até a produção</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start gap-3">
                   <ArrowRight className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-foreground">Tornearia e Fresamento de Precisão</h4>
-                    <p className="text-sm text-muted-foreground">Serviços especializados em torneamento CNC e fresamento para peças complexas</p>
+                    <h4 className="font-semibold text-foreground">Controle de Qualidade Rigoroso</h4>
+                    <p className="text-sm text-muted-foreground">Inspeção dimensional e funcional em todas as etapas</p>
                   </div>
                 </div>
               </div>
@@ -91,7 +89,7 @@ const Company = () => {
             <div className="relative overflow-hidden rounded-lg shadow-strong">
               <img 
                 src="/lovable-uploads/ff3dc369-697d-41a0-bbb3-970fd616c622.png"
-                alt="JPD Usinagem CNC - Tecnologia de Precisão em Bom Jesus dos Perdões SP - Tornearia e Fresamento"
+                alt="JPD Usinagem CNC - Tecnologia de Precisão"
                 className="w-full h-96 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
@@ -100,7 +98,7 @@ const Company = () => {
             <div className="absolute -bottom-8 -left-8 bg-primary text-primary-foreground p-6 rounded-lg shadow-strong">
               <div className="text-center">
                 <div className="text-3xl font-bold">25+</div>
-                <div className="text-sm opacity-90">Anos de Experiência em SP</div>
+                <div className="text-sm opacity-90">Anos de Experiência</div>
               </div>
             </div>
           </div>
