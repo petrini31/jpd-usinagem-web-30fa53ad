@@ -85,12 +85,26 @@ const SitemapXML = () => {
   </url>
 </urlset>`;
 
-    // Set content type for XML
-    document.contentType = 'application/xml';
-    document.body.innerHTML = sitemap;
+    // Create a blob with the sitemap content and trigger download
+    const blob = new Blob([sitemap], { type: 'application/xml' });
+    const url = URL.createObjectURL(blob);
+    
+    // Display the sitemap content in a pre-formatted way
+    document.body.innerHTML = `<pre style="font-family: monospace; white-space: pre-wrap; margin: 20px;">${sitemap}</pre>`;
+    
+    console.log('Sitemap XML gerado:', sitemap);
   }, []);
 
-  return null;
+  return (
+    <div className="min-h-screen bg-white p-8">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-2xl font-bold mb-4">Sitemap XML - JPD Usinagem</h1>
+        <p className="text-gray-600 mb-4">
+          O sitemap XML será exibido abaixo quando a página carregar.
+        </p>
+      </div>
+    </div>
+  );
 };
 
 export default SitemapXML;
