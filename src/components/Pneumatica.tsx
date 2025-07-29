@@ -1,3 +1,4 @@
+
 import { ArrowRight, CheckCircle, Wrench, Zap, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -106,37 +107,37 @@ const Pneumatica = () => {
             </div>
           </div>
 
-          {/* Right content - Updated Images */}
-          <div className="space-y-4 md:space-y-6 animate-slide-up" style={{
+          {/* Right content - Reduced Image Sizes */}
+          <div className="space-y-3 md:space-y-4 animate-slide-up" style={{
             animationDelay: '0.2s'
           }}>
             <div className="relative">
               <OptimizedImage
-                src="/lovable-uploads/3fd09807-9cda-4315-9551-acba74cc7458.png"
+                src="/lovable-uploads/02127a06-e31c-4ef1-bae2-63f0dd36391f.png"
                 alt="Cilindro pneumático de alta qualidade para usinagem CNC Atibaia"
-                className="w-full h-56 md:h-72 rounded-lg shadow-strong"
+                className="w-full h-40 md:h-48 rounded-lg shadow-strong"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg"></div>
             </div>
             
-            <div className="grid grid-cols-3 gap-3 md:gap-4">
-              <OptimizedImage
-                src="/lovable-uploads/02127a06-e31c-4ef1-bae2-63f0dd36391f.png"
-                alt="Fabricação de cilindros pneumáticos para fresamento Bragança Paulista"
-                className="w-full h-28 md:h-36 rounded-lg shadow-medium"
-                loading="lazy"
-              />
+            <div className="grid grid-cols-3 gap-2 md:gap-3">
               <OptimizedImage
                 src="/lovable-uploads/f37af401-0c6b-4aaf-8169-c7791f20b39d.png"
-                alt="Cilindro pneumático em operação industrial torneamento Bom Jesus dos Perdões"
-                className="w-full h-28 md:h-36 rounded-lg shadow-medium"
+                alt="Fabricação de cilindros pneumáticos para fresamento Bragança Paulista"
+                className="w-full h-20 md:h-24 rounded-lg shadow-medium"
                 loading="lazy"
               />
               <OptimizedImage
                 src="/lovable-uploads/3bdc062c-4d3d-431e-bc8f-5c0c42be6ada.png"
+                alt="Cilindro pneumático em operação industrial torneamento Bom Jesus dos Perdões"
+                className="w-full h-20 md:h-24 rounded-lg shadow-medium"
+                loading="lazy"
+              />
+              <OptimizedImage
+                src="/lovable-uploads/3fd09807-9cda-4315-9551-acba74cc7458.png"
                 alt="Cilindros pneumáticos de precisão para automação industrial São Paulo"
-                className="w-full h-28 md:h-36 rounded-lg shadow-medium"
+                className="w-full h-20 md:h-24 rounded-lg shadow-medium"
                 loading="lazy"
               />
             </div>
