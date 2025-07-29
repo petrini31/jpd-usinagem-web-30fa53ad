@@ -19,6 +19,9 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/portfolio-completo-usinagem" element={<PortfolioFull />} />
+          <Route path="/cilindros-pneumaticos" element={<PneumaticaFull />} />
+          {/* Redirecionamentos das URLs antigas */}
           <Route path="/portfolio-full" element={<PortfolioFull />} />
           <Route path="/pneumatica" element={<PneumaticaFull />} />
           <Route path="*" element={<NotFound />} />

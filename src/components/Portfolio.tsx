@@ -1,125 +1,83 @@
-
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import OptimizedImage from "./OptimizedImage";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+
+const portfolioItems = [
+  { id: 1, image: "/lovable-uploads/7487f020-2969-4fea-93cc-7232587c319e.png", title: "Usinagem CNC de precisão", description: "Processo de usinagem CNC com alta precisão e qualidade" },
+  { id: 2, image: "/lovable-uploads/4d1166a1-566a-4f33-a6fb-05a628da0ceb.png", title: "Torneamento", description: "Operação de torneamento para peças cilíndricas" },
+  { id: 3, image: "/lovable-uploads/79615b86-054f-4f10-90ae-9bb561911010.png", title: "Fresamento", description: "Processo de fresamento para usinagem de superfícies complexas" },
+  { id: 4, image: "/lovable-uploads/77db13a0-f3ab-40f1-ad6e-d00c2a3ca32b.png", title: "Fabricação de cilindros pneumáticos", description: "Desenvolvimento e fabricação de cilindros pneumáticos personalizados" },
+  { id: 5, image: "/lovable-uploads/dd128e84-9545-4e4d-a57a-8aaca84f4a9b.png", title: "Nosso cilindro pneumático em atuação", description: "Cilindro pneumático da JPD Usinagem em operação industrial" },
+  { id: 6, image: "/lovable-uploads/3b518978-4d9c-4d5b-bcf8-4485bc695d1b.png", title: "Bicos injetores", description: "Fabricação de bicos injetores de alta precisão" },
+  { id: 7, image: "/lovable-uploads/aec5fa4d-81c6-4c81-938b-e57e9900c236.png", title: "Usinagem em série", description: "Produção em série de peças usinadas com qualidade consistente" },
+  { id: 8, image: "/lovable-uploads/209bf881-1ece-45ad-9b34-a76bd704a853.png", title: "Tratamento de peças de precisão", description: "Peças usinadas com acabamento e tratamento especial" },
+  { id: 9, image: "/lovable-uploads/1159c5da-7355-4c50-9483-b457bb702d07.png", title: "Manutenção de componentes", description: "Serviços de manutenção e reparo de componentes industriais" },
+  { id: 10, image: "/lovable-uploads/1bf1d819-ce80-415a-b87c-fd78e53be919.png", title: "Usinagem de arruelas", description: "Fabricação de arruelas e componentes de fixação" },
+];
 
 const Portfolio = () => {
-  const navigate = useNavigate();
-  
-  const openPortfolioFull = () => {
-    navigate('/portfolio-full');
-    // Scroll to top after navigation
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const openModal = (image) => {
+    setSelectedImage(image);
+    setIsModalOpen(true);
   };
 
-  const projects = [
-    {
-      title: "Pneumática Completa",
-      description: "Soluções pneumáticas personalizadas para otimizar processos industriais, garantindo eficiência e durabilidade.",
-      image: "/lovable-uploads/2e86ffbf-edfb-42e6-abea-d053f935f05b.png",
-      tags: ["Pneumática", "Cilindros", "Automação"],
-      alt: "Cilindros pneumáticos industriais fabricados pela JPD Usinagem CNC em Bom Jesus dos Perdões - SP"
-    },
-    {
-      title: "Usinagem CNC de Precisão",
-      description: "Peças usinadas com alta precisão e qualidade, atendendo às necessidades específicas de cada cliente.",
-      image: "/lovable-uploads/f370996c-dd23-4c78-b534-ce466c030a0b.png",
-      tags: ["CNC", "Usinagem", "Precisão"],
-      alt: "Peças de precisão usinadas em torno CNC pela JPD Usinagem em Atibaia e região"
-    },
-    {
-      title: "Projetos de Desenho Técnico",
-      description: "Desenvolvimento de projetos de desenho técnico personalizados, desde o conceito até a produção.",
-      image: "/lovable-uploads/39454b83-b7cf-4cbe-83d6-9609d65aa701.png",
-      tags: ["Desenho Técnico", "Projetos", "Engenharia"],
-      alt: "Projetos técnicos e desenhos industriais desenvolvidos por usinagem SP - JPD"
-    },
-    {
-      title: "Manutenção e Recuperação",
-      description: "Serviços de manutenção e recuperação de peças industriais, prolongando a vida útil e reduzindo custos.",
-      image: "/lovable-uploads/9bc73a42-18ba-45e1-96b7-c2035acfb640.png",
-      tags: ["Manutenção", "Recuperação", "Industrial"],
-      alt: "Manutenção e recuperação de componentes industriais - Usinagem Bragança Paulista"
-    },
-    {
-      title: "Ferramentais e Dispositivos",
-      description: "Fabricação de ferramentais e dispositivos para otimizar processos de produção e garantir a repetibilidade.",
-      image: "/lovable-uploads/5747a4c1-c343-4946-a329-d3e6c45e6be9.png",
-      tags: ["Ferramentas", "Dispositivos", "Produção"],
-      alt: "Ferramentarias e dispositivos de precisão fabricados em Bom Jesus dos Perdões - JPD Usinagem"
-    },
-    {
-      title: "Moldes de Injeção",
-      description: "Especialistas na fabricação de moldes de injeção, garantindo precisão e durabilidade para a indústria.",
-      image: "/lovable-uploads/7de9727d-b15c-4acd-a2b3-8bc626ea3949.png",
-      tags: ["Moldes", "Injeção", "Plástico"],
-      alt: "Moldes de injeção plástica usinados com precisão - Fresamento SP - JPD Usinagem CNC"
-    }
-  ];
+  const closeModal = () => {
+    setSelectedImage(null);
+    setIsModalOpen(false);
+  };
 
   return (
-    <section id="portfolio" className="py-12 md:py-20 bg-background">
-      <div className="container mx-auto px-4">
-        {/* Header - Left aligned */}
-        <div className="mb-8 md:mb-16 animate-fade-in text-left">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6">
-            Nosso <span className="text-primary">Portfólio</span>
+    <section id="portfolio" className="py-24 bg-background">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            Nosso Portfólio de <span className="text-primary">Usinagem CNC</span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl">
-            Explore alguns dos nossos projetos mais recentes de usinagem CNC em Bom Jesus dos Perdões, 
-            Atibaia e região. Descubra como nossa expertise em tornearia e fresamento pode ajudar a sua empresa.
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Confira alguns dos projetos desenvolvidos pela JPD Usinagem em Bom Jesus dos Perdões e região
           </p>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mb-8 md:mb-12">
-          {projects.map((project, index) => (
-            <Card key={index} className="group hover:shadow-medium transition-all duration-300 border border-border/50 overflow-hidden">
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {portfolioItems.slice(0, 6).map((project) => (
+            <Card key={project.id} className="group hover:shadow-medium transition-all duration-300 overflow-hidden">
               <div className="relative overflow-hidden">
-                <OptimizedImage
+                <img
                   src={project.image}
-                  alt={project.alt}
-                  className="w-full h-40 md:h-48 group-hover:scale-105 transition-transform duration-300"
-                  loading={index < 3 ? "eager" : "lazy"}
-                  priority={index < 3}
+                  alt={project.title}
+                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
               </div>
-              
-              <CardContent className="p-4 md:p-6">
-                <h3 className="text-lg md:text-xl font-semibold text-foreground mb-2 md:mb-3 group-hover:text-primary transition-colors">
+              <CardContent className="p-4">
+                <h3 className="font-semibold text-foreground mb-2 text-sm">
                   {project.title}
                 </h3>
-                <p className="text-sm md:text-base text-muted-foreground mb-3 md:mb-4">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-1.5 md:gap-2">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span 
-                      key={tagIndex}
-                      className="inline-flex items-center px-2 py-1 bg-secondary text-secondary-foreground text-xs rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                {project.description && (
+                  <p className="text-xs text-muted-foreground">
+                    {project.description}
+                  </p>
+                )}
               </CardContent>
             </Card>
           ))}
         </div>
 
-        {/* CTA Button */}
-        <div className="text-center">
+        <div className="text-center mt-12">
           <Button 
-            onClick={openPortfolioFull}
+            asChild
             size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary-dark transition-colors"
+            className="bg-primary text-primary-foreground hover:bg-primary-dark"
           >
-            Ver Portfólio Completo
-            <ArrowRight className="w-5 h-5 ml-2" />
+            <Link to="/portfolio-completo-usinagem">
+              Ver Portfólio Completo
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Link>
           </Button>
         </div>
       </div>
