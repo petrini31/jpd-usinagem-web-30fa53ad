@@ -122,7 +122,8 @@ const PortfolioFull = () => {
 
       <QuoteModal 
         isOpen={isQuoteModalOpen} 
-        onClose={() => setIsQuoteModalOpen(false)} 
+        onClose={() => setIsQuoteModalOpen(false)}
+        source="portfolio"
       />
       
       {/* Image Viewer Modal */}

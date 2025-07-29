@@ -6,41 +6,115 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
+import { usePhoneFormat } from "@/hooks/usePhoneFormat";
 
 const Quote = () => {
   const { toast } = useToast();
+  const phoneFormat = usePhoneFormat();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
     company: '',
-    description: '',
-    deadline: ''
+    description: ''
   });
   const [files, setFiles] = useState<File[]>([]);
   const [dragActive, setDragActive] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    toast({
-      title: "Orçamento solicitado!",
-      description: "Recebemos sua solicitação. Entraremos em contato em até 24h!",
-    });
-    
-    // Limpar formulário
-    setFormData({ 
-      name: '', email: '', phone: '', company: '', 
-      description: '', deadline: '' 
-    });
-    setFiles([]);
+    setIsSubmitting(true);
+
+    try {
+      // Validar campos obrigatórios
+      if (!formData.name.trim() || !formData.email.trim() || !phoneFormat.value.trim()) {
+        toast({
+          title: "Campos obrigatórios",
+          description: "Por favor, preencha nome, email e telefone.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      // Inserir orçamento no banco
+      const { data: quoteData, error: quoteError } = await supabase
+        .from('quotes')
+        .insert({
+          full_name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: phoneFormat.getRawValue(),
+          company: formData.company.trim() || null,
+          project_description: formData.description.trim() || null,
+          source: 'home'
+        })
+        .select()
+        .single();
+
+      if (quoteError) throw quoteError;
+
+      // Upload de arquivos se existirem
+      if (files.length > 0) {
+        await Promise.all(
+          files.map(async (file) => {
+            const fileExt = file.name.split('.').pop();
+            const fileName = `${quoteData.id}/${Date.now()}.${fileExt}`;
+            
+            const { data, error } = await supabase.storage
+              .from('quote-attachments')
+              .upload(fileName, file);
+
+            if (error) throw error;
+
+            // Salvar informações do arquivo na tabela
+            const { error: dbError } = await supabase
+              .from('quote_attachments')
+              .insert({
+                quote_id: quoteData.id,
+                file_name: file.name,
+                file_size: file.size,
+                file_type: file.type,
+                file_url: data.path
+              });
+
+            if (dbError) throw dbError;
+          })
+        );
+      }
+
+      toast({
+        title: "Orçamento solicitado!",
+        description: "Recebemos sua solicitação. Entraremos em contato em até 24h!",
+      });
+      
+      // Limpar formulário
+      setFormData({ 
+        name: '', email: '', company: '', description: ''
+      });
+      phoneFormat.setValue("");
+      setFiles([]);
+
+    } catch (error) {
+      console.error('Erro ao enviar orçamento:', error);
+      toast({
+        title: "Erro ao enviar orçamento",
+        description: "Ocorreu um erro. Tente novamente ou entre em contato por telefone.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    if (e.target.name === 'phone') {
+      phoneFormat.handleChange(e.target.value);
+    } else {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+      });
+    }
   };
 
   const handleDrag = (e: React.DragEvent) => {
@@ -125,7 +199,7 @@ const Quote = () => {
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="company" className="block text-sm font-semibold text-foreground">
-                      Empresa
+                      Empresa (opcional)
                     </label>
                     <Input
                       id="company"
@@ -164,7 +238,7 @@ const Quote = () => {
                       name="phone"
                       type="tel"
                       required
-                      value={formData.phone}
+                      value={phoneFormat.value}
                       onChange={handleChange}
                       placeholder="(11) 99999-9999"
                       className="h-12 border-border/50 focus:border-primary transition-colors"
@@ -174,7 +248,7 @@ const Quote = () => {
 
                 <div className="space-y-2">
                   <label htmlFor="description" className="block text-sm font-semibold text-foreground">
-                    Descrição Resumida do Projeto (opcional)
+                    Descrição do Projeto (opcional)
                   </label>
                   <Textarea
                     id="description"
@@ -182,7 +256,7 @@ const Quote = () => {
                     rows={5}
                     value={formData.description}
                     onChange={handleChange}
-                    placeholder="Descreva brevemente seu projeto: materiais, dimensões, acabamentos, quantidades..."
+                    placeholder="Descreva seu projeto: materiais, dimensões, acabamentos, quantidades..."
                     className="border-border/50 focus:border-primary transition-colors resize-none"
                   />
                 </div>
@@ -265,10 +339,11 @@ const Quote = () => {
 
                 <Button 
                   type="submit"
+                  disabled={isSubmitting}
                   className="w-full bg-primary text-primary-foreground hover:bg-primary-dark hover:scale-105 transition-all duration-300 text-lg py-6 shadow-strong"
                 >
                   <Send className="w-5 h-5 mr-3" />
-                  Enviar Solicitação de Orçamento
+                  {isSubmitting ? "Enviando..." : "Enviar Solicitação de Orçamento"}
                 </Button>
 
                 <div className="text-center text-sm text-muted-foreground">

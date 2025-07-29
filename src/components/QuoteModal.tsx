@@ -1,33 +1,157 @@
+
 import { useState } from "react";
-import { X, Send, User, Mail, Phone, MessageSquare, Building } from "lucide-react";
+import { X, Send, User, Mail, Phone, MessageSquare, Building, Upload, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
+import { usePhoneFormat } from "@/hooks/usePhoneFormat";
 
 interface QuoteModalProps {
   isOpen: boolean;
   onClose: () => void;
+  source?: string;
 }
 
-const QuoteModal = ({ isOpen, onClose }: QuoteModalProps) => {
+const QuoteModal = ({ isOpen, onClose, source = "home" }: QuoteModalProps) => {
+  const { toast } = useToast();
+  const phoneFormat = usePhoneFormat();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [files, setFiles] = useState<File[]>([]);
+  const [dragActive, setDragActive] = useState(false);
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "",
     company: "",
     message: ""
   });
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    if (field === "phone") {
+      phoneFormat.handleChange(value);
+    } else {
+      setFormData(prev => ({ ...prev, [field]: value }));
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleDrag = (e: React.DragEvent) => {
     e.preventDefault();
-    // Aqui você pode implementar o envio do formulário
-    console.log("Formulário enviado:", formData);
-    onClose();
+    e.stopPropagation();
+    if (e.type === "dragenter" || e.type === "dragover") {
+      setDragActive(true);
+    } else if (e.type === "dragleave") {
+      setDragActive(false);
+    }
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragActive(false);
+    
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+      const newFiles = Array.from(e.dataTransfer.files);
+      setFiles(prev => [...prev, ...newFiles].slice(0, 5));
+    }
+  };
+
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const newFiles = Array.from(e.target.files);
+      setFiles(prev => [...prev, ...newFiles].slice(0, 5));
+    }
+  };
+
+  const removeFile = (index: number) => {
+    setFiles(prev => prev.filter((_, i) => i !== index));
+  };
+
+  const uploadFile = async (file: File, quoteId: string) => {
+    const fileExt = file.name.split('.').pop();
+    const fileName = `${quoteId}/${Date.now()}.${fileExt}`;
+    
+    const { data, error } = await supabase.storage
+      .from('quote-attachments')
+      .upload(fileName, file);
+
+    if (error) throw error;
+
+    // Salvar informações do arquivo na tabela
+    const { error: dbError } = await supabase
+      .from('quote_attachments')
+      .insert({
+        quote_id: quoteId,
+        file_name: file.name,
+        file_size: file.size,
+        file_type: file.type,
+        file_url: data.path
+      });
+
+    if (dbError) throw dbError;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      // Validar campos obrigatórios
+      if (!formData.name.trim() || !formData.email.trim() || !phoneFormat.value.trim()) {
+        toast({
+          title: "Campos obrigatórios",
+          description: "Por favor, preencha nome, email e telefone.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      // Inserir orçamento no banco
+      const { data: quoteData, error: quoteError } = await supabase
+        .from('quotes')
+        .insert({
+          full_name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: phoneFormat.getRawValue(),
+          company: formData.company.trim() || null,
+          project_description: formData.message.trim() || null,
+          source: source
+        })
+        .select()
+        .single();
+
+      if (quoteError) throw quoteError;
+
+      // Upload de arquivos se existirem
+      if (files.length > 0) {
+        await Promise.all(
+          files.map(file => uploadFile(file, quoteData.id))
+        );
+      }
+
+      toast({
+        title: "Orçamento enviado com sucesso!",
+        description: "Recebemos sua solicitação. Entraremos em contato em até 24h!",
+      });
+
+      // Limpar formulário
+      setFormData({ name: "", email: "", company: "", message: "" });
+      phoneFormat.setValue("");
+      setFiles([]);
+      onClose();
+
+    } catch (error) {
+      console.error('Erro ao enviar orçamento:', error);
+      toast({
+        title: "Erro ao enviar orçamento",
+        description: "Ocorreu um erro. Tente novamente ou entre em contato por telefone.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!isOpen) return null;
@@ -94,7 +218,7 @@ const QuoteModal = ({ isOpen, onClose }: QuoteModalProps) => {
                 </label>
                 <Input
                   type="tel"
-                  value={formData.phone}
+                  value={phoneFormat.value}
                   onChange={(e) => handleInputChange("phone", e.target.value)}
                   placeholder="(11) 99999-9999"
                   required
@@ -120,16 +244,75 @@ const QuoteModal = ({ isOpen, onClose }: QuoteModalProps) => {
             <div className="space-y-2">
               <label className="text-sm font-medium text-foreground flex items-center gap-2">
                 <MessageSquare className="w-4 h-4 text-primary" />
-                Descrição do Projeto *
+                Descrição do Projeto (opcional)
               </label>
               <Textarea
                 value={formData.message}
                 onChange={(e) => handleInputChange("message", e.target.value)}
-                placeholder="Descreva detalhadamente seu projeto: tipo de peça, material desejado, quantidade, prazo, especificações técnicas..."
-                required
-                rows={6}
+                placeholder="Descreva seu projeto: tipo de peça, material desejado, quantidade, prazo, especificações técnicas..."
+                rows={4}
                 className="resize-none"
               />
+            </div>
+
+            {/* File Upload - Compact Design */}
+            <div className="space-y-3">
+              <label className="text-sm font-medium text-foreground">
+                Anexar Arquivos (opcional)
+              </label>
+              
+              <div
+                className={`relative border-2 border-dashed rounded-lg p-3 text-center transition-all duration-300 ${
+                  dragActive 
+                    ? 'border-primary bg-primary/5' 
+                    : 'border-border hover:border-primary/50 hover:bg-secondary/30'
+                }`}
+                onDragEnter={handleDrag}
+                onDragLeave={handleDrag}
+                onDragOver={handleDrag}
+                onDrop={handleDrop}
+              >
+                <input
+                  type="file"
+                  multiple
+                  accept=".pdf,.dwg,.jpg,.jpeg,.png,.doc,.docx"
+                  onChange={handleFileSelect}
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                />
+                <div className="flex items-center justify-center gap-2">
+                  <Upload className="w-4 h-4 text-primary" />
+                  <span className="text-sm text-foreground">Arrastar ou clicar para anexar</span>
+                </div>
+                <p className="text-xs text-muted-foreground mt-1">
+                  PDF, DWG, JPG, PNG, DOC (máx. 5 arquivos)
+                </p>
+              </div>
+
+              {/* File List - Compact */}
+              {files.length > 0 && (
+                <div className="space-y-2">
+                  {files.map((file, index) => (
+                    <div key={index} className="flex items-center justify-between p-2 bg-secondary/50 rounded border border-border/30 text-sm">
+                      <div className="flex items-center gap-2">
+                        <FileText className="w-3 h-3 text-primary" />
+                        <span className="truncate">{file.name}</span>
+                        <span className="text-xs text-muted-foreground">
+                          ({(file.size / 1024 / 1024).toFixed(1)} MB)
+                        </span>
+                      </div>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => removeFile(index)}
+                        className="h-6 w-6 p-0 text-destructive hover:text-destructive hover:bg-destructive/10"
+                      >
+                        <X className="w-3 h-3" />
+                      </Button>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
 
             <div className="bg-muted/30 p-4 rounded-lg border-l-4 border-primary">
@@ -148,15 +331,17 @@ const QuoteModal = ({ isOpen, onClose }: QuoteModalProps) => {
                 variant="outline"
                 onClick={onClose}
                 className="flex-1"
+                disabled={isSubmitting}
               >
                 Cancelar
               </Button>
               <Button
                 type="submit"
                 className="flex-1 bg-primary text-primary-foreground hover:bg-primary-dark"
+                disabled={isSubmitting}
               >
                 <Send className="w-4 h-4 mr-2" />
-                Enviar Solicitação
+                {isSubmitting ? "Enviando..." : "Enviar Solicitação"}
               </Button>
             </div>
           </form>
