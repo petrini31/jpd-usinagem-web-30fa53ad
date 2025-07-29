@@ -15,20 +15,15 @@ const Hero = () => {
     <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <picture>
-          {/* WebP source para navegadores que suportam */}
-          <source srcSet={heroImage.replace(/\.(jpg|jpeg|png)$/i, '.webp')} type="image/webp" />
-          {/* Fallback para outros navegadores */}
-          <img 
-            src={heroImage} 
-            alt="Equipamentos de Usinagem CNC - JPD Usinagem" 
-            className="w-full h-full object-cover"
-            loading="eager"
-            style={{
-              willChange: 'auto'
-            }}
-          />
-        </picture>
+        <img 
+          src={heroImage} 
+          alt="Equipamentos de Usinagem CNC - JPD Usinagem" 
+          className="w-full h-full object-cover"
+          loading="eager"
+          style={{
+            willChange: 'auto'
+          }}
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 to-slate-800/60" />
       </div>
 
