@@ -21,6 +21,22 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           
+          {/* SEO-friendly routes that redirect to home */}
+          <Route path="/cilindros-pneumaticos" element={<Index />} />
+          <Route path="/usinagem" element={<Index />} />
+          <Route path="/usinagem-cnc" element={<Index />} />
+          <Route path="/tornearia" element={<Index />} />
+          <Route path="/fresamento" element={<Index />} />
+          <Route path="/usinagem-atibaia" element={<Index />} />
+          <Route path="/usinagem-perdoes" element={<Index />} />
+          <Route path="/usinagem-braganca" element={<Index />} />
+          <Route path="/programacao-cnc" element={<Index />} />
+          <Route path="/cnc" element={<Index />} />
+          <Route path="/usinagem-sp" element={<Index />} />
+          <Route path="/usinagem-sao-paulo" element={<Index />} />
+          <Route path="/usinagem-guarulhos" element={<Index />} />
+          <Route path="/usinagem-industrial" element={<Index />} />
+          
           {/* URLs Amigáveis para SEO - Portfolio */}
           <Route path="/portfolio-full" element={<PortfolioFull />} />
           <Route path="/portfolio-completo-usinagem" element={<PortfolioFull />} />
@@ -31,7 +47,6 @@ const App = () => (
           
           {/* URLs Amigáveis para SEO - Pneumática */}
           <Route path="/pneumatica" element={<PneumaticaFull />} />
-          <Route path="/cilindros-pneumaticos" element={<PneumaticaFull />} />
           <Route path="/cilindros-pneumaticos-atibaia" element={<PneumaticaFull />} />
           <Route path="/cilindros-pneumaticos-braganca-paulista" element={<PneumaticaFull />} />
           <Route path="/cilindros-pneumaticos-bom-jesus-perdoes" element={<PneumaticaFull />} />

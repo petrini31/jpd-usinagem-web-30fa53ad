@@ -335,18 +335,26 @@ const PneumaticaFull = () => {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <div className="aspect-square bg-gradient-primary rounded-lg opacity-20 flex items-center justify-center">
-                <Factory className="w-16 h-16 text-primary" />
-              </div>
-              <div className="aspect-square bg-gradient-accent rounded-lg opacity-20 flex items-center justify-center mt-8">
-                <Cog className="w-16 h-16 text-primary" />
-              </div>
-              <div className="aspect-square bg-gradient-accent rounded-lg opacity-20 flex items-center justify-center -mt-8">
-                <Settings className="w-16 h-16 text-primary" />
-              </div>
-              <div className="aspect-square bg-gradient-primary rounded-lg opacity-20 flex items-center justify-center">
-                <Shield className="w-16 h-16 text-primary" />
-              </div>
+              <img 
+                src="/lovable-uploads/3fd09807-9cda-4315-9551-acba74cc7458.png"
+                alt="Cilindro pneumático para usinagem de precisão Atibaia"
+                className="w-full aspect-square object-cover rounded-lg shadow-medium"
+              />
+              <img 
+                src="/lovable-uploads/02127a06-e31c-4ef1-bae2-63f0dd36391f.png"
+                alt="Fabricação de cilindros pneumáticos industriais Bragança Paulista"
+                className="w-full aspect-square object-cover rounded-lg shadow-medium mt-8"
+              />
+              <img 
+                src="/lovable-uploads/f37af401-0c6b-4aaf-8169-c7791f20b39d.png"
+                alt="Sistema pneumático em operação Bom Jesus dos Perdões"
+                className="w-full aspect-square object-cover rounded-lg shadow-medium -mt-8"
+              />
+              <img 
+                src="/lovable-uploads/3bdc062c-4d3d-431e-bc8f-5c0c42be6ada.png"
+                alt="Cilindros pneumáticos de alta qualidade São Paulo"
+                className="w-full aspect-square object-cover rounded-lg shadow-medium"
+              />
             </div>
           </div>
         </div>
