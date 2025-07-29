@@ -6,7 +6,7 @@ import OptimizedImage from "./OptimizedImage";
 
 const Pneumatica = () => {
   const openPneumaticaFull = () => {
-    window.open('/pneumatica-full', '_blank');
+    window.open('/pneumatica', '_blank');
   };
 
   const advantages = [
@@ -38,7 +38,7 @@ const Pneumatica = () => {
   ];
 
   return (
-    <section id="pneumatica" className="py-24 bg-gradient-to-b from-secondary/30 to-background relative overflow-hidden">
+    <section id="pneumatica" className="py-16 md:py-24 bg-gradient-to-b from-secondary/30 to-background relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute top-20 right-10 w-80 h-80 bg-gradient-primary rounded-full opacity-10 blur-3xl animate-float"></div>
@@ -48,7 +48,7 @@ const Pneumatica = () => {
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         {/* Header - Left aligned */}
-        <div className="mb-16 md:mb-20 animate-fade-in text-left">
+        <div className="mb-12 md:mb-16 animate-fade-in text-left">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 md:mb-8">
             Soluções <span className="text-primary">Pneumáticas</span><br />
             de Alta Performance
@@ -60,9 +60,9 @@ const Pneumatica = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16 md:mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-12 md:mb-16">
           {/* Left content */}
-          <div className="space-y-8 animate-slide-up">
+          <div className="space-y-6 md:space-y-8 animate-slide-up">
             <div>
               <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
                 Por que escolher nossos cilindros pneumáticos?
@@ -91,8 +91,8 @@ const Pneumatica = () => {
               </div>
             </div>
 
-            {/* Call to Action - Ajustado para mobile */}
-            <div className="pt-6 md:pt-8">
+            {/* Call to Action */}
+            <div className="pt-4 md:pt-6">
               <Button 
                 onClick={openPneumaticaFull}
                 size="lg"
@@ -104,31 +104,37 @@ const Pneumatica = () => {
             </div>
           </div>
 
-          {/* Right content - Images */}
-          <div className="space-y-6 md:space-y-8 animate-slide-up" style={{
+          {/* Right content - Images - Adicionando as 4 fotos */}
+          <div className="space-y-4 md:space-y-6 animate-slide-up" style={{
             animationDelay: '0.2s'
           }}>
             <div className="relative">
               <OptimizedImage
                 src="/lovable-uploads/2e86ffbf-edfb-42e6-abea-d053f935f05b.png"
                 alt="Cilindros pneumáticos de alta qualidade"
-                className="w-full h-64 md:h-80 rounded-lg shadow-strong"
+                className="w-full h-56 md:h-72 rounded-lg shadow-strong"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg"></div>
             </div>
             
-            <div className="grid grid-cols-2 gap-4 md:gap-6">
+            <div className="grid grid-cols-3 gap-3 md:gap-4">
               <OptimizedImage
                 src="/lovable-uploads/0b40a727-907c-4275-91b3-c9f6b08c64f0.png"
                 alt="Fabricação de cilindros pneumáticos"
-                className="w-full h-32 md:h-40 rounded-lg shadow-medium"
+                className="w-full h-28 md:h-36 rounded-lg shadow-medium"
                 loading="lazy"
               />
               <OptimizedImage
                 src="/lovable-uploads/dd128e84-9545-4e4d-a57a-8aaca84f4a9b.png"
                 alt="Cilindro pneumático em operação"
-                className="w-full h-32 md:h-40 rounded-lg shadow-medium"
+                className="w-full h-28 md:h-36 rounded-lg shadow-medium"
+                loading="lazy"
+              />
+              <OptimizedImage
+                src="/lovable-uploads/6b860842-119a-4fbd-88fa-c950c619c263.png"
+                alt="Cilindro pneumático de precisão"
+                className="w-full h-28 md:h-36 rounded-lg shadow-medium"
                 loading="lazy"
               />
             </div>
