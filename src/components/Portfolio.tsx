@@ -57,8 +57,8 @@ const Portfolio = () => {
     },
     {
       id: 10,
-      image: "/lovable-uploads/1bf1d819-ce80-415a-b87c-fd78e53be919.png",
-      title: "Usinagem de arruelas"
+      image: "/lovable-uploads/ba3a95b9-2493-4b0f-95b4-e5f0ef359808.png",
+      title: "Desenho 3D de peças utilizando o software SolidWorks"
     }
   ];
 

@@ -100,16 +100,28 @@ const Header = () => {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
-          >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile Navigation - Botão fixo + Menu hamburger */}
+          <div className="md:hidden flex items-center gap-2">
+            {/* Botão Solicitar Orçamento fixo no mobile */}
+            <Button 
+              onClick={() => scrollToSection('orcamento')}
+              size="sm"
+              className="bg-primary text-primary-foreground hover:bg-primary-dark transition-colors text-xs px-3 py-2"
+            >
+              Orçamento
+            </Button>
+            
+            {/* Menu hamburger */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 rounded-lg hover:bg-muted transition-colors"
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation Menu */}
         {isMenuOpen && (
           <nav className="md:hidden py-4 border-t border-border">
             <div className="space-y-2">

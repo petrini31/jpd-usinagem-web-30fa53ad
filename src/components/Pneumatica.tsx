@@ -1,131 +1,136 @@
 
-import { Factory, ArrowRight, ExternalLink, Settings, Wrench } from "lucide-react";
+import { ArrowRight, CheckCircle, Wrench, Zap, Shield, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import OptimizedImage from "./OptimizedImage";
 
 const Pneumatica = () => {
-  const scrollToContact = () => {
-    const element = document.getElementById('orcamento');
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth'
-      });
-    }
+  const openPneumaticaFull = () => {
+    window.open('/pneumatica-full', '_blank');
   };
 
-  const openPneumaticaPage = () => {
-    window.open('/pneumatica', '_blank');
-  };
+  const advantages = [
+    {
+      icon: CheckCircle,
+      title: "Qualidade Garantida",
+      description: "Produtos certificados com rigoroso controle de qualidade"
+    },
+    {
+      icon: Wrench,
+      title: "Customização Total",
+      description: "Soluções personalizadas para suas necessidades específicas"
+    },
+    {
+      icon: Zap,
+      title: "Alta Performance",
+      description: "Eficiência máxima e durabilidade comprovada"
+    },
+    {
+      icon: Shield,
+      title: "Confiabilidade",
+      description: "Produtos robustos para operação contínua"
+    },
+    {
+      icon: Award,
+      title: "Expertise Técnica",
+      description: "Décadas de experiência em soluções pneumáticas"
+    }
+  ];
 
   return (
-    <section id="pneumatica" className="py-16 bg-gradient-to-br from-background via-secondary/30 to-background relative overflow-hidden">
+    <section id="pneumatica" className="py-24 bg-gradient-to-b from-secondary/30 to-background relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-      <div className="absolute top-10 right-10 w-48 h-48 bg-gradient-primary rounded-full opacity-10 blur-3xl animate-float"></div>
-      <div className="absolute bottom-10 left-10 w-64 h-64 bg-gradient-accent rounded-full opacity-10 blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-      
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
-          {/* Text Content */}
-          <div className="animate-slide-up">
-            <h3 className="text-3xl font-bold text-foreground mb-4">
-              Soluções Pneumáticas de Alta Performance
-            </h3>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
-              <p>
-                Nossa <strong className="text-primary">especialização em cilindros pneumáticos</strong> 
-                vai além da fabricação tradicional. Desenvolvemos cada componente com precisão 
-                micrométrica, utilizando materiais de alta qualidade e processos de manufatura 
-                avançados que garantem performance excepcional e vida útil estendida.
-              </p>
-              
-              <p>
-                Desde o <strong className="text-primary">projeto personalizado</strong> até a 
-                produção final, nossa equipe técnica especializada trabalha em estreita 
-                colaboração com nossos clientes para desenvolver soluções pneumáticas que 
-                atendem perfeitamente às necessidades específicas de cada aplicação industrial.
-              </p>
+      <div className="absolute top-20 right-10 w-80 h-80 bg-gradient-primary rounded-full opacity-10 blur-3xl animate-float"></div>
+      <div className="absolute bottom-20 left-10 w-64 h-64 bg-gradient-accent rounded-full opacity-10 blur-3xl animate-float" style={{
+        animationDelay: '2s'
+      }}></div>
 
-              <p>
-                A <strong className="text-primary">JPD Usinagem</strong> se destaca no mercado pela 
-                capacidade única de oferecer serviços completos de <strong className="text-primary">fabricação, 
-                reparo e manutenção</strong> de cilindros pneumáticos. Nossa oficina especializada conta 
-                com equipamentos de última geração e técnicos altamente qualificados, garantindo que 
-                cada cilindro seja restaurado ou fabricado com os mais altos padrões de qualidade e durabilidade.
-              </p>
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        {/* Header - Left aligned */}
+        <div className="mb-16 md:mb-20 animate-fade-in text-left">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 md:mb-8">
+            Soluções <span className="text-primary">Pneumáticas</span><br />
+            de Alta Performance
+          </h2>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-4xl leading-relaxed">
+            Nossa expertise em fabricação de cilindros pneumáticos personalizados 
+            garante soluções eficientes e duráveis para suas aplicações industriais. 
+            Cada projeto é desenvolvido com precisão técnica e foco na performance.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16 md:mb-20">
+          {/* Left content */}
+          <div className="space-y-8 animate-slide-up">
+            <div>
+              <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
+                Por que escolher nossos cilindros pneumáticos?
+              </h3>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                {advantages.map((advantage, index) => (
+                  <Card key={index} className="group hover:shadow-medium transition-all duration-300 border border-border/50 hover:border-primary/30">
+                    <CardContent className="p-4 md:p-6">
+                      <div className="flex items-start gap-3 md:gap-4">
+                        <div className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-gradient-primary rounded-full group-hover:scale-110 transition-transform duration-300 shadow-soft flex-shrink-0">
+                          <advantage.icon className="w-5 h-5 md:w-6 md:h-6 text-primary-foreground" />
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="text-base md:text-lg font-semibold text-foreground mb-2">
+                            {advantage.title}
+                          </h4>
+                          <p className="text-sm md:text-base text-muted-foreground">
+                            {advantage.description}
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </div>
 
-            <div className="flex gap-4 mt-6">
+            {/* Call to Action - Ajustado para mobile */}
+            <div className="pt-6 md:pt-8">
               <Button 
-                size="lg" 
-                onClick={scrollToContact} 
-                className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200"
+                onClick={openPneumaticaFull}
+                size="lg"
+                className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary-dark transition-colors text-base md:text-lg px-6 md:px-8 py-3 md:py-4"
               >
-                Solicitar Projeto
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-              
-              <Button 
-                size="lg" 
-                variant="outline" 
-                onClick={openPneumaticaPage} 
-                className="border-primary text-primary bg-background hover:bg-primary hover:text-primary-foreground transition-all duration-200"
-              >
-                Ver Mais
-                <ExternalLink className="w-5 h-5 ml-2" />
+                Ver Mais Sobre Pneumática
+                <ArrowRight className="w-4 h-4 md:w-5 md:h-5 ml-2" />
               </Button>
             </div>
           </div>
 
-          {/* Images Grid */}
-          <div className="grid grid-cols-2 gap-4 animate-slide-up" style={{ animationDelay: '0.2s' }}>
-            <div className="space-y-4">
-              <div className="relative overflow-hidden rounded-lg shadow-medium">
-                <img 
-                  src="/lovable-uploads/465f725e-f900-4e3d-bbd1-7857bff755a0.png"
-                  alt="Sistema Pneumático Industrial"
-                  className="w-full aspect-square object-cover hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                <div className="absolute bottom-3 left-3">
-                  <Settings className="w-6 h-6 text-white" />
-                </div>
-              </div>
-              <div className="relative overflow-hidden rounded-lg shadow-medium">
-                <img 
-                  src="/lovable-uploads/5374c883-b08b-4cf0-bac2-5738865be94f.png"
-                  alt="Cilindros Pneumáticos de Precisão"
-                  className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                <div className="absolute bottom-3 left-3">
-                  <Factory className="w-5 h-5 text-white" />
-                </div>
-              </div>
+          {/* Right content - Images */}
+          <div className="space-y-6 md:space-y-8 animate-slide-up" style={{
+            animationDelay: '0.2s'
+          }}>
+            <div className="relative">
+              <OptimizedImage
+                src="/lovable-uploads/2e86ffbf-edfb-42e6-abea-d053f935f05b.png"
+                alt="Cilindros pneumáticos de alta qualidade"
+                className="w-full h-64 md:h-80 rounded-lg shadow-strong"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg"></div>
             </div>
-            <div className="space-y-4 mt-6">
-              <div className="relative overflow-hidden rounded-lg shadow-medium">
-                <img 
-                  src="/lovable-uploads/29628d4e-98eb-4c44-89cf-954fdd334f0d.png"
-                  alt="Cilindros Pneumáticos Manufaturados"
-                  className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                <div className="absolute bottom-3 left-3">
-                  <Wrench className="w-5 h-5 text-white" />
-                </div>
-              </div>
-              <div className="relative overflow-hidden rounded-lg shadow-medium">
-                <img 
-                  src="/lovable-uploads/4cf2cbb7-3495-45ff-a87d-e3a1f5b88e49.png"
-                  alt="Cilindro Pneumático Transparente"
-                  className="w-full aspect-square object-cover hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                <div className="absolute bottom-3 left-3">
-                  <Settings className="w-6 h-6 text-white" />
-                </div>
-              </div>
+            
+            <div className="grid grid-cols-2 gap-4 md:gap-6">
+              <OptimizedImage
+                src="/lovable-uploads/0b40a727-907c-4275-91b3-c9f6b08c64f0.png"
+                alt="Fabricação de cilindros pneumáticos"
+                className="w-full h-32 md:h-40 rounded-lg shadow-medium"
+                loading="lazy"
+              />
+              <OptimizedImage
+                src="/lovable-uploads/dd128e84-9545-4e4d-a57a-8aaca84f4a9b.png"
+                alt="Cilindro pneumático em operação"
+                className="w-full h-32 md:h-40 rounded-lg shadow-medium"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>

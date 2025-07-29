@@ -1,4 +1,3 @@
-
 import { useState, useMemo, useCallback, useRef } from "react";
 import { Settings, Wrench, Cog, ArrowRight, PenTool, RefreshCw, ChevronLeft, ChevronRight, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -23,8 +22,8 @@ const Services = () => {
   const [touchEnd, setTouchEnd] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
   
-  const scrollToContact = () => {
-    const element = document.getElementById('contato');
+  const scrollToQuote = () => {
+    const element = document.getElementById('orcamento');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -349,10 +348,10 @@ const Services = () => {
   }, [isTransitioning, currentBlockIndex]);
 
   return (
-    <section id="servicos" className="py-12 md:py-20 bg-background">
+    <section id="servicos" className="py-8 md:py-16 bg-background">
       <div className="container mx-auto px-4">
         {/* Header - Left aligned */}
-        <div className="mb-8 md:mb-16 animate-fade-in">
+        <div className="mb-6 md:mb-12 animate-fade-in">
           <div className="max-w-2xl text-left">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6">
               Nossos <span className="text-primary">Serviços</span>
@@ -365,7 +364,7 @@ const Services = () => {
         </div>
 
         {/* Services Carousel */}
-        <div className="relative mb-8 md:mb-16 px-2 md:px-8">
+        <div className="relative mb-6 md:mb-12 px-2 md:px-8">
           <div 
             ref={carouselRef}
             className="overflow-hidden"
@@ -423,7 +422,7 @@ const Services = () => {
                         
                         <div className="flex gap-2 mt-auto">
                           <Button 
-                            onClick={scrollToContact}
+                            onClick={scrollToQuote}
                             className="flex-1 bg-primary text-primary-foreground hover:bg-primary-dark transition-colors text-xs md:text-sm py-2 md:py-2"
                           >
                             Solicitar Orçamento
@@ -504,33 +503,33 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Service Details Modal */}
+        {/* Service Details Modal - Otimizado para mobile */}
         <Dialog open={!!selectedService} onOpenChange={() => setSelectedService(null)}>
-          <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          <DialogContent className="max-w-4xl max-h-[90vh] md:max-h-[80vh] overflow-y-auto mx-2 md:mx-auto">
             {selectedService && (
               <>
-                <DialogHeader>
-                  <DialogTitle className="text-2xl font-bold flex items-center gap-3">
-                    <selectedService.icon className="w-8 h-8 text-primary" />
-                    {selectedService.title}
+                <DialogHeader className="space-y-3">
+                  <DialogTitle className="text-xl md:text-2xl font-bold flex items-center gap-3">
+                    <selectedService.icon className="w-6 h-6 md:w-8 md:h-8 text-primary flex-shrink-0" />
+                    <span className="leading-tight">{selectedService.title}</span>
                   </DialogTitle>
-                  <DialogDescription className="text-lg">
+                  <DialogDescription className="text-base md:text-lg">
                     {selectedService.modalContent?.overview}
                   </DialogDescription>
                 </DialogHeader>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mt-4 md:mt-6">
                   {/* Benefits */}
                   <div>
-                    <h4 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-                      <Cog className="w-5 h-5 text-primary" />
+                    <h4 className="text-lg md:text-xl font-semibold text-foreground mb-3 md:mb-4 flex items-center gap-2">
+                      <Cog className="w-4 h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
                       Nossos Diferenciais
                     </h4>
-                    <ul className="space-y-3">
+                    <ul className="space-y-2 md:space-y-3">
                       {selectedService.modalContent?.benefits?.map((benefit: string, index: number) => (
-                        <li key={index} className="flex items-start gap-3">
-                          <ArrowRight className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                          <span className="text-muted-foreground">{benefit}</span>
+                        <li key={index} className="flex items-start gap-2 md:gap-3">
+                          <ArrowRight className="w-3 h-3 md:w-4 md:h-4 text-primary mt-1 flex-shrink-0" />
+                          <span className="text-sm md:text-base text-muted-foreground">{benefit}</span>
                         </li>
                       ))}
                     </ul>
@@ -538,36 +537,36 @@ const Services = () => {
                   
                   {/* Applications */}
                   <div>
-                    <h4 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-                      <Settings className="w-5 h-5 text-primary" />
+                    <h4 className="text-lg md:text-xl font-semibold text-foreground mb-3 md:mb-4 flex items-center gap-2">
+                      <Settings className="w-4 h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
                       Principais Aplicações
                     </h4>
-                    <ul className="space-y-3">
+                    <ul className="space-y-2 md:space-y-3">
                       {selectedService.modalContent?.applications?.map((application: string, index: number) => (
-                        <li key={index} className="flex items-start gap-3">
-                          <ArrowRight className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                          <span className="text-muted-foreground">{application}</span>
+                        <li key={index} className="flex items-start gap-2 md:gap-3">
+                          <ArrowRight className="w-3 h-3 md:w-4 md:h-4 text-primary mt-1 flex-shrink-0" />
+                          <span className="text-sm md:text-base text-muted-foreground">{application}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                 </div>
                 
-                <div className="mt-8 pt-6 border-t border-border">
-                  <div className="flex gap-4 justify-center">
+                <div className="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-border">
+                  <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
                     <Button 
                       onClick={() => {
                         setSelectedService(null);
-                        scrollToContact();
+                        scrollToQuote();
                       }}
-                      className="bg-primary text-primary-foreground hover:bg-primary-dark"
+                      className="bg-primary text-primary-foreground hover:bg-primary-dark text-sm md:text-base"
                     >
                       Solicitar Orçamento para este Serviço
                     </Button>
                     <Button 
                       variant="outline"
                       onClick={() => setSelectedService(null)}
-                      className="border-border"
+                      className="border-border text-sm md:text-base"
                     >
                       Fechar
                     </Button>
