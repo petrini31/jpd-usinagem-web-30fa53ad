@@ -66,11 +66,12 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-primary rounded-sm flex items-center justify-center">
-              <span className="text-white font-bold text-sm">JPD</span>
-            </div>
-            <span className="text-xl font-bold text-foreground">JPD Usinagem</span>
+          <div className="flex items-center space-x-3">
+            <img 
+              src="/lovable-uploads/1c391d13-ad87-4edd-9781-f4b7fae5a21e.png" 
+              alt="JPD Usinagem Logo" 
+              className="h-10 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation - Aligned to right */}
