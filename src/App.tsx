@@ -8,7 +8,6 @@ import Index from "./pages/Index";
 import PortfolioFull from "./pages/PortfolioFull";
 import PneumaticaFull from "./pages/PneumaticaFull";
 import NotFound from "./pages/NotFound";
-import Sitemap from "./pages/Sitemap";
 
 const queryClient = new QueryClient();
 
@@ -22,7 +21,6 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/portfolio-completo-usinagem" element={<PortfolioFull />} />
           <Route path="/cilindros-pneumaticos" element={<PneumaticaFull />} />
-          <Route path="/sitemap.xml" element={<Sitemap />} />
           {/* Redirecionamentos das URLs antigas */}
           <Route path="/portfolio-full" element={<PortfolioFull />} />
           <Route path="/pneumatica" element={<PneumaticaFull />} />

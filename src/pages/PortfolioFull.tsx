@@ -1,4 +1,3 @@
-
 import { ArrowLeft, Download, Eye, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -9,7 +8,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import SEOBreadcrumb from "@/components/SEOBreadcrumb";
-import useSchemaMarkup from "@/hooks/useSchemaMarkup";
 
 const PortfolioFull = () => {
   const navigate = useNavigate();
@@ -37,16 +35,6 @@ const PortfolioFull = () => {
     { id: 18, image: "/lovable-uploads/b9bfc907-c347-4aa3-bc9c-0d01b83eeecf.png", title: "Usinagem de roldanas para passagem de fiação", description: "Fabricação de roldanas especializadas para sistemas de passagem de fiação" },
     { id: 19, image: "/lovable-uploads/2690f737-f123-4d40-bf5f-a5a449e4f707.png", title: "Usinagem em materiais plásticos", description: "Processos especializados de usinagem em diversos tipos de materiais plásticos" }
   ];
-
-  // Schema Markup para ItemList
-  useSchemaMarkup({
-    type: 'ItemList',
-    data: {
-      name: 'Portfólio JPD Usinagem CNC - Projetos de Usinagem de Precisão',
-      description: 'Galeria completa dos projetos de usinagem CNC, torneamento e fresamento realizados pela JPD Usinagem em Bom Jesus dos Perdões e região.',
-      items: portfolioItems
-    }
-  });
 
   const goBack = () => {
     navigate('/');
