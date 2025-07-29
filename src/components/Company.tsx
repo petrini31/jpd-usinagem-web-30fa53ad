@@ -1,20 +1,28 @@
+
 import { ArrowRight, CheckCircle, Target, Shield } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+
 const Company = () => {
-  const values = [{
-    icon: CheckCircle,
-    title: "Qualidade Excepcional",
-    description: "Compromisso com a excelência em cada projeto, garantindo precisão micrométrica e acabamento superior."
-  }, {
-    icon: Target,
-    title: "Inovação Contínua",
-    description: "Investimento constante em tecnologia de ponta e aprimoramento de processos para soluções avançadas."
-  }, {
-    icon: Shield,
-    title: "Confiabilidade",
-    description: "Décadas de experiência e parcerias sólidas construídas com base na transparência e cumprimento de prazos."
-  }];
-  return <section id="empresa" className="py-24 bg-secondary/30 relative overflow-hidden">
+  const values = [
+    {
+      icon: CheckCircle,
+      title: "Qualidade Excepcional",
+      description: "Compromisso com a excelência em cada projeto, garantindo precisão micrométrica e acabamento superior."
+    },
+    {
+      icon: Target,
+      title: "Inovação Contínua",
+      description: "Investimento constante em tecnologia de ponta e aprimoramento de processos para soluções avançadas."
+    },
+    {
+      icon: Shield,
+      title: "Confiabilidade",
+      description: "Décadas de experiência e parcerias sólidas construídas com base na transparência e cumprimento de prazos."
+    }
+  ];
+
+  return (
+    <section id="empresa" className="py-24 bg-secondary/30 relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-primary rounded-full opacity-10 blur-3xl animate-float"></div>
@@ -79,11 +87,20 @@ const Company = () => {
           {/* Image Section */}
           <div className="relative animate-fade-in">
             <div className="relative overflow-hidden rounded-lg shadow-strong">
-              <img src="/lovable-uploads/ff3dc369-697d-41a0-bbb3-970fd616c622.png" alt="JPD Usinagem CNC - Tecnologia de Precisão" className="w-full h-96 object-cover" />
+              <img 
+                src="/lovable-uploads/ff3dc369-697d-41a0-bbb3-970fd616c622.png"
+                alt="JPD Usinagem CNC - Tecnologia de Precisão"
+                className="w-full h-96 object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
             </div>
             
-            
+            <div className="absolute -bottom-8 -left-8 bg-primary text-primary-foreground p-6 rounded-lg shadow-strong">
+              <div className="text-center">
+                <div className="text-3xl font-bold">25+</div>
+                <div className="text-sm opacity-90">Anos de Experiência</div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -94,9 +111,8 @@ const Company = () => {
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {values.map((value, index) => <Card key={index} className="border border-border/50 hover:shadow-medium transition-all duration-300 animate-slide-up" style={{
-            animationDelay: `${index * 0.2}s`
-          }}>
+            {values.map((value, index) => (
+              <Card key={index} className="border border-border/50 hover:shadow-medium transition-all duration-300 animate-slide-up" style={{ animationDelay: `${index * 0.2}s` }}>
                 <CardContent className="p-6 text-center">
                   <div className="mb-4 inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full">
                     <value.icon className="w-8 h-8 text-primary" />
@@ -104,10 +120,13 @@ const Company = () => {
                   <h4 className="text-xl font-bold text-foreground mb-3">{value.title}</h4>
                   <p className="text-muted-foreground leading-relaxed">{value.description}</p>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Company;
