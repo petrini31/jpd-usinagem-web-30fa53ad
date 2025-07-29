@@ -1,9 +1,9 @@
 
 import { Button } from "@/components/ui/button";
-import { QuoteModal } from "./QuoteModal";
+import QuoteModal from "./QuoteModal";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { OptimizedImage } from "./OptimizedImage";
+import OptimizedImage from "./OptimizedImage";
 
 const Pneumatica = () => {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
