@@ -9,6 +9,10 @@ const Portfolio = () => {
   
   const openPortfolioFull = () => {
     navigate('/portfolio-full');
+    // Scroll to top after navigation
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 0);
   };
 
   const projects = [

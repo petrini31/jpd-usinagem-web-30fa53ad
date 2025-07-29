@@ -1,4 +1,3 @@
-
 import { ArrowLeft, Download, Eye, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -6,8 +5,10 @@ import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
 import QuoteModal from "@/components/QuoteModal";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const PortfolioFull = () => {
+  const navigate = useNavigate();
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<{image: string, title: string, description: string} | null>(null);
   
@@ -34,7 +35,7 @@ const PortfolioFull = () => {
   ];
 
   const goBack = () => {
-    window.close();
+    navigate('/');
   };
 
   return (

@@ -1,4 +1,3 @@
-
 import { ArrowRight, CheckCircle, Wrench, Zap, Shield, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,6 +9,10 @@ const Pneumatica = () => {
   
   const openPneumaticaFull = () => {
     navigate('/pneumatica');
+    // Scroll to top after navigation
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 0);
   };
 
   const advantages = [
@@ -20,7 +23,7 @@ const Pneumatica = () => {
     },
     {
       icon: Wrench,
-      title: "Customização Total",
+      title: "Customização Total", 
       description: "Soluções personalizadas para suas necessidades específicas"
     },
     {
