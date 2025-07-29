@@ -9,7 +9,7 @@ const Portfolio = () => {
   const navigate = useNavigate();
   
   const openPortfolioFull = () => {
-    navigate('/portfolio-full');
+    navigate('/portfolio');
     // Scroll to top after navigation
     setTimeout(() => {
       window.scrollTo(0, 0);
@@ -52,6 +52,43 @@ const Portfolio = () => {
       description: "Especialistas na fabricação de moldes de injeção, garantindo precisão e durabilidade para a indústria em toda região.",
       image: "/lovable-uploads/7de9727d-b15c-4acd-a2b3-8bc626ea3949.png",
       tags: ["Moldes", "Injeção", "Plástico Precisão"]
+    },
+    // Adicionando mais 6 projetos para completar 12 (3x4)
+    {
+      title: "Usinagem CNC de Precisão",
+      description: "Processo de usinagem CNC com alta precisão e qualidade para indústrias da região",
+      image: "/lovable-uploads/7487f020-2969-4fea-93cc-7232587c319e.png",
+      tags: ["CNC", "Precisão", "Industrial"]
+    },
+    {
+      title: "Cilindros Pneumáticos Personalizados",
+      description: "Desenvolvimento e fabricação de cilindros pneumáticos customizados",
+      image: "/lovable-uploads/77db13a0-f3ab-40f1-ad6e-d00c2a3ca32b.png",
+      tags: ["Pneumática", "Cilindros", "Customização"]
+    },
+    {
+      title: "Torneamento de Precisão",
+      description: "Operação de torneamento para peças cilíndricas com máxima precisão",
+      image: "/lovable-uploads/4d1166a1-566a-4f33-a6fb-05a628da0ceb.png",
+      tags: ["Torneamento", "Precisão", "Peças"]
+    },
+    {
+      title: "Fresamento Industrial",
+      description: "Processo de fresamento para usinagem de superfícies complexas",
+      image: "/lovable-uploads/79615b86-054f-4f10-90ae-9bb561911010.png",
+      tags: ["Fresamento", "Industrial", "Superfícies"]
+    },
+    {
+      title: "Componentes de Alta Qualidade",
+      description: "Fabricação de componentes industriais com padrões de qualidade superiores",
+      image: "/lovable-uploads/3b518978-4d9c-4d5b-bcf8-4485bc695d1b.png",
+      tags: ["Componentes", "Qualidade", "Industrial"]
+    },
+    {
+      title: "Peças Usinadas Especiais",
+      description: "Desenvolvimento de peças especiais para aplicações específicas da indústria",
+      image: "/lovable-uploads/aec5fa4d-81c6-4c81-938b-e57e9900c236.png",
+      tags: ["Peças Especiais", "Usinagem", "Customização"]
     }
   ];
 
@@ -70,33 +107,33 @@ const Portfolio = () => {
           </p>
         </div>
 
-        {/* Reduced grid layout with red borders */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-8 md:mb-12 max-w-4xl mx-auto">
+        {/* Layout ajustado para 3x4 com quadro menor */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 mb-8 md:mb-12 max-w-5xl mx-auto">
           {projects.map((project, index) => (
             <Card key={index} className="group hover:shadow-medium transition-all duration-300 border border-border/50 overflow-hidden">
               <div className="relative overflow-hidden">
                 <OptimizedImage
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-32 md:h-40 object-cover border-2 border-red-500 group-hover:scale-105 transition-transform duration-300"
-                  loading={index < 3 ? "eager" : "lazy"}
-                  priority={index < 3}
+                  className="w-full h-24 md:h-32 object-cover border-2 border-red-500 group-hover:scale-105 transition-transform duration-300"
+                  loading={index < 6 ? "eager" : "lazy"}
+                  priority={index < 6}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               
-              <CardContent className="p-3 md:p-4">
-                <h3 className="text-base md:text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+              <CardContent className="p-2 md:p-3">
+                <h3 className="text-xs md:text-sm font-semibold text-foreground mb-1 group-hover:text-primary transition-colors line-clamp-2">
                   {project.title}
                 </h3>
-                <p className="text-xs md:text-sm text-muted-foreground mb-2 md:mb-3">
+                <p className="text-xs text-muted-foreground mb-2 line-clamp-2">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-1">
-                  {project.tags.map((tag, tagIndex) => (
+                  {project.tags.slice(0, 2).map((tag, tagIndex) => (
                     <span 
                       key={tagIndex}
-                      className="inline-flex items-center px-1.5 py-0.5 bg-secondary text-secondary-foreground text-xs rounded-full"
+                      className="inline-flex items-center px-1 py-0.5 bg-secondary text-secondary-foreground text-xs rounded-full"
                     >
                       {tag}
                     </span>
