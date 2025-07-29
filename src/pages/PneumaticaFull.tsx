@@ -1,503 +1,218 @@
-import { useState } from "react";
-import { ArrowLeft, MessageCircle, Phone, Mail, MapPin, CheckCircle2, Settings, Wrench, Cog, Clock, Shield, Award, Send, User, Building, MessageSquare, Factory, Gauge, Zap, Target } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useNavigate } from "react-router-dom";
 import QuoteModal from "@/components/QuoteModal";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import SEOHead from "@/components/SEOHead";
-import SEOBreadcrumb from "@/components/SEOBreadcrumb";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import OptimizedImage from "@/components/OptimizedImage";
 
 const PneumaticaFull = () => {
   const navigate = useNavigate();
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+  
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
-  const advantages = [
-    {
-      icon: Settings,
-      title: "Projetos Personalizados",
-      description: "Cada cilindro é projetado sob medida para sua aplicação específica"
-    },
-    {
-      icon: Shield,
-      title: "Alta Durabilidade", 
-      description: "Materiais premium e processos rigorosos garantem vida útil estendida"
-    },
-    {
-      icon: Gauge,
-      title: "Performance Superior",
-      description: "Eficiência máxima com controle preciso de força e velocidade"
-    },
-    {
-      icon: Award,
-      title: "Qualidade Certificada",
-      description: "Padrões internacionais de qualidade em cada componente"
-    },
-    {
-      icon: Wrench,
-      title: "Suporte Técnico",
-      description: "Equipe especializada para consultoria e manutenção"
-    },
-    {
-      icon: Clock,
-      title: "Entrega Rápida",
-      description: "Prazos otimizados sem comprometer a qualidade"
-    }
-  ];
-
-  const applications = [
-    {
-      icon: Factory,
-      title: "Automação Industrial",
-      description: "Linhas de produção, robótica e sistemas automatizados"
-    },
-    {
-      icon: Cog,
-      title: "Equipamentos de Movimentação",
-      description: "Elevadores, esteiras transportadoras e sistemas de carga"
-    },
-    {
-      icon: Zap,
-      title: "Prensas e Estampas",
-      description: "Sistemas de conformação e prensagem de alta precisão"
-    },
-    {
-      icon: Target,
-      title: "Máquinas Especiais",
-      description: "Equipamentos customizados para processos específicos"
-    }
-  ];
-
-  const specifications = [
-    "Diâmetros de 16mm a 320mm",
-    "Cursos até 3000mm",
-    "Pressões de trabalho até 10 bar",
-    "Vedações em NBR, Viton ou PU",
-    "Acabamentos especiais disponíveis",
-    "Certificações ISO 9001",
-    "Cabeçotes em poliacetal de alta rigidez",
-    "Resistência à corrosão química",
-    "Aplicação em ambientes de materiais químicos"
-  ];
-
-  const breadcrumbItems = [
-    { label: "Cilindros Pneumáticos de Alta Performance", current: true }
-  ];
+  const goBack = () => {
+    navigate('/');
+  };
 
   return (
     <div className="min-h-screen bg-background">
-      <SEOHead
-        title="Cilindros Pneumáticos JPD Usinagem - Fabricação e Manutenção em SP"
-        description="Especialistas em cilindros pneumáticos personalizados em Bom Jesus dos Perdões. Fabricação, manutenção e projetos sob medida para automação industrial."
-        keywords="cilindros pneumáticos, fabricação cilindros, manutenção pneumática, bom jesus dos perdões, automação industrial sp"
-        ogTitle="Cilindros Pneumáticos de Alta Performance - JPD Usinagem"
-        ogDescription="Desenvolvimento e fabricação de cilindros pneumáticos personalizados com décadas de experiência em soluções pneumáticas industriais."
-        canonicalUrl="https://jpdusinagem.com/cilindros-pneumaticos"
-      />
-
       {/* Header */}
-      <header className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-40">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <Button
-                variant="ghost"
-                onClick={() => navigate('/')}
-                className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                Voltar ao Site
-              </Button>
-            </div>
-            <div className="flex items-center gap-4">
-              <Button 
-                onClick={() => setIsQuoteModalOpen(true)}
-                className="bg-primary text-primary-foreground hover:bg-primary-dark"
-              >
-                Solicitar Orçamento
-              </Button>
+      <header className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center gap-4">
+            <Button 
+              variant="outline" 
+              onClick={goBack}
+              className="flex items-center gap-2"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Voltar
+            </Button>
+            <div>
+              <h1 className="text-2xl font-bold text-foreground">JPD Usinagem - Cilindros Pneumáticos</h1>
+              <p className="text-muted-foreground">Especialistas em soluções pneumáticas</p>
             </div>
           </div>
         </div>
       </header>
 
-      <SEOBreadcrumb items={breadcrumbItems} />
+      <main className="py-8">
+        {/* Hero Section */}
+        <section className="py-16 bg-gradient-to-r from-primary/5 to-secondary/5">
+          <div className="container mx-auto px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+                  Cilindros <span className="text-primary">Pneumáticos</span> de Alta Performance
+                </h2>
+                <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+                  Na JPD Usinagem, desenvolvemos cilindros pneumáticos sob medida para suas necessidades industriais,
+                  garantindo máxima eficiência, durabilidade e confiabilidade em cada projeto.
+                </p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                  <div className="bg-background p-6 rounded-lg shadow-sm border">
+                    <h3 className="font-semibold text-foreground mb-2">Projetos Personalizados</h3>
+                    <p className="text-muted-foreground text-sm">
+                      Desenvolvemos cilindros pneumáticos específicos para sua aplicação
+                    </p>
+                  </div>
+                  <div className="bg-background p-6 rounded-lg shadow-sm border">
+                    <h3 className="font-semibold text-foreground mb-2">Alta Durabilidade</h3>
+                    <p className="text-muted-foreground text-sm">
+                      Materiais de qualidade superior e processos de fabricação rigorosos
+                    </p>
+                  </div>
+                  <div className="bg-background p-6 rounded-lg shadow-sm border">
+                    <h3 className="font-semibold text-foreground mb-2">Suporte Técnico</h3>
+                    <p className="text-muted-foreground text-sm">
+                      Equipe especializada para orientação e manutenção
+                    </p>
+                  </div>
+                  <div className="bg-background p-6 rounded-lg shadow-sm border">
+                    <h3 className="font-semibold text-foreground mb-2">Entrega Rápida</h3>
+                    <p className="text-muted-foreground text-sm">
+                      Prazos otimizados sem comprometer a qualidade
+                    </p>
+                  </div>
+                </div>
 
-      {/* Hero Section */}
-      <section className="py-24 bg-gradient-to-br from-primary via-primary-dark to-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
-        <div className="absolute top-20 right-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Text Content - Left Side */}
-            <div className="text-left">
-              <h1 className="text-5xl md:text-6xl font-bold mb-8 text-white">
-                Cilindros Pneumáticos <br />
-                <span className="text-white/90">de Alta Performance</span>
-              </h1>
-              <p className="text-xl mb-12 text-white/90 leading-relaxed">
-                Especialistas em desenvolvimento e fabricação de cilindros pneumáticos personalizados. 
-                Décadas de experiência em soluções pneumáticas que combinam precisão dimensional, 
-                durabilidade excepcional e performance superior para aplicações industriais exigentes.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
+                  size="lg"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90"
                   onClick={() => setIsQuoteModalOpen(true)}
-                  size="lg"
-                  className="bg-destructive text-destructive-foreground hover:bg-white hover:text-destructive text-lg px-8 py-4"
                 >
-                  Solicitar Projeto Personalizado
+                  Solicitar Orçamento Personalizado
                 </Button>
-                <Button 
-                  onClick={() => window.open('https://wa.me/5511958274054', '_blank')}
-                  size="lg"
-                  className="bg-white text-destructive hover:bg-destructive hover:text-white text-lg px-8 py-4"
-                >
-                  <MessageCircle className="w-5 h-5 mr-2" />
-                  WhatsApp
-                </Button>
-              </div>
-            </div>
-            
-            {/* Pneumatic Cylinder Image - Right Side */}
-            <div className="flex justify-center lg:justify-end">
-              <div className="relative">
-                <img 
-                  src="/lovable-uploads/6b860842-119a-4fbd-88fa-c950c619c263.png"
-                  alt="Cilindro Pneumático de Alta Performance"
-                  className="max-w-full h-auto max-h-[500px] object-contain drop-shadow-2xl"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-white/5 to-transparent rounded-lg"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Advantages Section */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Vantagens dos Nossos <span className="text-primary">Cilindros Pneumáticos</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Tecnologia avançada e expertise técnica para soluções pneumáticas que superam expectativas
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {advantages.map((advantage, index) => (
-              <Card key={index} className="group hover:shadow-medium transition-all duration-300 border-muted-foreground/20">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                    <advantage.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl">{advantage.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base">{advantage.description}</CardDescription>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pneumatic Cylinders Gallery Section */}
-      <section className="py-24 bg-muted/30">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Galeria de <span className="text-primary">Cilindros Pneumáticos</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Conheça nossa linha completa de cilindros pneumáticos de alta performance
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="relative overflow-hidden rounded-lg shadow-medium bg-background group">
-              <img 
-                src="/lovable-uploads/6c709c11-9b63-4474-a89d-c18c44a9c825.png"
-                alt="Cilindro Pneumático Compacto"
-                className="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                <h4 className="font-semibold">Cilindro Compacto</h4>
-                <p className="text-sm">Alta performance</p>
-              </div>
-            </div>
-
-            <div className="relative overflow-hidden rounded-lg shadow-medium bg-background group">
-              <img 
-                src="/lovable-uploads/479e228d-7bb4-46ae-aedd-6e67b17ba669.png"
-                alt="Cilindro Pneumático Dupla Ação"
-                className="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                <h4 className="font-semibold">Dupla Ação</h4>
-                <p className="text-sm">Precisão industrial</p>
-              </div>
-            </div>
-
-            <div className="relative overflow-hidden rounded-lg shadow-medium bg-background group">
-              <img 
-                src="/lovable-uploads/1839b284-9227-452a-95f7-420fc7a98149.png"
-                alt="Cilindro Pneumático ISO"
-                className="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                <h4 className="font-semibold">Padrão ISO</h4>
-                <p className="text-sm">Máxima durabilidade</p>
-              </div>
-            </div>
-
-            <div className="relative overflow-hidden rounded-lg shadow-medium bg-background group">
-              <img 
-                src="/lovable-uploads/ba913a0e-3958-454d-a6da-e52975b0d7e1.png"
-                alt="Cilindro Pneumático Personalizado"
-                className="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                <h4 className="font-semibold">Personalizado</h4>
-                <p className="text-sm">Sob medida</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Applications Section */}
-      <section className="py-24 bg-muted/30">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Aplicações <span className="text-primary">Industriais</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Nossos cilindros pneumáticos atendem aos mais diversos segmentos industriais
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {applications.map((application, index) => (
-              <Card key={index} className="group hover:shadow-medium transition-all duration-300">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-4 text-xl">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                      <application.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    {application.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base">{application.description}</CardDescription>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Specifications Section */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
-                Especificações <span className="text-primary">Técnicas</span>
-              </h2>
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Ampla gama de especificações para atender às necessidades mais específicas 
-                de cada aplicação industrial. Utilizamos materiais de alta qualidade como 
-                poliacetal para cabeçotes, garantindo leveza, rigidez e resistência à corrosão.
-              </p>
-              <div className="grid grid-cols-1 gap-4">
-                {specifications.map((spec, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-lg">{spec}</span>
-                  </div>
-                ))}
               </div>
               
-              <div className="mt-8 p-6 bg-primary/5 rounded-lg border border-primary/20">
-                <h3 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
-                  <Shield className="w-5 h-5 text-primary" />
-                  Cabeçotes em Poliacetal
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Fabricamos cabeçotes com poliacetal, um termoplástico de engenharia de alta rigidez, 
-                  resistência e estabilidade dimensional. Esse material proporciona maior leveza aos 
-                  cilindros pneumáticos e excelente proteção contra corrosão por compostos químicos, 
-                  sendo ideal para ambientes industriais como produção de fertilizantes, cimento e 
-                  outros materiais químicos agressivos.
-                </p>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="aspect-square bg-gradient-primary rounded-lg opacity-20 flex items-center justify-center">
-                <Factory className="w-16 h-16 text-primary" />
-              </div>
-              <div className="aspect-square bg-gradient-accent rounded-lg opacity-20 flex items-center justify-center mt-8">
-                <Cog className="w-16 h-16 text-primary" />
-              </div>
-              <div className="aspect-square bg-gradient-accent rounded-lg opacity-20 flex items-center justify-center -mt-8">
-                <Settings className="w-16 h-16 text-primary" />
-              </div>
-              <div className="aspect-square bg-gradient-primary rounded-lg opacity-20 flex items-center justify-center">
-                <Shield className="w-16 h-16 text-primary" />
+              <div className="order-first lg:order-last">
+                <OptimizedImage
+                  src="/pneumatica.png"
+                  alt="Cilindros Pneumáticos JPD Usinagem"
+                  className="rounded-lg shadow-2xl"
+                  priority={true}
+                  loading="eager"
+                />
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Quote Section */}
-      <section className="py-24 bg-gradient-to-br from-primary via-primary-dark to-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white">
-              Solicite seu <span className="text-white/90">Projeto Personalizado</span>
+        {/* Technical Specifications */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl font-bold text-center text-foreground mb-12">
+              Especificações Técnicas
             </h2>
-            <p className="text-xl mb-12 text-white/90 leading-relaxed">
-              A JPD Usinagem combina décadas de experiência em usinagem de precisão com expertise 
-              especializada em cilindros pneumáticos. Desenvolvemos soluções completas desde o projeto 
-              até a manutenção, garantindo máxima eficiência e durabilidade para suas aplicações industriais.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Factory className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-2">Automação Industrial</h3>
-                <p className="text-white/80">Soluções para linhas de produção e robótica</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Gauge className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-2">Cilindros Pneumáticos</h3>
-                <p className="text-white/80">Fabricação e manutenção especializada</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Shield className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-2">Certificação ISO</h3>
-                <p className="text-white/80">Qualidade garantida e processos certificados</p>
-              </div>
-            </div>
-
-            <Button 
-              onClick={() => setIsQuoteModalOpen(true)}
-              size="lg"
-              className="bg-white text-primary hover:bg-white/90 text-lg px-12 py-4"
-            >
-              <Send className="w-5 h-5 mr-2" />
-              Solicitar Orçamento Agora
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                Entre em <span className="text-primary">Contato</span>
-              </h2>
-              <p className="text-xl text-muted-foreground">
-                Estamos prontos para atender você e desenvolver soluções pneumáticas de excelência
-              </p>
-            </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <Card className="text-center hover:shadow-medium transition-all duration-300">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Phone className="w-6 h-6 text-primary" />
-                  </div>
-                  <CardTitle>Telefone</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">(11) 95827-4054</p>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center hover:shadow-medium transition-all duration-300">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Mail className="w-6 h-6 text-primary" />
-                  </div>
-                  <CardTitle>Email</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">contato@jpdusinagem.com.br</p>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center hover:shadow-medium transition-all duration-300">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <MapPin className="w-6 h-6 text-primary" />
-                  </div>
-                  <CardTitle>Localização</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">R. Uruguai, 573 - Parque das Hortênsias<br />Bom Jesus dos Perdões - SP</p>
-                </CardContent>
-              </Card>
+              <div className="bg-background p-8 rounded-lg shadow-sm">
+                <h3 className="text-xl font-semibold text-foreground mb-4">Pressões de Trabalho</h3>
+                <ul className="text-muted-foreground space-y-2">
+                  <li>• Pressão mínima: 2 bar</li>
+                  <li>• Pressão máxima: 10 bar</li>
+                  <li>• Pressão recomendada: 6 bar</li>
+                </ul>
+              </div>
+              
+              <div className="bg-background p-8 rounded-lg shadow-sm">
+                <h3 className="text-xl font-semibold text-foreground mb-4">Diâmetros Disponíveis</h3>
+                <ul className="text-muted-foreground space-y-2">
+                  <li>• 20mm a 200mm</li>
+                  <li>• Cursos de 10mm a 2000mm</li>
+                  <li>• Tolerâncias precisas</li>
+                </ul>
+              </div>
+              
+              <div className="bg-background p-8 rounded-lg shadow-sm">
+                <h3 className="text-xl font-semibold text-foreground mb-4">Materiais</h3>
+                <ul className="text-muted-foreground space-y-2">
+                  <li>• Alumínio anodizado</li>
+                  <li>• Aço inox 304/316</li>
+                  <li>• Vedações NBR/Viton</li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Google Maps Section */}
-      <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="bg-background rounded-lg overflow-hidden shadow-lg border border-border">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.123456789!2d-46.458123456789!3d-23.191234567890!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce8a7b8c9d1e2f%3A0x123456789abcdef0!2sR.%20Uruguai%2C%20573%20-%20Parque%20das%20Hort%C3%AAncias%2C%20Bom%20Jesus%20dos%20Perd%C3%B5es%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1234567890123"
-                width="100%"
-                height="500"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="JPD Usinagem - R. Uruguai, 573 - Parque das Hortênsias, Bom Jesus dos Perdões - SP"
-              ></iframe>
+        {/* Gallery Section */}
+        <section className="py-16">
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl font-bold text-center text-foreground mb-12">
+              Galeria de Projetos
+            </h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <OptimizedImage
+                src="/lovable-uploads/77db13a0-f3ab-40f1-ad6e-d00c2a3ca32b.png"
+                alt="Fabricação de cilindros pneumáticos"
+                className="rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+              />
+              <OptimizedImage
+                src="/lovable-uploads/dd128e84-9545-4e4d-a57a-8aaca84f4a9b.png"
+                alt="Cilindro pneumático em operação"
+                className="rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+              />
+              <OptimizedImage
+                src="/lovable-uploads/0b40a727-907c-4275-91b3-c9f6b08c64f0.png"
+                alt="Linha de cilindros pneumáticos"
+                className="rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+              />
+              <OptimizedImage
+                src="/lovable-uploads/c8fafa21-468e-4af3-a404-6e5ab6bcfc69.png"
+                alt="Manutenção de cilindros pneumáticos Parker"
+                className="rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+              />
+              <OptimizedImage
+                src="/lovable-uploads/7487f020-2969-4fea-93cc-7232587c319e.png"
+                alt="Usinagem CNC de precisão"
+                className="rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+              />
+              <OptimizedImage
+                src="/lovable-uploads/4d1166a1-566a-4f33-a6fb-05a628da0ceb.png"
+                alt="Processo de torneamento"
+                className="rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+              />
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Footer */}
-      <footer className="py-12 bg-muted/30 border-t border-border">
-        <div className="container mx-auto px-6">
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-foreground mb-4">JPD Usinagem</h3>
-            <p className="text-muted-foreground mb-6">
-              Especialistas em cilindros pneumáticos e soluções industriais de precisão
+        {/* Contact CTA */}
+        <section className="py-16 bg-primary/5">
+          <div className="container mx-auto px-6 text-center">
+            <h2 className="text-3xl font-bold text-foreground mb-6">
+              Precisa de um Cilindro Pneumático Personalizado?
+            </h2>
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Nossa equipe técnica está pronta para desenvolver a solução pneumática ideal para sua aplicação.
             </p>
-            <p className="text-sm text-muted-foreground">
-              &copy; {new Date().getFullYear()} JPD Usinagem. Todos os direitos reservados.
-            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg"
+                className="bg-primary text-primary-foreground hover:bg-primary/90"
+                onClick={() => setIsQuoteModalOpen(true)}
+              >
+                Solicitar Orçamento
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                onClick={() => window.open('https://wa.me/5511958274054', '_blank')}
+              >
+                Falar via WhatsApp
+              </Button>
+            </div>
           </div>
-        </div>
-      </footer>
+        </section>
+      </main>
 
       <QuoteModal 
         isOpen={isQuoteModalOpen} 

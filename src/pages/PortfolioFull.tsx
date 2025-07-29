@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
 import QuoteModal from "@/components/QuoteModal";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import SEOBreadcrumb from "@/components/SEOBreadcrumb";
@@ -13,6 +13,11 @@ const PortfolioFull = () => {
   const navigate = useNavigate();
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<{image: string, title: string, description: string} | null>(null);
+  
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   
   const portfolioItems = [
     { id: 1, image: "/lovable-uploads/7487f020-2969-4fea-93cc-7232587c319e.png", title: "Usinagem CNC de precisão", description: "Processo de usinagem CNC com alta precisão e qualidade" },
@@ -87,6 +92,7 @@ const PortfolioFull = () => {
                   src={item.image}
                   alt={item.title}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
                 <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
