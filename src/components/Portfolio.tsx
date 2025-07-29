@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import OptimizedImage from "./OptimizedImage";
 import { useNavigate } from "react-router-dom";
+import { useImagePreloader } from "@/hooks/useImagePreloader";
 
 const Portfolio = () => {
   const navigate = useNavigate();
@@ -92,6 +93,15 @@ const Portfolio = () => {
     }
   ];
 
+  // Preload das imagens do portfolio com prioridade para as primeiras 6
+  const allImages = projects.map(project => project.image);
+  const priorityImages = allImages.slice(0, 6);
+  
+  useImagePreloader(allImages, {
+    priority: priorityImages,
+    delay: 500 // Aguarda 500ms antes de carregar as demais
+  });
+
   return (
     <section id="portfolio" className="py-12 md:py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -115,9 +125,11 @@ const Portfolio = () => {
                 <OptimizedImage
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-24 md:h-32 object-cover border-2 border-red-500 group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-24 md:h-32 group-hover:scale-105 transition-transform duration-300"
                   loading={index < 6 ? "eager" : "lazy"}
                   priority={index < 6}
+                  quality={index < 6 ? 90 : 80}
+                  sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
