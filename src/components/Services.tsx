@@ -349,15 +349,15 @@ const Services = () => {
   }, [isTransitioning, currentBlockIndex]);
 
   return (
-    <section id="servicos" className="py-20 bg-background">
+    <section id="servicos" className="py-12 md:py-20 bg-background">
       <div className="container mx-auto px-4">
         {/* Header - Left aligned */}
-        <div className="mb-16 animate-fade-in">
+        <div className="mb-8 md:mb-16 animate-fade-in">
           <div className="max-w-2xl text-left">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6">
               Nossos <span className="text-primary">Serviços</span>
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-lg md:text-xl text-muted-foreground">
               Especialistas em tecnologia de Usinagem CNC e desenvolvimento de desenhos industriais personalizados. 
               Oferecemos soluções completas e inovadoras para todos os seus projetos.
             </p>
@@ -365,7 +365,7 @@ const Services = () => {
         </div>
 
         {/* Services Carousel */}
-        <div className="relative mb-16 px-2 md:px-8">
+        <div className="relative mb-8 md:mb-16 px-2 md:px-8">
           <div 
             ref={carouselRef}
             className="overflow-hidden"
@@ -382,7 +382,7 @@ const Services = () => {
               {serviceBlocks.map((block, blockIndex) => (
                 <div 
                   key={blockIndex}
-                  className="w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 px-2 md:px-0"
+                  className="w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 lg:gap-8 px-2 md:px-0"
                 >
                   {block.map((service) => (
                     <Card 
@@ -393,29 +393,29 @@ const Services = () => {
                         <OptimizedImage
                           src={service.image}
                           alt={service.title}
-                          className="w-full h-48 group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-40 md:h-48 group-hover:scale-105 transition-transform duration-300"
                           loading={blockIndex === currentBlockIndex ? "eager" : "lazy"}
                           priority={blockIndex === 0}
                         />
-                        <div className="absolute top-4 left-4">
-                          <service.icon className="w-8 h-8 text-white" />
+                        <div className="absolute top-3 left-3 md:top-4 md:left-4">
+                          <service.icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
                         </div>
                       </div>
                       
-                      <CardHeader className="flex-grow">
-                        <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors">
+                      <CardHeader className="flex-grow p-4 md:p-6">
+                        <CardTitle className="text-lg md:text-xl text-foreground group-hover:text-primary transition-colors">
                           {service.title}
                         </CardTitle>
-                        <CardDescription className="text-muted-foreground">
+                        <CardDescription className="text-sm md:text-base text-muted-foreground">
                           {service.description}
                         </CardDescription>
                       </CardHeader>
 
-                      <CardContent className="mt-auto">
-                        <ul className="space-y-2 mb-6">
+                      <CardContent className="mt-auto p-4 md:p-6 pt-0">
+                        <ul className="space-y-1.5 md:space-y-2 mb-4 md:mb-6">
                           {service.details.map((detail, detailIndex) => (
-                            <li key={detailIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
-                              <ArrowRight className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                            <li key={detailIndex} className="flex items-start gap-2 text-xs md:text-sm text-muted-foreground">
+                              <ArrowRight className="w-3 h-3 md:w-4 md:h-4 text-primary mt-0.5 flex-shrink-0" />
                               {detail}
                             </li>
                           ))}
@@ -424,14 +424,14 @@ const Services = () => {
                         <div className="flex gap-2 mt-auto">
                           <Button 
                             onClick={scrollToContact}
-                            className="flex-1 bg-primary text-primary-foreground hover:bg-primary-dark transition-colors"
+                            className="flex-1 bg-primary text-primary-foreground hover:bg-primary-dark transition-colors text-xs md:text-sm py-2 md:py-2"
                           >
                             Solicitar Orçamento
                           </Button>
                           <Button 
                             variant="outline"
                             onClick={() => setSelectedService(service)}
-                            className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                            className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors text-xs md:text-sm py-2 md:py-2"
                           >
                             Ver Detalhes
                           </Button>
@@ -450,9 +450,9 @@ const Services = () => {
             size="icon"
             onClick={prevBlock}
             disabled={isTransitioning}
-            className="absolute -left-2 md:-left-4 top-1/2 -translate-y-1/2 bg-background/95 hover:bg-background border-border shadow-lg z-20 disabled:opacity-50"
+            className="absolute -left-2 md:-left-4 top-1/2 -translate-y-1/2 bg-background/95 hover:bg-background border-border shadow-lg z-20 disabled:opacity-50 w-8 h-8 md:w-10 md:h-10"
           >
-            <ChevronLeft className="w-5 h-5" />
+            <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
           </Button>
 
           <Button
@@ -460,13 +460,13 @@ const Services = () => {
             size="icon"
             onClick={nextBlock}
             disabled={isTransitioning}
-            className="absolute -right-2 md:-right-4 top-1/2 -translate-y-1/2 bg-background/95 hover:bg-background border-border shadow-lg z-20 disabled:opacity-50"
+            className="absolute -right-2 md:-right-4 top-1/2 -translate-y-1/2 bg-background/95 hover:bg-background border-border shadow-lg z-20 disabled:opacity-50 w-8 h-8 md:w-10 md:h-10"
           >
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
           </Button>
 
           {/* Dot indicators */}
-          <div className="flex justify-center gap-2 mt-8">
+          <div className="flex justify-center gap-2 mt-6 md:mt-8">
             {serviceBlocks.map((_, index) => (
               <button
                 key={index}
@@ -482,12 +482,12 @@ const Services = () => {
           </div>
 
           {/* Mobile Navigation */}
-          <div className="flex justify-center gap-4 mt-6 lg:hidden">
+          <div className="flex justify-center gap-4 mt-4 md:mt-6 lg:hidden">
             <Button 
               variant="outline" 
               onClick={prevBlock}
               disabled={isTransitioning}
-              className="disabled:opacity-50"
+              className="disabled:opacity-50 text-sm"
             >
               <ChevronLeft className="w-4 h-4 mr-2" />
               Anterior
@@ -496,7 +496,7 @@ const Services = () => {
               variant="outline" 
               onClick={nextBlock}
               disabled={isTransitioning}
-              className="disabled:opacity-50"
+              className="disabled:opacity-50 text-sm"
             >
               Próximo
               <ChevronRight className="w-4 h-4 ml-2" />

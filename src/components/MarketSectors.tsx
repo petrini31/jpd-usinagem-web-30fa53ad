@@ -154,21 +154,21 @@ const MarketSectors = () => {
   }, [isTransitioning, currentBlockIndex]);
 
   return (
-    <section id="atuacoes" className="py-20 bg-secondary">
+    <section id="atuacoes" className="py-12 md:py-20 bg-secondary">
       <div className="container mx-auto px-4">
         {/* Header - Left aligned */}
-        <div className="mb-16 animate-fade-in text-left">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+        <div className="mb-8 md:mb-16 animate-fade-in text-left">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6">
             Principais <span className="text-primary">Atuações no Mercado</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-4xl">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-4xl">
             Nossa expertise atende diversos setores da indústria, oferecendo soluções 
             especializadas e customizadas para cada segmento com alta precisão e qualidade.
           </p>
         </div>
 
         {/* Sectors Carousel */}
-        <div className="relative mb-16 px-2 md:px-8">
+        <div className="relative mb-8 md:mb-16 px-2 md:px-8">
           <div 
             ref={carouselRef}
             className="overflow-hidden"
@@ -185,7 +185,7 @@ const MarketSectors = () => {
               {sectorBlocks.map((block, blockIndex) => (
                 <div 
                   key={blockIndex}
-                  className="w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 px-2 md:px-0"
+                  className="w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 lg:gap-8 px-2 md:px-0"
                 >
                   {block.map((sector) => (
                     <Card 
@@ -196,20 +196,20 @@ const MarketSectors = () => {
                         <OptimizedImage
                           src={sector.image}
                           alt={sector.title}
-                          className="w-full h-48 group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-40 md:h-48 group-hover:scale-105 transition-transform duration-300"
                           loading={blockIndex === currentBlockIndex ? "eager" : "lazy"}
                           priority={blockIndex === 0}
                         />
-                        <div className="absolute top-4 left-4">
-                          <sector.icon className="w-8 h-8 text-white" />
+                        <div className="absolute top-3 left-3 md:top-4 md:left-4">
+                          <sector.icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
                         </div>
                       </div>
                       
-                      <CardHeader className="flex-grow">
-                        <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors">
+                      <CardHeader className="flex-grow p-4 md:p-6">
+                        <CardTitle className="text-lg md:text-xl text-foreground group-hover:text-primary transition-colors">
                           {sector.title}
                         </CardTitle>
-                        <CardDescription className="text-muted-foreground">
+                        <CardDescription className="text-sm md:text-base text-muted-foreground">
                           {sector.description}
                         </CardDescription>
                       </CardHeader>
@@ -226,9 +226,9 @@ const MarketSectors = () => {
             size="icon"
             onClick={prevBlock}
             disabled={isTransitioning}
-            className="absolute -left-2 md:-left-4 top-1/2 -translate-y-1/2 bg-background/95 hover:bg-background border-border shadow-lg z-20 disabled:opacity-50"
+            className="absolute -left-2 md:-left-4 top-1/2 -translate-y-1/2 bg-background/95 hover:bg-background border-border shadow-lg z-20 disabled:opacity-50 w-8 h-8 md:w-10 md:h-10"
           >
-            <ChevronLeft className="w-5 h-5" />
+            <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
           </Button>
 
           <Button
@@ -236,13 +236,13 @@ const MarketSectors = () => {
             size="icon"
             onClick={nextBlock}
             disabled={isTransitioning}
-            className="absolute -right-2 md:-right-4 top-1/2 -translate-y-1/2 bg-background/95 hover:bg-background border-border shadow-lg z-20 disabled:opacity-50"
+            className="absolute -right-2 md:-right-4 top-1/2 -translate-y-1/2 bg-background/95 hover:bg-background border-border shadow-lg z-20 disabled:opacity-50 w-8 h-8 md:w-10 md:h-10"
           >
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
           </Button>
 
           {/* Dot indicators */}
-          <div className="flex justify-center gap-2 mt-8">
+          <div className="flex justify-center gap-2 mt-6 md:mt-8">
             {sectorBlocks.map((_, index) => (
               <button
                 key={index}
@@ -258,12 +258,12 @@ const MarketSectors = () => {
           </div>
 
           {/* Mobile Navigation */}
-          <div className="flex justify-center gap-4 mt-6 lg:hidden">
+          <div className="flex justify-center gap-4 mt-4 md:mt-6 lg:hidden">
             <Button 
               variant="outline" 
               onClick={prevBlock}
               disabled={isTransitioning}
-              className="disabled:opacity-50"
+              className="disabled:opacity-50 text-sm"
             >
               <ChevronLeft className="w-4 h-4 mr-2" />
               Anterior
@@ -272,7 +272,7 @@ const MarketSectors = () => {
               variant="outline" 
               onClick={nextBlock}
               disabled={isTransitioning}
-              className="disabled:opacity-50"
+              className="disabled:opacity-50 text-sm"
             >
               Próximo
               <ChevronRight className="w-4 h-4 ml-2" />
