@@ -1,8 +1,6 @@
-
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import OptimizedImage from "./OptimizedImage";
 
 const Pneumatica = () => {
   return (
@@ -10,11 +8,10 @@ const Pneumatica = () => {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1">
-            <OptimizedImage
+            <img
               src="/pneumatica.png"
               alt="Cilindros Pneumáticos JPD Usinagem"
-              className="rounded-lg shadow-2xl"
-              aspectRatio="aspect-[4/3]"
+              className="w-full rounded-lg shadow-2xl"
             />
           </div>
           
@@ -47,7 +44,7 @@ const Pneumatica = () => {
                 size="lg"
                 className="bg-primary text-primary-foreground hover:bg-primary-dark"
               >
-                <Link to="/pneumatica">
+                <Link to="/cilindros-pneumaticos">
                   Ver Mais Sobre Pneumática
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
