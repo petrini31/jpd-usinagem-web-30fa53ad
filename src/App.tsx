@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -8,8 +9,6 @@ import NotFound from "./pages/NotFound";
 import PortfolioFull from "./pages/PortfolioFull";
 import PneumaticaFull from "./pages/PneumaticaFull";
 import AdminView from "./pages/AdminView";
-import SitemapXML from "./pages/SitemapXML";
-import RobotsTxt from "./pages/RobotsTxt";
 
 const queryClient = new QueryClient();
 
