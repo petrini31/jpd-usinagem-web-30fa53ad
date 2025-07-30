@@ -85,9 +85,6 @@ const SitemapXML = () => {
   </url>
 </urlset>`;
 
-    // Set the content type to XML and replace the page content
-    document.contentType = 'application/xml';
-    
     // Replace the entire document with XML content
     document.open();
     document.write(sitemap);
