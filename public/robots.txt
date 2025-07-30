@@ -2,7 +2,6 @@
 User-agent: *
 Allow: /
 
-# Sitemaps
 Sitemap: https://jpdusinagem.com.br/sitemap.xml
 
 # Crawl-delay for courtesy
