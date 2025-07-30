@@ -9,8 +9,6 @@ import NotFound from "./pages/NotFound";
 import PortfolioFull from "./pages/PortfolioFull";
 import PneumaticaFull from "./pages/PneumaticaFull";
 import AdminView from "./pages/AdminView";
-import RobotsTxtRoute from "./pages/RobotsTxtRoute";
-import SitemapXmlRoute from "./pages/SitemapXmlRoute";
 
 const queryClient = new QueryClient();
 
@@ -22,10 +20,6 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          
-          {/* Static file routes */}
-          <Route path="/robots.txt" element={<RobotsTxtRoute />} />
-          <Route path="/sitemap.xml" element={<SitemapXmlRoute />} />
           
           {/* Rotas amigáveis para a home */}
           <Route path="/cilindros-pneumaticos" element={<Index />} />
