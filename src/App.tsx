@@ -68,7 +68,6 @@ const App = () => (
           <Route path="/pneumatica-sao-paulo" element={<PneumaticaFull />} />
           
           <Route path="/admin-view" element={<AdminView />} />
-          <Route path="/sitemap.xml" element={<SitemapXML />} />
           <Route path="/robots.txt" element={<RobotsTxt />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
