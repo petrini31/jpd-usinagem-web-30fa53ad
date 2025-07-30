@@ -1,3 +1,14 @@
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://jpdusinagem.com.br/sitemap.xml
+
+# Crawl-delay for courtesy
+Crawl-delay: 1
+
+# Specific rules for search engines
 User-agent: Googlebot
 Allow: /
 
@@ -10,5 +21,9 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
-Allow: /
+# Block AI crawlers if needed (optional)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
