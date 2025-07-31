@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import PortfolioFull from "./pages/PortfolioFull";
 import PneumaticaFull from "./pages/PneumaticaFull";
+import BlogFull from "./pages/BlogFull";
 import AdminView from "./pages/AdminView";
 
 const queryClient = new QueryClient();
@@ -20,6 +21,9 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          
+          {/* Blog Route */}
+          <Route path="/blog" element={<BlogFull />} />
           
           {/* Rotas amigáveis para a home */}
           <Route path="/cilindros-pneumaticos" element={<Index />} />

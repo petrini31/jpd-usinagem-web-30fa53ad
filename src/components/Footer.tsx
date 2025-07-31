@@ -1,14 +1,27 @@
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+
+import { Phone, Mail, MapPin } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const serviceAreas = [
+    "Usinagem CNC Atibaia",
+    "Usinagem CNC Bragança Paulista", 
+    "Usinagem CNC São Paulo",
+    "Usinagem CNC Guarulhos",
+    "Fresamento Atibaia",
+    "Torneamento Bragança Paulista",
+    "Cilindros Pneumáticos São Paulo",
+    "Ferramentaria Atibaia"
+  ];
+
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
-          <div>
+          <div className="lg:col-span-2">
             <h3 className="text-2xl font-bold mb-4">
               JPD <span className="text-primary-foreground">Usinagem CNC</span>
             </h3>
@@ -65,6 +78,22 @@ const Footer = () => {
                 </a>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Service Areas Section */}
+        <div className="border-t border-primary-foreground/20 mt-8 pt-8">
+          <h4 className="text-lg font-semibold mb-4 text-center md:text-left">Áreas de Atuação</h4>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2">
+            {serviceAreas.map((area, index) => (
+              <Badge 
+                key={index} 
+                variant="secondary" 
+                className="justify-center py-1 px-2 text-xs bg-primary-foreground/10 text-primary-foreground/80 hover:bg-primary-foreground/20 transition-colors"
+              >
+                {area}
+              </Badge>
+            ))}
           </div>
         </div>
 
