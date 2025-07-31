@@ -70,7 +70,7 @@ const Header = () => {
             <img 
               src="/lovable-uploads/1c391d13-ad87-4edd-9781-f4b7fae5a21e.png" 
               alt="JPD Usinagem Logo" 
-              className="h-10 w-auto"
+              className="h-12 w-auto"
             />
           </div>
 
