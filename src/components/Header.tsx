@@ -79,10 +79,10 @@ const Header = () => {
     if (location.pathname !== '/') {
       navigate('/');
       setTimeout(() => {
-        handleNavigation('contato');
+        handleNavigation('quote');
       }, 100);
     } else {
-      handleNavigation('contato');
+      handleNavigation('quote');
     }
   };
 
@@ -108,7 +108,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center cursor-pointer" onClick={handleLogoClick}>
             <OptimizedImage
-              src="/jpd-usinagem-logo.png"
+              src="/lovable-uploads/0a60037d-e570-41bb-88a3-401e66d51f0e.png"
               alt="JPD Usinagem Logo"
               className="h-12 w-auto mr-4"
               aspectRatio="aspect-auto"
@@ -123,17 +123,16 @@ const Header = () => {
                 key={item.id}
                 variant="ghost"
                 onClick={() => handleNavigation(item.id)}
-                className={`text-sm font-medium transition-colors relative ${
+                className={`text-sm font-medium transition-colors relative hover:bg-red-600 hover:text-white ${
                   isActiveMenuItem(item.id) 
                     ? 'text-red-600' 
-                    : 'text-foreground hover:text-red-600'
+                    : 'text-foreground'
                 }`}
               >
                 {item.name}
                 {isActiveMenuItem(item.id) && (
                   <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-red-600" />
                 )}
-                <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-red-600 opacity-0 hover:opacity-100 transition-opacity" />
               </Button>
             ))}
           </nav>
