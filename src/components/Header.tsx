@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
@@ -52,9 +53,9 @@ const Header = () => {
           <OptimizedImage
             src="/jpd-usinagem-logo.png"
             alt="JPD Usinagem Logo"
-            width={120}
-            height={40}
-            className="mr-4"
+            className="h-12 w-auto mr-4"
+            aspectRatio="aspect-auto"
+            priority={true}
           />
         </div>
 
