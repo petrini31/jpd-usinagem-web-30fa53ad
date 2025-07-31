@@ -45,13 +45,23 @@ const Header = () => {
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          const offset = sectionId === 'servicos' ? 100 : 80;
+          const elementPosition = element.offsetTop - offset;
+          window.scrollTo({ 
+            top: elementPosition, 
+            behavior: 'smooth' 
+          });
         }
       }, 100);
     } else {
       const element = document.getElementById(sectionId);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        const offset = sectionId === 'servicos' ? 100 : 80;
+        const elementPosition = element.offsetTop - offset;
+        window.scrollTo({ 
+          top: elementPosition, 
+          behavior: 'smooth' 
+        });
       }
     }
     setIsOpen(false);
@@ -66,7 +76,14 @@ const Header = () => {
   };
 
   const handleQuoteClick = () => {
-    handleNavigation('contato');
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        handleNavigation('contato');
+      }, 100);
+    } else {
+      handleNavigation('contato');
+    }
   };
 
   const menuItems = [
@@ -106,7 +123,7 @@ const Header = () => {
                 key={item.id}
                 variant="ghost"
                 onClick={() => handleNavigation(item.id)}
-                className={`text-sm font-medium transition-colors hover:text-red-600 relative ${
+                className={`text-sm font-medium transition-colors relative ${
                   isActiveMenuItem(item.id) 
                     ? 'text-red-600' 
                     : 'text-foreground hover:text-red-600'
@@ -116,6 +133,7 @@ const Header = () => {
                 {isActiveMenuItem(item.id) && (
                   <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-red-600" />
                 )}
+                <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-red-600 opacity-0 hover:opacity-100 transition-opacity" />
               </Button>
             ))}
           </nav>

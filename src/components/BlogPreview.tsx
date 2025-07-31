@@ -50,11 +50,11 @@ const BlogPreview = () => {
     <section id="blog" className="py-12 md:py-20 bg-secondary/20">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="mb-8 md:mb-12 text-center">
+        <div className="mb-8 md:mb-12 text-left">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-foreground">
             Blog <span className="text-red-600">JPD Usinagem</span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-4xl">
             Conteúdo especializado sobre usinagem CNC, pneumática industrial e tecnologias de manufatura.
           </p>
         </div>

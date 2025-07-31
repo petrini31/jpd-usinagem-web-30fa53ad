@@ -6,14 +6,14 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const serviceAreas = [
-    "Usinagem CNC Atibaia",
-    "Usinagem CNC Bragança Paulista", 
-    "Usinagem CNC São Paulo",
-    "Usinagem CNC Guarulhos",
-    "Fresamento Atibaia",
-    "Torneamento Bragança Paulista",
-    "Cilindros Pneumáticos São Paulo",
-    "Ferramentaria Atibaia"
+    "Atibaia",
+    "Bragança Paulista", 
+    "São Paulo",
+    "Guarulhos",
+    "Bom Jesus dos Perdões",
+    "Campo Limpo Paulista",
+    "Jundiaí",
+    "Campinas"
   ];
 
   return (

@@ -3,17 +3,20 @@ import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Clock, Globe, MapPin } from "lucide-react";
+import { Calendar, Clock, Globe, MapPin, ArrowLeft, X } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import OptimizedImage from "./OptimizedImage";
 
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedPost, setSelectedPost] = useState<any>(null);
 
   const blogPosts = [
     {
       id: 1,
       title: "Como a JPD Usinagem pode melhorar a produção da sua empresa em Atibaia e região",
       excerpt: "Descubra como nossa expertise em usinagem CNC Atibaia, fresamento Bragança Paulista e torneamento pode otimizar seus processos industriais.",
+      content: "A JPD Usinagem CNC é reconhecida em Atibaia e região como líder em soluções de usinagem de precisão. Nossa empresa atende empresas de diversos portes em Atibaia, Bragança Paulista, Bom Jesus dos Perdões e toda região, oferecendo serviços especializados em usinagem CNC, fresamento e torneamento.\n\nCom mais de uma década de experiência no mercado, desenvolvemos processos otimizados que garantem máxima precisão e eficiência na produção de peças industriais. Nossa equipe técnica especializada utiliza equipamentos de última geração para atender às mais exigentes especificações técnicas.\n\nNossos serviços incluem:\n• Usinagem CNC de precisão em diversos materiais\n• Fresamento convencional e CNC\n• Torneamento mecânico e CNC\n• Desenvolvimento de projetos personalizados\n• Consultoria técnica especializada\n\nAtendemos diversos setores industriais, incluindo automotivo, farmacêutico, alimentício, agrícola e aeroespacial. Nossa localização estratégica em Bom Jesus dos Perdões permite atendimento rápido e eficiente para toda região metropolitana de São Paulo.\n\nPara empresas em Atibaia que buscam parceiros confiáveis em usinagem CNC, a JPD oferece qualidade comprovada, prazos cumpridos e preços competitivos. Entre em contato conosco e descubra como podemos otimizar seus processos produtivos.",
       category: "empresa",
       date: "2024-01-15",
       readTime: "5 min",
@@ -25,6 +28,7 @@ const Blog = () => {
       id: 2,
       title: "Linha de Cilindros Pneumáticos: Otimize sua produção industrial em São Paulo",
       excerpt: "Conheça nossa linha completa de cilindros pneumáticos personalizados para automação industrial em SP, Bragança Paulista e Bom Jesus dos Perdões.",
+      content: "Os cilindros pneumáticos são componentes essenciais em sistemas de automação industrial, proporcionando movimento linear preciso e confiável. Na JPD Usinagem, desenvolvemos e fabricamos cilindros pneumáticos personalizados para atender às necessidades específicas de cada aplicação industrial.\n\nNossa linha de cilindros pneumáticos abrange:\n• Cilindros de dupla ação\n• Cilindros de simples ação\n• Cilindros com amortecimento\n• Cilindros para aplicações especiais\n• Cilindros em aço inoxidável para indústria alimentícia\n\nCom sede em Bom Jesus dos Perdões e atendimento em toda região de São Paulo, oferecemos soluções pneumáticas para empresas em Atibaia, Bragança Paulista, Campinas, Jundiaí e região metropolitana.\n\nNossos cilindros são projetados com materiais de alta qualidade, garantindo durabilidade e performance superior mesmo em condições adversas de operação. Utilizamos vedações especiais e tratamentos superficiais que prolongam a vida útil dos equipamentos.\n\nPara empresas que buscam automação pneumática eficiente, oferecemos consultoria técnica completa, desde o dimensionamento até a instalação e manutenção dos sistemas pneumáticos.\n\nSolicite um orçamento personalizado e descubra como nossos cilindros pneumáticos podem otimizar sua produção industrial.",
       category: "pneumatica",
       date: "2024-01-10",
       readTime: "7 min",
@@ -159,122 +163,177 @@ const Blog = () => {
     : blogPosts.filter(post => post.category === selectedCategory);
 
   const serviceAreas = [
-    "Usinagem CNC Atibaia",
-    "Usinagem CNC Bragança Paulista", 
-    "Usinagem CNC São Paulo",
-    "Usinagem CNC Guarulhos",
-    "Fresamento Atibaia",
-    "Torneamento Bragança Paulista",
-    "Cilindros Pneumáticos São Paulo",
-    "Ferramentaria Atibaia"
+    "Atibaia",
+    "Bragança Paulista", 
+    "São Paulo",
+    "Guarulhos",
+    "Bom Jesus dos Perdões",
+    "Campo Limpo Paulista",
+    "Jundiaí",
+    "Campinas"
   ];
 
   return (
-    <section id="blog" className="py-12 md:py-20 bg-background">
-      <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="mb-8 md:mb-16 text-left">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-foreground">
-            Blog <span className="text-primary">JPD Usinagem</span>
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-4xl">
-            Conteúdo especializado sobre usinagem CNC, pneumática industrial e tecnologias de manufatura. 
-            Atendemos Atibaia, Bragança Paulista, São Paulo e toda região com expertise técnica.
-          </p>
-        </div>
-
-        {/* Categories Filter */}
-        <div className="mb-8">
-          <div className="flex flex-wrap gap-2">
-            {categories.map((category) => (
-              <Button
-                key={category.id}
-                variant={selectedCategory === category.id ? "default" : "outline"}
-                onClick={() => setSelectedCategory(category.id)}
-                className="text-sm"
-              >
-                {category.label} ({category.count})
-              </Button>
-            ))}
+    <>
+      <section id="blog" className="py-12 md:py-20 bg-background">
+        <div className="container mx-auto px-4">
+          {/* Header */}
+          <div className="mb-8 md:mb-16 text-left">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-foreground">
+              Blog <span className="text-primary">JPD Usinagem</span>
+            </h2>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-4xl">
+              Conteúdo especializado sobre usinagem CNC, pneumática industrial e tecnologias de manufatura. 
+              Atendemos Atibaia, Bragança Paulista, São Paulo e toda região com expertise técnica.
+            </p>
           </div>
-        </div>
 
-        {/* Blog Posts Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {filteredPosts.map((post) => (
-            <Card key={post.id} className="group hover:shadow-lg transition-all duration-300 border border-border/50 h-full flex flex-col">
-              <div className="relative overflow-hidden">
-                <OptimizedImage
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
-                <div className="absolute top-3 right-3 flex gap-2">
-                  {post.language === "en" && (
-                    <Badge variant="secondary" className="bg-blue-100 text-blue-800">
-                      <Globe className="w-3 h-3 mr-1" />
-                      EN
-                    </Badge>
-                  )}
-                </div>
-              </div>
-              
-              <CardHeader className="flex-grow">
-                <div className="flex items-center gap-4 text-sm text-muted-foreground mb-2">
-                  <div className="flex items-center gap-1">
-                    <Calendar className="w-4 h-4" />
-                    {new Date(post.date).toLocaleDateString('pt-BR')}
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Clock className="w-4 h-4" />
-                    {post.readTime}
+          {/* Categories Filter */}
+          <div className="mb-8">
+            <div className="flex flex-wrap gap-2">
+              {categories.map((category) => (
+                <Button
+                  key={category.id}
+                  variant={selectedCategory === category.id ? "default" : "outline"}
+                  onClick={() => setSelectedCategory(category.id)}
+                  className="text-sm"
+                >
+                  {category.label} ({category.count})
+                </Button>
+              ))}
+            </div>
+          </div>
+
+          {/* Blog Posts Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {filteredPosts.map((post) => (
+              <Card key={post.id} className="group hover:shadow-lg transition-all duration-300 border border-border/50 h-full flex flex-col">
+                <div className="relative overflow-hidden">
+                  <OptimizedImage
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-3 right-3 flex gap-2">
+                    {post.language === "en" && (
+                      <Badge variant="secondary" className="bg-blue-100 text-blue-800">
+                        <Globe className="w-3 h-3 mr-1" />
+                        EN
+                      </Badge>
+                    )}
                   </div>
                 </div>
                 
-                <CardTitle className="text-lg group-hover:text-primary transition-colors line-clamp-2">
-                  {post.title}
-                </CardTitle>
-                <CardDescription className="line-clamp-3">
-                  {post.excerpt}
-                </CardDescription>
-              </CardHeader>
-              
-              <CardContent className="pt-0">
-                <div className="flex flex-wrap gap-1 mb-4">
-                  {post.tags.map((tag, tagIndex) => (
-                    <Badge key={tagIndex} variant="outline" className="text-xs">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-                <Button variant="outline" className="w-full">
-                  Ler mais
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        {/* Service Areas Section */}
-        <div className="bg-secondary/30 rounded-lg p-6 md:p-8">
-          <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
-            <MapPin className="w-5 h-5 text-primary" />
-            Áreas de Atuação
-          </h3>
-          <p className="text-muted-foreground mb-4">
-            Atendemos diversas cidades da região com nossos serviços especializados:
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {serviceAreas.map((area, index) => (
-              <Badge key={index} variant="secondary" className="justify-center py-2">
-                {area}
-              </Badge>
+                <CardHeader className="flex-grow">
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground mb-2">
+                    <div className="flex items-center gap-1">
+                      <Calendar className="w-4 h-4" />
+                      {new Date(post.date).toLocaleDateString('pt-BR')}
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Clock className="w-4 h-4" />
+                      {post.readTime}
+                    </div>
+                  </div>
+                  
+                  <CardTitle className="text-lg group-hover:text-primary transition-colors line-clamp-2">
+                    {post.title}
+                  </CardTitle>
+                  <CardDescription className="line-clamp-3">
+                    {post.excerpt}
+                  </CardDescription>
+                </CardHeader>
+                
+                <CardContent className="pt-0">
+                  <div className="flex flex-wrap gap-1 mb-4">
+                    {post.tags.map((tag, tagIndex) => (
+                      <Badge key={tagIndex} variant="outline" className="text-xs">
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                  <Button 
+                    variant="outline" 
+                    className="w-full"
+                    onClick={() => setSelectedPost(post)}
+                  >
+                    Ler mais
+                  </Button>
+                </CardContent>
+              </Card>
             ))}
           </div>
+
+          {/* Service Areas Section */}
+          <div className="bg-secondary/30 rounded-lg p-6 md:p-8">
+            <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
+              <MapPin className="w-5 h-5 text-primary" />
+              Áreas de Atuação
+            </h3>
+            <p className="text-muted-foreground mb-4">
+              Atendemos diversas cidades da região com nossos serviços especializados:
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {serviceAreas.map((area, index) => (
+                <Badge key={index} variant="secondary" className="justify-center py-2">
+                  {area}
+                </Badge>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Blog Post Modal */}
+      <Dialog open={!!selectedPost} onOpenChange={() => setSelectedPost(null)}>
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold mb-4">
+              {selectedPost?.title}
+            </DialogTitle>
+          </DialogHeader>
+          
+          {selectedPost && (
+            <div className="space-y-6">
+              <div className="relative overflow-hidden rounded-lg">
+                <OptimizedImage
+                  src={selectedPost.image}
+                  alt={selectedPost.title}
+                  className="w-full h-64 object-cover"
+                  loading="lazy"
+                />
+              </div>
+              
+              <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                <div className="flex items-center gap-1">
+                  <Calendar className="w-4 h-4" />
+                  {new Date(selectedPost.date).toLocaleDateString('pt-BR')}
+                </div>
+                <div className="flex items-center gap-1">
+                  <Clock className="w-4 h-4" />
+                  {selectedPost.readTime}
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-2 mb-4">
+                {selectedPost.tags.map((tag: string, tagIndex: number) => (
+                  <Badge key={tagIndex} variant="outline" className="text-sm">
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+
+              <div className="prose max-w-none">
+                <div className="text-lg leading-relaxed whitespace-pre-line">
+                  {selectedPost.content}
+                </div>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
 
