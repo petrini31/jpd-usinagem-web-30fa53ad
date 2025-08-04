@@ -13,6 +13,10 @@ const BlogFull = () => {
 
   const handleBackClick = () => {
     navigate('/');
+    // Scroll para o topo da página principal quando voltar
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
   };
 
   const handleQuoteClick = () => {

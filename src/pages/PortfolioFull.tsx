@@ -1,4 +1,3 @@
-
 import { ArrowLeft, Download, Eye, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -42,7 +41,11 @@ const PortfolioFull = () => {
   ];
 
   const goBack = () => {
-    navigate('/', { replace: true });
+    navigate('/');
+    // Scroll para o topo da página principal quando voltar
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
   };
 
   return (

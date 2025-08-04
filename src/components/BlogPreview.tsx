@@ -44,6 +44,10 @@ const BlogPreview = () => {
 
   const handleViewAllClick = () => {
     navigate('/blog');
+    // Scroll para o topo da página /blog quando a navegação ocorrer
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
   };
 
   return (

@@ -79,11 +79,26 @@ const Header = () => {
     if (location.pathname !== '/') {
       navigate('/');
       setTimeout(() => {
-        handleNavigation('quote');
+        const element = document.getElementById('quote');
+        if (element) {
+          const elementPosition = element.offsetTop - 80;
+          window.scrollTo({ 
+            top: elementPosition, 
+            behavior: 'smooth' 
+          });
+        }
       }, 100);
     } else {
-      handleNavigation('quote');
+      const element = document.getElementById('quote');
+      if (element) {
+        const elementPosition = element.offsetTop - 80;
+        window.scrollTo({ 
+          top: elementPosition, 
+          behavior: 'smooth' 
+        });
+      }
     }
+    setIsOpen(false);
   };
 
   const menuItems = [
