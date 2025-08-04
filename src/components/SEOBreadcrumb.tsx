@@ -28,6 +28,7 @@ const SEOBreadcrumb = ({ customItems }: BreadcrumbProps) => {
     const path = location.pathname;
     
     const breadcrumbMap: Record<string, Array<{label: string; href?: string}>> = {
+      // Páginas existentes
       '/portfolio-full': [
         { label: 'Início', href: '/' },
         { label: 'Portfólio Completo' }
@@ -83,6 +84,55 @@ const SEOBreadcrumb = ({ customItems }: BreadcrumbProps) => {
       '/solucoes-pneumaticas-regiao-sp': [
         { label: 'Início', href: '/' },
         { label: 'Soluções Pneumáticas Região SP' }
+      ],
+      // Novas páginas de SEO Local
+      '/usinagem-jundiai': [
+        { label: 'Início', href: '/' },
+        { label: 'Usinagem em Jundiaí' }
+      ],
+      '/torneamento-atibaia': [
+        { label: 'Início', href: '/' },
+        { label: 'Torneamento em Atibaia' }
+      ],
+      '/fresamento-braganca-paulista': [
+        { label: 'Início', href: '/' },
+        { label: 'Fresamento em Bragança Paulista' }
+      ],
+      '/usinagem-campinas': [
+        { label: 'Início', href: '/' },
+        { label: 'Usinagem em Campinas' }
+      ],
+      '/cilindros-pneumaticos-regiao': [
+        { label: 'Início', href: '/' },
+        { label: 'Cilindros Pneumáticos na Região' }
+      ],
+      '/usinagem-auto-pecas': [
+        { label: 'Início', href: '/' },
+        { label: 'Usinagem de Auto Peças' }
+      ],
+      '/usinagem-agricola': [
+        { label: 'Início', href: '/' },
+        { label: 'Usinagem Agrícola' }
+      ],
+      '/tornearia-perto-de-mim': [
+        { label: 'Início', href: '/' },
+        { label: 'Tornearia Perto de Mim' }
+      ],
+      '/fresamento-perto-de-mim': [
+        { label: 'Início', href: '/' },
+        { label: 'Fresamento Perto de Mim' }
+      ],
+      '/cilindro-pneumatico-iso-6431': [
+        { label: 'Início', href: '/' },
+        { label: 'Cilindro Pneumático ISO 6431' }
+      ],
+      '/onde-comprar-cilindro-pneumatico': [
+        { label: 'Início', href: '/' },
+        { label: 'Onde Comprar Cilindro Pneumático' }
+      ],
+      '/fabricante-cilindro-pneumatico': [
+        { label: 'Início', href: '/' },
+        { label: 'Fabricante de Cilindro Pneumático' }
       ]
     };
     

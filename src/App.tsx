@@ -1,3 +1,4 @@
+
 import { Suspense, lazy } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -13,6 +14,10 @@ const PortfolioFull = lazy(() => import("./pages/PortfolioFull"));
 const PneumaticaFull = lazy(() => import("./pages/PneumaticaFull"));
 const BlogFull = lazy(() => import("./pages/BlogFull"));
 const AdminView = lazy(() => import("./pages/AdminView"));
+
+// Páginas de SEO Local
+const UsinagemJundiai = lazy(() => import("./pages/UsinagemJundiai"));
+const TorneamentoAtibaia = lazy(() => import("./pages/TorneamentoAtibaia"));
 
 const queryClient = new QueryClient();
 
@@ -40,6 +45,22 @@ const App = () => (
             
             {/* Blog Route */}
             <Route path="/blog" element={<BlogFull />} />
+            
+            {/* Páginas de SEO Local - Principais */}
+            <Route path="/usinagem-jundiai" element={<UsinagemJundiai />} />
+            <Route path="/torneamento-atibaia" element={<TorneamentoAtibaia />} />
+            <Route path="/fresamento-braganca-paulista" element={<Index />} />
+            <Route path="/usinagem-campinas" element={<Index />} />
+            <Route path="/cilindros-pneumaticos-regiao" element={<PneumaticaFull />} />
+            <Route path="/usinagem-auto-pecas" element={<Index />} />
+            <Route path="/usinagem-agricola" element={<Index />} />
+            
+            {/* Páginas de SEO Local - Long Tail */}
+            <Route path="/tornearia-perto-de-mim" element={<TorneamentoAtibaia />} />
+            <Route path="/fresamento-perto-de-mim" element={<Index />} />
+            <Route path="/cilindro-pneumatico-iso-6431" element={<PneumaticaFull />} />
+            <Route path="/onde-comprar-cilindro-pneumatico" element={<PneumaticaFull />} />
+            <Route path="/fabricante-cilindro-pneumatico" element={<PneumaticaFull />} />
             
             {/* Rotas amigáveis para a home */}
             <Route path="/cilindros-pneumaticos" element={<Index />} />
