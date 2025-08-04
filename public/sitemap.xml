@@ -1,244 +1,71 @@
 
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Página Principal -->
   <url>
-    <loc>https://jpdusinagem.com.br/</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://jpdusinagem.com/</loc>
+    <lastmod>2025-01-04</lastmod>
     <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/portfolio</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
     <changefreq>monthly</changefreq>
+  </url>
+  
+  <!-- Blog Principal -->
+  <url>
+    <loc>https://jpdusinagem.com/blog</loc>
+    <lastmod>2025-01-04</lastmod>
     <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
   </url>
+  
+  <!-- Portfólio -->
   <url>
-    <loc>https://jpdusinagem.com.br/pneumatica</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/cilindros-pneumaticos</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://jpdusinagem.com/portfolio</loc>
+    <lastmod>2025-01-04</lastmod>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/usinagem</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
     <changefreq>monthly</changefreq>
+  </url>
+  
+  <!-- Pneumática -->
+  <url>
+    <loc>https://jpdusinagem.com/pneumatica</loc>
+    <lastmod>2025-01-04</lastmod>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/usinagem-cnc</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
+  
+  <!-- Rotas SEO Principais -->
   <url>
-    <loc>https://jpdusinagem.com.br/tornearia</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://jpdusinagem.com/usinagem-cnc</loc>
+    <lastmod>2025-01-04</lastmod>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/fresamento</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
     <changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://jpdusinagem.com/usinagem-atibaia</loc>
+    <lastmod>2025-01-04</lastmod>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/usinagem-atibaia</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
     <changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://jpdusinagem.com/cilindros-pneumaticos</loc>
+    <lastmod>2025-01-04</lastmod>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/usinagem-perdoes</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
+  
   <url>
-    <loc>https://jpdusinagem.com.br/usinagem-braganca</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
+    <loc>https://jpdusinagem.com/usinagem-braganca</loc>
+    <lastmod>2025-01-04</lastmod>
+    <priority>0.6</priority>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
+  
   <url>
-    <loc>https://jpdusinagem.com.br/programacao-cnc</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
+    <loc>https://jpdusinagem.com/ferramentaria</loc>
+    <lastmod>2025-01-04</lastmod>
+    <priority>0.6</priority>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/cnc</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/usinagem-sp</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/usinagem-sao-paulo</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/usinagem-guarulhos</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/usinagem-industrial</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/pecas-industriais</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/usinagem-cnc-portfolio</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/projetos-usinagem</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/trabalhos-realizados</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/galeria-pecas</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/portfolio-industrial</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/exemplos-usinagem</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/casos-sucesso</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/cilindros-pneumaticos-atibaia</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/cilindros-pneumaticos-braganca</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/cilindros-pneumaticos-perdoes</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/cilindros-pneumaticos-sp</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/pneumatica-industrial</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/sistemas-pneumaticos</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/automacao-pneumatica</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/cilindros-personalizados</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/fabricacao-cilindros</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/manutencao-pneumatica</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/solucoes-pneumaticas</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/pneumatica-atibaia</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/pneumatica-braganca</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/pneumatica-guarulhos</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jpdusinagem.com.br/pneumatica-sao-paulo</loc>
-    <lastmod>2025-01-30T15:11:41.352Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 </urlset>

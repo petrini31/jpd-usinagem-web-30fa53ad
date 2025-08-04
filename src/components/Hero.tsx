@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import OptimizedImage from "./OptimizedImage";
 import heroImage from "@/assets/hero-cnc-industrial.jpg";
 
 const Hero = () => {
@@ -13,16 +14,15 @@ const Hero = () => {
 
   return (
     <section id="hero" className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+      {/* Background Image with Priority Loading */}
       <div className="absolute inset-0">
-        <img 
-          src={heroImage} 
-          alt="Equipamentos de Usinagem CNC - JPD Usinagem" 
-          className="w-full h-full object-cover"
+        <OptimizedImage
+          src={heroImage}
+          alt="Equipamentos de Usinagem CNC - JPD Usinagem"
+          className="w-full h-full"
+          aspectRatio="aspect-auto"
+          priority={true}
           loading="eager"
-          style={{
-            willChange: 'auto'
-          }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 to-slate-800/60" />
       </div>
