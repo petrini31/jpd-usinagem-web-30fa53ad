@@ -19,8 +19,7 @@ export default defineConfig(({ mode }) => ({
       gifsicle: { optimizationLevel: 7 },
       mozjpeg: { quality: 85 },
       pngquant: { quality: [0.8, 0.85] },
-      webp: { quality: 85 },
-      avif: { quality: 80 }
+      webp: { quality: 85 }
     })
   ].filter(Boolean),
   resolve: {
