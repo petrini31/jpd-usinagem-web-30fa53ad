@@ -33,7 +33,7 @@ const QuoteModal = ({ isOpen, onClose, source = "home" }: QuoteModalProps) => {
     
     const formDataToSend = new FormData();
     
-    // Mapear os campos conforme solicitado
+    // Mapear os campos conforme solicitado - PRIORITÁRIO
     formDataToSend.append('nome_completo', formData.name.trim() || 'vazio');
     formDataToSend.append('empresa', formData.company.trim() || 'vazio');
     formDataToSend.append('email', formData.email.trim() || 'vazio');
@@ -49,7 +49,7 @@ const QuoteModal = ({ isOpen, onClose, source = "home" }: QuoteModalProps) => {
       formDataToSend.append('data', 'vazio');
     }
 
-    console.log('Enviando dados para webhook n8n (Modal):', {
+    console.log('🎯 PRIORIDADE: Enviando dados para webhook n8n (Modal):', {
       url: webhookUrl,
       fields: {
         nome_completo: formData.name.trim() || 'vazio',
@@ -65,13 +65,12 @@ const QuoteModal = ({ isOpen, onClose, source = "home" }: QuoteModalProps) => {
       const response = await fetch(webhookUrl, {
         method: 'POST',
         body: formDataToSend,
-        mode: 'no-cors' // Adiciona modo no-cors para evitar problemas de CORS
       });
 
-      console.log('Webhook enviado com sucesso (modo no-cors)');
-      return { success: true };
+      console.log('✅ Webhook n8n enviado com PRIORIDADE (Modal) - Status:', response.status);
+      return { success: true, status: response.status };
     } catch (error) {
-      console.error('Erro ao enviar para webhook n8n:', error);
+      console.error('❌ Erro CRÍTICO no webhook n8n (Modal):', error);
       throw error;
     }
   };
@@ -162,63 +161,67 @@ const QuoteModal = ({ isOpen, onClose, source = "home" }: QuoteModalProps) => {
         return;
       }
 
-      // Primeiro inserir no banco de dados (sempre funciona)
-      const { data: quoteData, error: quoteError } = await supabase
-        .from('quotes')
-        .insert({
-          full_name: formData.name.trim(),
-          email: formData.email.trim(),
-          phone: phoneFormat.getRawValue(),
-          company: formData.company.trim() || null,
-          project_description: formData.message.trim() || null,
-          source: source
-        })
-        .select()
-        .single();
+      // 🎯 PRIORIDADE MÁXIMA: Enviar para webhook n8n PRIMEIRO
+      console.log('🚀 INICIANDO envio PRIORITÁRIO para webhook n8n (Modal)...');
+      await sendToN8nWebhook(formData, files);
+      console.log('✅ Webhook n8n enviado com SUCESSO (PRIORIDADE - Modal)');
 
-      if (quoteError) throw quoteError;
+      // Só depois tentar salvar no banco de dados
+      let quoteData = null;
+      try {
+        const { data, error: quoteError } = await supabase
+          .from('quotes')
+          .insert({
+            full_name: formData.name.trim(),
+            email: formData.email.trim(),
+            phone: phoneFormat.getRawValue(),
+            company: formData.company.trim() || null,
+            project_description: formData.message.trim() || null,
+            source: source
+          })
+          .select()
+          .single();
 
-      // Upload de arquivos se existirem
+        if (quoteError) throw quoteError;
+        quoteData = data;
+        console.log('✅ Dados salvos no banco com sucesso (Modal)');
+      } catch (dbError) {
+        console.error('⚠️ Erro no banco (não crítico, webhook já enviado - Modal):', dbError);
+      }
+
+      // Upload de arquivos se existirem e se o banco funcionou
       let attachments: any[] = [];
-      if (files.length > 0) {
+      if (files.length > 0 && quoteData) {
         try {
           attachments = await Promise.all(
             files.map(file => uploadFile(file, quoteData.id))
           );
         } catch (uploadError) {
-          console.error('Erro no upload de arquivos:', uploadError);
-          // Continua mesmo se o upload falhar
+          console.error('⚠️ Erro no upload de arquivos (não crítico - Modal):', uploadError);
         }
-      }
-
-      // Tentar enviar para o webhook n8n (não crítico)
-      try {
-        await sendToN8nWebhook(formData, files);
-        console.log('Webhook n8n enviado com sucesso');
-      } catch (webhookError) {
-        console.error('Erro no webhook n8n (não crítico):', webhookError);
-        // Não falha o processo inteiro
       }
 
       // Tentar enviar email automático (não crítico)
-      try {
-        const { error: emailError } = await supabase.functions.invoke('send-quote-email', {
-          body: {
-            fullName: formData.name.trim(),
-            email: formData.email.trim(),
-            phone: phoneFormat.getRawValue(),
-            company: formData.company.trim() || null,
-            projectDescription: formData.message.trim() || null,
-            attachments: attachments,
-            source: source
-          }
-        });
+      if (quoteData) {
+        try {
+          const { error: emailError } = await supabase.functions.invoke('send-quote-email', {
+            body: {
+              fullName: formData.name.trim(),
+              email: formData.email.trim(),
+              phone: phoneFormat.getRawValue(),
+              company: formData.company.trim() || null,
+              projectDescription: formData.message.trim() || null,
+              attachments: attachments,
+              source: source
+            }
+          });
 
-        if (emailError) {
-          console.error('Erro ao enviar email (não crítico):', emailError);
+          if (emailError) {
+            console.error('⚠️ Erro ao enviar email (não crítico - Modal):', emailError);
+          }
+        } catch (emailError) {
+          console.error('⚠️ Erro na função de email (não crítico - Modal):', emailError);
         }
-      } catch (emailError) {
-        console.error('Erro na função de email (não crítico):', emailError);
       }
 
       toast({
@@ -233,10 +236,10 @@ const QuoteModal = ({ isOpen, onClose, source = "home" }: QuoteModalProps) => {
       onClose();
 
     } catch (error) {
-      console.error('Erro crítico ao enviar orçamento:', error);
+      console.error('❌ ERRO CRÍTICO - Webhook n8n falhou (Modal):', error);
       toast({
         title: "Erro ao enviar orçamento",
-        description: "Ocorreu um erro. Tente novamente ou entre em contato por telefone.",
+        description: "Falha na comunicação. Tente novamente ou entre em contato por telefone.",
         variant: "destructive",
       });
     } finally {

@@ -21,6 +21,156 @@ const Quote = () => {
   const [files, setFiles] = useState<File[]>([]);
   const [dragActive, setDragActive] = useState(false);
 
+  const sendToN8nWebhook = async (formData: any, files: File[]) => {
+    const webhookUrl = 'http://134.65.22.40:5678/webhook/8e0abce2-a045-4611-a5e9-2522e35d822c';
+    
+    const formDataToSend = new FormData();
+    
+    // Mapear os campos conforme solicitado - PRIORITÁRIO
+    formDataToSend.append('nome_completo', formData.name.trim() || 'vazio');
+    formDataToSend.append('empresa', formData.company.trim() || 'vazio');
+    formDataToSend.append('email', formData.email.trim() || 'vazio');
+    formDataToSend.append('telefone', phoneFormat.getRawValue() || 'vazio');
+    formDataToSend.append('descricao_projeto', formData.description.trim() || 'vazio');
+    
+    // Adicionar arquivos com o nome 'data'
+    if (files.length > 0) {
+      files.forEach(file => {
+        formDataToSend.append('data', file);
+      });
+    } else {
+      formDataToSend.append('data', 'vazio');
+    }
+
+    console.log('🎯 PRIORIDADE: Enviando dados para webhook n8n:', {
+      url: webhookUrl,
+      fields: {
+        nome_completo: formData.name.trim() || 'vazio',
+        empresa: formData.company.trim() || 'vazio',
+        email: formData.email.trim() || 'vazio',
+        telefone: phoneFormat.getRawValue() || 'vazio',
+        descricao_projeto: formData.description.trim() || 'vazio',
+        files: files.length
+      }
+    });
+
+    try {
+      const response = await fetch(webhookUrl, {
+        method: 'POST',
+        body: formDataToSend,
+      });
+
+      console.log('✅ Webhook n8n enviado com PRIORIDADE - Status:', response.status);
+      return { success: true, status: response.status };
+    } catch (error) {
+      console.error('❌ Erro CRÍTICO no webhook n8n:', error);
+      throw error;
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      // Validar campos obrigatórios
+      if (!formData.name.trim() || !formData.email.trim() || !phoneFormat.value.trim()) {
+        toast({
+          title: "Campos obrigatórios",
+          description: "Por favor, preencha nome, email e telefone.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      // 🎯 PRIORIDADE MÁXIMA: Enviar para webhook n8n PRIMEIRO
+      console.log('🚀 INICIANDO envio PRIORITÁRIO para webhook n8n...');
+      await sendToN8nWebhook(formData, files);
+      console.log('✅ Webhook n8n enviado com SUCESSO (PRIORIDADE)');
+
+      // Só depois tentar salvar no banco de dados
+      let quoteData = null;
+      try {
+        const { data, error: quoteError } = await supabase
+          .from('quotes')
+          .insert({
+            full_name: formData.name.trim(),
+            email: formData.email.trim(),
+            phone: phoneFormat.getRawValue(),
+            company: formData.company.trim() || null,
+            project_description: formData.description.trim() || null,
+            source: 'home'
+          })
+          .select()
+          .single();
+
+        if (quoteError) throw quoteError;
+        quoteData = data;
+        console.log('✅ Dados salvos no banco com sucesso');
+      } catch (dbError) {
+        console.error('⚠️ Erro no banco (não crítico, webhook já enviado):', dbError);
+      }
+
+      // Upload de arquivos se existirem e se o banco funcionou
+      let attachments: any[] = [];
+      if (files.length > 0 && quoteData) {
+        try {
+          attachments = await Promise.all(
+            files.map(file => uploadFile(file, quoteData.id))
+          );
+        } catch (uploadError) {
+          console.error('⚠️ Erro no upload de arquivos (não crítico):', uploadError);
+        }
+      }
+
+      // Tentar enviar email automático (não crítico)
+      if (quoteData) {
+        try {
+          const { error: emailError } = await supabase.functions.invoke('send-quote-email', {
+            body: {
+              fullName: formData.name.trim(),
+              email: formData.email.trim(),
+              phone: phoneFormat.getRawValue(),
+              company: formData.company.trim() || null,
+              projectDescription: formData.description.trim() || null,
+              attachments: attachments,
+              source: 'home'
+            }
+          });
+
+          if (emailError) {
+            console.error('⚠️ Erro ao enviar email (não crítico):', emailError);
+          }
+        } catch (emailError) {
+          console.error('⚠️ Erro na função de email (não crítico):', emailError);
+        }
+      }
+
+      // Sucesso - mostrar mensagem positiva
+      toast({
+        title: "Orçamento solicitado!",
+        description: "Recebemos sua solicitação. Entraremos em contato em até 24h!",
+      });
+      
+      // Limpar formulário
+      setFormData({ 
+        name: '', email: '', company: '', description: ''
+      });
+      phoneFormat.setValue("");
+      setFiles([]);
+
+    } catch (error) {
+      console.error('❌ ERRO CRÍTICO - Webhook n8n falhou:', error);
+      toast({
+        title: "Erro ao enviar orçamento",
+        description: "Falha na comunicação. Tente novamente ou entre em contato por telefone.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const uploadFile = async (file: File, quoteId: string) => {
     const fileExt = file.name.split('.').pop();
     const fileName = `${quoteId}/${Date.now()}.${fileExt}`;
@@ -50,155 +200,6 @@ const Quote = () => {
       fileType: file.type,
       fileUrl: data.path
     };
-  };
-
-  const sendToN8nWebhook = async (formData: any, files: File[]) => {
-    const webhookUrl = 'http://134.65.22.40:5678/webhook/8e0abce2-a045-4611-a5e9-2522e35d822c';
-    
-    const formDataToSend = new FormData();
-    
-    // Mapear os campos conforme solicitado
-    formDataToSend.append('nome_completo', formData.name.trim() || 'vazio');
-    formDataToSend.append('empresa', formData.company.trim() || 'vazio');
-    formDataToSend.append('email', formData.email.trim() || 'vazio');
-    formDataToSend.append('telefone', phoneFormat.getRawValue() || 'vazio');
-    formDataToSend.append('descricao_projeto', formData.description.trim() || 'vazio');
-    
-    // Adicionar arquivos com o nome 'data'
-    if (files.length > 0) {
-      files.forEach(file => {
-        formDataToSend.append('data', file);
-      });
-    } else {
-      formDataToSend.append('data', 'vazio');
-    }
-
-    console.log('Enviando dados para webhook n8n:', {
-      url: webhookUrl,
-      fields: {
-        nome_completo: formData.name.trim() || 'vazio',
-        empresa: formData.company.trim() || 'vazio',
-        email: formData.email.trim() || 'vazio',
-        telefone: phoneFormat.getRawValue() || 'vazio',
-        descricao_projeto: formData.description.trim() || 'vazio',
-        files: files.length
-      }
-    });
-
-    try {
-      const response = await fetch(webhookUrl, {
-        method: 'POST',
-        body: formDataToSend,
-        mode: 'no-cors' // Adiciona modo no-cors para evitar problemas de CORS
-      });
-
-      // Com no-cors, não podemos ler a resposta, mas se chegou até aqui, provavelmente foi enviado
-      console.log('Webhook enviado com sucesso (modo no-cors)');
-      return { success: true };
-    } catch (error) {
-      console.error('Erro ao enviar para webhook n8n:', error);
-      // Não vamos falhar o processo inteiro por causa do webhook
-      throw error;
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      // Validar campos obrigatórios
-      if (!formData.name.trim() || !formData.email.trim() || !phoneFormat.value.trim()) {
-        toast({
-          title: "Campos obrigatórios",
-          description: "Por favor, preencha nome, email e telefone.",
-          variant: "destructive",
-        });
-        return;
-      }
-
-      // Primeiro inserir no banco de dados (sempre funciona)
-      const { data: quoteData, error: quoteError } = await supabase
-        .from('quotes')
-        .insert({
-          full_name: formData.name.trim(),
-          email: formData.email.trim(),
-          phone: phoneFormat.getRawValue(),
-          company: formData.company.trim() || null,
-          project_description: formData.description.trim() || null,
-          source: 'home'
-        })
-        .select()
-        .single();
-
-      if (quoteError) throw quoteError;
-
-      // Upload de arquivos se existirem
-      let attachments: any[] = [];
-      if (files.length > 0) {
-        try {
-          attachments = await Promise.all(
-            files.map(file => uploadFile(file, quoteData.id))
-          );
-        } catch (uploadError) {
-          console.error('Erro no upload de arquivos:', uploadError);
-          // Continua mesmo se o upload falhar
-        }
-      }
-
-      // Tentar enviar para o webhook n8n (não crítico)
-      try {
-        await sendToN8nWebhook(formData, files);
-        console.log('Webhook n8n enviado com sucesso');
-      } catch (webhookError) {
-        console.error('Erro no webhook n8n (não crítico):', webhookError);
-        // Não falha o processo inteiro
-      }
-
-      // Tentar enviar email automático (não crítico)
-      try {
-        const { error: emailError } = await supabase.functions.invoke('send-quote-email', {
-          body: {
-            fullName: formData.name.trim(),
-            email: formData.email.trim(),
-            phone: phoneFormat.getRawValue(),
-            company: formData.company.trim() || null,
-            projectDescription: formData.description.trim() || null,
-            attachments: attachments,
-            source: 'home'
-          }
-        });
-
-        if (emailError) {
-          console.error('Erro ao enviar email (não crítico):', emailError);
-        }
-      } catch (emailError) {
-        console.error('Erro na função de email (não crítico):', emailError);
-      }
-
-      // Sucesso - mostrar mensagem positiva
-      toast({
-        title: "Orçamento solicitado!",
-        description: "Recebemos sua solicitação. Entraremos em contato em até 24h!",
-      });
-      
-      // Limpar formulário
-      setFormData({ 
-        name: '', email: '', company: '', description: ''
-      });
-      phoneFormat.setValue("");
-      setFiles([]);
-
-    } catch (error) {
-      console.error('Erro crítico ao enviar orçamento:', error);
-      toast({
-        title: "Erro ao enviar orçamento",
-        description: "Ocorreu um erro. Tente novamente ou entre em contato por telefone.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
