@@ -1,152 +1,107 @@
-import { Settings, Linkedin, Instagram, MessageCircle, Wrench, MapPin, Phone } from "lucide-react";
-import { Button } from "@/components/ui/button";
+
+import { Phone, Mail, MapPin } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 const Footer = () => {
-  const serviceAreas = [
-    "Atibaia", "Bragança Paulista", "São Paulo", "Guarulhos",
-    "Bom Jesus dos Perdões", "Campo Limpo Paulista", "Jundiaí", "Campinas"
-  ];
+  const currentYear = new Date().getFullYear();
 
-  const contactInfo = [
-    {
-      icon: <Phone className="w-4 h-4 text-muted-foreground" />,
-      label: "Telefone",
-      value: "+55 (11) 99999-9999"
-    },
-    {
-      icon: <MessageCircle className="w-4 h-4 text-muted-foreground" />,
-      label: "Email",
-      value: "contato@jpdusinagem.com"
-    },
-    {
-      icon: <MapPin className="w-4 h-4 text-muted-foreground" />,
-      label: "Endereço",
-      value: "Av. Industrial, 1234 - Centro"
-    }
+  const serviceAreas = [
+    "Atibaia",
+    "Bragança Paulista", 
+    "São Paulo",
+    "Guarulhos",
+    "Bom Jesus dos Perdões",
+    "Campo Limpo Paulista",
+    "Jundiaí",
+    "Campinas"
   ];
 
   return (
-    <footer className="bg-muted py-12 md:py-16 border-t">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+    <footer className="bg-primary text-primary-foreground">
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <Settings className="w-6 h-6 text-primary-foreground" />
-              </div>
-              <h3 className="text-xl font-bold text-foreground">JPD Usinagem</h3>
-            </div>
-            <p className="text-muted-foreground">
-              Especialistas em usinagem CNC de precisão, ferramentaria e sistemas pneumáticos industriais. 
-              Qualidade e inovação em cada projeto.
+          <div className="lg:col-span-2">
+            <h3 className="text-2xl font-bold mb-4">
+              JPD <span className="text-primary-foreground">Usinagem CNC</span>
+            </h3>
+            <p className="text-primary-foreground/80 mb-6">
+              Especialistas em tecnologia de Usinagem CNC e desenvolvimento de desenhos industriais personalizados. 
+              Transformamos suas ideias em realidade com precisão e qualidade incomparável.
             </p>
-            <div className="flex space-x-4">
-              <Button variant="outline" size="sm" asChild>
-                <a href="https://www.linkedin.com/company/jpd-usinagem" target="_blank" rel="noopener noreferrer">
-                  <Linkedin className="w-4 h-4" />
-                </a>
-              </Button>
-              <Button variant="outline" size="sm" asChild>
-                <a href="https://www.instagram.com/jpd.usinagem" target="_blank" rel="noopener noreferrer">
-                  <Instagram className="w-4 h-4" />
-                </a>
-              </Button>
-              <Button variant="outline" size="sm" asChild>
-                <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="w-4 h-4" />
-                </a>
-              </Button>
-            </div>
           </div>
 
           {/* Services */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-foreground flex items-center gap-2">
-              <Wrench className="w-5 h-5 text-primary" />
-              Serviços
-            </h4>
-            <ul className="space-y-2">
-              <li>
-                <a href="#servicos" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Usinagem CNC de Precisão
-                </a>
-              </li>
-              <li>
-                <a href="#servicos" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Bicos de Injeção Plástica
-                </a>
-              </li>
-              <li>
-                <a href="#servicos" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Ferramentaria Especializada
-                </a>
-              </li>
-              <li>
-                <a href="#pneumatica" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Cilindros Pneumáticos
-                </a>
-              </li>
-              <li>
-                <a href="#portfolio" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Projetos Customizados
-                </a>
-              </li>
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Nossos Serviços</h4>
+            <ul className="space-y-2 text-primary-foreground/80">
+              <li>• Usinagem CNC de Precisão</li>
+              <li>• Desenhos Industriais Personalizados</li>
+              <li>• Fabricação de Componentes</li>
+              <li>• Desenvolvimento de Projetos</li>
+              <li>• Consultoria Técnica</li>
+              <li>• Soluções Sob Medida</li>
             </ul>
           </div>
 
-          {/* Service Areas */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-foreground flex items-center gap-2">
-              <MapPin className="w-5 h-5 text-primary" />
-              Áreas de Atuação
-            </h4>
-            <div className="space-y-3">
-              <p className="text-sm text-primary font-medium">
-                Atendemos os maiores mercados industriais do Brasil
-              </p>
-              <div className="grid grid-cols-2 gap-1">
-                {serviceAreas.map((area, index) => (
-                  <span key={index} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    {area}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-
           {/* Contact */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-foreground flex items-center gap-2">
-              <Phone className="w-5 h-5 text-primary" />
-              Contato
-            </h4>
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Contato</h4>
             <div className="space-y-3">
-              {contactInfo.map((contact, index) => (
-                <div key={index} className="flex items-center gap-3">
-                  {contact.icon}
-                  <div>
-                    <p className="font-medium text-sm text-foreground">{contact.label}</p>
-                    <p className="text-sm text-muted-foreground">{contact.value}</p>
-                  </div>
+              <div className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-primary-foreground mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-primary-foreground/80">
+                    R. Uruguai, 573 - Parque das Hortênsias<br />
+                    Bom Jesus dos Perdões - SP
+                  </p>
                 </div>
-              ))}
+              </div>
+              
+              <div className="flex items-center gap-3">
+                <Phone className="w-5 h-5 text-primary-foreground" />
+                <a 
+                  href="tel:+5511958274054" 
+                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                >
+                  (11) 95827-4054
+                </a>
+              </div>
+              
+              <div className="flex items-center gap-3">
+                <Mail className="w-5 h-5 text-primary-foreground" />
+                <a 
+                  href="mailto:comercial@jpdusinagem.com.br" 
+                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                >
+                  comercial@jpdusinagem.com.br
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="border-t pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-muted-foreground text-center md:text-left">
-              © 2024 JPD Usinagem. Todos os direitos reservados.
-            </p>
-            <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-              <a href="#" className="hover:text-foreground transition-colors">Política de Privacidade</a>
-              <a href="#" className="hover:text-foreground transition-colors">Termos de Uso</a>
-              <a href="#contato" className="hover:text-foreground transition-colors">Contato</a>
-            </div>
+        {/* Service Areas Section */}
+        <div className="border-t border-primary-foreground/20 mt-8 pt-8">
+          <h4 className="text-lg font-semibold mb-4 text-center md:text-left">Áreas de Atuação</h4>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2">
+            {serviceAreas.map((area, index) => (
+              <Badge 
+                key={index} 
+                variant="secondary" 
+                className="justify-center py-1 px-2 text-xs bg-primary-foreground/10 text-primary-foreground/80 hover:bg-primary-foreground/20 transition-colors"
+              >
+                {area}
+              </Badge>
+            ))}
           </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center">
+          <p className="text-primary-foreground/60">
+            © {currentYear} JPD Usinagem CNC. Todos os direitos reservados.
+          </p>
         </div>
       </div>
     </footer>
