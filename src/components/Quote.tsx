@@ -22,37 +22,24 @@ const Quote = () => {
   const [dragActive, setDragActive] = useState(false);
 
   const sendToN8nWebhook = async (formData: any, files: File[]) => {
+    // URL FINAL E CORRETA
     const webhookUrl = 'https://n8npetrini.duckdns.org/webhook/8e0abce2-a045-4611-a5e9-2522e35d822c';
-    
+
     const formDataToSend = new FormData();
-    
-    // Mapear os campos conforme solicitado - PRIORITÁRIO
-    formDataToSend.append('nome_completo', formData.name.trim() || 'vazio');
-    formDataToSend.append('empresa', formData.company.trim() || 'vazio');
-    formDataToSend.append('email', formData.email.trim() || 'vazio');
-    formDataToSend.append('telefone', phoneFormat.getRawValue() || 'vazio');
-    formDataToSend.append('descricao_projeto', formData.description.trim() || 'vazio');
-    
-    // Adicionar arquivos com o nome 'data'
+
+    // Mapeia os campos de texto
+    formDataToSend.append('nome_completo', formData.name.trim());
+    formDataToSend.append('empresa', formData.company.trim());
+    formDataToSend.append('email', formData.email.trim());
+    formDataToSend.append('telefone', phoneFormat.getRawValue());
+    formDataToSend.append('descricao_projeto', formData.message.trim());
+
+    // Adiciona o anexo APENAS se ele existir
     if (files.length > 0) {
       files.forEach(file => {
-        formDataToSend.append('data', file);
+        formDataToSend.append('data', file); 
       });
-    } else {
-      formDataToSend.append('data', 'vazio');
     }
-
-    console.log('🎯 PRIORIDADE: Enviando dados para webhook n8n:', {
-      url: webhookUrl,
-      fields: {
-        nome_completo: formData.name.trim() || 'vazio',
-        empresa: formData.company.trim() || 'vazio',
-        email: formData.email.trim() || 'vazio',
-        telefone: phoneFormat.getRawValue() || 'vazio',
-        descricao_projeto: formData.description.trim() || 'vazio',
-        files: files.length
-      }
-    });
 
     try {
       const response = await fetch(webhookUrl, {
@@ -60,10 +47,13 @@ const Quote = () => {
         body: formDataToSend,
       });
 
-      console.log('✅ Webhook n8n enviado com PRIORIDADE - Status:', response.status);
+      if (!response.ok) {
+        throw new Error(`Webhook respondeu com status: ${response.status}`);
+      }
+
       return { success: true, status: response.status };
     } catch (error) {
-      console.error('❌ Erro CRÍTICO no webhook n8n:', error);
+      console.error('Erro no envio para o webhook n8n:', error);
       throw error;
     }
   };
