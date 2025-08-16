@@ -32,7 +32,7 @@ const Quote = () => {
     formDataToSend.append('empresa', formData.company.trim());
     formDataToSend.append('email', formData.email.trim());
     formDataToSend.append('telefone', phoneFormat.getRawValue());
-    formDataToSend.append('descricao_projeto', formData.message.trim());
+    formDataToSend.append('descricao_projeto', formData.description.trim());
 
     // Adiciona o anexo APENAS se ele existir
     if (files.length > 0) {
