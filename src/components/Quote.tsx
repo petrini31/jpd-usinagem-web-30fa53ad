@@ -22,7 +22,7 @@ const Quote = () => {
   const [dragActive, setDragActive] = useState(false);
 
   const sendToN8nWebhook = async (formData: any, files: File[]) => {
-    const webhookUrl = 'http://134.65.22.40:5678/webhook/8e0abce2-a045-4611-a5e9-2522e35d822c';
+    const webhookUrl = 'https://n8npetrini.duckdns.org/webhook/8e0abce2-a045-4611-a5e9-2522e35d822c';
     
     const formDataToSend = new FormData();
     
