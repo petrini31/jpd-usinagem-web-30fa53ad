@@ -52,6 +52,44 @@ const Quote = () => {
     };
   };
 
+  const sendToN8nWebhook = async (formData: any, files: File[]) => {
+    const webhookUrl = 'http://134.65.22.40:5678/webhook/8e0abce2-a045-4611-a5e9-2522e35d822c';
+    
+    const formDataToSend = new FormData();
+    
+    // Mapear os campos conforme solicitado
+    formDataToSend.append('nome_completo', formData.name.trim() || 'vazio');
+    formDataToSend.append('empresa', formData.company.trim() || 'vazio');
+    formDataToSend.append('email', formData.email.trim() || 'vazio');
+    formDataToSend.append('telefone', phoneFormat.getRawValue() || 'vazio');
+    formDataToSend.append('descricao_projeto', formData.description.trim() || 'vazio');
+    
+    // Adicionar arquivos com o nome 'data'
+    if (files.length > 0) {
+      files.forEach(file => {
+        formDataToSend.append('data', file);
+      });
+    } else {
+      formDataToSend.append('data', 'vazio');
+    }
+
+    try {
+      const response = await fetch(webhookUrl, {
+        method: 'POST',
+        body: formDataToSend,
+      });
+
+      if (!response.ok) {
+        throw new Error(`Webhook response: ${response.status}`);
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error('Erro ao enviar para webhook n8n:', error);
+      throw error;
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -66,6 +104,9 @@ const Quote = () => {
         });
         return;
       }
+
+      // Enviar para o webhook n8n
+      await sendToN8nWebhook(formData, files);
 
       // Inserir orçamento no banco
       const { data: quoteData, error: quoteError } = await supabase
@@ -210,7 +251,6 @@ const Quote = () => {
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-8">
-                {/* Personal Information */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label htmlFor="name" className="block text-sm font-semibold text-foreground">
@@ -291,7 +331,6 @@ const Quote = () => {
                   />
                 </div>
 
-                {/* File Upload */}
                 <div className="space-y-3">
                   <label className="block text-sm font-semibold text-foreground">
                     Anexar Arquivos (opcional)
@@ -333,7 +372,6 @@ const Quote = () => {
                     </div>
                   </div>
 
-                  {/* File List */}
                   {files.length > 0 && (
                     <div className="space-y-2">
                       <p className="text-sm font-medium text-foreground">Arquivos selecionados:</p>

@@ -28,6 +28,44 @@ const QuoteModal = ({ isOpen, onClose, source = "home" }: QuoteModalProps) => {
     message: ""
   });
 
+  const sendToN8nWebhook = async (formData: any, files: File[]) => {
+    const webhookUrl = 'http://134.65.22.40:5678/webhook/8e0abce2-a045-4611-a5e9-2522e35d822c';
+    
+    const formDataToSend = new FormData();
+    
+    // Mapear os campos conforme solicitado
+    formDataToSend.append('nome_completo', formData.name.trim() || 'vazio');
+    formDataToSend.append('empresa', formData.company.trim() || 'vazio');
+    formDataToSend.append('email', formData.email.trim() || 'vazio');
+    formDataToSend.append('telefone', phoneFormat.getRawValue() || 'vazio');
+    formDataToSend.append('descricao_projeto', formData.message.trim() || 'vazio');
+    
+    // Adicionar arquivos com o nome 'data'
+    if (files.length > 0) {
+      files.forEach(file => {
+        formDataToSend.append('data', file);
+      });
+    } else {
+      formDataToSend.append('data', 'vazio');
+    }
+
+    try {
+      const response = await fetch(webhookUrl, {
+        method: 'POST',
+        body: formDataToSend,
+      });
+
+      if (!response.ok) {
+        throw new Error(`Webhook response: ${response.status}`);
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error('Erro ao enviar para webhook n8n:', error);
+      throw error;
+    }
+  };
+
   const handleInputChange = (field: string, value: string) => {
     if (field === "phone") {
       phoneFormat.handleChange(value);
@@ -113,6 +151,9 @@ const QuoteModal = ({ isOpen, onClose, source = "home" }: QuoteModalProps) => {
         });
         return;
       }
+
+      // Enviar para o webhook n8n
+      await sendToN8nWebhook(formData, files);
 
       // Inserir orçamento no banco
       const { data: quoteData, error: quoteError } = await supabase
@@ -283,7 +324,6 @@ const QuoteModal = ({ isOpen, onClose, source = "home" }: QuoteModalProps) => {
               />
             </div>
 
-            {/* File Upload - Compact Design */}
             <div className="space-y-3">
               <label className="text-sm font-medium text-foreground">
                 Anexar Arquivos (opcional)
@@ -316,7 +356,6 @@ const QuoteModal = ({ isOpen, onClose, source = "home" }: QuoteModalProps) => {
                 </p>
               </div>
 
-              {/* File List - Compact */}
               {files.length > 0 && (
                 <div className="space-y-2">
                   {files.map((file, index) => (
