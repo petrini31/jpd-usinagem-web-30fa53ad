@@ -83,7 +83,9 @@ const Footer = () => {
 
         {/* Service Areas Section */}
         <div className="border-t border-primary-foreground/20 mt-8 pt-8">
-          <h4 className="text-lg font-semibold mb-4 text-center md:text-left">Áreas de Atuação</h4>
+          <h4 className="text-lg font-semibold mb-4 text-center md:text-left">
+            Áreas de Atuação - Atendemos os maiores mercados do Brasil
+          </h4>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2">
             {serviceAreas.map((area, index) => (
               <Badge 

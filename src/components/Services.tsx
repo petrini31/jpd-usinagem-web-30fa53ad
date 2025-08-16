@@ -7,7 +7,7 @@ import OptimizedImage from "./OptimizedImage";
 
 // Import das novas imagens dos serviços
 const usinagemCncImage = "/lovable-uploads/f370996c-dd23-4c78-b534-ce466c030a0b.png";
-const desenhosIndustriaisImage = "/lovable-uploads/39454b83-b7cf-4cbe-83d6-9609d65aa701.png";
+const bicosInjecaoImage = "/lovable-uploads/3b518978-4d9c-4d5b-bcf8-4485bc695d1b.png";
 const cilindrosPneumaticosImage = "/lovable-uploads/2e86ffbf-edfb-42e6-abea-d053f935f05b.png";
 const torneamentoImage = "/lovable-uploads/5747a4c1-c343-4946-a329-d3e6c45e6be9.png";
 const fresamentoImage = "/lovable-uploads/d96ed422-eb47-483d-8dff-2ec3026e0fa7.png";
@@ -60,31 +60,31 @@ const Services = () => {
       }
     },
     {
-      id: 'desenhos-industriais',
+      id: 'bicos-injecao-plastica',
       icon: PenTool,
-      title: "Desenhos Industriais Personalizados",
-      description: "Desenvolvemos projetos sob medida, desde o conceito até os desenhos técnicos detalhados.",
-      image: desenhosIndustriaisImage,
+      title: "Usinagem de Bicos de Injeção Plástica",
+      description: "Especialistas em usinagem de bicos de injeção plástica com tolerâncias máximas, garantindo precisão excepcional em moldes de injeção.",
+      image: bicosInjecaoImage,
       details: [
-        "Projetos personalizados do zero",
-        "Desenhos técnicos detalhados",
-        "Otimização para fabricação",
-        "Consultoria técnica especializada"
+        "Bicos de injeção com tolerâncias micrométricas",
+        "Especialização em moldes de injeção plástica",
+        "Acabamento superficial de alta qualidade",
+        "Geometrias complexas e canais de injeção precisos"
       ],
       modalContent: {
-        overview: "Desenvolvemos desenhos industriais personalizados completos, desde o conceito inicial até os desenhos técnicos finais prontos para produção.",
+        overview: "Somos especialistas na usinagem de bicos de injeção plástica, oferecendo precisão dimensional excepcional e acabamento superficial superior para moldes de injeção de alta performance.",
         benefits: [
-          "Desenvolvimento de projetos do conceito à execução",
-          "Desenhos técnicos detalhados conforme normas",
-          "Otimização para usinabilidade e custos",
-          "Simulação e validação de projetos",
-          "Consultoria técnica especializada"
+          "Tolerâncias micrométricas em bicos de injeção",
+          "Especialização em geometrias complexas de canais",
+          "Acabamento superficial espelhado",
+          "Controle rigoroso de concentricidade",
+          "Experiência em diversos tipos de polímeros"
         ],
         applications: [
-          "Máquinas especiais",
-          "Dispositivos e ferramentas",
-          "Equipamentos industriais",
-          "Protótipos funcionais"
+          "Moldes de injeção plástica",
+          "Indústria automotiva",
+          "Setor de embalagens",
+          "Componentes eletrônicos"
         ]
       }
     },
@@ -293,7 +293,6 @@ const Services = () => {
     }
   ];
 
-  // Dividir serviços em blocos de 3
   const serviceBlocks = useMemo(() => {
     const blocks = [];
     for (let i = 0; i < services.length; i += 3) {
@@ -302,7 +301,6 @@ const Services = () => {
     return blocks;
   }, []);
 
-  // Auto-advance carousel every 7 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       if (!isTransitioning && !selectedService) {
@@ -313,7 +311,6 @@ const Services = () => {
     return () => clearInterval(interval);
   }, [isTransitioning, selectedService, currentBlockIndex, serviceBlocks.length]);
 
-  // Touch handlers para mobile
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.touches[0].clientX);
   };
@@ -361,7 +358,6 @@ const Services = () => {
   return (
     <section id="servicos" className="py-8 md:py-16 bg-background">
       <div className="container mx-auto px-4">
-        {/* Header - Left aligned */}
         <div className="mb-6 md:mb-12 animate-fade-in">
           <div className="max-w-2xl text-left">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6">
@@ -374,7 +370,6 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Services Carousel */}
         <div className="relative mb-6 md:mb-12 px-2 md:px-8">
           <div 
             ref={carouselRef}
@@ -454,7 +449,6 @@ const Services = () => {
             </div>
           </div>
 
-          {/* Navigation Arrows */}
           <Button
             variant="outline"
             size="icon"
@@ -475,7 +469,6 @@ const Services = () => {
             <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
           </Button>
 
-          {/* Dot indicators */}
           <div className="flex justify-center gap-2 mt-6 md:mt-8">
             {serviceBlocks.map((_, index) => (
               <button
@@ -491,7 +484,6 @@ const Services = () => {
             ))}
           </div>
 
-          {/* Mobile Navigation */}
           <div className="flex justify-center gap-4 mt-4 md:mt-6 lg:hidden">
             <Button 
               variant="outline" 
@@ -514,7 +506,6 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Service Details Modal - Otimizado para mobile */}
         <Dialog open={!!selectedService} onOpenChange={() => setSelectedService(null)}>
           <DialogContent className="max-w-4xl max-h-[90vh] md:max-h-[80vh] overflow-y-auto mx-2 md:mx-auto">
             {selectedService && (
@@ -530,7 +521,6 @@ const Services = () => {
                 </DialogHeader>
                 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mt-4 md:mt-6">
-                  {/* Benefits */}
                   <div>
                     <h4 className="text-lg md:text-xl font-semibold text-foreground mb-3 md:mb-4 flex items-center gap-2">
                       <Cog className="w-4 h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
@@ -546,7 +536,6 @@ const Services = () => {
                     </ul>
                   </div>
                   
-                  {/* Applications */}
                   <div>
                     <h4 className="text-lg md:text-xl font-semibold text-foreground mb-3 md:mb-4 flex items-center gap-2">
                       <Settings className="w-4 h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />

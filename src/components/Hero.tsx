@@ -41,10 +41,10 @@ const Hero = () => {
 
           <Button 
             size="lg"
-            onClick={() => scrollToSection('servicos')}
+            onClick={() => scrollToSection('orcamento')}
             className="bg-primary text-white hover:bg-primary/90 transition-all text-lg px-8 py-4"
           >
-            Conheça Nossos Serviços
+            Solicitar Orçamento
             <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
         </div>

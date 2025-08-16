@@ -6,7 +6,6 @@ import MaterialsCarousel from "@/components/MaterialsCarousel";
 import Portfolio from "@/components/Portfolio";
 import MarketSectors from "@/components/MarketSectors";
 import Pneumatica from "@/components/Pneumatica";
-import BlogPreview from "@/components/BlogPreview";
 import Quote from "@/components/Quote";
 import Company from "@/components/Company";
 import Contact from "@/components/Contact";
@@ -93,7 +92,6 @@ const Index = () => {
       <MarketSectors />
       <Portfolio />
       <Pneumatica />
-      <BlogPreview />
       <Company />
       <Contact />
       <Quote />

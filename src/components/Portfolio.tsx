@@ -1,4 +1,3 @@
-
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -24,10 +23,10 @@ const Portfolio = () => {
       tags: ["Pneumática", "Cilindros", "Automação Atibaia"]
     },
     {
-      title: "Usinagem CNC de Precisão São Paulo",
-      description: "Peças usinadas com alta precisão e qualidade para indústrias de São Paulo, atendendo às necessidades específicas de cada cliente.",
-      image: "/lovable-uploads/f370996c-dd23-4c78-b534-ce466c030a0b.png",
-      tags: ["CNC São Paulo", "Usinagem", "Precisão"]
+      title: "Usinagem de Bicos de Injeção Plástica",
+      description: "Fabricação de bicos valvulados e componentes para injetoras com precisão dimensional excepcional.",
+      image: "/lovable-uploads/48ae22ca-4c4f-4fbb-b4bb-e74727daef9f.png",
+      tags: ["Bicos Valvulados", "Injetora", "Moldes"]
     },
     {
       title: "Projetos de Desenho Técnico Bragança Paulista",
@@ -36,24 +35,23 @@ const Portfolio = () => {
       tags: ["Desenho Técnico", "Projetos Bragança", "Engenharia"]
     },
     {
-      title: "Manutenção e Recuperação Industrial",
-      description: "Serviços de manutenção e recuperação de peças industriais em Bom Jesus dos Perdões, prolongando a vida útil e reduzindo custos.",
+      title: "Manutenção Industrial",
+      description: "Serviços especializados de manutenção e recuperação de componentes industriais.",
       image: "/lovable-uploads/9bc73a42-18ba-45e1-96b7-c2035acfb640.png",
-      tags: ["Manutenção", "Recuperação", "Industrial Bom Jesus"]
+      tags: ["Manutenção", "Recuperação", "Industrial"]
     },
     {
-      title: "Ferramentais e Dispositivos Região SP",
-      description: "Fabricação de ferramentais e dispositivos para otimizar processos de produção na região de São Paulo e garantir a repetibilidade.",
+      title: "Ferramentais e Dispositivos",
+      description: "Fabricação de ferramentais e dispositivos para otimizar processos produtivos.",
       image: "/lovable-uploads/5747a4c1-c343-4946-a329-d3e6c45e6be9.png",
-      tags: ["Ferramentas", "Dispositivos", "Produção SP"]
+      tags: ["Ferramentas", "Dispositivos", "Produção"]
     },
     {
-      title: "Moldes de Injeção Alta Precisão",
-      description: "Especialistas na fabricação de moldes de injeção, garantindo precisão e durabilidade para a indústria em toda região.",
+      title: "Moldes de Injeção",
+      description: "Especialistas na fabricação de moldes de injeção com precisão e durabilidade.",
       image: "/lovable-uploads/7de9727d-b15c-4acd-a2b3-8bc626ea3949.png",
-      tags: ["Moldes", "Injeção", "Plástico Precisão"]
+      tags: ["Moldes", "Injeção", "Precisão"]
     },
-    // Adicionando mais 6 projetos para completar 12 (3x4)
     {
       title: "Usinagem CNC de Precisão",
       description: "Processo de usinagem CNC com alta precisão e qualidade para indústrias da região",
@@ -115,7 +113,7 @@ const Portfolio = () => {
                 <OptimizedImage
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-24 md:h-32 object-cover border-2 border-red-500 group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-24 md:h-32 object-cover group-hover:scale-105 transition-transform duration-300"
                   loading={index < 6 ? "eager" : "lazy"}
                   priority={index < 6}
                 />
