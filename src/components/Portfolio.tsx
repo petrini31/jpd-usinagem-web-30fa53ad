@@ -10,7 +10,6 @@ const Portfolio = () => {
   
   const openPortfolioFull = () => {
     navigate('/portfolio');
-    // Scroll to top after navigation
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 0);
@@ -18,96 +17,93 @@ const Portfolio = () => {
 
   const projects = [
     {
-      title: "Pneumática Completa Atibaia",
-      description: "Soluções pneumáticas personalizadas para otimizar processos industriais em Atibaia, garantindo eficiência e durabilidade.",
+      title: "Sistemas Pneumáticos Industriais",
+      description: "Soluções pneumáticas completas para automação industrial, incluindo cilindros customizados e sistemas integrados.",
       image: "/lovable-uploads/2e86ffbf-edfb-42e6-abea-d053f935f05b.png",
-      tags: ["Pneumática", "Cilindros", "Automação Atibaia"]
+      tags: ["Pneumática", "Cilindros", "Automação"]
     },
     {
-      title: "Usinagem CNC de Precisão São Paulo",
-      description: "Peças usinadas com alta precisão e qualidade para indústrias de São Paulo, atendendo às necessidades específicas de cada cliente.",
-      image: "/lovable-uploads/f370996c-dd23-4c78-b534-ce466c030a0b.png",
-      tags: ["CNC São Paulo", "Usinagem", "Precisão"]
+      title: "Usinagem de Bicos de Injeção Plástica",
+      description: "Fabricação especializada de bicos de injeção, bicos valvulados e sistemas para moldes de injeção plástica com alta precisão.",
+      image: "/lovable-uploads/48ae22ca-4c4f-4fbb-b4bb-e74727daef9f.png",
+      tags: ["Bicos Injeção", "Moldes", "Precisão"]
     },
     {
-      title: "Projetos de Desenho Técnico Bragança Paulista",
-      description: "Desenvolvimento de projetos de desenho técnico personalizados para Bragança Paulista, desde o conceito até a produção.",
+      title: "Projetos de Engenharia Industrial",
+      description: "Desenvolvimento de projetos técnicos personalizados, desde o conceito até a produção final.",
       image: "/lovable-uploads/39454b83-b7cf-4cbe-83d6-9609d65aa701.png",
-      tags: ["Desenho Técnico", "Projetos Bragança", "Engenharia"]
+      tags: ["Projetos", "Engenharia", "Desenvolvimento"]
     },
     {
-      title: "Manutenção e Recuperação Industrial",
-      description: "Serviços de manutenção e recuperação de peças industriais em Bom Jesus dos Perdões, prolongando a vida útil e reduzindo custos.",
+      title: "Manutenção Industrial Especializada",
+      description: "Serviços de manutenção e recuperação de componentes industriais, prolongando vida útil e otimizando performance.",
       image: "/lovable-uploads/9bc73a42-18ba-45e1-96b7-c2035acfb640.png",
-      tags: ["Manutenção", "Recuperação", "Industrial Bom Jesus"]
+      tags: ["Manutenção", "Recuperação", "Otimização"]
     },
     {
-      title: "Ferramentais e Dispositivos Região SP",
-      description: "Fabricação de ferramentais e dispositivos para otimizar processos de produção na região de São Paulo e garantir a repetibilidade.",
+      title: "Ferramentaria e Dispositivos",
+      description: "Fabricação de ferramentas e dispositivos especializados para otimizar processos de produção industrial.",
       image: "/lovable-uploads/5747a4c1-c343-4946-a329-d3e6c45e6be9.png",
-      tags: ["Ferramentas", "Dispositivos", "Produção SP"]
+      tags: ["Ferramentas", "Dispositivos", "Produção"]
     },
     {
-      title: "Moldes de Injeção Alta Precisão",
-      description: "Especialistas na fabricação de moldes de injeção, garantindo precisão e durabilidade para a indústria em toda região.",
+      title: "Moldes de Injeção de Precisão",
+      description: "Desenvolvimento de moldes de injeção com tecnologia avançada, garantindo qualidade e durabilidade superior.",
       image: "/lovable-uploads/7de9727d-b15c-4acd-a2b3-8bc626ea3949.png",
-      tags: ["Moldes", "Injeção", "Plástico Precisão"]
+      tags: ["Moldes", "Injeção", "Qualidade"]
     },
-    // Adicionando mais 6 projetos para completar 12 (3x4)
     {
-      title: "Usinagem CNC de Precisão",
-      description: "Processo de usinagem CNC com alta precisão e qualidade para indústrias da região",
+      title: "Usinagem CNC Avançada",
+      description: "Processos de usinagem CNC com tecnologia de ponta para componentes de alta complexidade e precisão.",
       image: "/lovable-uploads/7487f020-2969-4fea-93cc-7232587c319e.png",
-      tags: ["CNC", "Precisão", "Industrial"]
+      tags: ["CNC", "Precisão", "Tecnologia"]
     },
     {
-      title: "Cilindros Pneumáticos Personalizados",
-      description: "Desenvolvimento e fabricação de cilindros pneumáticos customizados",
+      title: "Cilindros Pneumáticos Customizados",
+      description: "Desenvolvimento e fabricação de cilindros pneumáticos sob medida para aplicações industriais específicas.",
       image: "/lovable-uploads/77db13a0-f3ab-40f1-ad6e-d00c2a3ca32b.png",
-      tags: ["Pneumática", "Cilindros", "Customização"]
+      tags: ["Pneumática", "Customização", "Industrial"]
     },
     {
-      title: "Torneamento de Precisão",
-      description: "Operação de torneamento para peças cilíndricas com máxima precisão",
+      title: "Torneamento de Alta Precisão",
+      description: "Operações de torneamento especializado para componentes que exigem tolerâncias rigorosas e acabamento superior.",
       image: "/lovable-uploads/4d1166a1-566a-4f33-a6fb-05a628da0ceb.png",
-      tags: ["Torneamento", "Precisão", "Peças"]
+      tags: ["Torneamento", "Precisão", "Acabamento"]
     },
     {
       title: "Fresamento Industrial",
-      description: "Processo de fresamento para usinagem de superfícies complexas",
+      description: "Processos de fresamento para usinagem de superfícies complexas e componentes de geometria avançada.",
       image: "/lovable-uploads/79615b86-054f-4f10-90ae-9bb561911010.png",
-      tags: ["Fresamento", "Industrial", "Superfícies"]
+      tags: ["Fresamento", "Superfícies", "Geometria"]
     },
     {
-      title: "Componentes de Alta Qualidade",
-      description: "Fabricação de componentes industriais com padrões de qualidade superiores",
+      title: "Componentes de Alta Performance",
+      description: "Fabricação de componentes industriais com padrões superiores de qualidade e durabilidade.",
       image: "/lovable-uploads/3b518978-4d9c-4d5b-bcf8-4485bc695d1b.png",
-      tags: ["Componentes", "Qualidade", "Industrial"]
+      tags: ["Componentes", "Performance", "Durabilidade"]
     },
     {
       title: "Peças Usinadas Especiais",
-      description: "Desenvolvimento de peças especiais para aplicações específicas da indústria",
+      description: "Desenvolvimento de peças sob medida para aplicações específicas, utilizando materiais e técnicas avançadas.",
       image: "/lovable-uploads/aec5fa4d-81c6-4c81-938b-e57e9900c236.png",
-      tags: ["Peças Especiais", "Usinagem", "Customização"]
+      tags: ["Peças Especiais", "Sob Medida", "Avançado"]
     }
   ];
 
   return (
     <section id="portfolio" className="py-12 md:py-20 bg-background">
       <div className="container mx-auto px-4">
-        {/* Header - Left aligned */}
+        {/* Header */}
         <div className="mb-8 md:mb-16 animate-fade-in text-left">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6">
             Nosso <span className="text-primary">Portfólio</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl">
-            Explore alguns dos nossos projetos mais recentes de usinagem CNC, fresamento, torneamento e cilindros pneumáticos 
-            para Atibaia, Bragança Paulista, Bom Jesus dos Perdões e toda região de São Paulo. Descubra como podemos ajudar 
-            a sua empresa a alcançar novos patamares de excelência industrial.
+            Explore alguns dos nossos projetos mais recentes de usinagem CNC, ferramentaria e sistemas pneumáticos. 
+            Cada projeto demonstra nossa expertise e compromisso com a excelência em soluções industriais.
           </p>
         </div>
 
-        {/* Layout ajustado para 3x4 com quadro menor */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 mb-8 md:mb-12 max-w-5xl mx-auto">
           {projects.map((project, index) => (
             <Card key={index} className="group hover:shadow-medium transition-all duration-300 border border-border/50 overflow-hidden">
@@ -144,7 +140,6 @@ const Portfolio = () => {
           ))}
         </div>
 
-        {/* CTA Button */}
         <div className="text-center">
           <Button 
             onClick={openPortfolioFull}
