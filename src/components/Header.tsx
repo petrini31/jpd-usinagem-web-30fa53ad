@@ -79,7 +79,7 @@ const Header = () => {
     if (location.pathname !== '/') {
       navigate('/');
       setTimeout(() => {
-        const element = document.getElementById('quote');
+        const element = document.getElementById('orcamento');
         if (element) {
           const elementPosition = element.offsetTop - 80;
           window.scrollTo({ 
@@ -89,7 +89,7 @@ const Header = () => {
         }
       }, 100);
     } else {
-      const element = document.getElementById('quote');
+      const element = document.getElementById('orcamento');
       if (element) {
         const elementPosition = element.offsetTop - 80;
         window.scrollTo({ 
@@ -107,7 +107,6 @@ const Header = () => {
     { name: 'Atuações', id: 'atuacoes' },
     { name: 'Portfólio', id: 'portfolio' },
     { name: 'Pneumática', id: 'pneumatica' },
-    { name: 'Blog', id: 'blog' },
     { name: 'A Empresa', id: 'empresa' },
     { name: 'Contato', id: 'contato' }
   ];

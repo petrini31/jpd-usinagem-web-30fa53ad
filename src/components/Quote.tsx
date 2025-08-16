@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Upload, FileText, Send, X, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -21,6 +20,37 @@ const Quote = () => {
   });
   const [files, setFiles] = useState<File[]>([]);
   const [dragActive, setDragActive] = useState(false);
+
+  const uploadFile = async (file: File, quoteId: string) => {
+    const fileExt = file.name.split('.').pop();
+    const fileName = `${quoteId}/${Date.now()}.${fileExt}`;
+    
+    const { data, error } = await supabase.storage
+      .from('quote-attachments')
+      .upload(fileName, file);
+
+    if (error) throw error;
+
+    // Salvar informações do arquivo na tabela
+    const { error: dbError } = await supabase
+      .from('quote_attachments')
+      .insert({
+        quote_id: quoteId,
+        file_name: file.name,
+        file_size: file.size,
+        file_type: file.type,
+        file_url: data.path
+      });
+
+    if (dbError) throw dbError;
+
+    return {
+      fileName: file.name,
+      fileSize: file.size,
+      fileType: file.type,
+      fileUrl: data.path
+    };
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -54,32 +84,32 @@ const Quote = () => {
       if (quoteError) throw quoteError;
 
       // Upload de arquivos se existirem
+      let attachments: any[] = [];
       if (files.length > 0) {
-        await Promise.all(
-          files.map(async (file) => {
-            const fileExt = file.name.split('.').pop();
-            const fileName = `${quoteData.id}/${Date.now()}.${fileExt}`;
-            
-            const { data, error } = await supabase.storage
-              .from('quote-attachments')
-              .upload(fileName, file);
-
-            if (error) throw error;
-
-            // Salvar informações do arquivo na tabela
-            const { error: dbError } = await supabase
-              .from('quote_attachments')
-              .insert({
-                quote_id: quoteData.id,
-                file_name: file.name,
-                file_size: file.size,
-                file_type: file.type,
-                file_url: data.path
-              });
-
-            if (dbError) throw dbError;
-          })
+        attachments = await Promise.all(
+          files.map(file => uploadFile(file, quoteData.id))
         );
+      }
+
+      // Enviar email automático
+      try {
+        const { error: emailError } = await supabase.functions.invoke('send-quote-email', {
+          body: {
+            fullName: formData.name.trim(),
+            email: formData.email.trim(),
+            phone: phoneFormat.getRawValue(),
+            company: formData.company.trim() || null,
+            projectDescription: formData.description.trim() || null,
+            attachments: attachments,
+            source: 'home'
+          }
+        });
+
+        if (emailError) {
+          console.error('Erro ao enviar email:', emailError);
+        }
+      } catch (emailError) {
+        console.error('Erro na função de email:', emailError);
       }
 
       toast({

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { X, Send, User, Mail, Phone, MessageSquare, Building, Upload, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -91,6 +90,13 @@ const QuoteModal = ({ isOpen, onClose, source = "home" }: QuoteModalProps) => {
       });
 
     if (dbError) throw dbError;
+
+    return {
+      fileName: file.name,
+      fileSize: file.size,
+      fileType: file.type,
+      fileUrl: data.path
+    };
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -125,10 +131,32 @@ const QuoteModal = ({ isOpen, onClose, source = "home" }: QuoteModalProps) => {
       if (quoteError) throw quoteError;
 
       // Upload de arquivos se existirem
+      let attachments: any[] = [];
       if (files.length > 0) {
-        await Promise.all(
+        attachments = await Promise.all(
           files.map(file => uploadFile(file, quoteData.id))
         );
+      }
+
+      // Enviar email automático
+      try {
+        const { error: emailError } = await supabase.functions.invoke('send-quote-email', {
+          body: {
+            fullName: formData.name.trim(),
+            email: formData.email.trim(),
+            phone: phoneFormat.getRawValue(),
+            company: formData.company.trim() || null,
+            projectDescription: formData.message.trim() || null,
+            attachments: attachments,
+            source: source
+          }
+        });
+
+        if (emailError) {
+          console.error('Erro ao enviar email:', emailError);
+        }
+      } catch (emailError) {
+        console.error('Erro na função de email:', emailError);
       }
 
       toast({

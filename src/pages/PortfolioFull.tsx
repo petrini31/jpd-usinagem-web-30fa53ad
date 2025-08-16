@@ -20,24 +20,25 @@ const PortfolioFull = () => {
   
   const portfolioItems = [
     { id: 1, image: "/lovable-uploads/7487f020-2969-4fea-93cc-7232587c319e.png", title: "Usinagem CNC de precisão em Atibaia", description: "Processo de usinagem CNC com alta precisão e qualidade para indústrias de Atibaia e região" },
-    { id: 2, image: "/lovable-uploads/4d1166a1-566a-4f33-a6fb-05a628da0ceb.png", title: "Torneamento de precisão Bom Jesus dos Perdões", description: "Operação de torneamento para peças cilíndricas com máxima precisão" },
-    { id: 3, image: "/lovable-uploads/79615b86-054f-4f10-90ae-9bb561911010.png", title: "Fresamento industrial Bragança Paulista", description: "Processo de fresamento para usinagem de superfícies complexas na região de Bragança" },
-    { id: 4, image: "/lovable-uploads/77db13a0-f3ab-40f1-ad6e-d00c2a3ca32b.png", title: "Fabricação de cilindros pneumáticos São Paulo", description: "Desenvolvimento e fabricação de cilindros pneumáticos personalizados para toda São Paulo" },
-    { id: 5, image: "/lovable-uploads/dd128e84-9545-4e4d-a57a-8aaca84f4a9b.png", title: "Cilindros pneumáticos em operação industrial", description: "Cilindro pneumático da JPD Usinagem em operação industrial de alta performance" },
-    { id: 6, image: "/lovable-uploads/3b518978-4d9c-4d5b-bcf8-4485bc695d1b.png", title: "Bicos injetores usinados com precisão", description: "Fabricação de bicos injetores de alta precisão para aplicações industriais" },
-    { id: 7, image: "/lovable-uploads/aec5fa4d-81c6-4c81-938b-e57e9900c236.png", title: "Usinagem em série para indústrias", description: "Produção em série de peças usinadas com qualidade consistente para grandes volumes" },
-    { id: 8, image: "/lovable-uploads/209bf881-1ece-45ad-9b34-a76bd704a853.png", title: "Tratamento de peças de precisão", description: "Peças usinadas com acabamento e tratamento especial para aplicações críticas" },
-    { id: 9, image: "/lovable-uploads/1159c5da-7355-4c50-9483-b457bb702d07.png", title: "Manutenção de componentes industriais", description: "Serviços especializados de manutenção e reparo de componentes industriais" },
-    { id: 10, image: "/lovable-uploads/1bf1d819-ce80-415a-b87c-fd78e53be919.png", title: "Usinagem de arruelas e componentes", description: "Fabricação de arruelas e componentes de fixação com precisão dimensional" },
-    { id: 11, image: "/lovable-uploads/a47de443-9f77-4dad-8b27-afbe4499fcb3.png", title: "Desenho 3D de peças utilizando SolidWorks", description: "Desenvolvimento de peças em 3D utilizando o software SolidWorks com precisão técnica" },
-    { id: 12, image: "/lovable-uploads/b52c3490-e9ca-4a77-8890-a97adb936f28.png", title: "Desenho CAM software SolidWorks", description: "Programação CAM para usinagem automatizada através do SolidWorks" },
-    { id: 13, image: "/lovable-uploads/e48e8e08-7abd-4564-bb6a-2f78a6c39ae7.png", title: "Desenho 3D de embalagem", description: "Desenvolvimento de projetos 3D para soluções de embalagem customizadas" },
-    { id: 14, image: "/lovable-uploads/c790e369-fe03-4fd2-aeea-f3c5117ed598.png", title: "Manutenção de cilindros pneumáticos Parker", description: "Serviços especializados de manutenção e reparo em cilindros pneumáticos Parker" },
-    { id: 15, image: "/lovable-uploads/62714cf4-a52d-41b2-8be3-ef32206484f5.png", title: "Cilindros Pneumáticos de precisão", description: "Linha completa de cilindros pneumáticos fabricados com alta precisão dimensional" },
-    { id: 16, image: "/lovable-uploads/c04a5de3-d203-4738-84d5-9dfa43a46eee.png", title: "Usinagem de bicos rosqueáveis", description: "Fabricação de bicos com roscas de alta precisão para aplicações industriais específicas" },
-    { id: 17, image: "/lovable-uploads/61e252e4-2932-493c-aeb8-9c567a147615.png", title: "Usinagem de roscas de precisão", description: "Processos especializados de usinagem para roscas de alta precisão e acabamento" },
-    { id: 18, image: "/lovable-uploads/5bd32bfd-e0df-45a6-ac88-736216a53e2d.png", title: "Usinagem de roldanas para passagem de fiação", description: "Fabricação de roldanas especializadas para sistemas de passagem de fiação industrial" },
-    { id: 19, image: "/lovable-uploads/6314b530-f73f-499a-abc1-f5c6f733b59b.png", title: "Usinagem em materiais plásticos", description: "Processos especializados de usinagem em diversos tipos de materiais plásticos técnicos" }
+    { id: 2, image: "/lovable-uploads/d268acc0-92e6-4fdb-b950-427519cc8d6f.png", title: "Usinagem de Bicos de Injeção Plástica", description: "Fabricação de bicos valvulados e componentes para injetoras com precisão dimensional excepcional" },
+    { id: 3, image: "/lovable-uploads/4d1166a1-566a-4f33-a6fb-05a628da0ceb.png", title: "Torneamento de precisão Bom Jesus dos Perdões", description: "Operação de torneamento para peças cilíndricas com máxima precisão" },
+    { id: 4, image: "/lovable-uploads/79615b86-054f-4f10-90ae-9bb561911010.png", title: "Fresamento industrial Bragança Paulista", description: "Processo de fresamento para usinagem de superfícies complexas na região de Bragança" },
+    { id: 5, image: "/lovable-uploads/77db13a0-f3ab-40f1-ad6e-d00c2a3ca32b.png", title: "Fabricação de cilindros pneumáticos São Paulo", description: "Desenvolvimento e fabricação de cilindros pneumáticos personalizados para toda São Paulo" },
+    { id: 6, image: "/lovable-uploads/dd128e84-9545-4e4d-a57a-8aaca84f4a9b.png", title: "Cilindros pneumáticos em operação industrial", description: "Cilindro pneumático da JPD Usinagem em operação industrial de alta performance" },
+    { id: 7, image: "/lovable-uploads/3b518978-4d9c-4d5b-bcf8-4485bc695d1b.png", title: "Bicos injetores usinados com precisão", description: "Fabricação de bicos injetores de alta precisão para aplicações industriais" },
+    { id: 8, image: "/lovable-uploads/aec5fa4d-81c6-4c81-938b-e57e9900c236.png", title: "Usinagem em série para indústrias", description: "Produção em série de peças usinadas com qualidade consistente para grandes volumes" },
+    { id: 9, image: "/lovable-uploads/209bf881-1ece-45ad-9b34-a76bd704a853.png", title: "Tratamento de peças de precisão", description: "Peças usinadas com acabamento e tratamento especial para aplicações críticas" },
+    { id: 10, image: "/lovable-uploads/1159c5da-7355-4c50-9483-b457bb702d07.png", title: "Manutenção de componentes industriais", description: "Serviços especializados de manutenção e reparo de componentes industriais" },
+    { id: 11, image: "/lovable-uploads/1bf1d819-ce80-415a-b87c-fd78e53be919.png", title: "Usinagem de arruelas e componentes", description: "Fabricação de arruelas e componentes de fixação com precisão dimensional" },
+    { id: 12, image: "/lovable-uploads/a47de443-9f77-4dad-8b27-afbe4499fcb3.png", title: "Desenho 3D de peças utilizando SolidWorks", description: "Desenvolvimento de peças em 3D utilizando o software SolidWorks com precisão técnica" },
+    { id: 13, image: "/lovable-uploads/b52c3490-e9ca-4a77-8890-a97adb936f28.png", title: "Desenho CAM software SolidWorks", description: "Programação CAM para usinagem automatizada através do SolidWorks" },
+    { id: 14, image: "/lovable-uploads/e48e8e08-7abd-4564-bb6a-2f78a6c39ae7.png", title: "Desenho 3D de embalagem", description: "Desenvolvimento de projetos 3D para soluções de embalagem customizadas" },
+    { id: 15, image: "/lovable-uploads/c790e369-fe03-4fd2-aeea-f3c5117ed598.png", title: "Manutenção de cilindros pneumáticos Parker", description: "Serviços especializados de manutenção e reparo em cilindros pneumáticos Parker" },
+    { id: 16, image: "/lovable-uploads/62714cf4-a52d-41b2-8be3-ef32206484f5.png", title: "Cilindros Pneumáticos de precisão", description: "Linha completa de cilindros pneumáticos fabricados com alta precisão dimensional" },
+    { id: 17, image: "/lovable-uploads/c04a5de3-d203-4738-84d5-9dfa43a46eee.png", title: "Usinagem de bicos rosqueáveis", description: "Fabricação de bicos com roscas de alta precisão para aplicações industriais específicas" },
+    { id: 18, image: "/lovable-uploads/61e252e4-2932-493c-aeb8-9c567a147615.png", title: "Usinagem de roscas de precisão", description: "Processos especializados de usinagem para roscas de alta precisão e acabamento" },
+    { id: 19, image: "/lovable-uploads/5bd32bfd-e0df-45a6-ac88-736216a53e2d.png", title: "Usinagem de roldanas para passagem de fiação", description: "Fabricação de roldanas especializadas para sistemas de passagem de fiação industrial" },
+    { id: 20, image: "/lovable-uploads/6314b530-f73f-499a-abc1-f5c6f733b59b.png", title: "Usinagem em materiais plásticos", description: "Processos especializados de usinagem em diversos tipos de materiais plásticos técnicos" }
   ];
 
   const goBack = () => {
