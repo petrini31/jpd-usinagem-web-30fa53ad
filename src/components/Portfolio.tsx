@@ -1,3 +1,4 @@
+
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -17,7 +18,7 @@ const Portfolio = () => {
 
   const projects = [
     {
-      title: "Pneumática Completa Atibaia",
+      title: "Pneumática Completa",
       description: "Soluções pneumáticas personalizadas para otimizar processos industriais em Atibaia, garantindo eficiência e durabilidade.",
       image: "/lovable-uploads/2e86ffbf-edfb-42e6-abea-d053f935f05b.png",
       tags: ["Pneumática", "Cilindros", "Automação Atibaia"]
@@ -29,7 +30,7 @@ const Portfolio = () => {
       tags: ["Bicos Valvulados", "Injetora", "Moldes"]
     },
     {
-      title: "Projetos de Desenho Técnico Bragança Paulista",
+      title: "Projetos de Desenho Técnico",
       description: "Desenvolvimento de projetos de desenho técnico personalizados para Bragança Paulista, desde o conceito até a produção.",
       image: "/lovable-uploads/c12eec39-9e84-4836-aad5-61b89ba29af3.png",
       tags: ["Desenho Técnico", "Projetos Bragança", "Engenharia"]

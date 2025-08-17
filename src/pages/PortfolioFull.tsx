@@ -1,3 +1,4 @@
+
 import { ArrowLeft, Download, Eye, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -19,11 +20,11 @@ const PortfolioFull = () => {
   }, []);
   
   const portfolioItems = [
-    { id: 1, image: "/lovable-uploads/7487f020-2969-4fea-93cc-7232587c319e.png", title: "Usinagem CNC de precisão em Atibaia", description: "Processo de usinagem CNC com alta precisão e qualidade para indústrias de Atibaia e região" },
+    { id: 1, image: "/lovable-uploads/7487f020-2969-4fea-93cc-7232587c319e.png", title: "Usinagem CNC de precisão", description: "Processo de usinagem CNC com alta precisão e qualidade para indústrias de Atibaia e região" },
     { id: 2, image: "/lovable-uploads/d268acc0-92e6-4fdb-b950-427519cc8d6f.png", title: "Usinagem de Bicos de Injeção Plástica", description: "Fabricação de bicos valvulados e componentes para injetoras com precisão dimensional excepcional" },
-    { id: 3, image: "/lovable-uploads/4d1166a1-566a-4f33-a6fb-05a628da0ceb.png", title: "Torneamento de precisão Bom Jesus dos Perdões", description: "Operação de torneamento para peças cilíndricas com máxima precisão" },
-    { id: 4, image: "/lovable-uploads/79615b86-054f-4f10-90ae-9bb561911010.png", title: "Fresamento industrial Bragança Paulista", description: "Processo de fresamento para usinagem de superfícies complexas na região de Bragança" },
-    { id: 5, image: "/lovable-uploads/77db13a0-f3ab-40f1-ad6e-d00c2a3ca32b.png", title: "Fabricação de cilindros pneumáticos São Paulo", description: "Desenvolvimento e fabricação de cilindros pneumáticos personalizados para toda São Paulo" },
+    { id: 3, image: "/lovable-uploads/4d1166a1-566a-4f33-a6fb-05a628da0ceb.png", title: "Torneamento de precisão", description: "Operação de torneamento para peças cilíndricas com máxima precisão" },
+    { id: 4, image: "/lovable-uploads/79615b86-054f-4f10-90ae-9bb561911010.png", title: "Fresamento industrial", description: "Processo de fresamento para usinagem de superfícies complexas na região de Bragança" },
+    { id: 5, image: "/lovable-uploads/77db13a0-f3ab-40f1-ad6e-d00c2a3ca32b.png", title: "Fabricação de cilindros pneumáticos", description: "Desenvolvimento e fabricação de cilindros pneumáticos personalizados para toda São Paulo" },
     { id: 6, image: "/lovable-uploads/dd128e84-9545-4e4d-a57a-8aaca84f4a9b.png", title: "Cilindros pneumáticos em operação industrial", description: "Cilindro pneumático da JPD Usinagem em operação industrial de alta performance" },
     { id: 7, image: "/lovable-uploads/3b518978-4d9c-4d5b-bcf8-4485bc695d1b.png", title: "Bicos injetores usinados com precisão", description: "Fabricação de bicos injetores de alta precisão para aplicações industriais" },
     { id: 8, image: "/lovable-uploads/aec5fa4d-81c6-4c81-938b-e57e9900c236.png", title: "Usinagem em série para indústrias", description: "Produção em série de peças usinadas com qualidade consistente para grandes volumes" },
@@ -57,19 +58,27 @@ const PortfolioFull = () => {
       {/* Header */}
       <header className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center gap-4">
-            <Button 
-              variant="outline" 
-              onClick={goBack}
-              className="flex items-center gap-2"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Voltar
-            </Button>
-            <div>
-              <h1 className="text-2xl font-bold text-foreground">JPD Usinagem - Portfólio Completo</h1>
-              <p className="text-muted-foreground">Galeria completa dos nossos projetos de usinagem, fresamento e torneamento</p>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <Button 
+                variant="outline" 
+                onClick={goBack}
+                className="flex items-center gap-2"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                Voltar
+              </Button>
+              <div>
+                <h1 className="text-2xl font-bold text-foreground">JPD Usinagem - Portfólio Completo</h1>
+                <p className="text-muted-foreground">Galeria completa dos nossos projetos de usinagem, fresamento e torneamento</p>
+              </div>
             </div>
+            <Button 
+              onClick={() => setIsQuoteModalOpen(true)}
+              className="bg-red-600 hover:bg-red-700 text-white"
+            >
+              Solicitar Orçamento
+            </Button>
           </div>
         </div>
       </header>
