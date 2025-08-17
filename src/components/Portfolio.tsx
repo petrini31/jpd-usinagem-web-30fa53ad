@@ -31,7 +31,7 @@ const Portfolio = () => {
     {
       title: "Projetos de Desenho Técnico Bragança Paulista",
       description: "Desenvolvimento de projetos de desenho técnico personalizados para Bragança Paulista, desde o conceito até a produção.",
-      image: "/lovable-uploads/39454b83-b7cf-4cbe-83d6-9609d65aa701.png",
+      image: "/lovable-uploads/c12eec39-9e84-4836-aad5-61b89ba29af3.png",
       tags: ["Desenho Técnico", "Projetos Bragança", "Engenharia"]
     },
     {
