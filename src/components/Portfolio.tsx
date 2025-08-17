@@ -19,9 +19,9 @@ const Portfolio = () => {
   const projects = [
     {
       title: "Pneumática Completa",
-      description: "Soluções pneumáticas personalizadas para otimizar processos industriais em Atibaia, garantindo eficiência e durabilidade.",
+      description: "Soluções pneumáticas personalizadas para otimizar processos industriais, garantindo eficiência e durabilidade.",
       image: "/lovable-uploads/2e86ffbf-edfb-42e6-abea-d053f935f05b.png",
-      tags: ["Pneumática", "Cilindros", "Automação Atibaia"]
+      tags: ["Pneumática", "Cilindros", "Automação"]
     },
     {
       title: "Usinagem de Bicos de Injeção Plástica",
@@ -31,9 +31,9 @@ const Portfolio = () => {
     },
     {
       title: "Projetos de Desenho Técnico",
-      description: "Desenvolvimento de projetos de desenho técnico personalizados para Bragança Paulista, desde o conceito até a produção.",
+      description: "Desenvolvimento de projetos de desenho técnico personalizados, desde o conceito até a produção.",
       image: "/lovable-uploads/c12eec39-9e84-4836-aad5-61b89ba29af3.png",
-      tags: ["Desenho Técnico", "Projetos Bragança", "Engenharia"]
+      tags: ["Desenho Técnico", "Projetos", "Engenharia"]
     },
     {
       title: "Manutenção Industrial",
@@ -93,23 +93,22 @@ const Portfolio = () => {
 
   return (
     <section id="portfolio" className="py-12 md:py-20 bg-background">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-3 md:px-4">
         {/* Header - Left aligned */}
         <div className="mb-8 md:mb-16 animate-fade-in text-left">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6">
             Nosso <span className="text-primary">Portfólio</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl">
-            Explore alguns dos nossos projetos mais recentes de usinagem CNC, fresamento, torneamento e cilindros pneumáticos 
-            para Atibaia, Bragança Paulista, Bom Jesus dos Perdões e toda região de São Paulo. Descubra como podemos ajudar 
+            Explore alguns dos nossos projetos mais recentes de usinagem CNC, fresamento, torneamento e cilindros pneumáticos. Descubra como podemos ajudar 
             a sua empresa a alcançar novos patamares de excelência industrial.
           </p>
         </div>
 
-        {/* Layout ajustado para 3x4 com quadro menor */}
+        {/* Layout ajustado para mostrar apenas 8 cards no mobile (4 filas de 2) */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 mb-8 md:mb-12 max-w-5xl mx-auto">
-          {projects.map((project, index) => (
-            <Card key={index} className="group hover:shadow-medium transition-all duration-300 border border-border/50 overflow-hidden">
+          {projects.slice(0, 8).map((project, index) => (
+            <Card key={index} className="group hover:shadow-medium transition-all duration-300 border border-border/50 overflow-hidden md:block">
               <div className="relative overflow-hidden">
                 <OptimizedImage
                   src={project.image}
@@ -141,10 +140,45 @@ const Portfolio = () => {
               </CardContent>
             </Card>
           ))}
+          {/* Mostrar os outros cards apenas no desktop */}
+          <div className="hidden md:contents">
+            {projects.slice(8).map((project, index) => (
+              <Card key={index + 8} className="group hover:shadow-medium transition-all duration-300 border border-border/50 overflow-hidden">
+                <div className="relative overflow-hidden">
+                  <OptimizedImage
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                
+                <CardContent className="p-3">
+                  <h3 className="text-sm font-semibold text-foreground mb-1 group-hover:text-primary transition-colors line-clamp-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-xs text-muted-foreground mb-2 line-clamp-2">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-1">
+                    {project.tags.slice(0, 2).map((tag, tagIndex) => (
+                      <span 
+                        key={tagIndex}
+                        className="inline-flex items-center px-1 py-0.5 bg-secondary text-secondary-foreground text-xs rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
 
         {/* CTA Button */}
-        <div className="text-center">
+        <div className="text-center px-3 md:px-0">
           <Button 
             onClick={openPortfolioFull}
             size="lg"

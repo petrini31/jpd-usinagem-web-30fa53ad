@@ -20,11 +20,11 @@ const PortfolioFull = () => {
   }, []);
   
   const portfolioItems = [
-    { id: 1, image: "/lovable-uploads/7487f020-2969-4fea-93cc-7232587c319e.png", title: "Usinagem CNC de precisão", description: "Processo de usinagem CNC com alta precisão e qualidade para indústrias de Atibaia e região" },
+    { id: 1, image: "/lovable-uploads/7487f020-2969-4fea-93cc-7232587c319e.png", title: "Usinagem CNC de precisão", description: "Processo de usinagem CNC com alta precisão e qualidade para indústrias" },
     { id: 2, image: "/lovable-uploads/d268acc0-92e6-4fdb-b950-427519cc8d6f.png", title: "Usinagem de Bicos de Injeção Plástica", description: "Fabricação de bicos valvulados e componentes para injetoras com precisão dimensional excepcional" },
     { id: 3, image: "/lovable-uploads/4d1166a1-566a-4f33-a6fb-05a628da0ceb.png", title: "Torneamento de precisão", description: "Operação de torneamento para peças cilíndricas com máxima precisão" },
-    { id: 4, image: "/lovable-uploads/79615b86-054f-4f10-90ae-9bb561911010.png", title: "Fresamento industrial", description: "Processo de fresamento para usinagem de superfícies complexas na região de Bragança" },
-    { id: 5, image: "/lovable-uploads/77db13a0-f3ab-40f1-ad6e-d00c2a3ca32b.png", title: "Fabricação de cilindros pneumáticos", description: "Desenvolvimento e fabricação de cilindros pneumáticos personalizados para toda São Paulo" },
+    { id: 4, image: "/lovable-uploads/79615b86-054f-4f10-90ae-9bb561911010.png", title: "Fresamento industrial", description: "Processo de fresamento para usinagem de superfícies complexas" },
+    { id: 5, image: "/lovable-uploads/77db13a0-f3ab-40f1-ad6e-d00c2a3ca32b.png", title: "Fabricação de cilindros pneumáticos", description: "Desenvolvimento e fabricação de cilindros pneumáticos personalizados" },
     { id: 6, image: "/lovable-uploads/dd128e84-9545-4e4d-a57a-8aaca84f4a9b.png", title: "Cilindros pneumáticos em operação industrial", description: "Cilindro pneumático da JPD Usinagem em operação industrial de alta performance" },
     { id: 7, image: "/lovable-uploads/3b518978-4d9c-4d5b-bcf8-4485bc695d1b.png", title: "Bicos injetores usinados com precisão", description: "Fabricação de bicos injetores de alta precisão para aplicações industriais" },
     { id: 8, image: "/lovable-uploads/aec5fa4d-81c6-4c81-938b-e57e9900c236.png", title: "Usinagem em série para indústrias", description: "Produção em série de peças usinadas com qualidade consistente para grandes volumes" },
@@ -57,25 +57,25 @@ const PortfolioFull = () => {
       
       {/* Header */}
       <header className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
+        <div className="container mx-auto px-3 md:px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 md:gap-4">
               <Button 
                 variant="outline" 
                 onClick={goBack}
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 text-xs md:text-sm"
               >
-                <ArrowLeft className="w-4 h-4" />
+                <ArrowLeft className="w-3 h-3 md:w-4 md:h-4" />
                 Voltar
               </Button>
               <div>
-                <h1 className="text-2xl font-bold text-foreground">JPD Usinagem - Portfólio Completo</h1>
-                <p className="text-muted-foreground">Galeria completa dos nossos projetos de usinagem, fresamento e torneamento</p>
+                <h1 className="text-lg md:text-2xl font-bold text-foreground">JPD Usinagem - Portfólio Completo</h1>
+                <p className="text-xs md:text-base text-muted-foreground">Galeria completa dos nossos projetos de usinagem, fresamento e torneamento</p>
               </div>
             </div>
             <Button 
               onClick={() => setIsQuoteModalOpen(true)}
-              className="bg-red-600 hover:bg-red-700 text-white"
+              className="bg-red-600 hover:bg-red-700 text-white text-xs md:text-sm px-2 md:px-4"
             >
               Solicitar Orçamento
             </Button>
@@ -84,30 +84,30 @@ const PortfolioFull = () => {
       </header>
 
       {/* Portfolio Grid */}
-      <main className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <main className="container mx-auto px-3 md:px-4 py-6 md:py-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6">
           {portfolioItems.map((item) => (
             <Card key={item.id} className="group hover:shadow-medium transition-all duration-300 overflow-hidden">
               <div className="relative overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-32 md:h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
                 <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Button 
                     size="sm" 
                     variant="secondary" 
-                    className="h-8 w-8 p-0"
+                    className="h-6 w-6 md:h-8 md:w-8 p-0"
                     onClick={() => setSelectedImage({image: item.image, title: item.title, description: item.description})}
                   >
-                    <Eye className="w-4 h-4" />
+                    <Eye className="w-3 h-3 md:w-4 md:h-4" />
                   </Button>
                 </div>
               </div>
-              <CardContent className="p-4">
-                <h3 className="font-semibold text-foreground mb-2 text-sm">
+              <CardContent className="p-2 md:p-4">
+                <h3 className="font-semibold text-foreground mb-1 md:mb-2 text-xs md:text-sm">
                   {item.title}
                 </h3>
                 {item.description && (
@@ -121,8 +121,8 @@ const PortfolioFull = () => {
         </div>
 
         {/* Footer */}
-        <div className="text-center mt-12 pt-8 border-t border-border">
-          <p className="text-muted-foreground mb-4">
+        <div className="text-center mt-8 md:mt-12 pt-6 md:pt-8 border-t border-border px-3 md:px-0">
+          <p className="text-muted-foreground mb-4 text-sm md:text-base">
             Quer ver seu projeto aqui? Entre em contato conosco!
           </p>
           <Button 
@@ -158,11 +158,11 @@ const PortfolioFull = () => {
                   />
                 </div>
                 
-                <div className="p-6 border-t border-border">
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
+                <div className="p-4 md:p-6 border-t border-border">
+                  <h3 className="text-lg md:text-xl font-semibold text-foreground mb-2">
                     {selectedImage.title}
                   </h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-sm md:text-base text-muted-foreground">
                     {selectedImage.description}
                   </p>
                 </div>
