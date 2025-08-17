@@ -1,4 +1,3 @@
-
 import { ArrowLeft, Download, Eye, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -21,7 +20,7 @@ const PortfolioFull = () => {
   
   const portfolioItems = [
     { id: 1, image: "/lovable-uploads/7487f020-2969-4fea-93cc-7232587c319e.png", title: "Usinagem CNC de precisão", description: "Processo de usinagem CNC com alta precisão e qualidade para indústrias" },
-    { id: 2, image: "/lovable-uploads/d268acc0-92e6-4fdb-b950-427519cc8d6f.png", title: "Usinagem de Bicos de Injeção Plástica", description: "Fabricação de bicos valvulados e componentes para injetoras com precisão dimensional excepcional" },
+    { id: 2, image: "/lovable-uploads/6fc61d13-ce85-4904-a117-6ff72caf88f1.png", title: "Usinagem de Bicos de Injeção Plástica", description: "Fabricação de bicos valvulados e componentes para injetoras com precisão dimensional excepcional" },
     { id: 3, image: "/lovable-uploads/4d1166a1-566a-4f33-a6fb-05a628da0ceb.png", title: "Torneamento de precisão", description: "Operação de torneamento para peças cilíndricas com máxima precisão" },
     { id: 4, image: "/lovable-uploads/79615b86-054f-4f10-90ae-9bb561911010.png", title: "Fresamento industrial", description: "Processo de fresamento para usinagem de superfícies complexas" },
     { id: 5, image: "/lovable-uploads/77db13a0-f3ab-40f1-ad6e-d00c2a3ca32b.png", title: "Fabricação de cilindros pneumáticos", description: "Desenvolvimento e fabricação de cilindros pneumáticos personalizados" },

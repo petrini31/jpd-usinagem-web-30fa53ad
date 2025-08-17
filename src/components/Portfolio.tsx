@@ -26,7 +26,7 @@ const Portfolio = () => {
     {
       title: "Usinagem de Bicos de Injeção Plástica",
       description: "Fabricação de bicos valvulados e componentes para injetoras com precisão dimensional excepcional.",
-      image: "/lovable-uploads/d268acc0-92e6-4fdb-b950-427519cc8d6f.png",
+      image: "/lovable-uploads/6fc61d13-ce85-4904-a117-6ff72caf88f1.png",
       tags: ["Bicos Valvulados", "Injetora", "Moldes"]
     },
     {

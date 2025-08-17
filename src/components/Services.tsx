@@ -7,7 +7,7 @@ import OptimizedImage from "./OptimizedImage";
 
 // Import das novas imagens dos serviços
 const usinagemCncImage = "/lovable-uploads/f370996c-dd23-4c78-b534-ce466c030a0b.png";
-const bicosInjecaoImage = "/lovable-uploads/3b518978-4d9c-4d5b-bcf8-4485bc695d1b.png";
+const bicosInjecaoImage = "/lovable-uploads/6fc61d13-ce85-4904-a117-6ff72caf88f1.png";
 const cilindrosPneumaticosImage = "/lovable-uploads/2e86ffbf-edfb-42e6-abea-d053f935f05b.png";
 const torneamentoImage = "/lovable-uploads/5747a4c1-c343-4946-a329-d3e6c45e6be9.png";
 const fresamentoImage = "/lovable-uploads/d96ed422-eb47-483d-8dff-2ec3026e0fa7.png";
