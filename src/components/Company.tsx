@@ -79,7 +79,7 @@ const Company = () => {
           {/* Image Section */}
           <div className="relative animate-fade-in">
             <div className="relative overflow-hidden rounded-lg shadow-strong">
-              <img src="/lovable-uploads/ff3dc369-697d-41a0-bbb3-970fd616c622.png" alt="JPD Usinagem CNC - Tecnologia de Precisão" className="w-full h-96 object-cover" />
+              <img src="/lovable-uploads/ff3dc369-697d-41a0-bbb3-970fd616c622.webp" alt="JPD Usinagem CNC - Tecnologia de Precisão" className="w-full h-96 object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
             </div>
             

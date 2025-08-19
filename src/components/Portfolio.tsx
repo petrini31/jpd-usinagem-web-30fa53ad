@@ -20,73 +20,73 @@ const Portfolio = () => {
     {
       title: "Pneumática Completa",
       description: "Soluções pneumáticas personalizadas para otimizar processos industriais, garantindo eficiência e durabilidade.",
-      image: "/lovable-uploads/2e86ffbf-edfb-42e6-abea-d053f935f05b.png",
+      image: "/lovable-uploads/2e86ffbf-edfb-42e6-abea-d053f935f05b.webp",
       tags: ["Pneumática", "Cilindros", "Automação"]
     },
     {
       title: "Usinagem de Bicos de Injeção Plástica",
       description: "Fabricação de bicos valvulados e componentes para injetoras com precisão dimensional excepcional.",
-      image: "/lovable-uploads/6fc61d13-ce85-4904-a117-6ff72caf88f1.png",
+      image: "/lovable-uploads/6fc61d13-ce85-4904-a117-6ff72caf88f1.webp",
       tags: ["Bicos Valvulados", "Injetora", "Moldes"]
     },
     {
       title: "Projetos de Desenho Técnico",
       description: "Desenvolvimento de projetos de desenho técnico personalizados, desde o conceito até a produção.",
-      image: "/lovable-uploads/c12eec39-9e84-4836-aad5-61b89ba29af3.png",
+      image: "/lovable-uploads/c12eec39-9e84-4836-aad5-61b89ba29af3.webp",
       tags: ["Desenho Técnico", "Projetos", "Engenharia"]
     },
     {
       title: "Manutenção Industrial",
       description: "Serviços especializados de manutenção e recuperação de componentes industriais.",
-      image: "/lovable-uploads/9bc73a42-18ba-45e1-96b7-c2035acfb640.png",
+      image: "/lovable-uploads/9bc73a42-18ba-45e1-96b7-c2035acfb640.webp",
       tags: ["Manutenção", "Recuperação", "Industrial"]
     },
     {
       title: "Ferramentais e Dispositivos",
       description: "Fabricação de ferramentais e dispositivos para otimizar processos produtivos.",
-      image: "/lovable-uploads/5747a4c1-c343-4946-a329-d3e6c45e6be9.png",
+      image: "/lovable-uploads/5747a4c1-c343-4946-a329-d3e6c45e6be9.webp",
       tags: ["Ferramentas", "Dispositivos", "Produção"]
     },
     {
       title: "Moldes de Injeção",
       description: "Especialistas na fabricação de moldes de injeção com precisão e durabilidade.",
-      image: "/lovable-uploads/7de9727d-b15c-4acd-a2b3-8bc626ea3949.png",
+      image: "/lovable-uploads/7de9727d-b15c-4acd-a2b3-8bc626ea3949.webp",
       tags: ["Moldes", "Injeção", "Precisão"]
     },
     {
       title: "Usinagem CNC de Precisão",
       description: "Processo de usinagem CNC com alta precisão e qualidade para indústrias da região",
-      image: "/lovable-uploads/7487f020-2969-4fea-93cc-7232587c319e.png",
+      image: "/lovable-uploads/7487f020-2969-4fea-93cc-7232587c319e.webp",
       tags: ["CNC", "Precisão", "Industrial"]
     },
     {
       title: "Cilindros Pneumáticos Personalizados",
       description: "Desenvolvimento e fabricação de cilindros pneumáticos customizados",
-      image: "/lovable-uploads/77db13a0-f3ab-40f1-ad6e-d00c2a3ca32b.png",
+      image: "/lovable-uploads/77db13a0-f3ab-40f1-ad6e-d00c2a3ca32b.webp",
       tags: ["Pneumática", "Cilindros", "Customização"]
     },
     {
       title: "Torneamento de Precisão",
       description: "Operação de torneamento para peças cilíndricas com máxima precisão",
-      image: "/lovable-uploads/4d1166a1-566a-4f33-a6fb-05a628da0ceb.png",
+      image: "/lovable-uploads/4d1166a1-566a-4f33-a6fb-05a628da0ceb.webp",
       tags: ["Torneamento", "Precisão", "Peças"]
     },
     {
       title: "Fresamento Industrial",
       description: "Processo de fresamento para usinagem de superfícies complexas",
-      image: "/lovable-uploads/79615b86-054f-4f10-90ae-9bb561911010.png",
+      image: "/lovable-uploads/79615b86-054f-4f10-90ae-9bb561911010.webp",
       tags: ["Fresamento", "Industrial", "Superfícies"]
     },
     {
       title: "Componentes de Alta Qualidade",
       description: "Fabricação de componentes industriais com padrões de qualidade superiores",
-      image: "/lovable-uploads/3b518978-4d9c-4d5b-bcf8-4485bc695d1b.png",
+      image: "/lovable-uploads/3b518978-4d9c-4d5b-bcf8-4485bc695d1b.webp",
       tags: ["Componentes", "Qualidade", "Industrial"]
     },
     {
       title: "Peças Usinadas Especiais",
       description: "Desenvolvimento de peças especiais para aplicações específicas da indústria",
-      image: "/lovable-uploads/aec5fa4d-81c6-4c81-938b-e57e9900c236.png",
+      image: "/lovable-uploads/aec5fa4d-81c6-4c81-938b-e57e9900c236.webp",
       tags: ["Peças Especiais", "Usinagem", "Customização"]
     }
   ];

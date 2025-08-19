@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import OptimizedImage from "./OptimizedImage";
-import heroImage from "@/assets/hero-cnc-industrial.jpg";
+import heroImage from "@/assets/hero-cnc-industrial.webp";
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {

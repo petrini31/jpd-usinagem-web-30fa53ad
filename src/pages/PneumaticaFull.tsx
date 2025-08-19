@@ -159,7 +159,7 @@ const PneumaticaFull = () => {
             <div className="flex justify-center lg:justify-end">
               <div className="relative">
                 <img 
-                  src="/lovable-uploads/6b860842-119a-4fbd-88fa-c950c619c263.png"
+                  src="/lovable-uploads/6b860842-119a-4fbd-88fa-c950c619c263.webp"
                   alt="Cilindro Pneumático de Alta Performance fabricado em Atibaia SP"
                   className="max-w-full h-auto max-h-[500px] object-contain drop-shadow-2xl"
                 />
@@ -214,7 +214,7 @@ const PneumaticaFull = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="relative overflow-hidden rounded-lg shadow-medium bg-background group">
               <img 
-                src="/lovable-uploads/6c709c11-9b63-4474-a89d-c18c44a9c825.png"
+                src="/lovable-uploads/6c709c11-9b63-4474-a89d-c18c44a9c825.webp"
                 alt="Cilindro Pneumático Compacto para automação industrial Atibaia"
                 className="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300"
               />
@@ -227,7 +227,7 @@ const PneumaticaFull = () => {
 
             <div className="relative overflow-hidden rounded-lg shadow-medium bg-background group">
               <img 
-                src="/lovable-uploads/479e228d-7bb4-46ae-aedd-6e67b17ba669.png"
+                src="/lovable-uploads/479e228d-7bb4-46ae-aedd-6e67b17ba669.webp"
                 alt="Cilindro Pneumático Dupla Ação para indústrias Bragança Paulista"
                 className="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300"
               />
@@ -240,7 +240,7 @@ const PneumaticaFull = () => {
 
             <div className="relative overflow-hidden rounded-lg shadow-medium bg-background group">
               <img 
-                src="/lovable-uploads/1839b284-9227-452a-95f7-420fc7a98149.png"
+                src="/lovable-uploads/1839b284-9227-452a-95f7-420fc7a98149.webp"
                 alt="Cilindro Pneumático Padrão ISO fabricado em São Paulo"
                 className="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300"
               />
@@ -253,7 +253,7 @@ const PneumaticaFull = () => {
 
             <div className="relative overflow-hidden rounded-lg shadow-medium bg-background group">
               <img 
-                src="/lovable-uploads/ba913a0e-3958-454d-a6da-e52975b0d7e1.png"
+                src="/lovable-uploads/ba913a0e-3958-454d-a6da-e52975b0d7e1.webp"
                 alt="Cilindro Pneumático Personalizado sob medida Bom Jesus dos Perdões"
                 className="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300"
               />
@@ -336,22 +336,22 @@ const PneumaticaFull = () => {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <img 
-                src="/lovable-uploads/3fd09807-9cda-4315-9551-acba74cc7458.png"
+                src="/lovable-uploads/3fd09807-9cda-4315-9551-acba74cc7458.webp"
                 alt="Cilindro pneumático para usinagem de precisão Atibaia"
                 className="w-full aspect-square object-cover rounded-lg shadow-medium"
               />
               <img 
-                src="/lovable-uploads/02127a06-e31c-4ef1-bae2-63f0dd36391f.png"
+                src="/lovable-uploads/02127a06-e31c-4ef1-bae2-63f0dd36391f.webp"
                 alt="Fabricação de cilindros pneumáticos industriais Bragança Paulista"
                 className="w-full aspect-square object-cover rounded-lg shadow-medium mt-8"
               />
               <img 
-                src="/lovable-uploads/f37af401-0c6b-4aaf-8169-c7791f20b39d.png"
+                src="/lovable-uploads/f37af401-0c6b-4aaf-8169-c7791f20b39d.webp"
                 alt="Sistema pneumático em operação Bom Jesus dos Perdões"
                 className="w-full aspect-square object-cover rounded-lg shadow-medium -mt-8"
               />
               <img 
-                src="/lovable-uploads/3bdc062c-4d3d-431e-bc8f-5c0c42be6ada.png"
+                src="/lovable-uploads/3bdc062c-4d3d-431e-bc8f-5c0c42be6ada.webp"
                 alt="Cilindros pneumáticos de alta qualidade São Paulo"
                 className="w-full aspect-square object-cover rounded-lg shadow-medium"
               />

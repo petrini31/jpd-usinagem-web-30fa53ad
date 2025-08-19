@@ -122,7 +122,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center cursor-pointer" onClick={handleLogoClick}>
             <OptimizedImage
-              src="/lovable-uploads/0a60037d-e570-41bb-88a3-401e66d51f0e.png"
+              src="/lovable-uploads/0a60037d-e570-41bb-88a3-401e66d51f0e.webp"
               alt="JPD Usinagem Logo"
               className="h-12 w-auto mr-4"
               aspectRatio="aspect-auto"

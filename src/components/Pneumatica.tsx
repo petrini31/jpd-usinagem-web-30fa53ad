@@ -82,24 +82,24 @@ const Pneumatica = () => {
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-4">
               <OptimizedImage
-                src="/lovable-uploads/35e6299d-9a61-4325-acb4-7152297159c9.png"
+                src="/lovable-uploads/35e6299d-9a61-4325-acb4-7152297159c9.webp"
                 alt="Cilindro pneumático de precisão"
                 className="w-full h-48 object-cover rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
               />
               <OptimizedImage
-                src="/lovable-uploads/a029f8f6-79e0-4060-9302-8e14e10ecbf0.png"
+                src="/lovable-uploads/a029f8f6-79e0-4060-9302-8e14e10ecbf0.webp"
                 alt="Sistema pneumático industrial"
                 className="w-full h-32 object-cover rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
               />
             </div>
             <div className="space-y-4 pt-8">
               <OptimizedImage
-                src="/lovable-uploads/dca69ce5-79d3-4cdd-a1de-6e4a0344daa7.png"
+                src="/lovable-uploads/dca69ce5-79d3-4cdd-a1de-6e4a0344daa7.webp"
                 alt="Componentes pneumáticos"
                 className="w-full h-32 object-cover rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
               />
               <OptimizedImage
-                src="/lovable-uploads/5a5b397a-73d5-43f2-b1c5-299b8039b70a.png"
+                src="/lovable-uploads/5a5b397a-73d5-43f2-b1c5-299b8039b70a.webp"
                 alt="Cilindro pneumático personalizado"
                 className="w-full h-48 object-cover rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
               />

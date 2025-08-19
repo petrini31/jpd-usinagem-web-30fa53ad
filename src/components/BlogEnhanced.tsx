@@ -43,7 +43,7 @@ Para empresas em Atibaia que buscam parceiros tecnológicos confiáveis, a JPD o
       category: "empresa",
       readTime: "5 min",
       language: "pt",
-      image: "/lovable-uploads/f370996c-dd23-4c78-b534-ce466c030a0b.png",
+      image: "/lovable-uploads/f370996c-dd23-4c78-b534-ce466c030a0b.webp",
       tags: ["Usinagem CNC Atibaia", "Produção", "Otimização"],
       relatedPosts: [3, 4, 8]
     },
@@ -78,7 +78,7 @@ Para empresas em São Paulo que buscam diferenciação competitiva através da a
       category: "pneumatica",
       readTime: "7 min",
       language: "pt",
-      image: "/lovable-uploads/35e6299d-9a61-4325-acb4-7152297159c9.png",
+      image: "/lovable-uploads/35e6299d-9a61-4325-acb4-7152297159c9.webp",
       tags: ["Cilindros Pneumáticos SP", "Automação", "Pneumática"],
       relatedPosts: [10, 1, 6]
     },
@@ -111,7 +111,7 @@ A manutenção preditiva de nossos equipamentos CNC utiliza sensores IoT e anál
       category: "tecnologia",
       readTime: "6 min",
       language: "pt",
-      image: "/lovable-uploads/7487f020-2969-4fea-93cc-7232587c319e.png",
+      image: "/lovable-uploads/7487f020-2969-4fea-93cc-7232587c319e.webp",
       tags: ["CNC", "Tecnologia", "Processos"],
       relatedPosts: [1, 4, 5]
     },
@@ -146,7 +146,7 @@ A integração com fornecedores globais é facilitada por nossos sistemas de com
       category: "setores",
       readTime: "8 min",
       language: "pt",
-      image: "/lovable-uploads/c389b1c3-66fe-4964-8cf6-c6b4966a9e60.png",
+      image: "/lovable-uploads/c389b1c3-66fe-4964-8cf6-c6b4966a9e60.webp",
       tags: ["Usinagem Automotiva", "CNC São Paulo", "Setor Automotivo"],
       relatedPosts: [1, 2, 5]
     },
@@ -183,7 +183,7 @@ Para atender à crescente demanda por medicamentos personalizados, desenvolvemos
       category: "setores",
       readTime: "7 min",
       language: "pt",
-      image: "/lovable-uploads/dec3d1a6-b3e5-42f1-b536-d50f5322c31c.png",
+      image: "/lovable-uploads/dec3d1a6-b3e5-42f1-b536-d50f5322c31c.webp",
       tags: ["Usinagem Farmacêutica", "Precisão", "Qualidade"],
       relatedPosts: [1, 2, 3]
     },
@@ -211,7 +211,7 @@ Para o setor agrícola, oferecemos também serviços de manutenção e reparo, g
       category: "setores",
       readTime: "6 min",
       language: "pt",
-      image: "/lovable-uploads/407e4db0-5aff-4ff1-a425-6473a2ccc334.png",
+      image: "/lovable-uploads/407e4db0-5aff-4ff1-a425-6473a2ccc334.webp",
       tags: ["Usinagem Agrícola", "Implementos", "Bragança Paulista"],
       relatedPosts: [1, 2, 3]
     },
@@ -239,7 +239,7 @@ A sustentabilidade também é prioridade, com processos que minimizam o uso de p
       category: "setores",
       readTime: "5 min",
       language: "pt",
-      image: "/lovable-uploads/248ec544-caa9-4ba0-8c08-898392a2d8d2.png",
+      image: "/lovable-uploads/248ec544-caa9-4ba0-8c08-898392a2d8d2.webp",
       tags: ["Usinagem Alimentícia", "Aço Inoxidável", "Sanitário"],
       relatedPosts: [1, 2, 3]
     },
@@ -265,7 +265,7 @@ Oferecemos consultoria especializada para empresas que desejam implementar melho
       category: "engenharia",
       readTime: "10 min",
       language: "pt",
-      image: "/lovable-uploads/79615b86-054f-4f10-90ae-9bb561911010.png",
+      image: "/lovable-uploads/79615b86-054f-4f10-90ae-9bb561911010.webp",
       tags: ["Engenharia Produção", "Otimização", "Métodos"],
       relatedPosts: [1, 2, 3]
     },
@@ -287,7 +287,7 @@ Our commitment to innovation and customer satisfaction makes us a trusted partne
       category: "internacional",
       readTime: "8 min",
       language: "en",
-      image: "/lovable-uploads/4d1166a1-566a-4f33-a6fb-05a628da0ceb.png",
+      image: "/lovable-uploads/4d1166a1-566a-4f33-a6fb-05a628da0ceb.webp",
       tags: ["CNC Machining", "São Paulo Brazil", "Precision Manufacturing"],
       relatedPosts: [1, 2, 3]
     },
@@ -309,7 +309,7 @@ With advanced engineering and quality control, we ensure our pneumatic cylinders
       category: "internacional",
       readTime: "7 min",
       language: "en",
-      image: "/lovable-uploads/a029f8f6-79e0-4060-9302-8e14e10ecbf0.png",
+      image: "/lovable-uploads/a029f8f6-79e0-4060-9302-8e14e10ecbf0.webp",
       tags: ["Pneumatic Cylinders", "Brazil Manufacturing", "Industrial Automation"],
       relatedPosts: [1, 2, 3]
     },
@@ -331,7 +331,7 @@ Atendemos fornecedores e fabricantes de equipamentos aeroespaciais em São Paulo
       category: "setores",
       readTime: "9 min",
       language: "pt",
-      image: "/lovable-uploads/9dd0ff85-d042-4379-b43c-18bfe0d638de.png",
+      image: "/lovable-uploads/9dd0ff85-d042-4379-b43c-18bfe0d638de.webp",
       tags: ["Usinagem Aeroespacial", "Titânio", "Alta Precisão"],
       relatedPosts: [1, 2, 3]
     },
@@ -353,7 +353,7 @@ Com foco em Indústria 4.0, nossas soluções promovem conectividade, rastreabil
       category: "engenharia",
       readTime: "12 min",
       language: "pt",
-      image: "/lovable-uploads/e95a555a-a0a9-47b3-914e-3462320aeffb.png",
+      image: "/lovable-uploads/e95a555a-a0a9-47b3-914e-3462320aeffb.webp",
       tags: ["Engenharia Processos", "Células Manufatura", "CNC"],
       relatedPosts: [1, 2, 3]
     }

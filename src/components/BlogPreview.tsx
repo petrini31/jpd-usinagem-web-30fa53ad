@@ -17,7 +17,7 @@ const BlogPreview = () => {
       category: "empresa",
       date: "2024-01-15",
       readTime: "5 min",
-      image: "/lovable-uploads/f370996c-dd23-4c78-b534-ce466c030a0b.png",
+      image: "/lovable-uploads/f370996c-dd23-4c78-b534-ce466c030a0b.webp",
       tags: ["Usinagem CNC Atibaia", "Produção"]
     },
     {
@@ -27,7 +27,7 @@ const BlogPreview = () => {
       category: "pneumatica",
       date: "2024-01-10",
       readTime: "7 min",
-      image: "/lovable-uploads/35e6299d-9a61-4325-acb4-7152297159c9.png",
+      image: "/lovable-uploads/35e6299d-9a61-4325-acb4-7152297159c9.webp",
       tags: ["Cilindros Pneumáticos SP", "Automação"]
     },
     {
@@ -37,7 +37,7 @@ const BlogPreview = () => {
       category: "tecnologia",
       date: "2024-01-08",
       readTime: "6 min",
-      image: "/lovable-uploads/7487f020-2969-4fea-93cc-7232587c319e.png",
+      image: "/lovable-uploads/7487f020-2969-4fea-93cc-7232587c319e.webp",
       tags: ["CNC", "Tecnologia"]
     }
   ];

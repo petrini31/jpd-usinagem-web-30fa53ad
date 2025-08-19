@@ -17,77 +17,77 @@ const MarketSectors = () => {
       icon: Building,
       title: "Indústria Automotiva",
       description: "Peças para motores (blocos, cabeçotes, virabrequins, bielas), transmissões (engrenagens, eixos), sistemas de freio e suspensão, componentes de chassi, moldes e ferramentas para fabricação.",
-      image: "/lovable-uploads/c389b1c3-66fe-4964-8cf6-c6b4966a9e60.png"
+      image: "/lovable-uploads/c389b1c3-66fe-4964-8cf6-c6b4966a9e60.webp"
     },
     {
       id: 'injecao-plastica',
       icon: Train,
       title: "Injeção Plástica",
       description: "Componentes para moldes de injeção plástica, matrizes, porta-moldes, insertos, canais de refrigeração, sistemas de extração e gavetas para produção de peças plásticas de alta precisão.",
-      image: "/lovable-uploads/28087462-bab2-42aa-9639-f40509fec923.png"
+      image: "/lovable-uploads/28087462-bab2-42aa-9639-f40509fec923.webp"
     },
     {
       id: 'farmaceutica',
       icon: Pill,
       title: "Indústria Farmacêutica",
       description: "Componentes para equipamentos de produção farmacêutica, máquinas de encapsulamento, sistemas de dosagem, peças para laboratórios e equipamentos de controle de qualidade com alto padrão de limpeza e precisão.",
-      image: "/lovable-uploads/dec3d1a6-b3e5-42f1-b536-d50f5322c31c.png"
+      image: "/lovable-uploads/dec3d1a6-b3e5-42f1-b536-d50f5322c31c.webp"
     },
     {
       id: 'agricola',
       icon: Cog,
       title: "Indústria Agrícola",
       description: "Componentes para tratores, colheitadeiras, equipamentos de irrigação, sistemas de plantio, peças para implementos agrícolas, engrenagens, eixos e estruturas para máquinas de processamento de alimentos e beneficiamento de grãos.",
-      image: "/lovable-uploads/407e4db0-5aff-4ff1-a425-6473a2ccc334.png"
+      image: "/lovable-uploads/407e4db0-5aff-4ff1-a425-6473a2ccc334.webp"
     },
     {
       id: 'automacao-robotica',
       icon: Bot,
       title: "Indústria de Automação Industrial e Robótica",
       description: "Componentes de precisão para robôs industriais, atuadores, sensores, garras, eixos de movimento, e estruturas para linhas de montagem automatizadas.",
-      image: "/lovable-uploads/e95a555a-a0a9-47b3-914e-3462320aeffb.png"
+      image: "/lovable-uploads/e95a555a-a0a9-47b3-914e-3462320aeffb.webp"
     },
     {
       id: 'alimenticia',
       icon: Utensils,
       title: "Indústria Alimentícia",
       description: "Peças para máquinas de processamento, envase e embalagem, componentes para tanques e tubulações, que exigem materiais sanitários (como aço inoxidável) e acabamento superficial impecável para evitar contaminação.",
-      image: "/lovable-uploads/248ec544-caa9-4ba0-8c08-898392a2d8d2.png"
+      image: "/lovable-uploads/248ec544-caa9-4ba0-8c08-898392a2d8d2.webp"
     },
     {
       id: 'petroleo-gas',
       icon: Droplet,
       title: "Indústria de Petróleo e Gás",
       description: "Componentes para válvulas, bombas, conectores, flanges, tubulações de alta pressão, equipamentos de perfuração e extração, peças para plataformas offshore e refinarias que exigem alta resistência e durabilidade.",
-      image: "/lovable-uploads/fe2271b0-1ea4-40c5-a9db-7fdb22004661.png"
+      image: "/lovable-uploads/fe2271b0-1ea4-40c5-a9db-7fdb22004661.webp"
     },
     {
       id: 'aeroespacial',
       icon: Plane,
       title: "Indústria Aeroespacial e Aeronáutica",
       description: "Componentes críticos para turbinas, fuselagens, asas, sistemas de controle, trens de pouso, peças estruturais leves, fixadores e atuadores, utilizando materiais como titânio, alumínio e superligas.",
-      image: "/lovable-uploads/9dd0ff85-d042-4379-b43c-18bfe0d638de.png"
+      image: "/lovable-uploads/9dd0ff85-d042-4379-b43c-18bfe0d638de.webp"
     },
     {
       id: 'medica-odontologica',
       icon: Heart,
       title: "Indústria Médica e Odontológica",
       description: "Implantes (ortopédicos, dentários), instrumentos cirúrgicos, próteses, componentes para equipamentos de diagnóstico e terapias, peças para cadeiras e equipamentos odontológicos. Exige extrema precisão e uso de materiais biocompatíveis.",
-      image: "/lovable-uploads/6666ef25-8040-4754-8cb3-579bee47ea4e.png"
+      image: "/lovable-uploads/6666ef25-8040-4754-8cb3-579bee47ea4e.webp"
     },
     {
       id: 'eletronica-telecomunicacoes',
       icon: Smartphone,
       title: "Indústria Eletrônica e de Telecomunicações",
       description: "Gabinetes metálicos e plásticos de precisão, dissipadores de calor, conectores, suportes para placas de circuito, componentes de antenas e equipamentos de rede.",
-      image: "/lovable-uploads/a8d9cbcf-ad1f-41fa-830c-c7b9fcdbed75.png"
+      image: "/lovable-uploads/a8d9cbcf-ad1f-41fa-830c-c7b9fcdbed75.webp"
     },
     {
       id: 'geotecnica',
       icon: Mountain,
       title: "Indústria Geotécnica",
       description: "Componentes para equipamentos de perfuração, sondagem, fundações especiais, estacas, equipamentos de contenção e estabilização de solos, peças para obras de infraestrutura e engenharia geotécnica.",
-      image: "/lovable-uploads/e01fa817-6092-4fbb-8bfe-773092e4abac.png"
+      image: "/lovable-uploads/e01fa817-6092-4fbb-8bfe-773092e4abac.webp"
     },
     {
       id: 'energia',
